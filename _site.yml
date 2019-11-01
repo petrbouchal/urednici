@@ -1,0 +1,16 @@
+name: my-website
+output_dir: docs
+include: ["demo.R"]
+exclude: ["docs.txt", "*.csv"]
+navbar:
+  title: "My Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Kde vzít data"
+      href: "zdroje.html"
+    - text: "EDA"
+      href: "2_explore-counts.html"
+output:
+  html_document:
+    toc: true
