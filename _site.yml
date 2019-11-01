@@ -6,7 +6,7 @@ navbar:
   title: "My Website"
   left:
     - text: "Home"
-      href: index.html
+      href: readme.html
     - text: "Kde vzít data"
       href: "zdroje.html"
     - text: "EDA"
