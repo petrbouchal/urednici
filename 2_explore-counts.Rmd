@@ -4,7 +4,10 @@ output: html_document
 ---
 
 ```{r}
-library(tidyverse)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
 ```
 
 
