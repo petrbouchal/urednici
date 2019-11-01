@@ -1,7 +1,7 @@
 name: my-website
 output_dir: docs
 include: ["demo.R"]
-exclude: ["docs.txt", "*.csv"]
+exclude: ["LICENSE.md", "*.csv"]
 navbar:
   title: "My Website"
   left:
