@@ -1,0 +1,76 @@
+---
+title: "Basic EDA: employee counts"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+dt <- read_rds("data-interim/objemy_pocty_scraped_raw_2012_2018.rds")
+dt
+```
+
+```{r}
+dt %>% 
+  filter(kap_num == "C E L K E M" & indicator == "count" & 
+           year %in% c(2013, 2018)) %>% 
+  filter(!(type %in% c("PO sum", "Příslušníci a vojáci"))) %>% 
+  mutate(skutecnost = (round(skutecnost)/1e3) %>% round(1)) %>%
+  select(type, skutecnost, year) %>% 
+  pivot_wider(names_from = year, values_from = skutecnost) %>% 
+  select(type, `2013`, `2018`)
+```
+
+```{r}
+dt %>% 
+  filter(kap_num == "C E L K E M" & indicator == "count" & year == 2018) %>% 
+  filter(!(type %in% c("PO sum", "Příslušníci a vojáci"))) %>% 
+  # mutate(skutecnost = (round(skutecnost)/1e3) %>% round(1)) %>% 
+  # select(type, skutecnost)
+  select(type, skutecnost) %>% ggplot() + geom_col(aes(type, skutecnost)) +
+  coord_flip()
+```
+
+```{r}
+dt %>% 
+  filter(kap_num == "C E L K E M" & indicator == "count") %>% 
+  ggplot() +
+  geom_line(aes(x = year, y = skutecnost/1e3, group = type)) +
+  facet_wrap(~type)
+
+dt %>% 
+  filter(kap_num == "C E L K E M" & indicator == "count") %>% 
+  group_by(type) %>% 
+  arrange(year) %>% 
+  mutate(index = skutecnost/first(skutecnost)) %>% 
+  ggplot() +
+  geom_line(aes(x = year, y = index, group = type)) +
+  facet_wrap(~type)
+```
+
+```{r}
+dt %>% 
+  filter(kap_num == "C E L K E M" & indicator == "count") %>% 
+  ggplot() +
+  geom_line(aes(x = year, y = plneni, group = type)) +
+  facet_wrap(~type)
+```
+
+
+```{r}
+dt %>% 
+  filter(kap_num == "C E L K E M" & indicator == "cost") %>% 
+  filter(rok == 2018) %>% 
+  select(rozp, skutecnost, rok, type) %>% 
+  mutate_at(vars(skutecnost, rozp), ~(./1e9) %>% round(1))
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+

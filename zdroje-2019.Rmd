@@ -1,0 +1,88 @@
+---
+title: Jak se oficiálních dat něco dovědět o počtech úředníků českého státu
+subtitle: Edition 2018
+author: Petr Bouchal
+date: 1 Nov 2019
+---
+
+# Kde vzít data
+
+## 0. Interní tabulka MF pro tvorbu SZÚ 
+
+- Svatý Grál: všechno v jedné mega a ancient excelové tabulce:
+  - počty zaměstnanců i objemy výdajů
+  - 2003-201X
+  - členění na skupiny reportované v SZÚ
+  - všechny fáze rozpočtu
+  - po kapitolách i organizacích
+  - oddělené platy a ostatní platby za provedenou práci
+- půjčili nám je na studii IDEA v roce 2013
+- (-) děsivé vzorečky a provazby kamsi na síťový disk MF, ale snad je to správně
+- (-) teď už se toho nedá dobrat
+
+## 1. SZÚ: státní závěrečný účet
+
+- obsahuje počty zaměstnanců a finanční objemy výdajů na platy - tabulky 10 a 11, tj. součást tabulkové přílohy, dá-li MF, tak v excelu
+- finanční objemy pouze v součtu "Platy a ostatní platby za provedenou práci"
+- to odpovídá seskupení 50 v druhovém členění, ale nejdou z toho vypočítat průměrné platy, protože ty MF v SZÚ počítá (logicky) pouze z položky platy bez "ostatních plateb za provedenou práci (OPPP)", je tedy potřeba odečíst OPPP (viz níže)
+- v excelu jsou dostupné relevantní tabulky z webu Sněmovny od roku 2012 do roku 2018 (zajímavé je, že excelových souborů od roku 2012 ubývá a letos už je tam jen jeden hlavní, zbytek často jako obrázky v PDF)
+- tyto tabulky mají skoro stejnou strukturu mezi lety, jdou tedy strojově zkompilovat
+- schválený rozpočet 2013 v těchto datech odpovídá schválenému rozpočtu 2013 v interní tabulce MF, kterou nám v roce 2013 laskavě půjčili
+
+## 2. Výkaz výdajů, druhové členění
+
+- součást státní pokladny - jak analytického rozhraní, tak hrubých open dat
+- pouze objemy výdajů
+- OPPP zmíněné výše, které chybí ve veřejných datech SZÚ, odpovídají podseskupení 502 druhového třídění rozpočtu - složení tohoto podseskupení se mezi kapitolami liší, ale to nevadí
+  - obecně obsahují odstupné apod., ale také "ostatní osobní výdaje" a "Ostatní platby za provedenou práci jinde nezařazené", přičemž to první by měly být DPP a DPČ, viz <https://ucetniportal.cz/wiki/html?item=14399>
+- 501 by měly být platy, 503 a 504 jsou pojistné a další, které ve výkazu SZÚ vůbec nefigurují
+- lze získat z rozhraní Monitoru SP za 2010-2019, ale u podseskupení se tam chybně místo názvu ukazují kódy, takže je to méně přehledné
+- validace proti SZÚ 2013 potvrzuje, že OPPP = podseskupení 502 a Platy + OPPP = seskupení 50, tj. platy by měly jít dovodit odečtem
+- to také znamená, že podseskupení platy neobsahuje platy představitelů státní moci (politici)
+- nelze ověřit, jestli to platí pro 2014+
+- od 2016 existuje položka na platy lidí ve státní službě a položka na ostatní
+- z Monitoru jde toto vytahat na úrovni kapitol, pak už je to moc velké, ale zato v časové řadě 2010-2019, zatímco z open dat by se to muselo tahat ze dvou různých souborů pro -2014 a 2015-, ale zase by to šlo po organizacích.
+- v open datech sada
+  - pro -2014 FIN 204 U, výkaz/soubor FIN U 101/FIN U 102, tj. výkaz 52, tabulky 100/200/300
+  - pro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS
+  - číselník `polozka` pro druhové třídění
+
+## 3. Výkaz povinných ukazatelů
+
+- součást státní pokladny - jak analytického rozhraní, tak hrubých open dat
+- pouze objemy výdajů
+- relevantní jsou "průřezové ukazatele" - platí pro všechny kapitoly/organizace
+- do 2014 za organizaci, od 2015 za kapitolu
+- v čase se mění relevantní ukazatel (hlavně náběh SlužZ a jiné)
+- ukazatele nejde mezi sebou sčítat, některé jsou podskupinou jiných
+- obsahuje 
+  - vždy *Platy zaměstnanců a ostatní platby za provedenou práci*
+  - do 2015 Platy státních úředníků a platy zaměstnanců v pracovním poměru (státní úředníci zřejmě podle nefunkčního zákona o úřednících)
+  - od 2016 *Platy zaměstnanců v pracovním poměru vyjma zaměstnanců na služebních místech* a *Platy zaměstnanců na služebních místech dle zákona o státní službě*
+  - soudě dle čísel tyto ukazatele dávají smysl - např. aspoň AVČR nemá žádné lidi ve službě...
+- monitorují se normálně v logice rozpočet-po změnách-konečný-výsledek
+- v open datech sada
+  - pro -2014 FIN 204 U, výkaz/soubor FIN U 106, tj. tabulka 700/část 7 výkazu 52
+  - pro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS-ZU
+  - pro ukazatele číselníky `polvkk` (do 2014) a `psuk` (2015+)
+
+# Kategorie
+
+TLDR: SZÚ používá v části o regulaci veřejné zaměstnanosti zvláštní kategorizaci organizací, kterou se mi nedaří replikovat z dat Státní pokladny.
+
+Státní pokladna ale v metadatech o účetních jednotkách (účtujících organizacích) obsahuje i vlastnost Typ OSS, o které tvrdí, že je pro účely rozpočtové regulace zaměstnanosti. Školy zřizované obcemi tam ale jsou vedené jako příspěvkovky obcí, oproti kategorizaci SZÚ. Aspoň ale jde najít organizace ÚO a OSS a prokřížit se správcovstvím kapitol (poddruh ÚJ) => existují organizace, jako třeba Kancelář prezidenta, které jsou správci kapitol, ale nejsou ústředními orgány státní správy a spadají tak do typu "Ostatní OSS" i když např. s ministerstvem sdílí druh "OSS - správce kapitoly"
+
+- http://monitor.statnipokladna.cz/2019/zdrojova-data/prohlizec-ciselniku/ucjed?date=1.11.2019
+- při využití XML potřeba na číselník ucjed navázat číselníky typorg, druhuj, poddruhuj a kapitola
+- bohužel nekoreluje zcela s kategoriemi v SZÚ (viz školy, netestoval jsem vojáky, hasiče atd.)
+
+# Co tedy s tím
+
+- vzít počty zaměstnanců a celkové objemy platy+OPPP ze SZÚ
+- dopočítat OPPP paralelně z výdajů a ukazatelů
+- podívat se, jestli podíl OPPP na celku se mezi dvěma metodami liší a je konzistentní s minulými interními daty MF
+- využít číselníky státní pokladny pro navazování a kategorizaci
+  - IČO, vazba kapitola-organizace atd., názvy a kódy kapitol atd.
+  - kategorizace OSS: zkusit vytvořit nějakou rozumnou kategorizaci prokřížením poddruhu ÚJ a typu organizacex
+- vše napřed na úrovni kapitol s tabulkami z , pak z hrubých open dat na úrovni organizací, ale pozor na konsolidace atd.
+- v prvním gartu se trápit OSS/SS/ÚO, pak až školami, hasiči, armádou a ... špiony.
