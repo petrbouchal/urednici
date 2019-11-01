@@ -63,8 +63,8 @@ dt %>%
 ```{r}
 dt %>% 
   filter(kap_num == "C E L K E M" & indicator == "cost") %>% 
-  filter(rok == 2018) %>% 
-  select(rozp, skutecnost, rok, type) %>% 
+  filter(year == 2018) %>% 
+  select(rozp, skutecnost, year, type) %>% 
   mutate_at(vars(skutecnost, rozp), ~(./1e9) %>% round(1))
 ```
 
