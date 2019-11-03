@@ -2,11 +2,11 @@
 title: "_readme"
 ---
 
-## O co jde
-
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/petrbouchal/urednici2019.svg?branch=master)](https://travis-ci.org/petrbouchal/urednici2019)
 <!-- badges: end -->
+
+## O co jde
 
 Tento repozitář obsahuje work-in-progress sběr, přípravu a analýzu dat o českých státních úřednících.
 
