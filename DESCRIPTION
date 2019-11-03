@@ -20,6 +20,7 @@ Imports:
     ggplot2,
     purrr,
     tidyr,
-    tibble
+    tibble,
+    knitr
 Depends: 
     tidyverse

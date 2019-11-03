@@ -1,9 +1,15 @@
 ---
-title: "Basic EDA: employee counts"
-output: html_document
+title: "Počty úředníků: 2013-2018"
+author: "Petr Bouchal"
+date: "11/2/2019"
+output: 
+  html_document:
+    df_print: paged
+    code_download: T
 ---
 
-```{r}
+```{r setup, echo = T, message=F, warning=F}
+knitr::opts_chunk$set(echo = T, warning = F, message = F)
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -11,10 +17,14 @@ library(tidyr)
 ```
 
 
-```{r}
+```{r include=F}
 dt <- read_rds("data-interim/objemy_pocty_scraped_raw_2012_2018.rds")
 dt
 ```
+
+# Basic counts by group {.tabset}
+
+## Table
 
 ```{r}
 dt %>% 
@@ -24,18 +34,28 @@ dt %>%
   mutate(skutecnost = (round(skutecnost)/1e3) %>% round(1)) %>%
   select(type, skutecnost, year) %>% 
   pivot_wider(names_from = year, values_from = skutecnost) %>% 
-  select(type, `2013`, `2018`)
+  select(type, `2013`, `2018`) %>% knitr::kable()
 ```
+
+```{r include=T}
+159.8 - 26.5 - 81.7
+```
+
+## Chart
 
 ```{r}
 dt %>% 
   filter(kap_num == "C E L K E M" & indicator == "count" & year == 2018) %>% 
-  filter(!(type %in% c("PO sum", "Příslušníci a vojáci"))) %>% 
+  filter(!(type %in% c("Příslušníci a vojáci"))) %>% 
   # mutate(skutecnost = (round(skutecnost)/1e3) %>% round(1)) %>% 
   # select(type, skutecnost)
   select(type, skutecnost) %>% ggplot() + geom_col(aes(type, skutecnost)) +
   coord_flip()
 ```
+
+# Over time {.tabset}
+
+## absolutes
 
 ```{r}
 dt %>% 
@@ -43,7 +63,11 @@ dt %>%
   ggplot() +
   geom_line(aes(x = year, y = skutecnost/1e3, group = type)) +
   facet_wrap(~type)
+```
 
+## Change from 2013 base
+
+```{r}
 dt %>% 
   filter(kap_num == "C E L K E M" & indicator == "count") %>% 
   group_by(type) %>% 
@@ -53,6 +77,8 @@ dt %>%
   geom_line(aes(x = year, y = index, group = type)) +
   facet_wrap(~type)
 ```
+
+## Plan vs. reality
 
 ```{r}
 dt %>% 
