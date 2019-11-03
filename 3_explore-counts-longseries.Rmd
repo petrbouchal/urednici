@@ -1,0 +1,178 @@
+---
+title: "Počty úředníků: 2003-2018"
+author: "Petr Bouchal"
+date: "11/2/2019"
+output: 
+  html_document:
+    df_print: paged
+    code_download: T
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, warning = F, message = F, rows.print = 20)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(tibble)
+library(lubridate)
+library(purrr)
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen = 6)
+```
+
+```{r}
+c13o <- read_csv(here::here("data-output/legacy/groups_ALL.csv"))
+dt0 <- read_rds("data-interim/objemy_pocty_scraped_raw_2012_2018.rds")
+```
+
+
+```{r, max.print = 15}
+unique(c13o$variable) %>% enframe(name = NULL)
+unique(c13o$grp) %>% enframe(name = NULL)
+unique(dt0$type) %>% enframe(name = NULL)
+```
+
+# Explore to merge {.tabset}
+
+```{r}
+c13o %>% 
+  select(grp, sgrp) %>% 
+  distinct()
+```
+
+## 2013+
+
+```{r}
+dt <- dt0 %>% 
+  filter(kap_num == "C E L K E M" & indicator == "count") %>% 
+  select(year, grp = type, schvaleny = rozp,
+         skutecnost, upraveny, rozdil, index, plneni) %>% 
+  mutate(grp = recode(grp, 
+                      `jedn. OSS státní správy` = "neústřední st. správa",
+                      `ST.SPRÁVA` = "St. sprava se SOBCPO"),
+         plneni = 2-plneni/100, rozdil = -rozdil)
+```
+
+## 2003+
+
+```{r}
+dto <- c13o %>% 
+  filter(promenna == "Zam") %>% 
+  select(grp, sgrp, variable, value, udaj, promenna, UO, exekutiva, Year) %>% 
+  set_names(tolower(names(.))) %>% 
+  mutate_at(vars(udaj, variable, promenna), tolower) %>% 
+  mutate(year = year(year),
+         udaj = recode(udaj,  upr2skut = "plneni",
+                       uprminusskut = "rozdil"),
+         grp = recode(grp, UO = "ÚO", `OSS-RO` = "OSS sum",
+                      PO = "PO sum",
+                      `OSS-SS` = "neústřední st. správa",
+                      OOSS = "ostatní OSS")) %>% 
+  filter(grp %in% c("ÚO", "ST.SPRÁVA", "SOBCPO", "OSS sum", "ostatní OSS",
+                    "PO sum", "St. sprava se SOBCPO", 
+                    "neústřední st. správa"))
+```
+
+```{r}
+table(dto$udaj)
+```
+
+## Groupings {.tabset}
+
+### 2003+
+
+```{r}
+unique(dto$grp) %>% enframe(name = NULL)
+```
+
+### 2013+ 
+
+```{r}
+unique(dt$grp) %>% enframe(name = NULL)
+```
+
+## Grouping sizes {.tabset}
+
+### 2003+
+
+```{r}
+dto %>% 
+  filter(udaj == "schvaleny" & year == 2013) %>% 
+  ggplot(aes(grp, value/1000)) +
+  geom_col() + coord_flip() + ggtitle("OLD") + 
+  scale_y_continuous(limits = c(0,250))
+```
+
+### 2013+
+
+```{r}
+dt %>% 
+  filter(year == 2013) %>% 
+  filter(!(grp %in% c("Příslušníci a vojáci"))) %>%
+  ggplot(aes(grp, skutecnost/1e3)) +
+  geom_col() + coord_flip() + ggtitle("NEW") +
+  scale_y_continuous(limits = c(0,250))
+```
+
+```{r}
+srs <- bind_rows(dto %>% mutate(ds = "old") %>%
+                   filter(year != 2013) %>% 
+                   select(year, grp, value, udaj),
+                 dt %>% pivot_longer(names_to = "udaj", values_to = "value",
+                                     cols = c(schvaleny, skutecnost,
+                                              upraveny, rozdil, 
+                                              index, plneni)) %>% 
+                   mutate(ds = "new", year = as.numeric(year)))
+```
+
+# First charts {.tabset}
+
+## Absolute - comparable 
+
+```{r}
+srs %>% 
+  filter(udaj == "skutecnost") %>% 
+  ggplot(aes(year, value)) +
+  geom_line() +
+  facet_wrap(~grp)
+```
+
+## Absolute - free scales
+
+```{r}
+srs %>% 
+  filter(udaj == "skutecnost") %>% 
+  ggplot(aes(year, value)) +
+  geom_line() +
+  facet_wrap(~grp, scales = "free_y")
+```
+
+# Comparisons {.tabset}
+
+## Plan vs. reality
+
+```{r}
+srs %>% 
+  filter(udaj == "plneni") %>% 
+  ggplot(aes(year, 2-value)) +
+  geom_line() +
+  facet_wrap(~grp)
+```
+
+## Growth from 2003 base
+
+```{r}
+srs %>% 
+  filter(udaj == "skutecnost") %>% 
+  group_by(grp) %>% 
+  arrange(year) %>% 
+  mutate(index = value/first(value)) %>% 
+  ggplot(aes(year, index)) +
+  geom_line() +
+  facet_wrap(~grp)
+```
+
+NB:
+
+- změna v roce 2012 je daná redefinicí MV, které od 2012 zahrnuje i velení policie a hasičů
