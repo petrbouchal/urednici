@@ -29,3 +29,5 @@ output:
     toc_float: true
     code_folding: hide
     mathjax: null
+    df_print: paged
+    code_download: T

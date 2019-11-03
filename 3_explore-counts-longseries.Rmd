@@ -2,10 +2,7 @@
 title: "Počty úředníků: 2003-2018"
 author: "Petr Bouchal"
 date: "11/2/2019"
-output: 
-  html_document:
-    df_print: paged
-    code_download: T
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -23,9 +20,8 @@ options(scipen = 6)
 
 ```{r}
 c13o <- read_csv(here::here("data-output/legacy/groups_ALL.csv"))
-dt0 <- read_rds("data-interim/objemy_pocty_scraped_raw_2012_2018.rds")
+dt0 <- read_rds(here::here("data-interim/objemy_pocty_scraped_raw_2012_2018.rds"))
 ```
-
 
 ```{r, max.print = 15}
 unique(c13o$variable) %>% enframe(name = NULL)
@@ -33,15 +29,15 @@ unique(c13o$grp) %>% enframe(name = NULL)
 unique(dt0$type) %>% enframe(name = NULL)
 ```
 
-# Explore to merge {.tabset}
+# Explore & prep to merge {.tabset}
 
-```{r}
+```{r, include=F}
 c13o %>% 
   select(grp, sgrp) %>% 
   distinct()
 ```
 
-## 2013+
+## Prep data 2013+
 
 ```{r}
 dt <- dt0 %>% 
@@ -54,7 +50,7 @@ dt <- dt0 %>%
          plneni = 2-plneni/100, rozdil = -rozdil)
 ```
 
-## 2003+
+## Prep data 2003+
 
 ```{r}
 dto <- c13o %>% 
@@ -74,11 +70,7 @@ dto <- c13o %>%
                     "neústřední st. správa"))
 ```
 
-```{r}
-table(dto$udaj)
-```
-
-## Groupings {.tabset}
+## Check groupings {.tabset}
 
 ### 2003+
 
@@ -92,7 +84,7 @@ unique(dto$grp) %>% enframe(name = NULL)
 unique(dt$grp) %>% enframe(name = NULL)
 ```
 
-## Grouping sizes {.tabset}
+## Check data by comparing grouping sizes {.tabset}
 
 ### 2003+
 
@@ -100,7 +92,7 @@ unique(dt$grp) %>% enframe(name = NULL)
 dto %>% 
   filter(udaj == "schvaleny" & year == 2013) %>% 
   ggplot(aes(grp, value/1000)) +
-  geom_col() + coord_flip() + ggtitle("OLD") + 
+  geom_col() + coord_flip() + ggtitle("2013 - data 2003-2012") + 
   scale_y_continuous(limits = c(0,250))
 ```
 
@@ -111,9 +103,11 @@ dt %>%
   filter(year == 2013) %>% 
   filter(!(grp %in% c("Příslušníci a vojáci"))) %>%
   ggplot(aes(grp, skutecnost/1e3)) +
-  geom_col() + coord_flip() + ggtitle("NEW") +
+  geom_col() + coord_flip() + ggtitle("2013 - data 2013-2018") +
   scale_y_continuous(limits = c(0,250))
 ```
+
+## Merge data:
 
 ```{r}
 srs <- bind_rows(dto %>% mutate(ds = "old") %>%
@@ -128,6 +122,11 @@ srs <- bind_rows(dto %>% mutate(ds = "old") %>%
 
 # First charts {.tabset}
 
+NB:
+
+- skok v roce 2012 je daný redefinicí MV, které od 2012 zahrnuje i velení policie a hasičů
+- řada příslušníků a vojáků začíná až v 2013, protože z minulé analýzy jsme je tuším úplně vypustil nebo v interních datech MF nebyli
+
 ## Absolute - comparable 
 
 ```{r}
@@ -138,7 +137,7 @@ srs %>%
   facet_wrap(~grp)
 ```
 
-## Absolute - free scales
+## Absolute - focus on changes
 
 ```{r}
 srs %>% 
@@ -173,6 +172,3 @@ srs %>%
   facet_wrap(~grp)
 ```
 
-NB:
-
-- změna v roce 2012 je daná redefinicí MV, které od 2012 zahrnuje i velení policie a hasičů

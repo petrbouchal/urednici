@@ -28,6 +28,8 @@ date: 1 Nov 2019
 
 ## 1. SZÚ: státní závěrečný účet
 
+NB tento datový zdroj obsahuje určitý řez celými veřejnými financemi, tj. nejen daty o úřednících, čili poznámky i kód můžou být užitečné pro zpracování širšího spektra dat, byť ta asi budou často dostupná i v Monitoru státní pokladny. 
+
 - obsahuje počty zaměstnanců a finanční objemy výdajů na platy - tabulky 10 a 11, tj. součást tabulkové přílohy, dá-li MF, tak v excelu
 - finanční objemy pouze v součtu "Platy a ostatní platby za provedenou práci"
 - to odpovídá seskupení 50 v druhovém členění, ale nejdou z toho vypočítat průměrné platy, protože ty MF v SZÚ počítá (logicky) pouze z položky platy bez "ostatních plateb za provedenou práci (OPPP)", je tedy potřeba odečíst OPPP (viz níže)
