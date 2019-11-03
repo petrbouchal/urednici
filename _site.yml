@@ -1,16 +1,31 @@
-name: my-website
+name: urednici2019
 output_dir: docs
 include: ["demo.R"]
 exclude: ["LICENSE.md", "*.csv"]
 navbar:
-  title: "My Website"
+  title: "Úředníci 2019"
   left:
     - text: "Home"
-      href: readme.html
-    - text: "Kde vzít data"
-      href: "zdroje.html"
-    - text: "EDA"
-      href: "2_explore-counts.html"
+      href: index.html
+      icon: fa-home
+    - text: "Exploratory analysis"
+      icon: fa-chart-area
+      menu:
+      - text: "Počty úředníků 2013-18"
+        href: "2_explore-counts.html"
+      - text: "Počty úředníků 2003-18"
+        href: "3_explore-counts-longseries.html"
+    - text: "Dokumentace"
+      icon: fa-book
+      menu:
+      - text: "Inventura dostupnosti dat 2019"
+        href: "zdroje-2019.html"
+  right:
+  - icon: fa-github
+    href: https://github.com/petrbouchal/urednici2019
 output:
   html_document:
     toc: true
+    toc_float: true
+    code_folding: hide
+    mathjax: null
