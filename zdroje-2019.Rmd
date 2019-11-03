@@ -5,7 +5,12 @@ author: Petr Bouchal
 date: 1 Nov 2019
 ---
 
-# Kde vzít data
+# Co je potřeba
+
+- data o počtech zaměstnanců, co nejjemnější členění (skupiny organizací => kapitoly => organizace)
+- data o nákladech na platy pro výpočet a srovnání průměrných platů vzájemně a s trhem práce (tj. bez pojistného, nákladů na DPP, platy politiků atd.)
+
+# Kde tato data vzít
 
 ## 0. Interní tabulka MF pro tvorbu SZÚ 
 
@@ -18,7 +23,8 @@ date: 1 Nov 2019
   - oddělené platy a ostatní platby za provedenou práci
 - půjčili nám je na studii IDEA v roce 2013
 - (-) děsivé vzorečky a provazby kamsi na síťový disk MF, ale snad je to správně
-- (-) teď už se toho nedá dobrat
+- (-) teď už se toho nedá dobrat, nejsme schopni na MF zkontaktovat vlastníka souboru
+- (-) neznám status té věci, proto původní soubor na Github nedávám (nic tajného tam není, ale je to něčí interní práce)
 
 ## 1. SZÚ: státní závěrečný účet
 
@@ -26,13 +32,16 @@ date: 1 Nov 2019
 - finanční objemy pouze v součtu "Platy a ostatní platby za provedenou práci"
 - to odpovídá seskupení 50 v druhovém členění, ale nejdou z toho vypočítat průměrné platy, protože ty MF v SZÚ počítá (logicky) pouze z položky platy bez "ostatních plateb za provedenou práci (OPPP)", je tedy potřeba odečíst OPPP (viz níže)
 - v excelu jsou dostupné relevantní tabulky z webu Sněmovny od roku 2012 do roku 2018 (zajímavé je, že excelových souborů od roku 2012 ubývá a letos už je tam jen jeden hlavní, zbytek často jako obrázky v PDF)
-- tyto tabulky mají skoro stejnou strukturu mezi lety, jdou tedy strojově zkompilovat
+  - potřeba hledat za jednotlivá volební období zvlášť
+  - ve [skriptu](https://github.com/petrbouchal/urednici2019/blob/master/1_scrape-szu-staffreports.R) jsou zapsané přesné odkazy
+- tyto tabulky mají skoro stejnou strukturu mezi lety, jdou tedy strojově zkompilovat, následně jsou uložené v původní XLS formě [na githubu](https://github.com/petrbouchal/urednici2019/tree/master/data-input)
 - schválený rozpočet 2013 v těchto datech odpovídá schválenému rozpočtu 2013 v interní tabulce MF, kterou nám v roce 2013 laskavě půjčili
 
 ## 2. Výkaz výdajů, druhové členění
 
-- součást státní pokladny - jak analytického rozhraní, tak hrubých open dat
-- pouze objemy výdajů
+- součást státní pokladny - jak [analytického rozhraní](http://monitor.statnipokladna.cz/analyza/) - report *Příjmy, výdaje a financování státu*, tak [hrubých open dat](http://monitor.statnipokladna.cz/2019/zdrojova-data/transakcni-data)
+- pozor, analytika SP [má dostat novou verzi](https://twitter.com/otevrenadatamf/status/1190329092916289536)
+- obsahuje pouze objemy výdajů, nikoli počty lidí
 - OPPP zmíněné výše, které chybí ve veřejných datech SZÚ, odpovídají podseskupení 502 druhového třídění rozpočtu - složení tohoto podseskupení se mezi kapitolami liší, ale to nevadí
   - obecně obsahují odstupné apod., ale také "ostatní osobní výdaje" a "Ostatní platby za provedenou práci jinde nezařazené", přičemž to první by měly být DPP a DPČ, viz <https://ucetniportal.cz/wiki/html?item=14399>
 - 501 by měly být platy, 503 a 504 jsou pojistné a další, které ve výkazu SZÚ vůbec nefigurují
@@ -46,6 +55,8 @@ date: 1 Nov 2019
   - pro -2014 FIN 204 U, výkaz/soubor FIN U 101/FIN U 102, tj. výkaz 52, tabulky 100/200/300
   - pro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS
   - číselník `polozka` pro druhové třídění
+  - co rok, to datový soubor...
+  - export z analytického interface per kapitola [na githubu](https://github.com/petrbouchal/urednici2019/tree/master/data-input
 
 ## 3. Výkaz povinných ukazatelů
 
@@ -65,6 +76,8 @@ date: 1 Nov 2019
   - pro -2014 FIN 204 U, výkaz/soubor FIN U 106, tj. tabulka 700/část 7 výkazu 52
   - pro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS-ZU
   - pro ukazatele číselníky `polvkk` (do 2014) a `psuk` (2015+)
+  - co rok, to datový soubor
+  - export z analytického interface per kapitola [na githubu](https://github.com/petrbouchal/urednici2019/tree/master/data-input)
 
 # Kategorie
 
@@ -78,11 +91,14 @@ Státní pokladna ale v metadatech o účetních jednotkách (účtujících org
 
 # Co tedy s tím
 
-- vzít počty zaměstnanců a celkové objemy platy+OPPP ze SZÚ
+- vzít počty zaměstnanců ze SZÚ
+  - hotovo, viz základní grafický sumář na <https://petrbouchal.github.io/urednici2019/2_explore-counts.html> 
+  - též propojeno s podmnožinou/derivátem starších dat od MF, grafický sumář výsledku viz <https://petrbouchal.github.io/urednici2019/3_explore-counts-longseries.html>
+- vzít celkové objemy platy+OPPP ze SZÚ
 - dopočítat OPPP paralelně z výdajů a ukazatelů
 - podívat se, jestli podíl OPPP na celku se mezi dvěma metodami liší a je konzistentní s minulými interními daty MF
 - využít číselníky státní pokladny pro navazování a kategorizaci
   - IČO, vazba kapitola-organizace atd., názvy a kódy kapitol atd.
   - kategorizace OSS: zkusit vytvořit nějakou rozumnou kategorizaci prokřížením poddruhu ÚJ a typu organizacex
 - vše napřed na úrovni kapitol s tabulkami z , pak z hrubých open dat na úrovni organizací, ale pozor na konsolidace atd.
-- v prvním gartu se trápit OSS/SS/ÚO, pak až školami, hasiči, armádou a ... špiony.
+- v prvním gardu se trápit OSS/SS/ÚO, pak až školami, hasiči, armádou a ... špiony.
