@@ -20,4 +20,4 @@ Ke zdrojům dat viz [poznámku](zdroje-2019.html), která poslouží i jako díl
 
 ## Technologie
 
-Práce se děje v R/RMarkdown, z čehož se následně generuje tento web. Vše by mělo být replikovatelné z [githubového repozitáře](https://github.com/petrbouchal/urednici2019). 
+Práce se děje v R/RMarkdown, z čehož se následně generuje i [web](https://petrbouchal.github.io/urednici2019/). Vše by mělo být replikovatelné z [githubového repozitáře](https://github.com/petrbouchal/urednici2019). 
