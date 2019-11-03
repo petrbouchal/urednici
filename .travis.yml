@@ -1,12 +1,18 @@
 language: R
 sudo: required
-cache: packages
+cache:
+  directories:
+  - $HOME/.local/share/renv
+  - $TRAVIS_BUILD_DIR/renv/library
+
+install:
+  - Rscript -e "renv::restore()"
 
 r_packages:
   - rmarkdown
 
 script:
-- R -e "rmarkdown::render_site()"
+  - R -e "rmarkdown::render_site()"
 
 deploy:
   provider: pages                         # Specify the gh-pages deployment method
