@@ -21,6 +21,7 @@ Imports:
     purrr,
     tidyr,
     tibble,
-    knitr
+    knitr,
+    here
 Depends: 
     tidyverse
