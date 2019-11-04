@@ -3,3 +3,4 @@
 ^renv$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^renv\.lock$
