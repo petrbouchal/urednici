@@ -1,5 +1,5 @@
 ---
-title: Jak se oficiálních dat něco dovědět o počtech úředníků českého státu
+title: Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu
 subtitle: Edition 2018
 author: Petr Bouchal
 date: 1 Nov 2019
