@@ -104,3 +104,14 @@ Státní pokladna ale v metadatech o účetních jednotkách (účtujících org
   - kategorizace OSS: zkusit vytvořit nějakou rozumnou kategorizaci prokřížením poddruhu ÚJ a typu organizacex
 - vše napřed na úrovni kapitol s tabulkami z , pak z hrubých open dat na úrovni organizací, ale pozor na konsolidace atd.
 - v prvním gardu se trápit OSS/SS/ÚO, pak až školami, hasiči, armádou a ... špiony.
+
+# Dodatek: data o trhu práce
+
+- pro srovnání platů jsme v roce 2013 používali tato data z ČSÚ:
+  - [Evidenční počet zaměstnanců a jejich mzdy, kód 110024-19](https://www.czso.cz/csu/czso/evidencni-pocet-zamestnancu-a-jejich-mzdy-3-ctvrtleti-2019) - čtvrtletní, časová řada 2000-2018 slepená v příloze 1b, ale jen pro celou ČR; po krajích se to musí brát z jednotlivých souborů (tab 46/tab 106)
+  - [Časové řady základních ukazatelů statistiky práce - leden 2020, kód 110025-19](https://www.czso.cz/csu/czso/casove-rady-zakladnich-ukazatelu-statistiky-prace-leden-2020) - krajské jen roční do 2017 a navíc neslepené. 
+  
+
+Alternativa je vzít data z ISPV, kde je to ale poskládané ještě hůř.
+
+NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje.
