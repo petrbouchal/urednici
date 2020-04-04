@@ -112,6 +112,30 @@ Státní pokladna ale v metadatech o účetních jednotkách (účtujících org
   - [Časové řady základních ukazatelů statistiky práce - leden 2020, kód 110025-19](https://www.czso.cz/csu/czso/casove-rady-zakladnich-ukazatelu-statistiky-prace-leden-2020) - krajské jen roční do 2017 a navíc neslepené. 
   
 
-Alternativa je vzít data z ISPV, kde je to ale poskládané ještě hůř.
+Alternativa je vzít data z ISPV, kde je to ale poskládané ještě hůř:
 
-NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje.
+- archiv https://www.mpsv.cz/web/cz/archiv-publikaci-ispv od 2000
+- aktuální https://www.mpsv.cz/web/cz/publikace-ispv-ke-stazeni
+- cesta k xlsx mzdové a platové sféry dohromady https://www.mpsv.cz/documents/20142/636498/ISPV_{NNN}.xlsx kde 004 < NNN < 194
+NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010 Q4) jsou jen ZIP soubory, ve kterých je zvlášť excel za mzdovou a platovou sféru.
+- krajská data od 2001 https://www.mpsv.cz/web/cz/porovnani-kraju např. https://www.mpsv.cz/web/cz/hlavni-mesto-praha, URL na excel např. https://www.mpsv.cz/documents/20142/848077/pra_012_ps.xls, kde NNN jsou jiná čísla než u celorepublikových dat ISPV. Od 2011 snad ve stejné formě. Existuje i porovnání krajů (což jsou ale jen excely krajů v jednom ZIP, pokud správně vidím, navíc je tam často jen podnikatelská/mzdová sféra).
+
+# Státní rozpočet
+
+- měl by obsahovat to co SZÚ, každopádně od 2015 je v [excelu v open datech MF](https://data.mfcr.cz/cs/dataset/statni-rozpocet)
+
+- pokladní plnění excely např. https://www.mfcr.cz/assets/cs/media/Pokladni-plneni_2020-03_Tabulka-mesicni-pokladni-plneni-03-2020.xlsx, odkaz z https://www.mfcr.cz/cs/aktualne/tiskove-zpravy/2020/pokladni-plneni-sr-38056 a URL má stejnou formu ve 2020
+- přehled pokladního plnění za 2019 https://www.mfcr.cz/cs/verejny-sektor/statni-rozpocet/plneni-statniho-rozpoctu/2019/mesicni-pokladni-plneni-2019-34199 s odkazy na tiskové zprávy, URL excelů v 2019 bohužel nejsou konzistentní
+- výkaz zdrojů a užití prostředků SR v OSS https://www.mfcr.cz/cs/verejny-sektor/rozpoctove-ramce-statisticke-informace/fiskalni-udaje/ustredni-vlada/organizacni-slozky-statu/2020/vykaz-zdroju-a-uziti-peneznich-prostredk-37685
+
+# Státní služba
+
+- [výroční zprávy o státní službě](https://www.mvcr.cz/sluzba/clanek/vyrocni-zprava-vyrocni-zprava-o-statni-sluzbe.aspx)
+
+# Zdroje o jednotlivých organizacích
+
+## ČSSZ - open data o zaměstnancích 
+
+- průměr a medián platů https://data.cssz.cz/web/otevrena-data/-/prumerny-plat-v-cssz
+- systemizovaná místa a fluktuace https://data.cssz.cz/web/otevrena-data/-/systemizovana-mista-a-fluktuace-zamestnancu-cssz
+- zaměstnanci dle vzdělání https://data.cssz.cz/web/otevrena-data/-/zamestnanci-cssz-dle-vzdelani
