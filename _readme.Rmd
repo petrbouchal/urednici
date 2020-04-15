@@ -1,9 +1,6 @@
----
-title: "_readme"
----
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/petrbouchal/urednici2019.svg?branch=master)](https://travis-ci.org/petrbouchal/urednici2019)
+[![Travis build status](https://travis-ci.org/petrbouchal/urednici.svg?branch=master)](https://travis-ci.org/petrbouchal/urednici)
 <!-- badges: end -->
 
 ## O co jde
