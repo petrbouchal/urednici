@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Petr Bouchal" />
+
+
+<title>Počty úředníků: 2003-2018</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/navigation-1.1/sourceembed.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<!--html_preserve-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156460113-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156460113-3');
+</script>
+
+<!--/html_preserve-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+#rmd-source-code {
+  display: none;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Úředníci 2019</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
+     
+    Exploratory analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="2_explore-counts.html">Počty úředníků 2013-18</a>
+    </li>
+    <li>
+      <a href="3_explore-counts-longseries.html">Počty úředníků 2003-18</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Dokumentace
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="zdroje-2019.html">Inventura dostupnosti dat 2019</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/petrbouchal/urednici2019">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Počty úředníků: 2003-2018</h1>
+<h4 class="author">Petr Bouchal</h4>
+<h4 class="date">11/2/2019</h4>
+
+</div>
+
+
+<pre class="r"><code>c13o &lt;- read_csv(here::here(&quot;data-output/legacy/groups_ALL.csv&quot;))
+dt0 &lt;- read_rds(here::here(&quot;data-interim/objemy_pocty_scraped_raw_2012_2018.rds&quot;))</code></pre>
+<pre class="r"><code>unique(c13o$variable) %&gt;% enframe(name = NULL)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"AvgSal_schvaleny"},{"1":"AvgSal_upraveny"},{"1":"Zam_schvaleny"},{"1":"PlatyOPPP_schvaleny"},{"1":"OPPP_upr2skut"},{"1":"Zam_uprMinusskut"},{"1":"PlatyOPPP_skutecnost"},{"1":"OPPP_upraveny"},{"1":"PlatyOPPP_upr2skut"},{"1":"OPPP_uprMinusskut"},{"1":"AvgSal_skutecnost"},{"1":"AvgSal_uprMinusskut"},{"1":"Zam_skutecnost"},{"1":"PlatyOPPP_upraveny"},{"1":"Platy_schvaleny"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code>unique(c13o$grp) %&gt;% enframe(name = NULL)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Exekutiva"},{"1":"PO"},{"1":"OSS-RO"},{"1":"UO - Ostatní"},{"1":"UO - Ministerstva"},{"1":"St. sprava se SOBCPO"},{"1":"SOBCPO"},{"1":"ROPO celkem"},{"1":"OOSS"},{"1":"UO"},{"1":"OSS-SS"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code>unique(dt0$type) %&gt;% enframe(name = NULL)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"ÚO"},{"1":"jedn. OSS státní správy"},{"1":"SOBCPO"},{"1":"ST.SPRÁVA"},{"1":"ostatní OSS"},{"1":"OSS sum"},{"1":"PO sum"},{"1":"Příslušníci a vojáci"},{"1":"jedn. OSSstátní správy"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
+  </script>
+</div>
+<div id="explore-prep-to-merge" class="section level1 tabset">
+<h1>Explore &amp; prep to merge</h1>
+<div id="prep-data-2013" class="section level2">
+<h2>Prep data 2013+</h2>
+<pre class="r"><code>dt &lt;- dt0 %&gt;% 
+  filter(kap_num == &quot;C E L K E M&quot; &amp; indicator == &quot;count&quot;) %&gt;% 
+  select(year, grp = type, schvaleny = rozp,
+         skutecnost, upraveny, rozdil, index, plneni) %&gt;% 
+  mutate(grp = recode(grp, 
+                      `jedn. OSS státní správy` = &quot;neústřední st. správa&quot;,
+                      `ST.SPRÁVA` = &quot;St. sprava se SOBCPO&quot;),
+         plneni = 2-plneni/100, rozdil = -rozdil)</code></pre>
+</div>
+<div id="prep-data-2003" class="section level2">
+<h2>Prep data 2003+</h2>
+<pre class="r"><code>dto &lt;- c13o %&gt;% 
+  filter(promenna == &quot;Zam&quot;) %&gt;% 
+  select(grp, sgrp, variable, value, udaj, promenna, UO, exekutiva, Year) %&gt;% 
+  set_names(tolower(names(.))) %&gt;% 
+  mutate_at(vars(udaj, variable, promenna), tolower) %&gt;% 
+  mutate(year = year(year),
+         udaj = recode(udaj,  upr2skut = &quot;plneni&quot;,
+                       uprminusskut = &quot;rozdil&quot;),
+         grp = recode(grp, UO = &quot;ÚO&quot;, `OSS-RO` = &quot;OSS sum&quot;,
+                      PO = &quot;PO sum&quot;,
+                      `OSS-SS` = &quot;neústřední st. správa&quot;,
+                      OOSS = &quot;ostatní OSS&quot;)) %&gt;% 
+  filter(grp %in% c(&quot;ÚO&quot;, &quot;ST.SPRÁVA&quot;, &quot;SOBCPO&quot;, &quot;OSS sum&quot;, &quot;ostatní OSS&quot;,
+                    &quot;PO sum&quot;, &quot;St. sprava se SOBCPO&quot;, 
+                    &quot;neústřední st. správa&quot;))</code></pre>
+</div>
+<div id="check-groupings" class="section level2 tabset">
+<h2>Check groupings</h2>
+<div id="section" class="section level3">
+<h3>2003+</h3>
+<pre class="r"><code>unique(dto$grp) %&gt;% enframe(name = NULL)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"OSS sum"},{"1":"St. sprava se SOBCPO"},{"1":"SOBCPO"},{"1":"ostatní OSS"},{"1":"PO sum"},{"1":"ÚO"},{"1":"neústřední st. správa"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="section-1" class="section level3">
+<h3>2013+</h3>
+<pre class="r"><code>unique(dt$grp) %&gt;% enframe(name = NULL)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"ÚO"},{"1":"neústřední st. správa"},{"1":"SOBCPO"},{"1":"St. sprava se SOBCPO"},{"1":"ostatní OSS"},{"1":"OSS sum"},{"1":"PO sum"},{"1":"Příslušníci a vojáci"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div id="check-data-by-comparing-grouping-sizes" class="section level2 tabset">
+<h2>Check data by comparing grouping sizes</h2>
+<div id="section-2" class="section level3">
+<h3>2003+</h3>
+<pre class="r"><code>dto %&gt;% 
+  filter(udaj == &quot;schvaleny&quot; &amp; year == 2013) %&gt;% 
+  ggplot(aes(grp, value/1000)) +
+  geom_col() + coord_flip() + ggtitle(&quot;2013 - data 2003-2012&quot;) + 
+  scale_y_continuous(limits = c(0,250))</code></pre>
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="section-3" class="section level3">
+<h3>2013+</h3>
+<pre class="r"><code>dt %&gt;% 
+  filter(year == 2013) %&gt;% 
+  filter(!(grp %in% c(&quot;Příslušníci a vojáci&quot;))) %&gt;%
+  ggplot(aes(grp, skutecnost/1e3)) +
+  geom_col() + coord_flip() + ggtitle(&quot;2013 - data 2013-2018&quot;) +
+  scale_y_continuous(limits = c(0,250))</code></pre>
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+</div>
+<div id="merge-data" class="section level2">
+<h2>Merge data:</h2>
+<pre class="r"><code>srs &lt;- bind_rows(dto %&gt;% mutate(ds = &quot;old&quot;) %&gt;%
+                   filter(year != 2013) %&gt;% 
+                   select(year, grp, value, udaj),
+                 dt %&gt;% pivot_longer(names_to = &quot;udaj&quot;, values_to = &quot;value&quot;,
+                                     cols = c(schvaleny, skutecnost,
+                                              upraveny, rozdil, 
+                                              index, plneni)) %&gt;% 
+                   mutate(ds = &quot;new&quot;, year = as.numeric(year)))</code></pre>
+</div>
+</div>
+<div id="first-charts" class="section level1 tabset">
+<h1>First charts</h1>
+<p>NB:</p>
+<ul>
+<li>skok v roce 2012 je daný redefinicí MV, které od 2012 zahrnuje i velení policie a hasičů</li>
+<li>řada příslušníků a vojáků začíná až v 2013, protože z minulé analýzy jsme je tuším úplně vypustil nebo v interních datech MF nebyli</li>
+</ul>
+<div id="absolute---comparable" class="section level2">
+<h2>Absolute - comparable</h2>
+<pre class="r"><code>srs %&gt;% 
+  filter(udaj == &quot;skutecnost&quot;) %&gt;% 
+  ggplot(aes(year, value)) +
+  geom_line() +
+  facet_wrap(~grp)</code></pre>
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="absolute---focus-on-changes" class="section level2">
+<h2>Absolute - focus on changes</h2>
+<pre class="r"><code>srs %&gt;% 
+  filter(udaj == &quot;skutecnost&quot;) %&gt;% 
+  ggplot(aes(year, value)) +
+  geom_line() +
+  facet_wrap(~grp, scales = &quot;free_y&quot;)</code></pre>
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+</div>
+<div id="comparisons" class="section level1 tabset">
+<h1>Comparisons</h1>
+<div id="plan-vs.reality" class="section level2">
+<h2>Plan vs. reality</h2>
+<pre class="r"><code>srs %&gt;% 
+  filter(udaj == &quot;plneni&quot;) %&gt;% 
+  ggplot(aes(year, 2-value)) +
+  geom_line() +
+  facet_wrap(~grp)</code></pre>
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+<div id="growth-from-2003-base" class="section level2">
+<h2>Growth from 2003 base</h2>
+<pre class="r"><code>srs %&gt;% 
+  filter(udaj == &quot;skutecnost&quot;) %&gt;% 
+  group_by(grp) %&gt;% 
+  arrange(year) %&gt;% 
+  mutate(index = value/first(value)) %&gt;% 
+  ggplot(aes(year, index)) +
+  geom_line() +
+  facet_wrap(~grp)</code></pre>
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+</div>
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUG/EjXR5IMO6xZllZG7DrWvFrzogMjAwMy0yMDE4IgphdXRob3I6ICJQZXRyIEJvdWNoYWwiCmRhdGU6ICIxMS8yLzIwMTkiCm91dHB1dDogaHRtbF9kb2N1bWVudAotLS0KCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFQsIHdhcm5pbmcgPSBGLCBtZXNzYWdlID0gRiwgcm93cy5wcmludCA9IDIwKQpsaWJyYXJ5KHJlYWRyKQpsaWJyYXJ5KGRwbHlyKQpsaWJyYXJ5KGdncGxvdDIpCmxpYnJhcnkodGlkeXIpCmxpYnJhcnkodGliYmxlKQpsaWJyYXJ5KGx1YnJpZGF0ZSkKbGlicmFyeShwdXJycikKa25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQpvcHRpb25zKHNjaXBlbiA9IDYpCmBgYAoKYGBge3J9CmMxM28gPC0gcmVhZF9jc3YoaGVyZTo6aGVyZSgiZGF0YS1vdXRwdXQvbGVnYWN5L2dyb3Vwc19BTEwuY3N2IikpCmR0MCA8LSByZWFkX3JkcyhoZXJlOjpoZXJlKCJkYXRhLWludGVyaW0vb2JqZW15X3BvY3R5X3NjcmFwZWRfcmF3XzIwMTJfMjAxOC5yZHMiKSkKYGBgCgpgYGB7ciwgbWF4LnByaW50ID0gMTV9CnVuaXF1ZShjMTNvJHZhcmlhYmxlKSAlPiUgZW5mcmFtZShuYW1lID0gTlVMTCkKdW5pcXVlKGMxM28kZ3JwKSAlPiUgZW5mcmFtZShuYW1lID0gTlVMTCkKdW5pcXVlKGR0MCR0eXBlKSAlPiUgZW5mcmFtZShuYW1lID0gTlVMTCkKYGBgCgojIEV4cGxvcmUgJiBwcmVwIHRvIG1lcmdlIHsudGFic2V0fQoKYGBge3IsIGluY2x1ZGU9Rn0KYzEzbyAlPiUgCiAgc2VsZWN0KGdycCwgc2dycCkgJT4lIAogIGRpc3RpbmN0KCkKYGBgCgojIyBQcmVwIGRhdGEgMjAxMysKCmBgYHtyfQpkdCA8LSBkdDAgJT4lIAogIGZpbHRlcihrYXBfbnVtID09ICJDIEUgTCBLIEUgTSIgJiBpbmRpY2F0b3IgPT0gImNvdW50IikgJT4lIAogIHNlbGVjdCh5ZWFyLCBncnAgPSB0eXBlLCBzY2h2YWxlbnkgPSByb3pwLAogICAgICAgICBza3V0ZWNub3N0LCB1cHJhdmVueSwgcm96ZGlsLCBpbmRleCwgcGxuZW5pKSAlPiUgCiAgbXV0YXRlKGdycCA9IHJlY29kZShncnAsIAogICAgICAgICAgICAgICAgICAgICAgYGplZG4uIE9TUyBzdMOhdG7DrSBzcHLDoXZ5YCA9ICJuZcO6c3TFmWVkbsOtIHN0LiBzcHLDoXZhIiwKICAgICAgICAgICAgICAgICAgICAgIGBTVC5TUFLDgVZBYCA9ICJTdC4gc3ByYXZhIHNlIFNPQkNQTyIpLAogICAgICAgICBwbG5lbmkgPSAyLXBsbmVuaS8xMDAsIHJvemRpbCA9IC1yb3pkaWwpCmBgYAoKIyMgUHJlcCBkYXRhIDIwMDMrCgpgYGB7cn0KZHRvIDwtIGMxM28gJT4lIAogIGZpbHRlcihwcm9tZW5uYSA9PSAiWmFtIikgJT4lIAogIHNlbGVjdChncnAsIHNncnAsIHZhcmlhYmxlLCB2YWx1ZSwgdWRhaiwgcHJvbWVubmEsIFVPLCBleGVrdXRpdmEsIFllYXIpICU+JSAKICBzZXRfbmFtZXModG9sb3dlcihuYW1lcyguKSkpICU+JSAKICBtdXRhdGVfYXQodmFycyh1ZGFqLCB2YXJpYWJsZSwgcHJvbWVubmEpLCB0b2xvd2VyKSAlPiUgCiAgbXV0YXRlKHllYXIgPSB5ZWFyKHllYXIpLAogICAgICAgICB1ZGFqID0gcmVjb2RlKHVkYWosICB1cHIyc2t1dCA9ICJwbG5lbmkiLAogICAgICAgICAgICAgICAgICAgICAgIHVwcm1pbnVzc2t1dCA9ICJyb3pkaWwiKSwKICAgICAgICAgZ3JwID0gcmVjb2RlKGdycCwgVU8gPSAiw5pPIiwgYE9TUy1ST2AgPSAiT1NTIHN1bSIsCiAgICAgICAgICAgICAgICAgICAgICBQTyA9ICJQTyBzdW0iLAogICAgICAgICAgICAgICAgICAgICAgYE9TUy1TU2AgPSAibmXDunN0xZllZG7DrSBzdC4gc3Byw6F2YSIsCiAgICAgICAgICAgICAgICAgICAgICBPT1NTID0gIm9zdGF0bsOtIE9TUyIpKSAlPiUgCiAgZmlsdGVyKGdycCAlaW4lIGMoIsOaTyIsICJTVC5TUFLDgVZBIiwgIlNPQkNQTyIsICJPU1Mgc3VtIiwgIm9zdGF0bsOtIE9TUyIsCiAgICAgICAgICAgICAgICAgICAgIlBPIHN1bSIsICJTdC4gc3ByYXZhIHNlIFNPQkNQTyIsIAogICAgICAgICAgICAgICAgICAgICJuZcO6c3TFmWVkbsOtIHN0LiBzcHLDoXZhIikpCmBgYAoKIyMgQ2hlY2sgZ3JvdXBpbmdzIHsudGFic2V0fQoKIyMjIDIwMDMrCgpgYGB7cn0KdW5pcXVlKGR0byRncnApICU+JSBlbmZyYW1lKG5hbWUgPSBOVUxMKQpgYGAKCiMjIyAyMDEzKyAKCmBgYHtyfQp1bmlxdWUoZHQkZ3JwKSAlPiUgZW5mcmFtZShuYW1lID0gTlVMTCkKYGBgCgojIyBDaGVjayBkYXRhIGJ5IGNvbXBhcmluZyBncm91cGluZyBzaXplcyB7LnRhYnNldH0KCiMjIyAyMDAzKwoKYGBge3J9CmR0byAlPiUgCiAgZmlsdGVyKHVkYWogPT0gInNjaHZhbGVueSIgJiB5ZWFyID09IDIwMTMpICU+JSAKICBnZ3Bsb3QoYWVzKGdycCwgdmFsdWUvMTAwMCkpICsKICBnZW9tX2NvbCgpICsgY29vcmRfZmxpcCgpICsgZ2d0aXRsZSgiMjAxMyAtIGRhdGEgMjAwMy0yMDEyIikgKyAKICBzY2FsZV95X2NvbnRpbnVvdXMobGltaXRzID0gYygwLDI1MCkpCmBgYAoKIyMjIDIwMTMrCgpgYGB7cn0KZHQgJT4lIAogIGZpbHRlcih5ZWFyID09IDIwMTMpICU+JSAKICBmaWx0ZXIoIShncnAgJWluJSBjKCJQxZnDrXNsdcWhbsOtY2kgYSB2b2rDoWNpIikpKSAlPiUKICBnZ3Bsb3QoYWVzKGdycCwgc2t1dGVjbm9zdC8xZTMpKSArCiAgZ2VvbV9jb2woKSArIGNvb3JkX2ZsaXAoKSArIGdndGl0bGUoIjIwMTMgLSBkYXRhIDIwMTMtMjAxOCIpICsKICBzY2FsZV95X2NvbnRpbnVvdXMobGltaXRzID0gYygwLDI1MCkpCmBgYAoKIyMgTWVyZ2UgZGF0YToKCmBgYHtyfQpzcnMgPC0gYmluZF9yb3dzKGR0byAlPiUgbXV0YXRlKGRzID0gIm9sZCIpICU+JQogICAgICAgICAgICAgICAgICAgZmlsdGVyKHllYXIgIT0gMjAxMykgJT4lIAogICAgICAgICAgICAgICAgICAgc2VsZWN0KHllYXIsIGdycCwgdmFsdWUsIHVkYWopLAogICAgICAgICAgICAgICAgIGR0ICU+JSBwaXZvdF9sb25nZXIobmFtZXNfdG8gPSAidWRhaiIsIHZhbHVlc190byA9ICJ2YWx1ZSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xzID0gYyhzY2h2YWxlbnksIHNrdXRlY25vc3QsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1cHJhdmVueSwgcm96ZGlsLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluZGV4LCBwbG5lbmkpKSAlPiUgCiAgICAgICAgICAgICAgICAgICBtdXRhdGUoZHMgPSAibmV3IiwgeWVhciA9IGFzLm51bWVyaWMoeWVhcikpKQpgYGAKCiMgRmlyc3QgY2hhcnRzIHsudGFic2V0fQoKTkI6CgotIHNrb2sgdiByb2NlIDIwMTIgamUgZGFuw70gcmVkZWZpbmljw60gTVYsIGt0ZXLDqSBvZCAyMDEyIHphaHJudWplIGkgdmVsZW7DrSBwb2xpY2llIGEgaGFzacSNxa8KLSDFmWFkYSBwxZnDrXNsdcWhbsOta8WvIGEgdm9qw6Frxa8gemHEjcOtbsOhIGHFviB2IDIwMTMsIHByb3Rvxb5lIHogbWludWzDqSBhbmFsw716eSBqc21lIGplIHR1xaHDrW0gw7pwbG7EmyB2eXB1c3RpbCBuZWJvIHYgaW50ZXJuw61jaCBkYXRlY2ggTUYgbmVieWxpCgojIyBBYnNvbHV0ZSAtIGNvbXBhcmFibGUgCgpgYGB7cn0Kc3JzICU+JSAKICBmaWx0ZXIodWRhaiA9PSAic2t1dGVjbm9zdCIpICU+JSAKICBnZ3Bsb3QoYWVzKHllYXIsIHZhbHVlKSkgKwogIGdlb21fbGluZSgpICsKICBmYWNldF93cmFwKH5ncnApCmBgYAoKIyMgQWJzb2x1dGUgLSBmb2N1cyBvbiBjaGFuZ2VzCgpgYGB7cn0Kc3JzICU+JSAKICBmaWx0ZXIodWRhaiA9PSAic2t1dGVjbm9zdCIpICU+JSAKICBnZ3Bsb3QoYWVzKHllYXIsIHZhbHVlKSkgKwogIGdlb21fbGluZSgpICsKICBmYWNldF93cmFwKH5ncnAsIHNjYWxlcyA9ICJmcmVlX3kiKQpgYGAKCiMgQ29tcGFyaXNvbnMgey50YWJzZXR9CgojIyBQbGFuIHZzLiByZWFsaXR5CgpgYGB7cn0Kc3JzICU+JSAKICBmaWx0ZXIodWRhaiA9PSAicGxuZW5pIikgJT4lIAogIGdncGxvdChhZXMoeWVhciwgMi12YWx1ZSkpICsKICBnZW9tX2xpbmUoKSArCiAgZmFjZXRfd3JhcCh+Z3JwKQpgYGAKCiMjIEdyb3d0aCBmcm9tIDIwMDMgYmFzZQoKYGBge3J9CnNycyAlPiUgCiAgZmlsdGVyKHVkYWogPT0gInNrdXRlY25vc3QiKSAlPiUgCiAgZ3JvdXBfYnkoZ3JwKSAlPiUgCiAgYXJyYW5nZSh5ZWFyKSAlPiUgCiAgbXV0YXRlKGluZGV4ID0gdmFsdWUvZmlyc3QodmFsdWUpKSAlPiUgCiAgZ2dwbG90KGFlcyh5ZWFyLCBpbmRleCkpICsKICBnZW9tX2xpbmUoKSArCiAgZmFjZXRfd3JhcCh+Z3JwKQpgYGAKCg==</div>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("3_explore-counts-longseries.Rmd");
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+
+</body>
+</html>
