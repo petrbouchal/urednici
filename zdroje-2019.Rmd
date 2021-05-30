@@ -140,6 +140,10 @@ NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010
 - [výroční zprávy o státní službě](https://www.mvcr.cz/sluzba/clanek/vyrocni-zprava-vyrocni-zprava-o-statni-sluzbe.aspx)
 - systemizace při každé změně od 2019 https://www.mvcr.cz/sluzba/clanek/systemizace-sluzebnich-a-pracovnich-mist.aspx
 
+# Další zdroje
+
+- MV ČR (2020) ["ANALÝZA STÁRNUTÍ ZAMĚSTNANCŮ VEŘEJNÉ SPRÁVY"](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjWjbG5jvHwAhVEwKQKHZ2OAKwQFjAAegQIAhAD&url=https%3A%2F%2Fwww.mvcr.cz%2Fsoubor%2Fanalyza-starnuti-zamestnancu-verejne-spravy-2020-pdf.aspx&usg=AOvVaw1zJVRooNl3a7RMPIl11feO) 
+
 # Zdroje o jednotlivých organizacích
 
 ## ČSSZ - open data o zaměstnancích 
