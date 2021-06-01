@@ -31,5 +31,5 @@ output:
     mathjax: null
     df_print: paged
     code_download: T
-    includes:
-      in_header: gaheader.html
+    # includes:
+    #   in_header: gaheader.html
