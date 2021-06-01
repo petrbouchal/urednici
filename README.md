@@ -31,6 +31,6 @@ státu.
 ## Technologie
 
 Práce se děje v R/RMarkdown, z čehož se následně generuje i
-[web](https://petrbouchal.github.io/urednici2019/). Vše by mělo být
+[web](https://petrbouchal.github.io/urednici/). Vše by mělo být
 replikovatelné z [githubového
-repozitáře](https://github.com/petrbouchal/urednici2019).
+repozitáře](https://github.com/petrbouchal/urednici).

@@ -22,7 +22,7 @@ navbar:
         href: "zdroje-2019.html"
   right:
   - icon: fa-github
-    href: https://github.com/petrbouchal/urednici2019
+    href: https://github.com/petrbouchal/urednici
 output:
   html_document:
     toc: true
