@@ -1,7 +1,7 @@
 name: urednici
 output_dir: docs
 include: ["demo.R"]
-exclude: ["LICENSE.md", "*.csv"]
+exclude: ["LICENSE.md", "*.csv", "data-*", "systemizace-"]
 navbar:
   title: "Úředníci"
   left:
