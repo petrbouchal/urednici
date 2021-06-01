@@ -1,0 +1,68 @@
+```{r Load and prep}
+setwd('~/github/local/PubFinCZ/')
+source('./src/lib/lib_PubFinCZ_light.R')
+uu0 <- LoadDataforPlotting(whatdata='chapters')
+```
+
+# Calculate indices and changes between budget stages ---------------------
+```{r}
+uu <- uu0
+source('./src/staff-super-data/SuperData_FirstReshapeAndCalcs.R')
+
+# reshape to wide - expand variables
+uu$UdajStage <- paste0(uu$Udaj,'_',uu$BudgetStage)
+uu$Udaj <- NULL
+uu$BudgetStage <- NULL
+```
+
+# create markers for groups of grps
+``` {r Markers for groups}
+uu$exekutiva <- FALSE
+uu$exekutiva[uu$grp=='UO - Ministerstva' | uu$grp=='UO - Ostatní' | 
+               uu$grp=='OSS-SS']  <- TRUE
+uu$UO <- FALSE
+uu$UO[uu$grp=='UO - Ministerstva' | uu$grp=='UO - Ostatní' | 
+        uu$grp=='UO'] <- TRUE
+
+uu <- MarkSumGroups(uu)
+
+grpcols_ordered <- idcols[c(6,5,4,1,3,2)]
+grplabels <- c("Ministerstva","Ostatní ústřední","Neústřední",
+               "Sbory","Ostatní vč. armády","Příspěvkové")
+sgrplabels <- c("Ústřední úřady","Státní správa","Státní správa a sbory",
+               "Rozpočtově reg. org.","Vše")
+```
+
+``` {r}
+uuw2 <- cast(uu,grp+Year+KapAbb+KapNum+KapName+Ministerstvo+sgrp+exekutiva+UO~
+               UdajStage)
+
+# can restrict years here to speed up processing if fewer are needed
+# uuw2 <- uuw2[uuw2$Year=='2010-01-01' | uuw2$Year=='2012-01-01',]
+
+# calculate average pay and indices
+uuw2 <- CalcAvgsAndIndices(uuw2)
+
+# turn back into long
+uuw2 <- as.data.frame(uuw2)
+uu <- melt(uuw2, id.vars=c('Year','grp','KapAbb','KapName','KapNum','sgrp','Ministerstvo','exekutiva','UO'))
+
+# add base value & econ indicators
+uu <- AddBaseValue(uu,'2003-01-01')
+uu <- AddEconIndicators(uu)
+
+# create markers for budget stages and type of data (budget x index)
+# HERE
+```
+
+
+```{r Real change calculation}
+# calculate real changes
+uu$realchange <- uu$perc_base/uu$Infl2003Base
+```
+
+``` {r save data}
+save(uu,file='./data-output/chapters_ALL.Rdata')
+write.csv(uu,file='./data-output/chapters_ALL.csv',row.names=FALSE)
+
+```

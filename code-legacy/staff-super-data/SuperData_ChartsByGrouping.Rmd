@@ -1,0 +1,497 @@
+---
+output: html_document
+---
+``` {r Knitr prep, cache=FALSE,include=FALSE}
+library(knitr)
+opts_chunk$set(echo=FALSE, dev='cairo_pdf', warning=FALSE)
+```
+
+# Charts based on data by grouping
+
+```{r Load and prep}
+setwd("~/github/local/PubFinCZ/")
+source('./src/lib/lib_PubFinCZ_light.R')
+
+# You can prep the data afresh from raw, specifying whether to exclude
+# the two departments with discontinuities
+
+# excludeMVaMZV <- FALSE
+# source('./src/staff-super-data/SuperData_CompletePrepGrouping.Rmd')
+
+# Or load the prepped data from file, with or without the exclusion
+# using the DataFinalPrep() function
+
+source('./src/lib/DataFinalPrep.R')
+
+yearbreaks42003_2012 <- as.Date(c("2003-01-01", "2006-01-01",
+                                  "2009-01-01", "2012-01-01"))
+```
+
+# Plots 
+
+## All people by grp over time - statni sprava bez SOBCPO/vsechny skupiny - AREA
+``` {r Staff numbers area chart}
+
+hh <- DataFinalPrep(exclusion = F)
+hh2 <- hh[(hh$variable=='Zam_skutecnost') &
+            (!hh$sgrp) & !is.na(hh$value) &
+            hh$value!=0 & hh$mingrpset,]
+
+plot <- ggplot(hh2,aes(x=Year, y=value/1000, fill=grpcolour, group=grp)) +
+  geom_area(stat='identity', position='stack') +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(fill = guide_legend(nrow = 2)) +
+  labs(title=NULL, x=NULL, y=NULL) +
+  scale_x_date(labels=date_format('%Y'))
+
+plot
+SavePlot(plotname = 'Staff_2013-12_grp_subset_area',ploth=10, plotw=15,plotformat = 'png')
+```
+
+## All people by grp over time - statni sprava bez SOBCPO/vsechny skupiny - LINE
+``` {r Staff numbers line chart}
+
+hh <- DataFinalPrep(exclusion = F)
+hh2 <- hh[(hh$variable=='Zam_skutecnost') &
+            (!hh$sgrp) & !is.na(hh$value) &
+            hh$value!=0 & hh$mingrpset,]
+
+plot <- ggplot(hh2,aes(x=Year, y=value/1000, colour=grpcolour, group=grp)) +
+  geom_line(stat='identity', size=1.5) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour = guide_legend(nrow = 2)) +
+  labs(title=NULL, x=NULL, y=NULL) +
+  scale_x_date(labels=date_format('%Y'))
+
+plot
+SavePlot(plotname = 'Staff_2013-12_grp_subset_line',ploth=10, plotw=15,plotformat = 'png')
+```
+
+## All people by grp over time - statni sprava bez SOBCPO/vsechny skupiny - BAR
+``` {r Staff numbers bar chart}
+
+hh <- DataFinalPrep(exclusion = F)
+hh2 <- hh[(hh$variable=='Zam_skutecnost') &
+            (!hh$sgrp) & !is.na(hh$value) &
+            hh$value!=0 & hh$mingrpset,]
+
+plot <- ggplot(hh2,aes(x=Year, y=value/1000, fill=grpcolour, group=grp)) +
+  geom_bar(stat='identity', position='stack', size=1.5) +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(fill = guide_legend(nrow = 2)) +
+  labs(title=NULL, x=NULL, y=NULL) +
+  scale_x_date(labels=date_format('%Y'))
+
+plot
+SavePlot(plotname = 'Staff_2013-12_grp_subset_bar',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# Change in staff numbers by grp over time
+``` {r Change in staff numbers by grp over time}
+
+hh <- DataFinalPrep(exclusion = T)
+
+title='Změna počtu zaměstnanců pod regulací rozpočtu 2003-2012'
+ylab='Změna počtu zaměstnanců'
+xlab=''
+hh2 <- hh[(hh$variable=='Zam_skutecnost') &
+            (hh$mingrpset) & !is.na(hh$value) &
+            hh$value!=0,]
+plot <- ggplot(hh2,aes(x=Year, y=perc_base-1, colour=grpcolour)) +
+  geom_line(size=1.5) +
+  scale_y_continuous(labels=percent) +
+  labs(title=NULL, x=NULL, y=NULL) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T)) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01')))
+plot
+SavePlot(plotname = 'StaffChange_2003-12_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# Change in nominal pay bill by grp over time
+``` {r Change in paybill by grp over time}
+
+hh <- DataFinalPrep(exclusion = T)
+
+title='Změna výdajů na platy 2003-2012'
+ylab='2003 = 100% (změna výdajů na platy)'
+xlab=''
+
+hh2 <- hh[(hh$variable=='Platy_skutecnost') &
+            (hh$mingrp) & !is.na(hh$value) &
+            hh$value!=0,]
+plot <- ggplot(hh2,aes(x=Year, y=perc_base-1, colour=grpcolour)) +
+  geom_line(size=1.5) +
+  scale_y_continuous(labels=percent) +
+  labs(title=NULL, x=NULL, y=NULL) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T))
+plot
+
+SavePlot(plotname = 'PaybillChangeNom_2003-12_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+
+# change in real paybill by grp over time
+``` {r Change in real paybill by grp over time}
+
+hh <- DataFinalPrep(exclusion = T)
+
+hh2 <- hh[(hh$variable=='Platy_skutecnost') &
+            (hh$mingrpset) & !is.na(hh$value) &
+#            hh$exekutiva &
+            hh$value!=0,]
+plot <- ggplot(hh2,aes(x=Year, y=perc_base/Infl2003Base-1, colour=grpcolour)) +
+  geom_line(size=1.5) +
+  scale_y_continuous(labels=percent) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T)) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  labs(title=NULL, x=NULL, y=NULL)
+SavePlot(plotname = 'PaybillChangeReal_2003-12_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+plot
+```
+
+# % changes to nominal average salary by grp
+``` {r % changes to nominal avg salary by grp}
+
+hh <- DataFinalPrep(exclusion = T)
+
+title='XXX'
+ylab='% rozdíl od průměrné mzdy v ČR (v Praze pro ústřední orgány)'
+xlab=''
+
+hh2 <- hh[hh$mingrp & hh$Year!='2013-01-01' & hh$variable=='AvgSal_skutecnost',]
+plot <- ggplot(hh2,aes(Year, perc_base-1, colour=grpcolour, group=grp)) +
+  geom_line(size=1.5) +
+  scale_y_continuous(labels=percent) + 
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T)) +
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+SavePlot(plotname = 'SalaryChangeNom_2003-12_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# % real changes to avg salary by grp
+``` {r % Real changes to avg salary by grp}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$mingrpset & hh$variable=='AvgSal_skutecnost',]
+
+plot <- ggplot(hh2, aes(Year, realchange-1, colour=grpcolour, group=grp)) +
+  geom_line(size=1.5) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_y_continuous(labels=percent) + 
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T)) +
+  labs(title=NULL, x=NULL, y=NULL)
+
+plot
+
+SavePlot(plotname = 'SalaryChangeReal_2003-12_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# avg sal in 2013 prices
+``` {r Avg salary in 2013 prices by group}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$mingrpset & hh$variable=='AvgSal_skutecnost',]
+
+plot <- ggplot(hh2, aes(Year, value*Infl2013Base, colour=grpcolour, group=grp)) +
+  geom_line(size=1.5) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_y_continuous(labels=space) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T)) +
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+SavePlot(plotname = 'Salary_2003-12_2013prices_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# avg sal in nominal prices
+``` {r Avg salary in nominal prices by group}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$maxgrpset & hh$variable=='AvgSal_skutecnost',]
+
+plot <- ggplot(hh2, aes(Year, value, colour=grpcolour, group=grp)) +
+  geom_line(size=1.5) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_y_continuous(labels=space) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T)) +
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+SavePlot(plotname = 'Salary_2003-12_nominal_grp_all',ploth=10, plotw=15,plotformat = 'png')
+```
+
+
+# paybill adjusted in nominal prices by grp, plan - AREA
+if generating this graph, make sure nothing has been excluded (MV, MZV)
+``` {r Paybill outturn in 2013 prices by grp}
+
+hh <- DataFinalPrep(exclusion = F)
+hh2 <- hh[hh$sgrp==FALSE & hh$Year!='2013-01-01' & hh$variable=='Platy_skutecnost',]
+# hh2 <- hh[hh$sgrp==FALSE & hh$variable=='Platy_schvaleny',]
+hh2 <- hh2[hh2$maxgrp,]
+
+plot <- ggplot(hh2,aes(Year, value/1000000, fill=grpcolour, group=grp)) +
+  geom_area(stat='identity',position='stack') +
+#   scale_y_continuous(labels=c('0','5 mld', '10 mld', '15 mld', '20 mld'),
+#                      breaks = c(0,5,10,15,20)) + 
+  scale_y_continuous(labels=c('0','20 mld', '40 mld', '60 mld', '120 mld'),
+                     breaks = c(0,20,40,60,120)) + 
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(fill=guide_legend(nrow=2,byrow=T)) +
+  
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+
+SavePlot(plotname = 'Paybill_2003-12_nominal_grp_all_area',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# paybill adjusted in 2012 prices by grp, plan - AREA
+if generating this graph, make sure nothing has been excluded (MV, MZV)
+``` {r Paybill outturn in 2013 prices by grp}
+
+hh <- DataFinalPrep(exclusion = F)
+hh2 <- hh[hh$sgrp==FALSE & hh$Year!='2013-01-01' & hh$variable=='Platy_skutecnost',]
+# hh2 <- hh[hh$sgrp==FALSE & hh$variable=='Platy_schvaleny',]
+hh2 <- hh2[hh2$mingrp,]
+
+plot <- ggplot(hh2,aes(Year, value*Infl2012Base/1000000, fill=grpcolour, group=grp)) +
+  geom_area(stat='identity',position='stack') +
+  scale_y_continuous(labels=c('0','5 mld', '10 mld', '15 mld', '20 mld'),
+                     breaks = c(0,5,10,15,20)) + 
+#   scale_y_continuous(labels=c('0','20 mld', '40 mld', '60 mld', '120 mld'),
+#                      breaks = c(0,20,40,60,120)) + 
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(fill=guide_legend(nrow=2,byrow=T)) +
+  
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+
+SavePlot(plotname = 'Paybill_2003-13_2012prices_grp_subset_area',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# paybill adjusted in 2012 prices by grp, plan - BAR
+if generating this graph, make sure nothing has been excluded (MV, MZV)
+``` {r Paybill outturn in 2013 prices by grp}
+`
+hh <- DataFinalPrep(exclusion = F)
+hh2 <- hh[hh$sgrp==FALSE & hh$Year!='2013-01-01' & hh$variable=='Platy_skutecnost',]
+# hh2 <- hh[hh$sgrp==FALSE & hh$variable=='Platy_schvaleny',]
+hh2 <- hh2[hh2$mingrp,]
+
+plot <- ggplot(hh2,aes(Year, value*Infl2012Base/1000000, fill=grpcolour, group=grp)) +
+  geom_bar(stat='identity',position='stack') +
+  scale_y_continuous(labels=c('0','5 mld', '10 mld', '15 mld', '20 mld'),
+                     breaks = c(0,5,10,15,20)) + 
+#   scale_y_continuous(labels=c('0','20 mld', '40 mld', '60 mld', '120 mld'),
+#                      breaks = c(0,20,40,60,120)) + 
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(fill=guide_legend(nrow=2,byrow=T)) +
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+
+SavePlot(plotname = 'Paybill_2003-13_2012prices_grp_subset_bar',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# paybill adjusted in 2012 prices by grp, plan - LINE
+if generating this graph, make sure nothing has been excluded (MV, MZV)
+``` {r Paybill outturn in 2013 prices by grp}
+
+hh <- DataFinalPrep(exclusion = F)
+hh2 <- hh[hh$sgrp==FALSE & hh$Year!='2013-01-01' & hh$variable=='Platy_skutecnost',]
+# hh2 <- hh[hh$sgrp==FALSE & hh$variable=='Platy_schvaleny',]
+hh2 <- hh2[hh2$mingrp,]
+
+plot <- ggplot(hh2,aes(Year, value*Infl2012Base/1000000, colour=grpcolour, group=grp)) +
+  geom_line(stat='identity', size=1.5) +
+  scale_y_continuous(labels=c('0','5 mld', '10 mld', '15 mld', '20 mld'),
+                     breaks = c(0,5,10,15,20)) + 
+#   scale_y_continuous(labels=c('0','20 mld', '40 mld', '60 mld', '120 mld'),
+#                      breaks = c(0,20,40,60,120)) + 
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T)) +
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+
+SavePlot(plotname = 'Paybill_2003-13_2012prices_grp_subset_line',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# Staff gap by grp (%)
+``` {r Staff % gap by grp}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$mingrpset & (hh$Year!='2013-01-01' & hh$variable=='Zam_upr2skut'),]
+hh2 <- hh2[with(hh2, order(grp)), ]
+
+plot <- ggplot(hh2, aes(Year, -(value-1), fill=grpcolour, group=grp)) +
+  geom_bar(stat='identity',position='dodge') +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='none') +
+  scale_y_continuous(labels=percent) + facet_wrap(~grp, nrow = 2) + 
+  labs(title=NULL, x=NULL, y=NULL) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+
+SavePlot(plotname = 'BudgetingStaffGap_percent_2003-12_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# Paybill over/underspend by grp (%)
+``` {r Paybill over/underspend % by grp}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$mingrp & (hh$Year!='2013-01-01' & hh$variable=='Platy_upr2skut'),]
+hh2 <- hh2[with(hh2, order(grp)), ]
+
+plot <- ggplot(hh2, aes(Year, -(value-1), fill=grpcolour, group=grp)) +
+
+  geom_bar(stat='identity',position='dodge') +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='none') +
+  scale_y_continuous(labels=percent) + facet_wrap(~grp,nrow = 2) + 
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  theme(axis.text.x=element_text(angle=90,vjust=.5,hjust=0)) +
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+
+SavePlot(plotname = 'BudgetingUnderspends_2003-12_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# Staff gap by grp, abs
+``` {r Staff gap by grp absolute}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$mingrpset & (hh$Year!='2013-01-01' & hh$variable=='Zam_uprMinusskut'),]
+hh2 <- hh2[hh2$grp!='Vše' & hh2$grp!='Příspěvkové',]
+
+plot <- ggplot(hh2, aes(Year, -value, fill=grpcolour, group=grp)) +
+  geom_bar(stat='identity',position='dodge') +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='none') +
+  scale_y_continuous(labels=space) + facet_wrap(~grp,nrow = 2) + 
+  labs(title=NULL, x=NULL, y=NULL) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  theme(axis.text.x=element_text(angle=90,vjust=.5,hjust=0))
+plot
+
+SavePlot(plotname = 'BudgetingStaffGap_abs_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+
+```
+
+# Salary 'raise' budgeting effect in CZK, by grp
+``` {r Salary raise budgeting effect CZK}
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$variable=='AvgSal_uprMinusskut' & hh$mingrpset,]
+  
+plot <- ggplot(hh2, aes(Year, -value, group=grp,fill=grpcolour)) +
+  geom_bar(stat='identity') +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='none') +
+  labs(title=NULL, x=NULL, y=NULL) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_y_continuous(labels=space) +
+  facet_wrap(~grp,nrow=2) +
+  theme(axis.text.x=element_text(angle=90,vjust=.5,hjust=0))
+plot
+
+SavePlot(plotname = 'BudgetingSalaryRaise_abs_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# Salary as % of national/Prague, by grp
+```{r Salary as % of national/Prague by grp}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[(hh$variable=='AvgSal_skutecnost') & hh$mingrpset & !is.na(hh$value),]
+hh2$relevavgsal <- hh2$czsal_all
+hh2$relevavgsal[hh2$UO] <- hh2$phasal_all[hh2$UO]
+hh2$grp2 <- paste0(hh2$grpcolour,hh2$variable)
+
+plot <- ggplot(hh2,aes(x=Year, y=value/relevavgsal-1,
+                       group=grp2)) +
+  geom_hline(y=0,size=1,col='grey') +
+  geom_line(size=1.5,aes(colour=grpcolour)) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_y_continuous(labels=percent) + 
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(nrow=2,byrow=T)) +
+  labs(title=NULL, x=NULL, y=NULL) + theme(axis.line.x=element_line())
+plot
+
+SavePlot(plotname = 'Sal_perc_of_national_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+```
+
+# salary 'raise' budgeting effect in %, by grp
+``` {r Salary raise budgeting effect %}
+hh <- origdata
+hh2 <- hh[hh$variable=='AvgSal_upr2skut' & hh$mingrpset,]
+
+plot <- ggplot(hh2, aes(x=Year, y=-(value-1), fill=grpcolour)) +
+  geom_bar(stat='identity') +
+  scale_y_continuous(label=percent) +
+  facet_wrap(~grp,nrow=2) + 
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_fill_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='none') +
+  labs(title=NULL, x=NULL, y=NULL) +
+  theme(axis.text.x=element_text(angle=90,vjust=.5,hjust=0))
+plot
+
+SavePlot(plotname = 'BudgetingSalaryRaise_percent_grp_subset',ploth=10, plotw=15,plotformat = 'png')
+
+```
+
+# Real salary changes, by group
+``` {r Real salary change by grp}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$variable=='AvgSal_skutecnost' & hh$mingrpset,]
+
+plot <- ggplot(hh2, aes(x=Year, y=realchange-1)) +
+  geom_line(stat='identity',size=1.5) +
+  scale_y_continuous(label=percent) +
+  facet_wrap(~grp,nrow=2) + 
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='none') +
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+```
+
+# Nominal salary, by group
+``` {r Real salary change by grp}
+
+hh <- DataFinalPrep(exclusion = T)
+hh2 <- hh[hh$variable=='AvgSal_skutecnost' & hh$mingrpset,]
+
+plot <- ggplot(hh2, aes(x=Year, y=value,colour=grpcolour)) +
+  geom_line(size=1.5) +
+  scale_y_continuous(label=space) +
+  scale_x_date(breaks=yearbreaks42003_2012,labels=date_format('%Y'),
+               limits = c(as.Date("2003-01-01"), as.Date('2012-01-01'))) +
+  scale_colour_identity(breaks=hh2$grpcolour,labels=hh2$grp,guide='legend') +
+  guides(colour=guide_legend(breaks=hh2$grpcolour,labels=hh2$grp,nrow=2))
+  labs(title=NULL, x=NULL, y=NULL)
+plot
+```

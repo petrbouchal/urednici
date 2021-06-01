@@ -1,0 +1,71 @@
+---
+title: "Basic HTML RMarkdown file"
+output:
+  html_document:
+    toc: true
+    fig_caption: true
+---
+
+``` {r Knitr prep, cache=FALSE,include=FALSE}
+library(knitr)
+opts_chunk$set(echo=FALSE, dev='cairo_pdf', warning=FALSE)
+```
+
+``` {r Load tools library from anywhere, include=FALSE, echo=FALSE}
+# install.packages(devtools)
+# library(devtools)
+# install_github('pbtools','petrbouchal')
+library(pbtools)
+library(magrittr)
+source('./src/lib/lib_PubFinCZ_light.R')
+```
+## Overview
+
+## Analysis
+
+``` {r 2010 paybill cut}
+all <- DataFinalPrep(exclusion = F)
+all <- filter(all,(Year=='2010-01-01' | Year=='2011-01-01')) %>%
+  filter((variable=='Platy_skutecnost' | variable=='Zam_skutecnost' | variable=='AvgSal_skutecnost')) %>%
+  group_by(grp,variable) %>%
+  arrange(grp,variable,Year) %>%
+#   select(grp, Year, variable, value, mingrpset) %>%
+  mutate(change=value/lag(value)-1)
+```
+
+``` {r Chart scatter}
+all2 <- filter(all, Year=='2011-01-01') %>%
+  select(grp,variable,mingrpset,change,sgrp,grpcolour)
+
+all3 <- dcast(all2, grp+sgrp+grpcolour~variable,value.var = 'change')
+all3$sumchange <- all3$Zam_skutecnost + all3$AvgSal_skutecnost
+
+breakset <- c(-.08,-.06,-.04,-.02,0,0.02,0.04,0.06,0.08)
+
+plot <- ggplot(all3[!all3$sgrp,],
+               aes(AvgSal_skutecnost, Zam_skutecnost,colour=grpcolour)) +
+  geom_hline(y=0,x=0,colour='grey') +
+  geom_vline(y=0,x=0,colour='grey') +
+  geom_abline(intecept=0,slope=1,linetype='dashed') +
+  geom_text(aes(label=grp,hjust=0,x=AvgSal_skutecnost+.004),size=4) +
+  geom_point(aes(label=grp),size=3) +
+  coord_fixed() +
+  scale_y_continuous(limits=c(-.08,.08),labels=percent, breaks=breakset) +
+  scale_x_continuous(limits=c(-.08,.08),labels=percent, breaks=breakset) +
+  scale_colour_identity(guide='none',breaks=all3$grpculour) +
+  labs(y='Změna počtu zaměstnanců, 2010-2011') +
+  labs(x='Změna průměrného platu, 2010-2011') +
+  theme(panel.grid.major.x=element_line())
+plot
+
+SavePlot(plotname = 'BalanceOfChanges_2010-12_grp',plotw=12,ploth=12, plotformat = 'png')
+```
+
+``` {r bar chart}
+all2 <- filter(all2, variable!='Platy_skutecnost') %>%
+  arrange(variable)
+plot2 <- ggplot(all2,aes(grp,change,group=grp, fill=variable)) +
+  geom_bar(position='stack', stat='identity') +
+  facet_wrap(~sgrp,nrow=2,scales = 'free_x')
+plot2
+```

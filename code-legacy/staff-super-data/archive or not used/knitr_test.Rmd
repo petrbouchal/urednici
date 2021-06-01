@@ -1,0 +1,42 @@
+---
+output: word_document
+---
+``` {r cache=FALSE,include=FALSE}
+library(knitr)
+pdf.options(enc='ISOLatin2.enc')
+opts_chunk$set(echo=FALSE,
+#                dev='pdf',
+#                dev.opts=list(enc='ISOLatin2.enc'),
+               warning=FALSE)
+```
+
+# Charts based on data by grouping
+
+```{r Load and prep, include=FALSE}
+setwd("~/github/local/PubFinCZ/")
+source('./src/lib/lib_PubFinCZ_light.R')
+getwd()
+# load('./data-output/groups_ALL.RData')
+load('./data-output/groups_bezMVaMZV.RData')
+hh <- RelabelGroups(hh)
+```
+
+## Plots 
+
+### all people by grp over time - statni sprava bez SOBCPO/vsechny skupiny
+``` {r}
+title='Počet zaměstnanců 2003-2012: státní správa bez sborů, rozpočet a skutečnost'
+ylab='Počet zaměstnanců (x1000)'
+xlab=''
+hh2 <- hh[(hh$variable=='Zam_skutecnost') &
+            (!hh$sgrp) & !is.na(hh$value) &
+            hh$exekutiva &
+            hh$value!=0,]
+hh2 <- hh2[with(hh2, order(grp)), ]
+hh2$gg <- paste0(hh2$grp,'_',hh2$variable)
+plot <- ggplot(hh2,aes(x=Year, y=value/1000, fill=grp, group=gg)) +
+  geom_area(stat='identity',size=0, position='stack') +
+  labs(title=title, x=xlab, y=ylab) +
+  scale_x_date(labels=date_format('%Y'))
+plot
+```

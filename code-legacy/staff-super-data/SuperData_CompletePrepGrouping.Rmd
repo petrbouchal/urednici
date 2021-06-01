@@ -1,0 +1,84 @@
+```{r Load and prep}
+# setwd("~/github/PubFinCZ/")
+source('./src/lib/lib_PubFinCZ_light.R')
+uu0 <- LoadDataforPlotting('chapters')
+uu <- uu0
+
+# MV & MZV cause distortions (2011-12 reclass's) - exclude?
+
+excludeMVaMZV <- TRUE
+
+uu$todiscard <- FALSE
+uu$todiscard[uu$KapAbb=='MV'] <- TRUE
+uu$todiscard[uu$KapAbb=='MZV'] <- TRUE
+
+if(excludeMVaMZV) {
+  uu <- uu[uu$todiscard==FALSE,]
+}
+
+source('./src/staff-super-data/SuperData_FirstReshapeAndCalcs.R')
+
+# summarise by layer of civil service
+hh <- ddply(uu,.(Year,grp,sgrp,Udaj,BudgetStage), summarise,
+            value=sum(value, na.rm=T),
+            .progress = "text")
+```
+
+```{r Calculate indices and changes between budget stages}
+
+# reshape to wide - expand variables
+hh$UdajStage <- paste0(hh$Udaj,'_',hh$BudgetStage)
+hh$Udaj <- NULL
+hh$BudgetStage <- NULL
+
+hhw2 <- cast(hh,grp+Year+sgrp~UdajStage)
+
+# calculate average pay and indices
+hhw2 <- CalcAvgsAndIndices(hhw2)
+
+# turn back into long
+hhw2 <- as.data.frame(hhw2)
+hh <- melt(hhw2, id.vars=c('Year','grp','sgrp'))
+
+hh <- AddBaseValue(hh,basetime = '2003-01-01')
+
+# add salary and inflation [deflator] data
+hh <- AddEconIndicators(hh)
+hh$realchange <- hh$perc_base/hh$Infl2003Base
+```
+
+```{r create markers}
+# recreate split measure and variable markers
+hh$promenna <- str_split_fixed(hh$variable,'_',2)[,1]
+hh$udaj <- str_split_fixed(hh$variable,'_',2)[,2]
+
+hh$zmena <- ifelse(hh$udaj %in% c('schvaleny','upraveny','skutecnost'),
+                   FALSE, TRUE)
+
+# create markers for groups of grps
+hh$exekutiva <- FALSE
+hh$exekutiva[hh$grp=='UO - Ministerstva' | hh$grp=='UO - Ostatní' | 
+               hh$grp=='OSS-SS']  <- TRUE
+hh$UO <- FALSE
+hh$UO[hh$grp=='UO - Ministerstva' | hh$grp=='UO - Ostatní'] <- TRUE
+
+# create markers for groups which are additions of original groups
+hh <- MarkSumGroups(hh)
+
+# create vector of colours for chart, in order of groups
+grpcols_ordered <- idcols[c(6,5,4,1,3,2)]
+
+# create more user-friendly group labels, to be used in graphs
+grplabels <- c("Ministerstva","Ostatní ústřední","Neústřední",
+               "Sbory","Ostatní vč. armády","Příspěvkové")
+sgrplabels <- c("Ústřední úřady","Státní správa","Státní správa a sbory",
+               "Rozpočtově reg. org.","Vše")
+``` 
+
+Save data
+```{r}
+csvname <- paste0('groups', ifelse(excludeMVaMZV,'_bezMVaMZV','_ALL'),'.csv')
+dataname <- paste0('groups', ifelse(excludeMVaMZV,'_bezMVaMZV','_ALL'),'.RData')
+write.csv(hh,paste0('./data-output/', csvname), row.names=FALSE)
+save(hh,file=paste0('./data-output/', dataname))
+```

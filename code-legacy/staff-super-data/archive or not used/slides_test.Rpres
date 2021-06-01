@@ -1,0 +1,43 @@
+Test presentation
+========================================================
+author: Petr Bouchal
+font-import: http://fonts.googleapis.com/css?family=Source Sans Pro
+# font-family: 'New Cicle'
+transition: zoom
+transition-speed: slow
+
+First Slide
+========================================================
+type: normal
+incremental: true
+
+For more details on authoring R presentations click the
+**Help** button on the toolbar.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Slide With Code
+========================================================
+
+```{r}
+summary(cars)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+library(ggplot2)
+qplot(mpg,wt,data=mtcars)
+```
+
+Slide with table
+====================
+### Example Simple Markdown Table
+Observation | Variable1 | Variable2
+:---------- | :-------: | :-------:
+Subject1 | a | b
+
+There were `r nrow(cars)` cars studied
