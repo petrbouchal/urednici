@@ -23,7 +23,8 @@ date: 1 Nov 2019
   - oddělené platy a ostatní platby za provedenou práci
 - půjčili nám je na studii IDEA v roce 2013
 - (-) děsivé vzorečky a provazby kamsi na síťový disk MF, ale snad je to správně
-- (-) teď už se toho nedá dobrat, nejsme schopni na MF zkontaktovat vlastníka souboru
+- ~~(-) teď už se toho nedá dobrat, nejsme schopni na MF zkontaktovat vlastníka souboru~~
+- update 2021/03: z MF máme data za roky 2013-2020
 - (-) neznám status té věci, proto původní soubor na Github nedávám (nic tajného tam není, ale je to něčí interní práce)
 
 ## 1. SZÚ: státní závěrečný účet
@@ -38,6 +39,7 @@ NB tento datový zdroj obsahuje určitý řez celými veřejnými financemi, tj.
   - ve [skriptu](https://github.com/petrbouchal/urednici/blob/master/1_scrape-szu-staffreports.R) jsou zapsané přesné odkazy
 - tyto tabulky mají skoro stejnou strukturu mezi lety, jdou tedy strojově zkompilovat, následně jsou uložené v původní XLS formě [na githubu](https://github.com/petrbouchal/urednici/tree/master/data-input)
 - schválený rozpočet 2013 v těchto datech odpovídá schválenému rozpočtu 2013 v interní tabulce MF, kterou nám v roce 2013 laskavě půjčili
+- v roce 2021 jsme dostali od MF prodlouženou verzi excelové megatabulky z toku 2013
 
 ## 2. Výkaz výdajů, druhové členění
 
