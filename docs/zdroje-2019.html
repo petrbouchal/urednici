@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Petr Bouchal" />
+
+
+<title>Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu</title>
+
+<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/navigation-1.1/sourceembed.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+#rmd-source-code {
+  display: none;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Úředníci</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-chart-area"></span>
+     
+    Exploratory analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="2_explore-counts.html">Počty úředníků 2013-18</a>
+    </li>
+    <li>
+      <a href="3_explore-counts-longseries.html">Počty úředníků 2003-18</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-book"></span>
+     
+    Dokumentace
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="zdroje-2019.html">Inventura dostupnosti dat 2019</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/petrbouchal/urednici">
+    <span class="fas fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu</h1>
+<h3 class="subtitle">Edition 2018</h3>
+<h4 class="author">Petr Bouchal</h4>
+<h4 class="date">1 Nov 2019</h4>
+
+</div>
+
+
+<div id="co-je-potřeba" class="section level1">
+<h1>Co je potřeba</h1>
+<ul>
+<li>data o počtech zaměstnanců, co nejjemnější členění (skupiny organizací =&gt; kapitoly =&gt; organizace)</li>
+<li>data o nákladech na platy pro výpočet a srovnání průměrných platů vzájemně a s trhem práce (tj. bez pojistného, nákladů na DPP, platy politiků atd.)</li>
+</ul>
+</div>
+<div id="kde-tato-data-vzít" class="section level1">
+<h1>Kde tato data vzít</h1>
+<div id="interní-tabulka-mf-pro-tvorbu-szú" class="section level2">
+<h2>0. Interní tabulka MF pro tvorbu SZÚ</h2>
+<ul>
+<li>Svatý Grál: všechno v jedné mega a ancient excelové tabulce:
+<ul>
+<li>počty zaměstnanců i objemy výdajů</li>
+<li>2003-201X</li>
+<li>členění na skupiny reportované v SZÚ</li>
+<li>všechny fáze rozpočtu</li>
+<li>po kapitolách i organizacích</li>
+<li>oddělené platy a ostatní platby za provedenou práci</li>
+</ul></li>
+<li>půjčili nám je na studii IDEA v roce 2013</li>
+<li>(-) děsivé vzorečky a provazby kamsi na síťový disk MF, ale snad je to správně</li>
+<li><del>(-) teď už se toho nedá dobrat, nejsme schopni na MF zkontaktovat vlastníka souboru</del></li>
+<li>update 2021/03: z MF máme data za roky 2013-2020</li>
+<li>(-) neznám status té věci, proto původní soubor na Github nedávám (nic tajného tam není, ale je to něčí interní práce)</li>
+</ul>
+</div>
+<div id="szú-státní-závěrečný-účet" class="section level2">
+<h2>1. SZÚ: státní závěrečný účet</h2>
+<p>NB tento datový zdroj obsahuje určitý řez celými veřejnými financemi, tj. nejen daty o úřednících, čili poznámky i kód můžou být užitečné pro zpracování širšího spektra dat, byť ta asi budou často dostupná i v Monitoru státní pokladny.</p>
+<ul>
+<li>obsahuje počty zaměstnanců a finanční objemy výdajů na platy - tabulky 10 a 11, tj. součást tabulkové přílohy, dá-li MF, tak v excelu</li>
+<li>finanční objemy pouze v součtu “Platy a ostatní platby za provedenou práci”</li>
+<li>to odpovídá seskupení 50 v druhovém členění, ale nejdou z toho vypočítat průměrné platy, protože ty MF v SZÚ počítá (logicky) pouze z položky platy bez “ostatních plateb za provedenou práci (OPPP)”, je tedy potřeba odečíst OPPP (viz níže)</li>
+<li>v excelu jsou dostupné relevantní tabulky z webu Sněmovny od roku 2012 do roku 2018 (zajímavé je, že excelových souborů od roku 2012 ubývá a letos už je tam jen jeden hlavní, zbytek často jako obrázky v PDF)
+<ul>
+<li>potřeba hledat za jednotlivá volební období zvlášť</li>
+<li>ve <a href="https://github.com/petrbouchal/urednici/blob/master/1_scrape-szu-staffreports.R">skriptu</a> jsou zapsané přesné odkazy</li>
+</ul></li>
+<li>tyto tabulky mají skoro stejnou strukturu mezi lety, jdou tedy strojově zkompilovat, následně jsou uložené v původní XLS formě <a href="https://github.com/petrbouchal/urednici/tree/master/data-input">na githubu</a></li>
+<li>schválený rozpočet 2013 v těchto datech odpovídá schválenému rozpočtu 2013 v interní tabulce MF, kterou nám v roce 2013 laskavě půjčili</li>
+<li>v roce 2021 jsme dostali od MF prodlouženou verzi excelové megatabulky z toku 2013</li>
+</ul>
+</div>
+<div id="výkaz-výdajů-druhové-členění" class="section level2">
+<h2>2. Výkaz výdajů, druhové členění</h2>
+<ul>
+<li>součást státní pokladny - jak <a href="http://monitor.statnipokladna.cz/analyza/">analytického rozhraní</a> - report <em>Příjmy, výdaje a financování státu</em>, tak <a href="http://monitor.statnipokladna.cz/2019/zdrojova-data/transakcni-data">hrubých open dat</a></li>
+<li>pozor, analytika SP <a href="https://twitter.com/otevrenadatamf/status/1190329092916289536">má dostat novou verzi</a></li>
+<li>obsahuje pouze objemy výdajů, nikoli počty lidí</li>
+<li>OPPP zmíněné výše, které chybí ve veřejných datech SZÚ, odpovídají podseskupení 502 druhového třídění rozpočtu - složení tohoto podseskupení se mezi kapitolami liší, ale to nevadí
+<ul>
+<li>obecně obsahují odstupné apod., ale také “ostatní osobní výdaje” a “Ostatní platby za provedenou práci jinde nezařazené”, přičemž to první by měly být DPP a DPČ, viz <a href="https://ucetniportal.cz/wiki/html?item=14399" class="uri">https://ucetniportal.cz/wiki/html?item=14399</a></li>
+</ul></li>
+<li>501 by měly být platy, 503 a 504 jsou pojistné a další, které ve výkazu SZÚ vůbec nefigurují</li>
+<li>lze získat z rozhraní Monitoru SP za 2010-2019, ale u podseskupení se tam chybně místo názvu ukazují kódy, takže je to méně přehledné</li>
+<li>validace proti SZÚ 2013 potvrzuje, že OPPP = podseskupení 502 a Platy + OPPP = seskupení 50, tj. platy by měly jít dovodit odečtem</li>
+<li>to také znamená, že podseskupení platy neobsahuje platy představitelů státní moci (politici)</li>
+<li>nelze ověřit, jestli to platí pro 2014+</li>
+<li>od 2016 existuje položka na platy lidí ve státní službě a položka na ostatní</li>
+<li>z Monitoru jde toto vytahat na úrovni kapitol, pak už je to moc velké, ale zato v časové řadě 2010-2019, zatímco z open dat by se to muselo tahat ze dvou různých souborů pro -2014 a 2015-, ale zase by to šlo po organizacích.</li>
+<li>v open datech sada
+<ul>
+<li>pro -2014 FIN 204 U, výkaz/soubor FIN U 101/FIN U 102, tj. výkaz 52, tabulky 100/200/300</li>
+<li>pro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS</li>
+<li>číselník <code>polozka</code> pro druhové třídění</li>
+<li>co rok, to datový soubor…</li>
+<li>export z analytického interface per kapitola [na githubu](<a href="https://github.com/petrbouchal/urednici/tree/master/data-input" class="uri">https://github.com/petrbouchal/urednici/tree/master/data-input</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="výkaz-povinných-ukazatelů" class="section level2">
+<h2>3. Výkaz povinných ukazatelů</h2>
+<ul>
+<li>součást státní pokladny - jak analytického rozhraní, tak hrubých open dat</li>
+<li>pouze objemy výdajů</li>
+<li>relevantní jsou “průřezové ukazatele” - platí pro všechny kapitoly/organizace</li>
+<li>do 2014 za organizaci, od 2015 za kapitolu</li>
+<li>v čase se mění relevantní ukazatel (hlavně náběh SlužZ a jiné)</li>
+<li>ukazatele nejde mezi sebou sčítat, některé jsou podskupinou jiných</li>
+<li>obsahuje
+<ul>
+<li>vždy <em>Platy zaměstnanců a ostatní platby za provedenou práci</em></li>
+<li>do 2015 Platy státních úředníků a platy zaměstnanců v pracovním poměru (státní úředníci zřejmě podle nefunkčního zákona o úřednících)</li>
+<li>od 2016 <em>Platy zaměstnanců v pracovním poměru vyjma zaměstnanců na služebních místech</em> a <em>Platy zaměstnanců na služebních místech dle zákona o státní službě</em></li>
+<li>soudě dle čísel tyto ukazatele dávají smysl - např. aspoň AVČR nemá žádné lidi ve službě…</li>
+</ul></li>
+<li>monitorují se normálně v logice rozpočet-po změnách-konečný-výsledek</li>
+<li>v open datech sada
+<ul>
+<li>pro -2014 FIN 204 U, výkaz/soubor FIN U 106, tj. tabulka 700/část 7 výkazu 52</li>
+<li>pro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS-ZU</li>
+<li>pro ukazatele číselníky <code>polvkk</code> (do 2014) a <code>psuk</code> (2015+)</li>
+<li>co rok, to datový soubor</li>
+<li>export z analytického interface per kapitola <a href="https://github.com/petrbouchal/urednici/tree/master/data-input">na githubu</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="kategorie" class="section level1">
+<h1>Kategorie</h1>
+<p>TLDR: SZÚ používá v části o regulaci veřejné zaměstnanosti zvláštní kategorizaci organizací, kterou se mi nedaří replikovat z dat Státní pokladny.</p>
+<p>Státní pokladna ale v metadatech o účetních jednotkách (účtujících organizacích) obsahuje i vlastnost Typ OSS, o které tvrdí, že je pro účely rozpočtové regulace zaměstnanosti. Školy zřizované obcemi tam ale jsou vedené jako příspěvkovky obcí, oproti kategorizaci SZÚ. Aspoň ale jde najít organizace ÚO a OSS a prokřížit se správcovstvím kapitol (poddruh ÚJ) =&gt; existují organizace, jako třeba Kancelář prezidenta, které jsou správci kapitol, ale nejsou ústředními orgány státní správy a spadají tak do typu “Ostatní OSS” i když např. s ministerstvem sdílí druh “OSS - správce kapitoly”</p>
+<ul>
+<li><a href="http://monitor.statnipokladna.cz/2019/zdrojova-data/prohlizec-ciselniku/ucjed?date=1.11.2019" class="uri">http://monitor.statnipokladna.cz/2019/zdrojova-data/prohlizec-ciselniku/ucjed?date=1.11.2019</a></li>
+<li>při využití XML potřeba na číselník ucjed navázat číselníky typorg, druhuj, poddruhuj a kapitola</li>
+<li>bohužel nekoreluje zcela s kategoriemi v SZÚ (viz školy, netestoval jsem vojáky, hasiče atd.)</li>
+</ul>
+</div>
+<div id="co-tedy-s-tím" class="section level1">
+<h1>Co tedy s tím</h1>
+<ul>
+<li>vzít počty zaměstnanců ze SZÚ
+<ul>
+<li>hotovo, viz základní grafický sumář na <a href="https://petrbouchal.github.io/urednici/2_explore-counts.html" class="uri">https://petrbouchal.github.io/urednici/2_explore-counts.html</a></li>
+<li>též propojeno s podmnožinou/derivátem starších dat od MF, grafický sumář výsledku viz <a href="https://petrbouchal.github.io/urednici/3_explore-counts-longseries.html" class="uri">https://petrbouchal.github.io/urednici/3_explore-counts-longseries.html</a></li>
+</ul></li>
+<li>vzít celkové objemy platy+OPPP ze SZÚ</li>
+<li>dopočítat OPPP paralelně z výdajů a ukazatelů</li>
+<li>podívat se, jestli podíl OPPP na celku se mezi dvěma metodami liší a je konzistentní s minulými interními daty MF</li>
+<li>využít číselníky státní pokladny pro navazování a kategorizaci
+<ul>
+<li>IČO, vazba kapitola-organizace atd., názvy a kódy kapitol atd.</li>
+<li>kategorizace OSS: zkusit vytvořit nějakou rozumnou kategorizaci prokřížením poddruhu ÚJ a typu organizacex</li>
+</ul></li>
+<li>vše napřed na úrovni kapitol s tabulkami z , pak z hrubých open dat na úrovni organizací, ale pozor na konsolidace atd.</li>
+<li>v prvním gardu se trápit OSS/SS/ÚO, pak až školami, hasiči, armádou a … špiony.</li>
+</ul>
+</div>
+<div id="dodatek-data-o-trhu-práce" class="section level1">
+<h1>Dodatek: data o trhu práce</h1>
+<ul>
+<li>pro srovnání platů jsme v roce 2013 používali tato data z ČSÚ:
+<ul>
+<li><a href="https://www.czso.cz/csu/czso/evidencni-pocet-zamestnancu-a-jejich-mzdy-3-ctvrtleti-2019">Evidenční počet zaměstnanců a jejich mzdy, kód 110024-19</a> - čtvrtletní, časová řada 2000-2018 slepená v příloze 1b, ale jen pro celou ČR; po krajích se to musí brát z jednotlivých souborů (tab 46/tab 106)</li>
+<li><a href="https://www.czso.cz/csu/czso/casove-rady-zakladnich-ukazatelu-statistiky-prace-leden-2020">Časové řady základních ukazatelů statistiky práce - leden 2020, kód 110025-19</a> - krajské jen roční do 2017 a navíc neslepené.</li>
+</ul></li>
+</ul>
+</div>
+<div id="data-čsú---výběr-z-vdb-na-doporučení" class="section level1">
+<h1>Data ČSÚ - výběr z VDB na doporučení:</h1>
+<ul>
+<li><a href="https://vdb.czso.cz/vdbvo2/faces/cs/index.jsf?page=statistiky#katalog=30852" class="uri">https://vdb.czso.cz/vdbvo2/faces/cs/index.jsf?page=statistiky#katalog=30852</a>: krajské mediány a krajské průměry (2000-2019) podle klasifikace zaměstnání (2005/2011-2018) nebo odvětví (2005-2018)</li>
+<li><a href="https://vdb.czso.cz/vdbvo2/faces/cs/index.jsf?page=vyhledavani&amp;katalog=all&amp;vyhltext=medi%C3%A1n" class="uri">https://vdb.czso.cz/vdbvo2/faces/cs/index.jsf?page=vyhledavani&amp;katalog=all&amp;vyhltext=medi%C3%A1n</a>: krajské průměry podle klasifikace zaměstnání a pohlaví 2011-2018</li>
+</ul>
+<p>Většinou podivné rozložení políček, které by se musely exportovat po jednom kraji, roce, nebo obojí, ale lepší než nic.</p>
+<p>Alternativa je vzít data z ISPV, kde je to ale poskládané ještě hůř:</p>
+<ul>
+<li>archiv <a href="https://www.mpsv.cz/web/cz/archiv-publikaci-ispv" class="uri">https://www.mpsv.cz/web/cz/archiv-publikaci-ispv</a> od 2000</li>
+<li>aktuální <a href="https://www.mpsv.cz/web/cz/publikace-ispv-ke-stazeni" class="uri">https://www.mpsv.cz/web/cz/publikace-ispv-ke-stazeni</a></li>
+<li>cesta k xlsx mzdové a platové sféry dohromady <a href="https://www.mpsv.cz/documents/20142/636498/ISPV_%7BNNN%7D.xlsx" class="uri">https://www.mpsv.cz/documents/20142/636498/ISPV_{NNN}.xlsx</a> kde 004 &lt; NNN &lt; 194 NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010 Q4) jsou jen ZIP soubory, ve kterých je zvlášť excel za mzdovou a platovou sféru.</li>
+<li>krajská data od 2001 <a href="https://www.mpsv.cz/web/cz/porovnani-kraju" class="uri">https://www.mpsv.cz/web/cz/porovnani-kraju</a> např. <a href="https://www.mpsv.cz/web/cz/hlavni-mesto-praha" class="uri">https://www.mpsv.cz/web/cz/hlavni-mesto-praha</a>, URL na excel např. <a href="https://www.mpsv.cz/documents/20142/848077/pra_012_ps.xls" class="uri">https://www.mpsv.cz/documents/20142/848077/pra_012_ps.xls</a>, kde NNN jsou jiná čísla než u celorepublikových dat ISPV. Od 2011 snad ve stejné formě. Existuje i porovnání krajů (což jsou ale jen excely krajů v jednom ZIP, pokud správně vidím, navíc je tam často jen podnikatelská/mzdová sféra).</li>
+</ul>
+</div>
+<div id="státní-rozpočet" class="section level1">
+<h1>Státní rozpočet</h1>
+<ul>
+<li><p>měl by obsahovat to co SZÚ, každopádně od 2015 je v <a href="https://data.mfcr.cz/cs/dataset/statni-rozpocet">excelu v open datech MF</a></p></li>
+<li><p>pokladní plnění excely např. <a href="https://www.mfcr.cz/assets/cs/media/Pokladni-plneni_2020-03_Tabulka-mesicni-pokladni-plneni-03-2020.xlsx" class="uri">https://www.mfcr.cz/assets/cs/media/Pokladni-plneni_2020-03_Tabulka-mesicni-pokladni-plneni-03-2020.xlsx</a>, odkaz z <a href="https://www.mfcr.cz/cs/aktualne/tiskove-zpravy/2020/pokladni-plneni-sr-38056" class="uri">https://www.mfcr.cz/cs/aktualne/tiskove-zpravy/2020/pokladni-plneni-sr-38056</a> a URL má stejnou formu ve 2020</p></li>
+<li><p>přehled pokladního plnění za 2019 <a href="https://www.mfcr.cz/cs/verejny-sektor/statni-rozpocet/plneni-statniho-rozpoctu/2019/mesicni-pokladni-plneni-2019-34199" class="uri">https://www.mfcr.cz/cs/verejny-sektor/statni-rozpocet/plneni-statniho-rozpoctu/2019/mesicni-pokladni-plneni-2019-34199</a> s odkazy na tiskové zprávy, URL excelů v 2019 bohužel nejsou konzistentní</p></li>
+<li><p>výkaz zdrojů a užití prostředků SR v OSS <a href="https://www.mfcr.cz/cs/verejny-sektor/rozpoctove-ramce-statisticke-informace/fiskalni-udaje/ustredni-vlada/organizacni-slozky-statu/2020/vykaz-zdroju-a-uziti-peneznich-prostredk-37685" class="uri">https://www.mfcr.cz/cs/verejny-sektor/rozpoctove-ramce-statisticke-informace/fiskalni-udaje/ustredni-vlada/organizacni-slozky-statu/2020/vykaz-zdroju-a-uziti-peneznich-prostredk-37685</a></p></li>
+</ul>
+</div>
+<div id="státní-služba" class="section level1">
+<h1>Státní služba</h1>
+<ul>
+<li><a href="https://www.mvcr.cz/sluzba/clanek/vyrocni-zprava-vyrocni-zprava-o-statni-sluzbe.aspx">výroční zprávy o státní službě</a></li>
+<li>systemizace při každé změně od 2019 <a href="https://www.mvcr.cz/sluzba/clanek/systemizace-sluzebnich-a-pracovnich-mist.aspx" class="uri">https://www.mvcr.cz/sluzba/clanek/systemizace-sluzebnich-a-pracovnich-mist.aspx</a></li>
+</ul>
+</div>
+<div id="další-zdroje" class="section level1">
+<h1>Další zdroje</h1>
+<ul>
+<li>MV ČR (2020) <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjWjbG5jvHwAhVEwKQKHZ2OAKwQFjAAegQIAhAD&amp;url=https%3A%2F%2Fwww.mvcr.cz%2Fsoubor%2Fanalyza-starnuti-zamestnancu-verejne-spravy-2020-pdf.aspx&amp;usg=AOvVaw1zJVRooNl3a7RMPIl11feO">“ANALÝZA STÁRNUTÍ ZAMĚSTNANCŮ VEŘEJNÉ SPRÁVY”</a></li>
+</ul>
+</div>
+<div id="zdroje-o-jednotlivých-organizacích" class="section level1">
+<h1>Zdroje o jednotlivých organizacích</h1>
+<div id="čssz---open-data-o-zaměstnancích" class="section level2">
+<h2>ČSSZ - open data o zaměstnancích</h2>
+<ul>
+<li>průměr a medián platů <a href="https://data.cssz.cz/web/otevrena-data/-/prumerny-plat-v-cssz" class="uri">https://data.cssz.cz/web/otevrena-data/-/prumerny-plat-v-cssz</a></li>
+<li>systemizovaná místa a fluktuace <a href="https://data.cssz.cz/web/otevrena-data/-/systemizovana-mista-a-fluktuace-zamestnancu-cssz" class="uri">https://data.cssz.cz/web/otevrena-data/-/systemizovana-mista-a-fluktuace-zamestnancu-cssz</a></li>
+<li>zaměstnanci dle vzdělání <a href="https://data.cssz.cz/web/otevrena-data/-/zamestnanci-cssz-dle-vzdelani" class="uri">https://data.cssz.cz/web/otevrena-data/-/zamestnanci-cssz-dle-vzdelani</a></li>
+</ul>
+</div>
+</div>
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiBKYWsgc2UgeiBvZmljacOhbG7DrWNoIGRhdCBuxJtjbyBkb3bEm2TEm3QgbyBwb8SNdGVjaCDDusWZZWRuw61rxa8gxI1lc2vDqWhvIHN0w6F0dQpzdWJ0aXRsZTogRWRpdGlvbiAyMDE4CmF1dGhvcjogUGV0ciBCb3VjaGFsCmRhdGU6IDEgTm92IDIwMTkKLS0tCgojIENvIGplIHBvdMWZZWJhCgotIGRhdGEgbyBwb8SNdGVjaCB6YW3Em3N0bmFuY8WvLCBjbyBuZWpqZW1uxJtqxaHDrSDEjWxlbsSbbsOtIChza3VwaW55IG9yZ2FuaXphY8OtID0+IGthcGl0b2x5ID0+IG9yZ2FuaXphY2UpCi0gZGF0YSBvIG7DoWtsYWRlY2ggbmEgcGxhdHkgcHJvIHbDvXBvxI1ldCBhIHNyb3Zuw6Fuw60gcHLFr23Em3Juw71jaCBwbGF0xa8gdnrDoWplbW7EmyBhIHMgdHJoZW0gcHLDoWNlICh0ai4gYmV6IHBvamlzdG7DqWhvLCBuw6FrbGFkxa8gbmEgRFBQLCBwbGF0eSBwb2xpdGlrxa8gYXRkLikKCiMgS2RlIHRhdG8gZGF0YSB2esOtdAoKIyMgMC4gSW50ZXJuw60gdGFidWxrYSBNRiBwcm8gdHZvcmJ1IFNaw5ogCgotIFN2YXTDvSBHcsOhbDogdsWhZWNobm8gdiBqZWRuw6kgbWVnYSBhIGFuY2llbnQgZXhjZWxvdsOpIHRhYnVsY2U6CiAgLSBwb8SNdHkgemFtxJtzdG5hbmPFryBpIG9iamVteSB2w71kYWrFrwogIC0gMjAwMy0yMDFYCiAgLSDEjWxlbsSbbsOtIG5hIHNrdXBpbnkgcmVwb3J0b3ZhbsOpIHYgU1rDmgogIC0gdsWhZWNobnkgZsOhemUgcm96cG/EjXR1CiAgLSBwbyBrYXBpdG9sw6FjaCBpIG9yZ2FuaXphY8OtY2gKICAtIG9kZMSbbGVuw6kgcGxhdHkgYSBvc3RhdG7DrSBwbGF0YnkgemEgcHJvdmVkZW5vdSBwcsOhY2kKLSBwxa9qxI1pbGkgbsOhbSBqZSBuYSBzdHVkaWkgSURFQSB2IHJvY2UgMjAxMwotICgtKSBkxJtzaXbDqSB2em9yZcSNa3kgYSBwcm92YXpieSBrYW1zaSBuYSBzw63FpW92w70gZGlzayBNRiwgYWxlIHNuYWQgamUgdG8gc3Byw6F2bsSbCi0gfn4oLSkgdGXEjyB1xb4gc2UgdG9obyBuZWTDoSBkb2JyYXQsIG5lanNtZSBzY2hvcG5pIG5hIE1GIHprb250YWt0b3ZhdCB2bGFzdG7DrWthIHNvdWJvcnV+fgotIHVwZGF0ZSAyMDIxLzAzOiB6IE1GIG3DoW1lIGRhdGEgemEgcm9reSAyMDEzLTIwMjAKLSAoLSkgbmV6bsOhbSBzdGF0dXMgdMOpIHbEm2NpLCBwcm90byBwxa92b2Ruw60gc291Ym9yIG5hIEdpdGh1YiBuZWTDoXbDoW0gKG5pYyB0YWpuw6lobyB0YW0gbmVuw60sIGFsZSBqZSB0byBuxJvEjcOtIGludGVybsOtIHByw6FjZSkKCiMjIDEuIFNaw5o6IHN0w6F0bsOtIHrDoXbEm3JlxI1uw70gw7rEjWV0CgpOQiB0ZW50byBkYXRvdsO9IHpkcm9qIG9ic2FodWplIHVyxI1pdMO9IMWZZXogY2Vsw71taSB2ZcWZZWpuw71taSBmaW5hbmNlbWksIHRqLiBuZWplbiBkYXR5IG8gw7rFmWVkbsOtY8OtY2gsIMSNaWxpIHBvem7DoW1reSBpIGvDs2QgbcWvxb5vdSBiw710IHXFvml0ZcSNbsOpIHBybyB6cHJhY292w6Fuw60gxaFpcsWhw61obyBzcGVrdHJhIGRhdCwgYnnFpSB0YSBhc2kgYnVkb3UgxI1hc3RvIGRvc3R1cG7DoSBpIHYgTW9uaXRvcnUgc3TDoXRuw60gcG9rbGFkbnkuIAoKLSBvYnNhaHVqZSBwb8SNdHkgemFtxJtzdG5hbmPFryBhIGZpbmFuxI1uw60gb2JqZW15IHbDvWRhasWvIG5hIHBsYXR5IC0gdGFidWxreSAxMCBhIDExLCB0ai4gc291xI3DoXN0IHRhYnVsa292w6kgcMWZw61sb2h5LCBkw6EtbGkgTUYsIHRhayB2IGV4Y2VsdQotIGZpbmFuxI1uw60gb2JqZW15IHBvdXplIHYgc291xI10dSAiUGxhdHkgYSBvc3RhdG7DrSBwbGF0YnkgemEgcHJvdmVkZW5vdSBwcsOhY2kiCi0gdG8gb2Rwb3bDrWTDoSBzZXNrdXBlbsOtIDUwIHYgZHJ1aG92w6ltIMSNbGVuxJtuw60sIGFsZSBuZWpkb3UgeiB0b2hvIHZ5cG/EjcOtdGF0IHByxa9txJtybsOpIHBsYXR5LCBwcm90b8W+ZSB0eSBNRiB2IFNaw5ogcG/EjcOtdMOhIChsb2dpY2t5KSBwb3V6ZSB6IHBvbG/Fvmt5IHBsYXR5IGJleiAib3N0YXRuw61jaCBwbGF0ZWIgemEgcHJvdmVkZW5vdSBwcsOhY2kgKE9QUFApIiwgamUgdGVkeSBwb3TFmWViYSBvZGXEjcOtc3QgT1BQUCAodml6IG7DrcW+ZSkKLSB2IGV4Y2VsdSBqc291IGRvc3R1cG7DqSByZWxldmFudG7DrSB0YWJ1bGt5IHogd2VidSBTbsSbbW92bnkgb2Qgcm9rdSAyMDEyIGRvIHJva3UgMjAxOCAoemFqw61tYXbDqSBqZSwgxb5lIGV4Y2Vsb3bDvWNoIHNvdWJvcsWvIG9kIHJva3UgMjAxMiB1YsO9dsOhIGEgbGV0b3MgdcW+IGplIHRhbSBqZW4gamVkZW4gaGxhdm7DrSwgemJ5dGVrIMSNYXN0byBqYWtvIG9icsOhemt5IHYgUERGKQogIC0gcG90xZllYmEgaGxlZGF0IHphIGplZG5vdGxpdsOhIHZvbGVibsOtIG9iZG9iw60genZsw6HFocWlCiAgLSB2ZSBbc2tyaXB0dV0oaHR0cHM6Ly9naXRodWIuY29tL3BldHJib3VjaGFsL3VyZWRuaWNpL2Jsb2IvbWFzdGVyLzFfc2NyYXBlLXN6dS1zdGFmZnJlcG9ydHMuUikganNvdSB6YXBzYW7DqSBwxZllc27DqSBvZGthenkKLSB0eXRvIHRhYnVsa3kgbWFqw60gc2tvcm8gc3Rlam5vdSBzdHJ1a3R1cnUgbWV6aSBsZXR5LCBqZG91IHRlZHkgc3Ryb2pvdsSbIHprb21waWxvdmF0LCBuw6FzbGVkbsSbIGpzb3UgdWxvxb5lbsOpIHYgcMWvdm9kbsOtIFhMUyBmb3JtxJsgW25hIGdpdGh1YnVdKGh0dHBzOi8vZ2l0aHViLmNvbS9wZXRyYm91Y2hhbC91cmVkbmljaS90cmVlL21hc3Rlci9kYXRhLWlucHV0KQotIHNjaHbDoWxlbsO9IHJvenBvxI1ldCAyMDEzIHYgdMSbY2h0byBkYXRlY2ggb2Rwb3bDrWTDoSBzY2h2w6FsZW7DqW11IHJvenBvxI10dSAyMDEzIHYgaW50ZXJuw60gdGFidWxjZSBNRiwga3Rlcm91IG7DoW0gdiByb2NlIDIwMTMgbGFza2F2xJsgcMWvasSNaWxpCi0gdiByb2NlIDIwMjEganNtZSBkb3N0YWxpIG9kIE1GIHByb2Rsb3XFvmVub3UgdmVyemkgZXhjZWxvdsOpIG1lZ2F0YWJ1bGt5IHogdG9rdSAyMDEzCgojIyAyLiBWw71rYXogdsO9ZGFqxa8sIGRydWhvdsOpIMSNbGVuxJtuw60KCi0gc291xI3DoXN0IHN0w6F0bsOtIHBva2xhZG55IC0gamFrIFthbmFseXRpY2vDqWhvIHJvemhyYW7DrV0oaHR0cDovL21vbml0b3Iuc3RhdG5pcG9rbGFkbmEuY3ovYW5hbHl6YS8pIC0gcmVwb3J0ICpQxZnDrWpteSwgdsO9ZGFqZSBhIGZpbmFuY292w6Fuw60gc3TDoXR1KiwgdGFrIFtocnViw71jaCBvcGVuIGRhdF0oaHR0cDovL21vbml0b3Iuc3RhdG5pcG9rbGFkbmEuY3ovMjAxOS96ZHJvam92YS1kYXRhL3RyYW5zYWtjbmktZGF0YSkKLSBwb3pvciwgYW5hbHl0aWthIFNQIFttw6EgZG9zdGF0IG5vdm91IHZlcnppXShodHRwczovL3R3aXR0ZXIuY29tL290ZXZyZW5hZGF0YW1mL3N0YXR1cy8xMTkwMzI5MDkyOTE2Mjg5NTM2KQotIG9ic2FodWplIHBvdXplIG9iamVteSB2w71kYWrFrywgbmlrb2xpIHBvxI10eSBsaWTDrQotIE9QUFAgem3DrW7Em27DqSB2w73FoWUsIGt0ZXLDqSBjaHliw60gdmUgdmXFmWVqbsO9Y2ggZGF0ZWNoIFNaw5osIG9kcG92w61kYWrDrSBwb2RzZXNrdXBlbsOtIDUwMiBkcnVob3bDqWhvIHTFmcOtZMSbbsOtIHJvenBvxI10dSAtIHNsb8W+ZW7DrSB0b2hvdG8gcG9kc2Vza3VwZW7DrSBzZSBtZXppIGthcGl0b2xhbWkgbGnFocOtLCBhbGUgdG8gbmV2YWTDrQogIC0gb2JlY27EmyBvYnNhaHVqw60gb2RzdHVwbsOpIGFwb2QuLCBhbGUgdGFrw6kgIm9zdGF0bsOtIG9zb2Juw60gdsO9ZGFqZSIgYSAiT3N0YXRuw60gcGxhdGJ5IHphIHByb3ZlZGVub3UgcHLDoWNpIGppbmRlIG5lemHFmWF6ZW7DqSIsIHDFmWnEjWVtxb4gdG8gcHJ2bsOtIGJ5IG3Em2x5IGLDvXQgRFBQIGEgRFDEjCwgdml6IDxodHRwczovL3VjZXRuaXBvcnRhbC5jei93aWtpL2h0bWw/aXRlbT0xNDM5OT4KLSA1MDEgYnkgbcSbbHkgYsO9dCBwbGF0eSwgNTAzIGEgNTA0IGpzb3UgcG9qaXN0bsOpIGEgZGFsxaHDrSwga3RlcsOpIHZlIHbDvWthenUgU1rDmiB2xa9iZWMgbmVmaWd1cnVqw60KLSBsemUgesOtc2thdCB6IHJvemhyYW7DrSBNb25pdG9ydSBTUCB6YSAyMDEwLTIwMTksIGFsZSB1IHBvZHNlc2t1cGVuw60gc2UgdGFtIGNoeWJuxJsgbcOtc3RvIG7DoXp2dSB1a2F6dWrDrSBrw7NkeSwgdGFrxb5lIGplIHRvIG3DqW7EmyBwxZllaGxlZG7DqQotIHZhbGlkYWNlIHByb3RpIFNaw5ogMjAxMyBwb3R2cnp1amUsIMW+ZSBPUFBQID0gcG9kc2Vza3VwZW7DrSA1MDIgYSBQbGF0eSArIE9QUFAgPSBzZXNrdXBlbsOtIDUwLCB0ai4gcGxhdHkgYnkgbcSbbHkgasOtdCBkb3ZvZGl0IG9kZcSNdGVtCi0gdG8gdGFrw6kgem5hbWVuw6EsIMW+ZSBwb2RzZXNrdXBlbsOtIHBsYXR5IG5lb2JzYWh1amUgcGxhdHkgcMWZZWRzdGF2aXRlbMWvIHN0w6F0bsOtIG1vY2kgKHBvbGl0aWNpKQotIG5lbHplIG92xJvFmWl0LCBqZXN0bGkgdG8gcGxhdMOtIHBybyAyMDE0KwotIG9kIDIwMTYgZXhpc3R1amUgcG9sb8W+a2EgbmEgcGxhdHkgbGlkw60gdmUgc3TDoXRuw60gc2x1xb5ixJsgYSBwb2xvxb5rYSBuYSBvc3RhdG7DrQotIHogTW9uaXRvcnUgamRlIHRvdG8gdnl0YWhhdCBuYSDDunJvdm5pIGthcGl0b2wsIHBhayB1xb4gamUgdG8gbW9jIHZlbGvDqSwgYWxlIHphdG8gdiDEjWFzb3bDqSDFmWFkxJsgMjAxMC0yMDE5LCB6YXTDrW1jbyB6IG9wZW4gZGF0IGJ5IHNlIHRvIG11c2VsbyB0YWhhdCB6ZSBkdm91IHLFr3puw71jaCBzb3Vib3LFryBwcm8gLTIwMTQgYSAyMDE1LSwgYWxlIHphc2UgYnkgdG8gxaFsbyBwbyBvcmdhbml6YWPDrWNoLgotIHYgb3BlbiBkYXRlY2ggc2FkYQogIC0gcHJvIC0yMDE0IEZJTiAyMDQgVSwgdsO9a2F6L3NvdWJvciBGSU4gVSAxMDEvRklOIFUgMTAyLCB0ai4gdsO9a2F6IDUyLCB0YWJ1bGt5IDEwMC8yMDAvMzAwCiAgLSBwcm8gMjAxNSsgRklOIDExMi1PU1MsIHbDvWthei9zb3Vib3IgTUlTLVJJUwogIC0gxI3DrXNlbG7DrWsgYHBvbG96a2FgIHBybyBkcnVob3bDqSB0xZnDrWTEm27DrQogIC0gY28gcm9rLCB0byBkYXRvdsO9IHNvdWJvci4uLgogIC0gZXhwb3J0IHogYW5hbHl0aWNrw6lobyBpbnRlcmZhY2UgcGVyIGthcGl0b2xhIFtuYSBnaXRodWJ1XShodHRwczovL2dpdGh1Yi5jb20vcGV0cmJvdWNoYWwvdXJlZG5pY2kvdHJlZS9tYXN0ZXIvZGF0YS1pbnB1dAoKIyMgMy4gVsO9a2F6IHBvdmlubsO9Y2ggdWthemF0ZWzFrwoKLSBzb3XEjcOhc3Qgc3TDoXRuw60gcG9rbGFkbnkgLSBqYWsgYW5hbHl0aWNrw6lobyByb3pocmFuw60sIHRhayBocnViw71jaCBvcGVuIGRhdAotIHBvdXplIG9iamVteSB2w71kYWrFrwotIHJlbGV2YW50bsOtIGpzb3UgInByxa/FmWV6b3bDqSB1a2F6YXRlbGUiIC0gcGxhdMOtIHBybyB2xaFlY2hueSBrYXBpdG9seS9vcmdhbml6YWNlCi0gZG8gMjAxNCB6YSBvcmdhbml6YWNpLCBvZCAyMDE1IHphIGthcGl0b2x1Ci0gdiDEjWFzZSBzZSBtxJtuw60gcmVsZXZhbnRuw60gdWthemF0ZWwgKGhsYXZuxJsgbsOhYsSbaCBTbHXFvlogYSBqaW7DqSkKLSB1a2F6YXRlbGUgbmVqZGUgbWV6aSBzZWJvdSBzxI3DrXRhdCwgbsSba3RlcsOpIGpzb3UgcG9kc2t1cGlub3Ugamluw71jaAotIG9ic2FodWplIAogIC0gdsW+ZHkgKlBsYXR5IHphbcSbc3RuYW5jxa8gYSBvc3RhdG7DrSBwbGF0YnkgemEgcHJvdmVkZW5vdSBwcsOhY2kqCiAgLSBkbyAyMDE1IFBsYXR5IHN0w6F0bsOtY2ggw7rFmWVkbsOta8WvIGEgcGxhdHkgemFtxJtzdG5hbmPFryB2IHByYWNvdm7DrW0gcG9txJtydSAoc3TDoXRuw60gw7rFmWVkbsOtY2kgesWZZWptxJsgcG9kbGUgbmVmdW5rxI1uw61obyB6w6Frb25hIG8gw7rFmWVkbsOtY8OtY2gpCiAgLSBvZCAyMDE2ICpQbGF0eSB6YW3Em3N0bmFuY8WvIHYgcHJhY292bsOtbSBwb23Em3J1IHZ5am1hIHphbcSbc3RuYW5jxa8gbmEgc2x1xb5lYm7DrWNoIG3DrXN0ZWNoKiBhICpQbGF0eSB6YW3Em3N0bmFuY8WvIG5hIHNsdcW+ZWJuw61jaCBtw61zdGVjaCBkbGUgesOha29uYSBvIHN0w6F0bsOtIHNsdcW+YsSbKgogIC0gc291ZMSbIGRsZSDEjcOtc2VsIHR5dG8gdWthemF0ZWxlIGTDoXZhasOtIHNteXNsIC0gbmFwxZkuIGFzcG/FiCBBVsSMUiBuZW3DoSDFvsOhZG7DqSBsaWRpIHZlIHNsdcW+YsSbLi4uCi0gbW9uaXRvcnVqw60gc2Ugbm9ybcOhbG7EmyB2IGxvZ2ljZSByb3pwb8SNZXQtcG8gem3Em27DoWNoLWtvbmXEjW7DvS12w71zbGVkZWsKLSB2IG9wZW4gZGF0ZWNoIHNhZGEKICAtIHBybyAtMjAxNCBGSU4gMjA0IFUsIHbDvWthei9zb3Vib3IgRklOIFUgMTA2LCB0ai4gdGFidWxrYSA3MDAvxI3DoXN0IDcgdsO9a2F6dSA1MgogIC0gcHJvIDIwMTUrIEZJTiAxMTItT1NTLCB2w71rYXovc291Ym9yIE1JUy1SSVMtWlUKICAtIHBybyB1a2F6YXRlbGUgxI3DrXNlbG7DrWt5IGBwb2x2a2tgIChkbyAyMDE0KSBhIGBwc3VrYCAoMjAxNSspCiAgLSBjbyByb2ssIHRvIGRhdG92w70gc291Ym9yCiAgLSBleHBvcnQgeiBhbmFseXRpY2vDqWhvIGludGVyZmFjZSBwZXIga2FwaXRvbGEgW25hIGdpdGh1YnVdKGh0dHBzOi8vZ2l0aHViLmNvbS9wZXRyYm91Y2hhbC91cmVkbmljaS90cmVlL21hc3Rlci9kYXRhLWlucHV0KQoKIyBLYXRlZ29yaWUKClRMRFI6IFNaw5ogcG91xb7DrXbDoSB2IMSNw6FzdGkgbyByZWd1bGFjaSB2ZcWZZWpuw6kgemFtxJtzdG5hbm9zdGkgenZsw6HFoXRuw60ga2F0ZWdvcml6YWNpIG9yZ2FuaXphY8OtLCBrdGVyb3Ugc2UgbWkgbmVkYcWZw60gcmVwbGlrb3ZhdCB6IGRhdCBTdMOhdG7DrSBwb2tsYWRueS4KClN0w6F0bsOtIHBva2xhZG5hIGFsZSB2IG1ldGFkYXRlY2ggbyDDusSNZXRuw61jaCBqZWRub3Rrw6FjaCAow7rEjXR1asOtY8OtY2ggb3JnYW5pemFjw61jaCkgb2JzYWh1amUgaSB2bGFzdG5vc3QgVHlwIE9TUywgbyBrdGVyw6kgdHZyZMOtLCDFvmUgamUgcHJvIMO6xI1lbHkgcm96cG/EjXRvdsOpIHJlZ3VsYWNlIHphbcSbc3RuYW5vc3RpLiDFoGtvbHkgesWZaXpvdmFuw6kgb2JjZW1pIHRhbSBhbGUganNvdSB2ZWRlbsOpIGpha28gcMWZw61zcMSbdmtvdmt5IG9iY8OtLCBvcHJvdGkga2F0ZWdvcml6YWNpIFNaw5ouIEFzcG/FiCBhbGUgamRlIG5hasOtdCBvcmdhbml6YWNlIMOaTyBhIE9TUyBhIHByb2vFmcOtxb5pdCBzZSBzcHLDoXZjb3ZzdHbDrW0ga2FwaXRvbCAocG9kZHJ1aCDDmkopID0+IGV4aXN0dWrDrSBvcmdhbml6YWNlLCBqYWtvIHTFmWViYSBLYW5jZWzDocWZIHByZXppZGVudGEsIGt0ZXLDqSBqc291IHNwcsOhdmNpIGthcGl0b2wsIGFsZSBuZWpzb3Ugw7pzdMWZZWRuw61taSBvcmfDoW55IHN0w6F0bsOtIHNwcsOhdnkgYSBzcGFkYWrDrSB0YWsgZG8gdHlwdSAiT3N0YXRuw60gT1NTIiBpIGtkecW+IG5hcMWZLiBzIG1pbmlzdGVyc3R2ZW0gc2TDrWzDrSBkcnVoICJPU1MgLSBzcHLDoXZjZSBrYXBpdG9seSIKCi0gaHR0cDovL21vbml0b3Iuc3RhdG5pcG9rbGFkbmEuY3ovMjAxOS96ZHJvam92YS1kYXRhL3Byb2hsaXplYy1jaXNlbG5pa3UvdWNqZWQ/ZGF0ZT0xLjExLjIwMTkKLSBwxZlpIHZ5dcW+aXTDrSBYTUwgcG90xZllYmEgbmEgxI3DrXNlbG7DrWsgdWNqZWQgbmF2w6F6YXQgxI3DrXNlbG7DrWt5IHR5cG9yZywgZHJ1aHVqLCBwb2RkcnVodWogYSBrYXBpdG9sYQotIGJvaHXFvmVsIG5la29yZWx1amUgemNlbGEgcyBrYXRlZ29yaWVtaSB2IFNaw5ogKHZpeiDFoWtvbHksIG5ldGVzdG92YWwganNlbSB2b2rDoWt5LCBoYXNpxI1lIGF0ZC4pCgojIENvIHRlZHkgcyB0w61tCgotIHZ6w610IHBvxI10eSB6YW3Em3N0bmFuY8WvIHplIFNaw5oKICAtIGhvdG92bywgdml6IHrDoWtsYWRuw60gZ3JhZmlja8O9IHN1bcOhxZkgbmEgPGh0dHBzOi8vcGV0cmJvdWNoYWwuZ2l0aHViLmlvL3VyZWRuaWNpLzJfZXhwbG9yZS1jb3VudHMuaHRtbD4gCiAgLSB0w6nFviBwcm9wb2plbm8gcyBwb2Rtbm/Fvmlub3UvZGVyaXbDoXRlbSBzdGFyxaHDrWNoIGRhdCBvZCBNRiwgZ3JhZmlja8O9IHN1bcOhxZkgdsO9c2xlZGt1IHZpeiA8aHR0cHM6Ly9wZXRyYm91Y2hhbC5naXRodWIuaW8vdXJlZG5pY2kvM19leHBsb3JlLWNvdW50cy1sb25nc2VyaWVzLmh0bWw+Ci0gdnrDrXQgY2Vsa292w6kgb2JqZW15IHBsYXR5K09QUFAgemUgU1rDmgotIGRvcG/EjcOtdGF0IE9QUFAgcGFyYWxlbG7EmyB6IHbDvWRhasWvIGEgdWthemF0ZWzFrwotIHBvZMOtdmF0IHNlLCBqZXN0bGkgcG9kw61sIE9QUFAgbmEgY2Vsa3Ugc2UgbWV6aSBkdsSbbWEgbWV0b2RhbWkgbGnFocOtIGEgamUga29uemlzdGVudG7DrSBzIG1pbnVsw71taSBpbnRlcm7DrW1pIGRhdHkgTUYKLSB2eXXFvsOtdCDEjcOtc2VsbsOta3kgc3TDoXRuw60gcG9rbGFkbnkgcHJvIG5hdmF6b3bDoW7DrSBhIGthdGVnb3JpemFjaQogIC0gScSMTywgdmF6YmEga2FwaXRvbGEtb3JnYW5pemFjZSBhdGQuLCBuw6F6dnkgYSBrw7NkeSBrYXBpdG9sIGF0ZC4KICAtIGthdGVnb3JpemFjZSBPU1M6IHprdXNpdCB2eXR2b8WZaXQgbsSbamFrb3Ugcm96dW1ub3Uga2F0ZWdvcml6YWNpIHByb2vFmcOtxb5lbsOtbSBwb2RkcnVodSDDmkogYSB0eXB1IG9yZ2FuaXphY2V4Ci0gdsWhZSBuYXDFmWVkIG5hIMO6cm92bmkga2FwaXRvbCBzIHRhYnVsa2FtaSB6ICwgcGFrIHogaHJ1YsO9Y2ggb3BlbiBkYXQgbmEgw7pyb3ZuaSBvcmdhbml6YWPDrSwgYWxlIHBvem9yIG5hIGtvbnNvbGlkYWNlIGF0ZC4KLSB2IHBydm7DrW0gZ2FyZHUgc2UgdHLDoXBpdCBPU1MvU1Mvw5pPLCBwYWsgYcW+IMWha29sYW1pLCBoYXNpxI1pLCBhcm3DoWRvdSBhIC4uLiDFoXBpb255LgoKIyBEb2RhdGVrOiBkYXRhIG8gdHJodSBwcsOhY2UKCi0gcHJvIHNyb3Zuw6Fuw60gcGxhdMWvIGpzbWUgdiByb2NlIDIwMTMgcG91xb7DrXZhbGkgdGF0byBkYXRhIHogxIxTw5o6CiAgLSBbRXZpZGVuxI1uw60gcG/EjWV0IHphbcSbc3RuYW5jxa8gYSBqZWppY2ggbXpkeSwga8OzZCAxMTAwMjQtMTldKGh0dHBzOi8vd3d3LmN6c28uY3ovY3N1L2N6c28vZXZpZGVuY25pLXBvY2V0LXphbWVzdG5hbmN1LWEtamVqaWNoLW16ZHktMy1jdHZydGxldGktMjAxOSkgLSDEjXR2cnRsZXRuw60sIMSNYXNvdsOhIMWZYWRhIDIwMDAtMjAxOCBzbGVwZW7DoSB2IHDFmcOtbG96ZSAxYiwgYWxlIGplbiBwcm8gY2Vsb3UgxIxSOyBwbyBrcmFqw61jaCBzZSB0byBtdXPDrSBicsOhdCB6IGplZG5vdGxpdsO9Y2ggc291Ym9yxa8gKHRhYiA0Ni90YWIgMTA2KQogIC0gW8SMYXNvdsOpIMWZYWR5IHrDoWtsYWRuw61jaCB1a2F6YXRlbMWvIHN0YXRpc3Rpa3kgcHLDoWNlIC0gbGVkZW4gMjAyMCwga8OzZCAxMTAwMjUtMTldKGh0dHBzOi8vd3d3LmN6c28uY3ovY3N1L2N6c28vY2Fzb3ZlLXJhZHktemFrbGFkbmljaC11a2F6YXRlbHUtc3RhdGlzdGlreS1wcmFjZS1sZWRlbi0yMDIwKSAtIGtyYWpza8OpIGplbiByb8SNbsOtIGRvIDIwMTcgYSBuYXbDrWMgbmVzbGVwZW7DqS4gCiAgCiMgRGF0YSDEjFPDmiAtIHbDvWLEm3IgeiBWREIgbmEgZG9wb3J1xI1lbsOtOgoKLSBodHRwczovL3ZkYi5jenNvLmN6L3ZkYnZvMi9mYWNlcy9jcy9pbmRleC5qc2Y/cGFnZT1zdGF0aXN0aWt5I2thdGFsb2c9MzA4NTI6IGtyYWpza8OpIG1lZGnDoW55IGEga3JhanNrw6kgcHLFr23Em3J5ICgyMDAwLTIwMTkpIHBvZGxlIGtsYXNpZmlrYWNlIHphbcSbc3Ruw6Fuw60gKDIwMDUvMjAxMS0yMDE4KSBuZWJvIG9kdsSbdHbDrSAoMjAwNS0yMDE4KQotIGh0dHBzOi8vdmRiLmN6c28uY3ovdmRidm8yL2ZhY2VzL2NzL2luZGV4LmpzZj9wYWdlPXZ5aGxlZGF2YW5pJmthdGFsb2c9YWxsJnZ5aGx0ZXh0PW1lZGklQzMlQTFuOiBrcmFqc2vDqSBwcsWvbcSbcnkgcG9kbGUga2xhc2lmaWthY2UgemFtxJtzdG7DoW7DrSBhIHBvaGxhdsOtIDIwMTEtMjAxOAoKVsSbdMWhaW5vdSBwb2Rpdm7DqSByb3psb8W+ZW7DrSBwb2zDrcSNZWssIGt0ZXLDqSBieSBzZSBtdXNlbHkgZXhwb3J0b3ZhdCBwbyBqZWRub20ga3JhamksIHJvY2UsIG5lYm8gb2JvasOtLCBhbGUgbGVwxaHDrSBuZcW+IG5pYy4KICAKCkFsdGVybmF0aXZhIGplIHZ6w610IGRhdGEgeiBJU1BWLCBrZGUgamUgdG8gYWxlIHBvc2tsw6FkYW7DqSBqZcWhdMSbIGjFr8WZOgoKLSBhcmNoaXYgaHR0cHM6Ly93d3cubXBzdi5jei93ZWIvY3ovYXJjaGl2LXB1Ymxpa2FjaS1pc3B2IG9kIDIwMDAKLSBha3R1w6FsbsOtIGh0dHBzOi8vd3d3Lm1wc3YuY3ovd2ViL2N6L3B1Ymxpa2FjZS1pc3B2LWtlLXN0YXplbmkKLSBjZXN0YSBrIHhsc3ggbXpkb3bDqSBhIHBsYXRvdsOpIHNmw6lyeSBkb2hyb21hZHkgaHR0cHM6Ly93d3cubXBzdi5jei9kb2N1bWVudHMvMjAxNDIvNjM2NDk4L0lTUFZfe05OTn0ueGxzeCBrZGUgMDA0IDwgTk5OIDwgMTk0Ck5CIGplIHBvdMWZZWJhIHphem5hbWVuYXQgcMWZZXNuw70ga8OzZCBwcm9kdWt0dSwgdGFidWxrdSBpIMO6ZGFqZS4gRG8gMTA0ICgyMDEwIFE0KSBqc291IGplbiBaSVAgc291Ym9yeSwgdmUga3RlcsO9Y2ggamUgenZsw6HFocWlIGV4Y2VsIHphIG16ZG92b3UgYSBwbGF0b3ZvdSBzZsOpcnUuCi0ga3JhanNrw6EgZGF0YSBvZCAyMDAxIGh0dHBzOi8vd3d3Lm1wc3YuY3ovd2ViL2N6L3Bvcm92bmFuaS1rcmFqdSBuYXDFmS4gaHR0cHM6Ly93d3cubXBzdi5jei93ZWIvY3ovaGxhdm5pLW1lc3RvLXByYWhhLCBVUkwgbmEgZXhjZWwgbmFwxZkuIGh0dHBzOi8vd3d3Lm1wc3YuY3ovZG9jdW1lbnRzLzIwMTQyLzg0ODA3Ny9wcmFfMDEyX3BzLnhscywga2RlIE5OTiBqc291IGppbsOhIMSNw61zbGEgbmXFviB1IGNlbG9yZXB1Ymxpa292w71jaCBkYXQgSVNQVi4gT2QgMjAxMSBzbmFkIHZlIHN0ZWpuw6kgZm9ybcSbLiBFeGlzdHVqZSBpIHBvcm92bsOhbsOtIGtyYWrFryAoY2/FviBqc291IGFsZSBqZW4gZXhjZWx5IGtyYWrFryB2IGplZG5vbSBaSVAsIHBva3VkIHNwcsOhdm7EmyB2aWTDrW0sIG5hdsOtYyBqZSB0YW0gxI1hc3RvIGplbiBwb2RuaWthdGVsc2vDoS9temRvdsOhIHNmw6lyYSkuCgojIFN0w6F0bsOtIHJvenBvxI1ldAoKLSBtxJtsIGJ5IG9ic2Fob3ZhdCB0byBjbyBTWsOaLCBrYcW+ZG9ww6FkbsSbIG9kIDIwMTUgamUgdiBbZXhjZWx1IHYgb3BlbiBkYXRlY2ggTUZdKGh0dHBzOi8vZGF0YS5tZmNyLmN6L2NzL2RhdGFzZXQvc3RhdG5pLXJvenBvY2V0KQoKLSBwb2tsYWRuw60gcGxuxJtuw60gZXhjZWx5IG5hcMWZLiBodHRwczovL3d3dy5tZmNyLmN6L2Fzc2V0cy9jcy9tZWRpYS9Qb2tsYWRuaS1wbG5lbmlfMjAyMC0wM19UYWJ1bGthLW1lc2ljbmktcG9rbGFkbmktcGxuZW5pLTAzLTIwMjAueGxzeCwgb2RrYXogeiBodHRwczovL3d3dy5tZmNyLmN6L2NzL2FrdHVhbG5lL3Rpc2tvdmUtenByYXZ5LzIwMjAvcG9rbGFkbmktcGxuZW5pLXNyLTM4MDU2IGEgVVJMIG3DoSBzdGVqbm91IGZvcm11IHZlIDIwMjAKLSBwxZllaGxlZCBwb2tsYWRuw61obyBwbG7Em27DrSB6YSAyMDE5IGh0dHBzOi8vd3d3Lm1mY3IuY3ovY3MvdmVyZWpueS1zZWt0b3Ivc3RhdG5pLXJvenBvY2V0L3BsbmVuaS1zdGF0bmloby1yb3pwb2N0dS8yMDE5L21lc2ljbmktcG9rbGFkbmktcGxuZW5pLTIwMTktMzQxOTkgcyBvZGthenkgbmEgdGlza292w6kgenByw6F2eSwgVVJMIGV4Y2Vsxa8gdiAyMDE5IGJvaHXFvmVsIG5lanNvdSBrb256aXN0ZW50bsOtCi0gdsO9a2F6IHpkcm9qxa8gYSB1xb5pdMOtIHByb3N0xZllZGvFryBTUiB2IE9TUyBodHRwczovL3d3dy5tZmNyLmN6L2NzL3ZlcmVqbnktc2VrdG9yL3JvenBvY3RvdmUtcmFtY2Utc3RhdGlzdGlja2UtaW5mb3JtYWNlL2Zpc2thbG5pLXVkYWplL3VzdHJlZG5pLXZsYWRhL29yZ2FuaXphY25pLXNsb3preS1zdGF0dS8yMDIwL3Z5a2F6LXpkcm9qdS1hLXV6aXRpLXBlbmV6bmljaC1wcm9zdHJlZGstMzc2ODUKCiMgU3TDoXRuw60gc2x1xb5iYQoKLSBbdsO9cm/EjW7DrSB6cHLDoXZ5IG8gc3TDoXRuw60gc2x1xb5ixJtdKGh0dHBzOi8vd3d3Lm12Y3IuY3ovc2x1emJhL2NsYW5lay92eXJvY25pLXpwcmF2YS12eXJvY25pLXpwcmF2YS1vLXN0YXRuaS1zbHV6YmUuYXNweCkKLSBzeXN0ZW1pemFjZSBwxZlpIGthxb5kw6kgem3Em27EmyBvZCAyMDE5IGh0dHBzOi8vd3d3Lm12Y3IuY3ovc2x1emJhL2NsYW5lay9zeXN0ZW1pemFjZS1zbHV6ZWJuaWNoLWEtcHJhY292bmljaC1taXN0LmFzcHgKCiMgRGFsxaHDrSB6ZHJvamUKCi0gTVYgxIxSICgyMDIwKSBbIkFOQUzDnVpBIFNUw4FSTlVUw40gWkFNxJpTVE5BTkPFriBWRcWYRUpOw4kgU1BSw4FWWSJdKGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vdXJsP3NhPXQmcmN0PWomcT0mZXNyYz1zJnNvdXJjZT13ZWImY2Q9JmNhZD1yamEmdWFjdD04JnZlZD0yYWhVS0V3aldqYkc1anZId0FoVkV3S1FLSFoyT0FLd1FGakFBZWdRSUFoQUQmdXJsPWh0dHBzJTNBJTJGJTJGd3d3Lm12Y3IuY3olMkZzb3Vib3IlMkZhbmFseXphLXN0YXJudXRpLXphbWVzdG5hbmN1LXZlcmVqbmUtc3ByYXZ5LTIwMjAtcGRmLmFzcHgmdXNnPUFPdlZhdzF6SlZSb29ObDNhN1JNUElsMTFmZU8pIAoKIyBaZHJvamUgbyBqZWRub3RsaXbDvWNoIG9yZ2FuaXphY8OtY2gKCiMjIMSMU1NaIC0gb3BlbiBkYXRhIG8gemFtxJtzdG5hbmPDrWNoIAoKLSBwcsWvbcSbciBhIG1lZGnDoW4gcGxhdMWvIGh0dHBzOi8vZGF0YS5jc3N6LmN6L3dlYi9vdGV2cmVuYS1kYXRhLy0vcHJ1bWVybnktcGxhdC12LWNzc3oKLSBzeXN0ZW1pem92YW7DoSBtw61zdGEgYSBmbHVrdHVhY2UgaHR0cHM6Ly9kYXRhLmNzc3ouY3ovd2ViL290ZXZyZW5hLWRhdGEvLS9zeXN0ZW1pem92YW5hLW1pc3RhLWEtZmx1a3R1YWNlLXphbWVzdG5hbmN1LWNzc3oKLSB6YW3Em3N0bmFuY2kgZGxlIHZ6ZMSbbMOhbsOtIGh0dHBzOi8vZGF0YS5jc3N6LmN6L3dlYi9vdGV2cmVuYS1kYXRhLy0vemFtZXN0bmFuY2ktY3Nzei1kbGUtdnpkZWxhbmkK</div>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("zdroje-2019.Rmd");
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+
+</body>
+</html>
