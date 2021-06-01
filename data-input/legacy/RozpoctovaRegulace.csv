@@ -1,0 +1,11 @@
+source,target,weights
+Rozpočtová regulace,Příspěvkové organizace,227.3
+Rozpočtová regulace,Rozpočtové organizace,186.6
+Rozpočtové organizace,Státní správa,150.2
+Rozpočtové organizace,Ostatní,36.4
+Státní správa,Státní správa bez sborů,71.0
+Státní správa,Sbory,79.2
+Státní správa bez sborů,Ústřední,24.2
+Ústřední,Ostatní ústřední,3.7
+Ústřední,Ministerstva,20.5
+Státní správa bez sborů,Neústřední,46.8
