@@ -1,9 +1,9 @@
-name: urednici2019
+name: urednici
 output_dir: docs
 include: ["demo.R"]
 exclude: ["LICENSE.md", "*.csv"]
 navbar:
-  title: "Úředníci 2019"
+  title: "Úředníci"
   left:
     - text: "Home"
       href: index.html

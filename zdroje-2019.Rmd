@@ -35,8 +35,8 @@ NB tento datový zdroj obsahuje určitý řez celými veřejnými financemi, tj.
 - to odpovídá seskupení 50 v druhovém členění, ale nejdou z toho vypočítat průměrné platy, protože ty MF v SZÚ počítá (logicky) pouze z položky platy bez "ostatních plateb za provedenou práci (OPPP)", je tedy potřeba odečíst OPPP (viz níže)
 - v excelu jsou dostupné relevantní tabulky z webu Sněmovny od roku 2012 do roku 2018 (zajímavé je, že excelových souborů od roku 2012 ubývá a letos už je tam jen jeden hlavní, zbytek často jako obrázky v PDF)
   - potřeba hledat za jednotlivá volební období zvlášť
-  - ve [skriptu](https://github.com/petrbouchal/urednici2019/blob/master/1_scrape-szu-staffreports.R) jsou zapsané přesné odkazy
-- tyto tabulky mají skoro stejnou strukturu mezi lety, jdou tedy strojově zkompilovat, následně jsou uložené v původní XLS formě [na githubu](https://github.com/petrbouchal/urednici2019/tree/master/data-input)
+  - ve [skriptu](https://github.com/petrbouchal/urednici/blob/master/1_scrape-szu-staffreports.R) jsou zapsané přesné odkazy
+- tyto tabulky mají skoro stejnou strukturu mezi lety, jdou tedy strojově zkompilovat, následně jsou uložené v původní XLS formě [na githubu](https://github.com/petrbouchal/urednici/tree/master/data-input)
 - schválený rozpočet 2013 v těchto datech odpovídá schválenému rozpočtu 2013 v interní tabulce MF, kterou nám v roce 2013 laskavě půjčili
 
 ## 2. Výkaz výdajů, druhové členění
@@ -58,7 +58,7 @@ NB tento datový zdroj obsahuje určitý řez celými veřejnými financemi, tj.
   - pro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS
   - číselník `polozka` pro druhové třídění
   - co rok, to datový soubor...
-  - export z analytického interface per kapitola [na githubu](https://github.com/petrbouchal/urednici2019/tree/master/data-input
+  - export z analytického interface per kapitola [na githubu](https://github.com/petrbouchal/urednici/tree/master/data-input
 
 ## 3. Výkaz povinných ukazatelů
 
@@ -79,7 +79,7 @@ NB tento datový zdroj obsahuje určitý řez celými veřejnými financemi, tj.
   - pro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS-ZU
   - pro ukazatele číselníky `polvkk` (do 2014) a `psuk` (2015+)
   - co rok, to datový soubor
-  - export z analytického interface per kapitola [na githubu](https://github.com/petrbouchal/urednici2019/tree/master/data-input)
+  - export z analytického interface per kapitola [na githubu](https://github.com/petrbouchal/urednici/tree/master/data-input)
 
 # Kategorie
 
@@ -94,8 +94,8 @@ Státní pokladna ale v metadatech o účetních jednotkách (účtujících org
 # Co tedy s tím
 
 - vzít počty zaměstnanců ze SZÚ
-  - hotovo, viz základní grafický sumář na <https://petrbouchal.github.io/urednici2019/2_explore-counts.html> 
-  - též propojeno s podmnožinou/derivátem starších dat od MF, grafický sumář výsledku viz <https://petrbouchal.github.io/urednici2019/3_explore-counts-longseries.html>
+  - hotovo, viz základní grafický sumář na <https://petrbouchal.github.io/urednici/2_explore-counts.html> 
+  - též propojeno s podmnožinou/derivátem starších dat od MF, grafický sumář výsledku viz <https://petrbouchal.github.io/urednici/3_explore-counts-longseries.html>
 - vzít celkové objemy platy+OPPP ze SZÚ
 - dopočítat OPPP paralelně z výdajů a ukazatelů
 - podívat se, jestli podíl OPPP na celku se mezi dvěma metodami liší a je konzistentní s minulými interními daty MF
