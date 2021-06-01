@@ -1,7 +1,7 @@
 name: urednici
 output_dir: docs
 include: ["demo.R"]
-exclude: ["LICENSE.md", "*.csv", "data-*", "systemizace*", "renv.lock", "R"]
+exclude: ["LICENSE.md", "*.csv", "data-*", "systemizace*", "renv.lock", "R", "code*"]
 navbar:
   title: "Úředníci"
   left:
@@ -21,14 +21,17 @@ navbar:
       - text: "Inventura dostupnosti dat 2019"
         href: "zdroje-2019.html"
   right:
-  - icon: fa-github
+  - icon: fab fa-github fa-lg
     href: https://github.com/petrbouchal/urednici
+  - icon: fas fa-asterisk fa-lg
+    href: https://petrbouchal.xyz
 output:
   html_document:
     toc: true
     toc_float: true
     code_folding: hide
     mathjax: null
+    css: extra.css
     df_print: paged
     code_download: T
     # includes:
