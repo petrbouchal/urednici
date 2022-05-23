@@ -2,12 +2,19 @@ urednici
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <!-- badges: start -->
-
-[![Travis build
-status](https://travis-ci.org/petrbouchal/urednici.svg?branch=master)](https://travis-ci.org/petrbouchal/urednici)
 <!-- badges: end -->
+
+## Update 2022-05
+
+-   zpracovaná časová řada systemizace je dostupná na
+    <https://github.com/petrbouchal/systemizace>
+-   tamtéž zpracovaná organizační struktura z open dat níže
+-   aktuální verze přehledové studie (Daniel Bartušek, Petr Bouchal,
+    Petr Janský, IDEA CERGE-EI 2022) je [na webu
+    IDEA](https://idea.cerge-ei.cz/studies/statni-zamestnanci-a-urednici-kde-pracuji-a-za-kolik-2)
+    i s interaktivními grafy, kód na
+    <https://github.com/dan-bart/urednici_2021>
 
 ## O co jde
 

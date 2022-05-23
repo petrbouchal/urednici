@@ -5,6 +5,12 @@ author: Petr Bouchal
 date: 1 Nov 2019
 ---
 
+## Update 2022-05
+
+- zpracovaná časová řada systemizace je dostupná na https://github.com/petrbouchal/systemizace
+- tamtéž zpracovaná organizační struktura z open dat níže
+- aktuální verze přehledové studie (Daniel Bartušek, Petr Bouchal, Petr Janský, IDEA CERGE-EI 2022) je [na webu IDEA](https://idea.cerge-ei.cz/studies/statni-zamestnanci-a-urednici-kde-pracuji-a-za-kolik-2) i s interaktivními grafy, kód na https://github.com/dan-bart/urednici_2021
+
 # Co je potřeba
 
 - data o počtech zaměstnanců, co nejjemnější členění (skupiny organizací => kapitoly => organizace)
@@ -118,6 +124,8 @@ Státní pokladna ale v metadatech o účetních jednotkách (účtujících org
 - https://vdb.czso.cz/vdbvo2/faces/cs/index.jsf?page=statistiky#katalog=30852: krajské mediány a krajské průměry (2000-2019) podle klasifikace zaměstnání (2005/2011-2018) nebo odvětví (2005-2018)
 - https://vdb.czso.cz/vdbvo2/faces/cs/index.jsf?page=vyhledavani&katalog=all&vyhltext=medi%C3%A1n: krajské průměry podle klasifikace zaměstnání a pohlaví 2011-2018
 
+Počty zaměstnanců a platy podle sektorů jsou ve [Statistické ročence ČR, kap. 10 Trh práce](https://www.czso.cz/csu/czso/10-trh-prace-o73cun42om), v roce 2020 tabulka 10A-3 "Zaměstnanci a jejich průměrné hrubé měsíční mzdy v národním hospodářství podle sektorů"
+
 Většinou podivné rozložení políček, které by se musely exportovat po jednom kraji, roce, nebo obojí, ale lepší než nic.
   
 
@@ -137,14 +145,38 @@ NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010
 - přehled pokladního plnění za 2019 https://www.mfcr.cz/cs/verejny-sektor/statni-rozpocet/plneni-statniho-rozpoctu/2019/mesicni-pokladni-plneni-2019-34199 s odkazy na tiskové zprávy, URL excelů v 2019 bohužel nejsou konzistentní
 - výkaz zdrojů a užití prostředků SR v OSS https://www.mfcr.cz/cs/verejny-sektor/rozpoctove-ramce-statisticke-informace/fiskalni-udaje/ustredni-vlada/organizacni-slozky-statu/2020/vykaz-zdroju-a-uziti-peneznich-prostredk-37685
 
+# Národní účty
+
+- [Satelitní účet veřejného sektoru](https://apl.czso.cz/pll/rocenka/rocenkavyber.gov_a?mylang=CZ) a [zde](https://apl.czso.cz/pll/rocenka/rocenkavyber.sat_vs), tabulka GOV_AGREGe20 Hlavní agregáty sektoru vládních institucí => náhrady zaměstnanců D1, i za subsektory
+  - [časové řady](https://apl.czso.cz/pll/rocenka/rocenkavyber.sat_vs_cas?mylang=CZ) VS000205
+  - zaměstnanci celkem i za veřejný sektor VS000103
+- [Sektorové účty](https://apl.czso.cz/pll/rocenka/rocenkavyber.makroek_sektor)
+  - účet tvorby důchodů: SS001302n19 Vládní instituce: účet tvorby důchodů: mzdy za subsektory
+  - Zaměstnanci: M000152 Zaměstnanost celkem (úvazky na plnou pracovní dobu) podle sektorů (vládní, ne veřejný)
+- [časové řady ukazatelů účtů výroby a tvorby důchodů](https://apl.czso.cz/pll/rocenka/rocenkavyber.socas) podle NACE + na konci tabulek jsou čísla i za sektor 13 (vládní)
+  - TB001Z**: zaměstnanci
+
 # Státní služba
 
-- [výroční zprávy o státní službě](https://www.mvcr.cz/sluzba/clanek/vyrocni-zprava-vyrocni-zprava-o-statni-sluzbe.aspx)
+- [výroční zprávy o státní službě 2016-2019](https://www.mvcr.cz/sluzba/clanek/vyrocni-zprava-vyrocni-zprava-o-statni-sluzbe.aspx) a [2020](https://www.mvcr.cz/sluzba/clanek/vyrocni-zprava-o-statni-sluzbe-za-rok-2020.aspx)
 - systemizace při každé změně od 2019 https://www.mvcr.cz/sluzba/clanek/systemizace-sluzebnich-a-pracovnich-mist.aspx
+- open data 
+	- organizační struktura za celou státní služby [data](https://portal.isoss.cz/opendata/ISoSS_Opendata_OSYS_OSSS.xml), [katalog](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00007064%2F846439539)
+	- obsazovaná služební místa [data](https://portal.isoss.cz/opendata/ISoSS_Opendata_EOSM.xml) [katalog](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00007064%2F255131823)
+
+- [open data Státní služby](https://portal.isoss.cz/opendata/) a [v NKOD](https://data.gov.cz/datov%C3%A9-sady?poskytovatel=https%3A%2F%2Frpp-opendata.egon.gov.cz%2Fodrpp%2Fzdroj%2Forg%C3%A1n-ve%C5%99ejn%C3%A9-moci%2F00007064&kl%C3%AD%C4%8Dov%C3%A1-slova=ISoSS)
+
 
 # Další zdroje
 
 - MV ČR (2020) ["ANALÝZA STÁRNUTÍ ZAMĚSTNANCŮ VEŘEJNÉ SPRÁVY"](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjWjbG5jvHwAhVEwKQKHZ2OAKwQFjAAegQIAhAD&url=https%3A%2F%2Fwww.mvcr.cz%2Fsoubor%2Fanalyza-starnuti-zamestnancu-verejne-spravy-2020-pdf.aspx&usg=AOvVaw1zJVRooNl3a7RMPIl11feO) 
+
+  - je tam matice počtů věk x platová třída 5-16 zvlášť pro ústřední a ostatní orgány
+  - též podíly představených na jednotlivých věkových skupinách
+
+## Platové tabulky
+
+- v excelu zveřejněno v příloze [webu MF o ISPSP](https://www.mfcr.cz/cs/o-ministerstvu/informacni-systemy/is-o-platech/)
 
 # Zdroje o jednotlivých organizacích
 
@@ -153,3 +185,16 @@ NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010
 - průměr a medián platů https://data.cssz.cz/web/otevrena-data/-/prumerny-plat-v-cssz
 - systemizovaná místa a fluktuace https://data.cssz.cz/web/otevrena-data/-/systemizovana-mista-a-fluktuace-zamestnancu-cssz
 - zaměstnanci dle vzdělání https://data.cssz.cz/web/otevrena-data/-/zamestnanci-cssz-dle-vzdelani
+
+## Finanční správa
+
+- [délka trvání poměru, časová řada](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00006947%2F7bc7d6fb2e616c1981283199d728b70f)
+- [evidenční počty zaměstnanců ve finanční správě](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00006947%2F19cf44c9fd89438c5738c4f1cff2678b)
+- [počet systemizovaných míst](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00006947%2F79d2b92981282337f1abf2b18c5dd120)
+
+
+# Mezinárodní
+
+- [Worldwide Bureaucracy Indicators](https://datacatalog.worldbank.org/dataset/worldwide-bureaucracy-indicators)
+- Eurostat: [Civil Servants Remuneration](https://ec.europa.eu/eurostat/web/civil-servants-remuneration): counts of central gov employees with indices of pay (gross and net) collected for the purposes of setting EU salaries; dataset available in Eurostat database as [PRC_REM_CS]
+(https://ec.europa.eu/eurostat/databrowser/view/prc_rem_cs/default/table?lang=en).

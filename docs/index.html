@@ -13,8 +13,8 @@
 
 <title>Úředníci 2019</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -65,6 +65,7 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 #rmd-source-code {
   display: none;
@@ -96,6 +97,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -324,7 +328,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -335,14 +339,14 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
     Home
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Exploratory analysis
      
@@ -358,8 +362,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-book"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
      
     Dokumentace
      
@@ -393,7 +397,7 @@ div.tocify {
 <div id="header">
 
 <div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
 <ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
@@ -412,19 +416,46 @@ div.tocify {
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 <!-- badges: end -->
+<div id="update-2022-05" class="section level2">
+<h2>Update 2022-05</h2>
+<ul>
+<li>zpracovaná časová řada systemizace je dostupná na <a
+href="https://github.com/petrbouchal/systemizace"
+class="uri">https://github.com/petrbouchal/systemizace</a></li>
+<li>tamtéž zpracovaná organizační struktura z open dat níže</li>
+<li>aktuální verze přehledové studie (Daniel Bartušek, Petr Bouchal,
+Petr Janský, IDEA CERGE-EI 2022) je <a
+href="https://idea.cerge-ei.cz/studies/statni-zamestnanci-a-urednici-kde-pracuji-a-za-kolik-2">na
+webu IDEA</a> i s interaktivními grafy, kód na <a
+href="https://github.com/dan-bart/urednici_2021"
+class="uri">https://github.com/dan-bart/urednici_2021</a></li>
+</ul>
+</div>
 <div id="o-co-jde" class="section level2">
 <h2>O co jde</h2>
-<p>Tento repozitář obsahuje work-in-progress sběr, přípravu a analýzu dat o českých státních úřednících.</p>
-<p>Analýza navazuje na <a href="https://idea.cerge-ei.cz/studies/2014-06-statni-urednici-kolik-jich-vlastne-je-kde-a-za-jake-platy-pracuji">studii think tanku IDEA z roku 2014 (Bouchal &amp; Janský)</a>. Natahuje časovou řadu až do roku 2018/2019 a snaží se o lepší replikovatelnost analytické práce.</p>
-<p>Studie mj. vysvětluje seskupení veřejných organizací, za které stát sleduje počty úředníků a platové náklady a které se vyskytují i zde.</p>
+<p>Tento repozitář obsahuje work-in-progress sběr, přípravu a analýzu
+dat o českých státních úřednících.</p>
+<p>Analýza navazuje na <a
+href="https://idea.cerge-ei.cz/studies/2014-06-statni-urednici-kolik-jich-vlastne-je-kde-a-za-jake-platy-pracuji">studii
+think tanku IDEA z roku 2014 (Bouchal &amp; Janský)</a>. Natahuje
+časovou řadu až do roku 2018/2019 a snaží se o lepší replikovatelnost
+analytické práce.</p>
+<p>Studie mj. vysvětluje seskupení veřejných organizací, za které stát
+sleduje počty úředníků a platové náklady a které se vyskytují i zde.</p>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>Ke zdrojům dat viz <a href="zdroje-2019.html">poznámku</a>, která poslouží i jako dílčí úvod k dostupnosti administrativních dat o zaměstnancích českého státu.</p>
+<p>Ke zdrojům dat viz <a href="zdroje-2019.html">poznámku</a>, která
+poslouží i jako dílčí úvod k dostupnosti administrativních dat o
+zaměstnancích českého státu.</p>
 </div>
 <div id="technologie" class="section level2">
 <h2>Technologie</h2>
-<p>Práce se děje v R/RMarkdown, z čehož se následně generuje i <a href="https://petrbouchal.github.io/urednici/">web</a>. Vše by mělo být replikovatelné z <a href="https://github.com/petrbouchal/urednici">githubového repozitáře</a>.</p>
+<p>Práce se děje v R/RMarkdown, z čehož se následně generuje i <a
+href="https://petrbouchal.github.io/urednici/">web</a>. Vše by mělo být
+replikovatelné z <a
+href="https://github.com/petrbouchal/urednici">githubového
+repozitáře</a>.</p>
 </div>
 
 <div id="rmd-source-code">LS0tCm91dHB1dDogaHRtbF9kb2N1bWVudAp0aXRsZTogIsOaxZllZG7DrWNpIDIwMTkiCi0tLQoKPCEtLSBSRUFETUUubWQgaXMgZ2VuZXJhdGVkIGZyb20gUkVBRE1FLlJtZC4gUGxlYXNlIGVkaXQgdGhhdCBmaWxlIC0tPgoKYGBge3IsIGluY2x1ZGUgPSBGQUxTRX0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KAogIGNvbGxhcHNlID0gVFJVRSwKICBjb21tZW50ID0gIiM+IgopCmBgYAoKYGBge3IgY2hpbGQ9Il9yZWFkbWUuUm1kIn0KYGBgCgo=</div>
@@ -472,6 +503,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
