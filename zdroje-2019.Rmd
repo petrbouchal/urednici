@@ -200,6 +200,6 @@ NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010
 
 # Mezinárodní
 
-- [Worldwide Bureaucracy Indicators](https://datacatalog.worldbank.org/dataset/worldwide-bureaucracy-indicators)
+- [Worldwide Bureaucracy Indicators](https://datacatalog.worldbank.org/dataset/worldwide-bureaucracy-indicators) - obsahuje proměnné měřící "Public Sector Wage premium", viz skript `world-bureaucracy-salaries.R`
 - Eurostat: [Civil Servants Remuneration](https://ec.europa.eu/eurostat/web/civil-servants-remuneration): counts of central gov employees with indices of pay (gross and net) collected for the purposes of setting EU salaries; dataset available in Eurostat database as [PRC_REM_CS]
 (https://ec.europa.eu/eurostat/databrowser/view/prc_rem_cs/default/table?lang=en).
