@@ -11,10 +11,10 @@
 
 
 
-<title>Úředníci 2019</title>
+<title>Úředníci 2019+</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -65,7 +65,6 @@ if (window.hljs) {
 
 
 
-
 <style type="text/css">
 #rmd-source-code {
   display: none;
@@ -97,9 +96,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -328,7 +324,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -339,14 +335,14 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Home
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="fa fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-chart-area"></span>
      
     Exploratory analysis
      
@@ -362,8 +358,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="fa fa-book"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-book"></span>
      
     Dokumentace
      
@@ -397,7 +393,7 @@ div.tocify {
 <div id="header">
 
 <div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
 <ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
@@ -408,7 +404,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Úředníci 2019</h1>
+<h1 class="title toc-ignore">Úředníci 2019+</h1>
 
 </div>
 
@@ -458,7 +454,7 @@ href="https://github.com/petrbouchal/urednici">githubového
 repozitáře</a>.</p>
 </div>
 
-<div id="rmd-source-code">LS0tCm91dHB1dDogaHRtbF9kb2N1bWVudAp0aXRsZTogIsOaxZllZG7DrWNpIDIwMTkiCi0tLQoKPCEtLSBSRUFETUUubWQgaXMgZ2VuZXJhdGVkIGZyb20gUkVBRE1FLlJtZC4gUGxlYXNlIGVkaXQgdGhhdCBmaWxlIC0tPgoKYGBge3IsIGluY2x1ZGUgPSBGQUxTRX0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KAogIGNvbGxhcHNlID0gVFJVRSwKICBjb21tZW50ID0gIiM+IgopCmBgYAoKYGBge3IgY2hpbGQ9Il9yZWFkbWUuUm1kIn0KYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCm91dHB1dDogaHRtbF9kb2N1bWVudAp0aXRsZTogIsOaxZllZG7DrWNpIDIwMTkrIgotLS0KCjwhLS0gUkVBRE1FLm1kIGlzIGdlbmVyYXRlZCBmcm9tIFJFQURNRS5SbWQuIFBsZWFzZSBlZGl0IHRoYXQgZmlsZSAtLT4KCmBgYHtyLCBpbmNsdWRlID0gRkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldCgKICBjb2xsYXBzZSA9IFRSVUUsCiAgY29tbWVudCA9ICIjPiIKKQpgYGAKCmBgYHtyIGNoaWxkPSJfcmVhZG1lLlJtZCJ9CmBgYAoK</div>
 
 
 </div>
@@ -503,9 +499,6 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
