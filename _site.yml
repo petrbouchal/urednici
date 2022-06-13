@@ -18,8 +18,8 @@ navbar:
     - text: "Dokumentace"
       icon: fa-book
       menu:
-      - text: "Inventura dostupnosti dat 2019"
-        href: "zdroje-2019.html"
+      - text: "Inventura dostupnosti dat 2019-2022"
+        href: "zdroje.html"
   right:
   - icon: fab fa-github fa-lg
     href: https://github.com/petrbouchal/urednici
