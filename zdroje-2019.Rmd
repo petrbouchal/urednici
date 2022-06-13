@@ -2,7 +2,7 @@
 title: Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu
 subtitle: Edition 2018
 author: Petr Bouchal
-date: 1 Nov 2019
+date: 23 May 2022
 ---
 
 ## Update 2022-05
@@ -191,6 +191,11 @@ NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010
 - [délka trvání poměru, časová řada](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00006947%2F7bc7d6fb2e616c1981283199d728b70f)
 - [evidenční počty zaměstnanců ve finanční správě](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00006947%2F19cf44c9fd89438c5738c4f1cff2678b)
 - [počet systemizovaných míst](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00006947%2F79d2b92981282337f1abf2b18c5dd120)
+
+## Platy vysoce postavených úředníků
+
+- [iRozhlas 2022](https://www.irozhlas.cz/zpravy-domov/mimoradne-odmeny-jana-malacova-ministerstva-premie-penize-bonus_2202050500_vtk) + [květen 2022](https://www.irozhlas.cz/zpravy-domov/platy-statnich-uredniku-mynar-ovcacek_2205231708_cen)
+- [iRozhlas 2016 - jmenovité](https://www.irozhlas.cz/zpravy-domov/velky-prehled-ministerske-odmeny-za-rok-2016-kdo-data-taji-a-kdo-bez-problemu-zverejnuje-_201702070600_hmazancova)
 
 
 # Mezinárodní

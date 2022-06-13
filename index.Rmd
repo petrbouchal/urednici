@@ -1,6 +1,6 @@
 ---
 output: html_document
-title: "Úředníci 2019"
+title: "Úředníci 2019+"
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
