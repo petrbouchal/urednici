@@ -185,6 +185,7 @@ NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010
 ## Platové tabulky
 
 - v excelu zveřejněno v příloze [webu MF o ISPSP](https://www.mfcr.cz/cs/o-ministerstvu/informacni-systemy/is-o-platech/)
+- za 2021 a 2022 staženo a použito v [repozitáři systemizace](https://github.com/petrbouchal/systemizace)
 
 # Zdroje o jednotlivých organizacích
 
