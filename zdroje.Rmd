@@ -1,9 +1,14 @@
 ---
 title: Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu
-subtitle: Edition 2018
+subtitle: Edition 2018-2022
 author: Petr Bouchal
-date: 23 May 2022
+date: 28 June 2022
 ---
+
+## Update 2022-06
+
+- studie IDEA na [pracovním webu](dan-bart.github.io/urednici_2021/) aktualizování s daty o skutečnosti za rok 2021, vstupní i zpracovaná data k dispozici [v repozitáři](https://github.com/dan-bart/urednici_2021)
+- vzniká balík [ispv](https://petrbouchal.xyz/ispv/) pro stažení a načtení dat z ISPV
 
 ## Update 2022-05
 
@@ -131,11 +136,14 @@ Většinou podivné rozložení políček, které by se musely exportovat po jed
 
 Alternativa je vzít data z ISPV, kde je to ale poskládané ještě hůř:
 
+Update k ISPV: vznikají balík pro automatické načtení a stažení dat: https://petrbouchal.xyz/ispv/
+
 - archiv https://www.mpsv.cz/web/cz/archiv-publikaci-ispv od 2000
 - aktuální https://www.mpsv.cz/web/cz/publikace-ispv-ke-stazeni
 - cesta k xlsx mzdové a platové sféry dohromady https://www.mpsv.cz/documents/20142/636498/ISPV_{NNN}.xlsx kde 004 < NNN < 194
 NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010 Q4) jsou jen ZIP soubory, ve kterých je zvlášť excel za mzdovou a platovou sféru.
 - krajská data od 2001 https://www.mpsv.cz/web/cz/porovnani-kraju např. https://www.mpsv.cz/web/cz/hlavni-mesto-praha, URL na excel např. https://www.mpsv.cz/documents/20142/848077/pra_012_ps.xls, kde NNN jsou jiná čísla než u celorepublikových dat ISPV. Od 2011 snad ve stejné formě. Existuje i porovnání krajů (což jsou ale jen excely krajů v jednom ZIP, pokud správně vidím, navíc je tam často jen podnikatelská/mzdová sféra).
+
 
 # Státní rozpočet
 
@@ -194,6 +202,7 @@ NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010
 
 ## Platy vysoce postavených úředníků
 
+- [Hlídač státu za několik posledních let](https://platyuredniku.cz)
 - [iRozhlas 2022](https://www.irozhlas.cz/zpravy-domov/mimoradne-odmeny-jana-malacova-ministerstva-premie-penize-bonus_2202050500_vtk) + [květen 2022](https://www.irozhlas.cz/zpravy-domov/platy-statnich-uredniku-mynar-ovcacek_2205231708_cen)
 - [iRozhlas 2016 - jmenovité](https://www.irozhlas.cz/zpravy-domov/velky-prehled-ministerske-odmeny-za-rok-2016-kdo-data-taji-a-kdo-bez-problemu-zverejnuje-_201702070600_hmazancova)
 
