@@ -5,6 +5,10 @@ author: Petr Bouchal
 date: 28 June 2022
 ---
 
+## Update 2022-07
+
+- nově vyšla studie Národní rozpočtové rady: [Vývoj počtu zaměstnanců v sektoru vládních institucí](https://unrr.cz/studie-vyvoj-poctu-zamestnancu-v-sektoru-vladnich-instituci/)
+
 ## Update 2022-06
 
 - studie IDEA na [pracovním webu](dan-bart.github.io/urednici_2021/) aktualizování s daty o skutečnosti za rok 2021, vstupní i zpracovaná data k dispozici [v repozitáři](https://github.com/dan-bart/urednici_2021)
