@@ -8,6 +8,11 @@ date: 28 June 2022
 ## Update 2022-07
 
 - nově vyšla studie Národní rozpočtové rady: [Vývoj počtu zaměstnanců v sektoru vládních institucí](https://unrr.cz/studie-vyvoj-poctu-zamestnancu-v-sektoru-vladnich-instituci/)
+- pro základní srovnání na kvartální bázi lze použít statistiku výdělků podle sekcí NACE od ČSÚ
+  - [Mzdy, náklady práce - časové řady](https://www.czso.cz/csu/czso/pmz_cr) - sekce O - "Veřejná správa a obrana; povinné sociální zabezpečení" - v tabulce 2
+  - `czso::czso_get_table("110079")`
+- na webu MPSV existují [data z ISPV](https://data.mpsv.cz/web/data/statistiky#vydelkove-statistiky) (krajská a národní za ISCO4, národní s rozpady podle vzdělání, věku aj.), ale pouze za poslední období
+
 
 ## Update 2022-06
 
