@@ -18,7 +18,7 @@ Studie mj. vysvětluje seskupení veřejných organizací, za které stát sledu
 
 ## Data
 
-Ke zdrojům dat viz [poznámku](zdroje-2019.html), která poslouží i jako dílčí úvod k dostupnosti administrativních dat o zaměstnancích českého státu.
+Ke zdrojům dat viz [poznámku](zdroje.html), která poslouží i jako dílčí úvod k dostupnosti administrativních dat o zaměstnancích českého státu.
 
 ## Technologie
 
