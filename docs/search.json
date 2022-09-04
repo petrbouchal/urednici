@@ -1,0 +1,282 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Úředníci 2019+",
+    "section": "",
+    "text": "První analýza platů úředníků z dodatečných dat:\n\nsystemizace (viz https://github.com/petrbouchal/systemizace)\ninformační systém o průměrném výdělku (ISPV)\nEurostat - data o platech úředníků členských států určená pro výpočet platových hladin v evropských institucích\nWorldwide Bureaucracy Indicators - Public Sector Pay Premium\n\nviz\n\nmezinárodní srovnání\nsektorové srovnání\nsrovnání mezi úřady"
+  },
+  {
+    "objectID": "index.html#update-2022-05",
+    "href": "index.html#update-2022-05",
+    "title": "Úředníci 2019+",
+    "section": "Update 2022-05",
+    "text": "Update 2022-05\n\nzpracovaná časová řada systemizace je dostupná na https://github.com/petrbouchal/systemizace\ntamtéž zpracovaná organizační struktura z open dat níže\naktuální verze přehledové studie (Daniel Bartušek, Petr Bouchal, Petr Janský, IDEA CERGE-EI 2022) je na webu IDEA i s interaktivními grafy, kód na https://github.com/dan-bart/urednici_2021"
+  },
+  {
+    "objectID": "index.html#o-co-jde",
+    "href": "index.html#o-co-jde",
+    "title": "Úředníci 2019+",
+    "section": "O co jde",
+    "text": "O co jde\nTento repozitář obsahuje work-in-progress sběr, přípravu a analýzu dat o českých státních úřednících.\nAnalýza zčásti navazuje na studii think tanku IDEA z ledna 2022 (Bouchal & Janský)."
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "Úředníci 2019+",
+    "section": "Data",
+    "text": "Data\nKe zdrojům dat viz poznámku, která poslouží i jako dílčí úvod k dostupnosti administrativních dat o zaměstnancích českého státu."
+  },
+  {
+    "objectID": "index.html#technologie",
+    "href": "index.html#technologie",
+    "title": "Úředníci 2019+",
+    "section": "Technologie",
+    "text": "Technologie\nPráce se děje v R/RMarkdown, z čehož se následně generuje i web. Vše by mělo být replikovatelné z githubového repozitáře."
+  },
+  {
+    "objectID": "international.html#eurostat-platy-úředníků-členských-států",
+    "href": "international.html#eurostat-platy-úředníků-členských-států",
+    "title": "Mezinárodní srovnání",
+    "section": "Eurostat: platy úředníků členských států",
+    "text": "Eurostat: platy úředníků členských států\nJedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK. Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj. v roce 2022 cca 22 tisíc lidí."
+  },
+  {
+    "objectID": "international.html#world-bureaucracy-indicators",
+    "href": "international.html#world-bureaucracy-indicators",
+    "title": "Mezinárodní srovnání",
+    "section": "World Bureaucracy Indicators",
+    "text": "World Bureaucracy Indicators\nJde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např. ve vzdělanostní a demografické struktuře.\n\n\n\n\n\n\nJedná se celý veřejný sektor.\n\n\n\n\nPublic Sector Wage Premium"
+  },
+  {
+    "objectID": "srovnani-sektory.html#vybrané-profese-čtyřmístné-isco",
+    "href": "srovnani-sektory.html#vybrané-profese-čtyřmístné-isco",
+    "title": "Srovnání se soukromým sektorem",
+    "section": "Vybrané profese (čtyřmístné ISCO)",
+    "text": "Vybrané profese (čtyřmístné ISCO)\nMedián a rozpětí prvního a třetího kvartilu příjmů, v tis. Kč hrubého měsíčně"
+  },
+  {
+    "objectID": "srovnani-sektory.html#celé-rozpětí-i-s-1.-a-9.-decilem",
+    "href": "srovnani-sektory.html#celé-rozpětí-i-s-1.-a-9.-decilem",
+    "title": "Srovnání se soukromým sektorem",
+    "section": "Celé rozpětí i s 1. a 9. decilem",
+    "text": "Celé rozpětí i s 1. a 9. decilem"
+  },
+  {
+    "objectID": "srovnani-sektory.html#podle-věku",
+    "href": "srovnani-sektory.html#podle-věku",
+    "title": "Srovnání se soukromým sektorem",
+    "section": "Podle věku",
+    "text": "Podle věku\n\n\n\n\nČesko\n\n\n\n\n\n\n\nPraha"
+  },
+  {
+    "objectID": "srovnani-sektory.html#jen-vš",
+    "href": "srovnani-sektory.html#jen-vš",
+    "title": "Srovnání se soukromým sektorem",
+    "section": "Jen VŠ",
+    "text": "Jen VŠ"
+  },
+  {
+    "objectID": "srovnani-urady.html#přesnější-ověření-modelu",
+    "href": "srovnani-urady.html#přesnější-ověření-modelu",
+    "title": "Srovnání mezi úřady",
+    "section": "Přesnější ověření modelu",
+    "text": "Přesnější ověření modelu\n\nVýsledek\n\n\n#> \n#> Call:\n#> lm(formula = plat_prumer ~ perc_predst + trida_predst + trida_ostat + \n#>     vztah + ustredni_organ + kapitola_vladni, data = syst_platy_for_model_2022)\n#> \n#> Residuals:\n#>      Min       1Q   Median       3Q      Max \n#> -14734.8  -3087.1   -833.3   2370.1  30610.4 \n#> \n#> Coefficients:\n#>                     Estimate Std. Error t value Pr(>|t|)    \n#> (Intercept)         27147.90    3629.55   7.480 4.11e-12 ***\n#> perc_predst           331.34      71.84   4.612 7.93e-06 ***\n#> trida_predst        -2258.56     330.72  -6.829 1.54e-10 ***\n#> trida_ostat          3586.02     451.80   7.937 2.94e-13 ***\n#> vztahsluz           -1867.47    1648.51  -1.133    0.259    \n#> ustredni_organTRUE   5525.10    1198.00   4.612 7.93e-06 ***\n#> kapitola_vladniTRUE  1627.65    1139.87   1.428    0.155    \n#> ---\n#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n#> \n#> Residual standard error: 6270 on 166 degrees of freedom\n#> Multiple R-squared:  0.6001, Adjusted R-squared:  0.5857 \n#> F-statistic: 41.52 on 6 and 166 DF,  p-value: < 2.2e-16\n\n\n\n\nV čase\nPokud model odhadneme zvlášť v jednotlivých letech, jsou koeficienty v čase relativně stabilní.\n\n\n\n\n\nResiduals pro jednotlivé úřady v čase:"
+  },
+  {
+    "objectID": "2_explore-counts.html",
+    "href": "2_explore-counts.html",
+    "title": "Počty úředníků: 2013-2018",
+    "section": "",
+    "text": "knitr::opts_chunk$set(echo = T, warning = F, message = F)\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidyr)"
+  },
+  {
+    "objectID": "2_explore-counts.html#table",
+    "href": "2_explore-counts.html#table",
+    "title": "Počty úředníků: 2013-2018",
+    "section": "Table",
+    "text": "Table\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\" & \n           year %in% c(2013, 2018)) %>% \n  filter(!(type %in% c(\"PO sum\", \"Příslušníci a vojáci\"))) %>% \n  mutate(skutecnost = (round(skutecnost)/1e3) %>% round(1)) %>%\n  select(type, skutecnost, year) %>% \n  pivot_wider(names_from = year, values_from = skutecnost) %>% \n  select(type, `2013`, `2018`) %>% knitr::kable()\n\n\n\n\ntype\n2013\n2018\n\n\n\n\nÚO\n23.1\n26.5\n\n\njedn. OSS státní správy\n48.9\n51.6\n\n\nSOBCPO\n78.6\n81.7\n\n\nST.SPRÁVA\n150.7\n159.8\n\n\nostatní OSS\n35.3\n37.4\n\n\nOSS sum\n186.0\n197.1\n\n\n\n\n\n\n159.8 - 26.5 - 81.7\n\n[1] 51.6"
+  },
+  {
+    "objectID": "2_explore-counts.html#chart",
+    "href": "2_explore-counts.html#chart",
+    "title": "Počty úředníků: 2013-2018",
+    "section": "Chart",
+    "text": "Chart\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\" & year == 2018) %>% \n  filter(!(type %in% c(\"Příslušníci a vojáci\"))) %>% \n  # mutate(skutecnost = (round(skutecnost)/1e3) %>% round(1)) %>% \n  # select(type, skutecnost)\n  select(type, skutecnost) %>% ggplot() + geom_col(aes(type, skutecnost)) +\n  coord_flip()"
+  },
+  {
+    "objectID": "2_explore-counts.html#absolutes",
+    "href": "2_explore-counts.html#absolutes",
+    "title": "Počty úředníků: 2013-2018",
+    "section": "absolutes",
+    "text": "absolutes\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %>% \n  ggplot() +\n  geom_line(aes(x = year, y = skutecnost/1e3, group = type)) +\n  facet_wrap(~type)"
+  },
+  {
+    "objectID": "2_explore-counts.html#change-from-2013-base",
+    "href": "2_explore-counts.html#change-from-2013-base",
+    "title": "Počty úředníků: 2013-2018",
+    "section": "Change from 2013 base",
+    "text": "Change from 2013 base\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %>% \n  group_by(type) %>% \n  arrange(year) %>% \n  mutate(index = skutecnost/first(skutecnost)) %>% \n  ggplot() +\n  geom_line(aes(x = year, y = index, group = type)) +\n  facet_wrap(~type)"
+  },
+  {
+    "objectID": "2_explore-counts.html#plan-vs.-reality",
+    "href": "2_explore-counts.html#plan-vs.-reality",
+    "title": "Počty úředníků: 2013-2018",
+    "section": "Plan vs. reality",
+    "text": "Plan vs. reality\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %>% \n  ggplot() +\n  geom_line(aes(x = year, y = plneni, group = type)) +\n  facet_wrap(~type)\n\n\n\n\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"cost\") %>% \n  filter(year == 2018) %>% \n  select(rozp, skutecnost, year, type) %>% \n  mutate_at(vars(skutecnost, rozp), ~(./1e9) %>% round(1))\n\n# A tibble: 8 x 4\n   rozp skutecnost year  type                  \n  <dbl>      <dbl> <chr> <chr>                 \n1  16.2       15.9 2018  ÚO                    \n2  20.8       21.1 2018  jedn. OSSstátní správy\n3  43.6       43.7 2018  SOBCPO                \n4  80.7       80.7 2018  ST.SPRÁVA             \n5  18.3       18.4 2018  ostatní OSS           \n6  99         99.1 2018  OSS sum               \n7  87.4       87.9 2018  PO sum                \n8  43.5       43.5 2018  Příslušníci a vojáci"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html",
+    "href": "3_explore-counts-longseries.html",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "",
+    "text": "c13o <- read_csv(here::here(\"data-output/legacy/groups_ALL.csv\"))\ndt0 <- read_rds(here::here(\"data-interim/objemy_pocty_scraped_raw_2012_2018.rds\"))"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#prep-data-2013",
+    "href": "3_explore-counts-longseries.html#prep-data-2013",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Prep data 2013+",
+    "text": "Prep data 2013+\n\ndt <- dt0 %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %>% \n  select(year, grp = type, schvaleny = rozp,\n         skutecnost, upraveny, rozdil, index, plneni) %>% \n  mutate(grp = recode(grp, \n                      `jedn. OSS státní správy` = \"neústřední st. správa\",\n                      `ST.SPRÁVA` = \"St. sprava se SOBCPO\"),\n         plneni = 2-plneni/100, rozdil = -rozdil)"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#prep-data-2003",
+    "href": "3_explore-counts-longseries.html#prep-data-2003",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Prep data 2003+",
+    "text": "Prep data 2003+\n\ndto <- c13o %>% \n  filter(promenna == \"Zam\") %>% \n  select(grp, sgrp, variable, value, udaj, promenna, UO, exekutiva, Year) %>% \n  set_names(tolower(names(.))) %>% \n  mutate_at(vars(udaj, variable, promenna), tolower) %>% \n  mutate(year = year(year),\n         udaj = recode(udaj,  upr2skut = \"plneni\",\n                       uprminusskut = \"rozdil\"),\n         grp = recode(grp, UO = \"ÚO\", `OSS-RO` = \"OSS sum\",\n                      PO = \"PO sum\",\n                      `OSS-SS` = \"neústřední st. správa\",\n                      OOSS = \"ostatní OSS\")) %>% \n  filter(grp %in% c(\"ÚO\", \"ST.SPRÁVA\", \"SOBCPO\", \"OSS sum\", \"ostatní OSS\",\n                    \"PO sum\", \"St. sprava se SOBCPO\", \n                    \"neústřední st. správa\"))"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#check-groupings",
+    "href": "3_explore-counts-longseries.html#check-groupings",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Check groupings",
+    "text": "Check groupings\n\n2003+\n\nunique(dto$grp) %>% enframe(name = NULL)\n\n# A tibble: 7 x 1\n  value                \n  <chr>                \n1 OSS sum              \n2 St. sprava se SOBCPO \n3 SOBCPO               \n4 ostatní OSS          \n5 PO sum               \n6 ÚO                   \n7 neústřední st. správa\n\n\n\n\n2013+\n\nunique(dt$grp) %>% enframe(name = NULL)\n\n# A tibble: 8 x 1\n  value                \n  <chr>                \n1 ÚO                   \n2 neústřední st. správa\n3 SOBCPO               \n4 St. sprava se SOBCPO \n5 ostatní OSS          \n6 OSS sum              \n7 PO sum               \n8 Příslušníci a vojáci"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#check-data-by-comparing-grouping-sizes",
+    "href": "3_explore-counts-longseries.html#check-data-by-comparing-grouping-sizes",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Check data by comparing grouping sizes",
+    "text": "Check data by comparing grouping sizes\n\n2003+\n\ndto %>% \n  filter(udaj == \"schvaleny\" & year == 2013) %>% \n  ggplot(aes(grp, value/1000)) +\n  geom_col() + coord_flip() + ggtitle(\"2013 - data 2003-2012\") + \n  scale_y_continuous(limits = c(0,250))\n\n\n\n\n\n\n2013+\n\ndt %>% \n  filter(year == 2013) %>% \n  filter(!(grp %in% c(\"Příslušníci a vojáci\"))) %>%\n  ggplot(aes(grp, skutecnost/1e3)) +\n  geom_col() + coord_flip() + ggtitle(\"2013 - data 2013-2018\") +\n  scale_y_continuous(limits = c(0,250))"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#merge-data",
+    "href": "3_explore-counts-longseries.html#merge-data",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Merge data:",
+    "text": "Merge data:\n\nsrs <- bind_rows(dto %>% mutate(ds = \"old\") %>%\n                   filter(year != 2013) %>% \n                   select(year, grp, value, udaj),\n                 dt %>% pivot_longer(names_to = \"udaj\", values_to = \"value\",\n                                     cols = c(schvaleny, skutecnost,\n                                              upraveny, rozdil, \n                                              index, plneni)) %>% \n                   mutate(ds = \"new\", year = as.numeric(year)))"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#absolute---comparable",
+    "href": "3_explore-counts-longseries.html#absolute---comparable",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Absolute - comparable",
+    "text": "Absolute - comparable\n\nsrs %>% \n  filter(udaj == \"skutecnost\") %>% \n  ggplot(aes(year, value)) +\n  geom_line() +\n  facet_wrap(~grp)"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#absolute---focus-on-changes",
+    "href": "3_explore-counts-longseries.html#absolute---focus-on-changes",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Absolute - focus on changes",
+    "text": "Absolute - focus on changes\n\nsrs %>% \n  filter(udaj == \"skutecnost\") %>% \n  ggplot(aes(year, value)) +\n  geom_line() +\n  facet_wrap(~grp, scales = \"free_y\")"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#plan-vs.-reality",
+    "href": "3_explore-counts-longseries.html#plan-vs.-reality",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Plan vs. reality",
+    "text": "Plan vs. reality\n\nsrs %>% \n  filter(udaj == \"plneni\") %>% \n  ggplot(aes(year, 2-value)) +\n  geom_line() +\n  facet_wrap(~grp)"
+  },
+  {
+    "objectID": "3_explore-counts-longseries.html#growth-from-2003-base",
+    "href": "3_explore-counts-longseries.html#growth-from-2003-base",
+    "title": "Počty úředníků: 2003-2018",
+    "section": "Growth from 2003 base",
+    "text": "Growth from 2003 base\n\nsrs %>% \n  filter(udaj == \"skutecnost\") %>% \n  group_by(grp) %>% \n  arrange(year) %>% \n  mutate(index = value/first(value)) %>% \n  ggplot(aes(year, index)) +\n  geom_line() +\n  facet_wrap(~grp)"
+  },
+  {
+    "objectID": "zdroje.html",
+    "href": "zdroje.html",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "",
+    "text": "platové tabulky pro daný rok visí vždy na stránce ISP MF, zpětně je bohužel z webu získat nejde: https://www.mfcr.cz/cs/o-ministerstvu/informacni-systemy/is-o-platech/"
+  },
+  {
+    "objectID": "zdroje.html#update-2022-07",
+    "href": "zdroje.html#update-2022-07",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "Update 2022-07",
+    "text": "Update 2022-07\n\nnově vyšla studie Národní rozpočtové rady: Vývoj počtu zaměstnanců v sektoru vládních institucí\npro základní srovnání na kvartální bázi lze použít statistiku výdělků podle sekcí NACE od ČSÚ\n\nMzdy, náklady práce - časové řady - sekce O - „Veřejná správa a obrana; povinné sociální zabezpečení“ - v tabulce 2\nczso::czso_get_table(\"110079\")\n\nna webu MPSV existují data z ISPV (krajská a národní za ISCO4, národní s rozpady podle vzdělání, věku aj.), ale pouze za poslední období"
+  },
+  {
+    "objectID": "zdroje.html#update-2022-06",
+    "href": "zdroje.html#update-2022-06",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "Update 2022-06",
+    "text": "Update 2022-06\n\nstudie IDEA na pracovním webu aktualizování s daty o skutečnosti za rok 2021, vstupní i zpracovaná data k dispozici v repozitáři\nvzniká balík ispv pro stažení a načtení dat z ISPV"
+  },
+  {
+    "objectID": "zdroje.html#update-2022-05",
+    "href": "zdroje.html#update-2022-05",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "Update 2022-05",
+    "text": "Update 2022-05\n\nzpracovaná časová řada systemizace je dostupná na https://github.com/petrbouchal/systemizace\ntamtéž zpracovaná organizační struktura z open dat níže\naktuální verze přehledové studie (Daniel Bartušek, Petr Bouchal, Petr Janský, IDEA CERGE-EI 2022) je na webu IDEA i s interaktivními grafy, kód na https://github.com/dan-bart/urednici_2021"
+  },
+  {
+    "objectID": "zdroje.html#interní-tabulka-mf-pro-tvorbu-szú",
+    "href": "zdroje.html#interní-tabulka-mf-pro-tvorbu-szú",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "0. Interní tabulka MF pro tvorbu SZÚ",
+    "text": "0. Interní tabulka MF pro tvorbu SZÚ\n\nSvatý Grál: všechno v jedné mega a ancient excelové tabulce:\n\npočty zaměstnanců i objemy výdajů\n2003-201X\nčlenění na skupiny reportované v SZÚ\nvšechny fáze rozpočtu\npo kapitolách i organizacích\noddělené platy a ostatní platby za provedenou práci\n\npůjčili nám je na studii IDEA v roce 2013\n(-) děsivé vzorečky a provazby kamsi na síťový disk MF, ale snad je to správně\n(-) teď už se toho nedá dobrat, nejsme schopni na MF zkontaktovat vlastníka souboru\nupdate 2021/03: z MF máme data za roky 2013-2020\n(-) neznám status té věci, proto původní soubor na Github nedávám (nic tajného tam není, ale je to něčí interní práce)"
+  },
+  {
+    "objectID": "zdroje.html#szú-státní-závěrečný-účet",
+    "href": "zdroje.html#szú-státní-závěrečný-účet",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "1. SZÚ: státní závěrečný účet",
+    "text": "1. SZÚ: státní závěrečný účet\nNB tento datový zdroj obsahuje určitý řez celými veřejnými financemi, tj. nejen daty o úřednících, čili poznámky i kód můžou být užitečné pro zpracování širšího spektra dat, byť ta asi budou často dostupná i v Monitoru státní pokladny.\n\nobsahuje počty zaměstnanců a finanční objemy výdajů na platy - tabulky 10 a 11, tj. součást tabulkové přílohy, dá-li MF, tak v excelu\nfinanční objemy pouze v součtu „Platy a ostatní platby za provedenou práci“\nto odpovídá seskupení 50 v druhovém členění, ale nejdou z toho vypočítat průměrné platy, protože ty MF v SZÚ počítá (logicky) pouze z položky platy bez „ostatních plateb za provedenou práci (OPPP)“, je tedy potřeba odečíst OPPP (viz níže)\nv excelu jsou dostupné relevantní tabulky z webu Sněmovny od roku 2012 do roku 2018 (zajímavé je, že excelových souborů od roku 2012 ubývá a letos už je tam jen jeden hlavní, zbytek často jako obrázky v PDF)\n\npotřeba hledat za jednotlivá volební období zvlášť\nve skriptu jsou zapsané přesné odkazy\n\ntyto tabulky mají skoro stejnou strukturu mezi lety, jdou tedy strojově zkompilovat, následně jsou uložené v původní XLS formě na githubu\nschválený rozpočet 2013 v těchto datech odpovídá schválenému rozpočtu 2013 v interní tabulce MF, kterou nám v roce 2013 laskavě půjčili\nv roce 2021 jsme dostali od MF prodlouženou verzi excelové megatabulky z toku 2013"
+  },
+  {
+    "objectID": "zdroje.html#výkaz-výdajů-druhové-členění",
+    "href": "zdroje.html#výkaz-výdajů-druhové-členění",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "2. Výkaz výdajů, druhové členění",
+    "text": "2. Výkaz výdajů, druhové členění\n\nsoučást státní pokladny - jak analytického rozhraní - report Příjmy, výdaje a financování státu, tak hrubých open dat\npozor, analytika SP má dostat novou verzi\nobsahuje pouze objemy výdajů, nikoli počty lidí\nOPPP zmíněné výše, které chybí ve veřejných datech SZÚ, odpovídají podseskupení 502 druhového třídění rozpočtu - složení tohoto podseskupení se mezi kapitolami liší, ale to nevadí\n\nobecně obsahují odstupné apod., ale také „ostatní osobní výdaje“ a „Ostatní platby za provedenou práci jinde nezařazené“, přičemž to první by měly být DPP a DPČ, viz https://ucetniportal.cz/wiki/html?item=14399\n\n501 by měly být platy, 503 a 504 jsou pojistné a další, které ve výkazu SZÚ vůbec nefigurují\nlze získat z rozhraní Monitoru SP za 2010-2019, ale u podseskupení se tam chybně místo názvu ukazují kódy, takže je to méně přehledné\nvalidace proti SZÚ 2013 potvrzuje, že OPPP = podseskupení 502 a Platy + OPPP = seskupení 50, tj. platy by měly jít dovodit odečtem\nto také znamená, že podseskupení platy neobsahuje platy představitelů státní moci (politici)\nnelze ověřit, jestli to platí pro 2014+\nod 2016 existuje položka na platy lidí ve státní službě a položka na ostatní\nz Monitoru jde toto vytahat na úrovni kapitol, pak už je to moc velké, ale zato v časové řadě 2010-2019, zatímco z open dat by se to muselo tahat ze dvou různých souborů pro -2014 a 2015-, ale zase by to šlo po organizacích.\nv open datech sada\n\npro -2014 FIN 204 U, výkaz/soubor FIN U 101/FIN U 102, tj. výkaz 52, tabulky 100/200/300\npro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS\nčíselník polozka pro druhové třídění\nco rok, to datový soubor…\nexport z analytického interface per kapitola [na githubu](https://github.com/petrbouchal/urednici/tree/master/data-input"
+  },
+  {
+    "objectID": "zdroje.html#výkaz-povinných-ukazatelů",
+    "href": "zdroje.html#výkaz-povinných-ukazatelů",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "3. Výkaz povinných ukazatelů",
+    "text": "3. Výkaz povinných ukazatelů\n\nsoučást státní pokladny - jak analytického rozhraní, tak hrubých open dat\npouze objemy výdajů\nrelevantní jsou „průřezové ukazatele“ - platí pro všechny kapitoly/organizace\ndo 2014 za organizaci, od 2015 za kapitolu\nv čase se mění relevantní ukazatel (hlavně náběh SlužZ a jiné)\nukazatele nejde mezi sebou sčítat, některé jsou podskupinou jiných\nobsahuje\n\nvždy Platy zaměstnanců a ostatní platby za provedenou práci\ndo 2015 Platy státních úředníků a platy zaměstnanců v pracovním poměru (státní úředníci zřejmě podle nefunkčního zákona o úřednících)\nod 2016 Platy zaměstnanců v pracovním poměru vyjma zaměstnanců na služebních místech a Platy zaměstnanců na služebních místech dle zákona o státní službě\nsoudě dle čísel tyto ukazatele dávají smysl - např. aspoň AVČR nemá žádné lidi ve službě…\n\nmonitorují se normálně v logice rozpočet-po změnách-konečný-výsledek\nv open datech sada\n\npro -2014 FIN 204 U, výkaz/soubor FIN U 106, tj. tabulka 700/část 7 výkazu 52\npro 2015+ FIN 112-OSS, výkaz/soubor MIS-RIS-ZU\npro ukazatele číselníky polvkk (do 2014) a psuk (2015+)\nco rok, to datový soubor\nexport z analytického interface per kapitola na githubu"
+  },
+  {
+    "objectID": "zdroje.html#platové-tabulky",
+    "href": "zdroje.html#platové-tabulky",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "Platové tabulky",
+    "text": "Platové tabulky\n\nv excelu zveřejněno v příloze webu MF o ISPSP\nza 2021 a 2022 staženo a použito v repozitáři systemizace"
+  },
+  {
+    "objectID": "zdroje.html#čssz---open-data-o-zaměstnancích",
+    "href": "zdroje.html#čssz---open-data-o-zaměstnancích",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "ČSSZ - open data o zaměstnancích",
+    "text": "ČSSZ - open data o zaměstnancích\n\nprůměr a medián platů https://data.cssz.cz/web/otevrena-data/-/prumerny-plat-v-cssz\nsystemizovaná místa a fluktuace https://data.cssz.cz/web/otevrena-data/-/systemizovana-mista-a-fluktuace-zamestnancu-cssz\nzaměstnanci dle vzdělání https://data.cssz.cz/web/otevrena-data/-/zamestnanci-cssz-dle-vzdelani"
+  },
+  {
+    "objectID": "zdroje.html#finanční-správa",
+    "href": "zdroje.html#finanční-správa",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "Finanční správa",
+    "text": "Finanční správa\n\ndélka trvání poměru, časová řada\nevidenční počty zaměstnanců ve finanční správě\npočet systemizovaných míst"
+  },
+  {
+    "objectID": "zdroje.html#platy-vysoce-postavených-úředníků",
+    "href": "zdroje.html#platy-vysoce-postavených-úředníků",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "Platy vysoce postavených úředníků",
+    "text": "Platy vysoce postavených úředníků\n\nHlídač státu za několik posledních let\niRozhlas 2022 + květen 2022\niRozhlas 2016 - jmenovité"
+  }
+]

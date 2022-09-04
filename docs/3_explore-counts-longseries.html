@@ -1,647 +1,639 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs"><head>
 
-<html>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.168">
 
-<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="author" content="Petr Bouchal">
 
-
-<meta name="author" content="Petr Bouchal" />
-
-
-<title>Počty úředníků: 2003-2018</title>
-
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<script src="site_libs/navigation-1.1/sourceembed.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
-
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+<title>urednici - Počty úředníků: 2003-2018</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
 }
-</script>
-
-
-
-<style type="text/css">
-#rmd-source-code {
-  display: none;
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-</style>
-
-
-<link rel="stylesheet" href="extra.css" type="text/css" />
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-pre code {
-  padding: 0;
-}
-</style>
-
-
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
-
-
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
 @media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
 </style>
 
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./2_explore-counts.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Nic nenalezeno",
+    "search-matching-documents-text": "nalezených dokumentů",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
 
 </head>
 
-<body>
+<body class="nav-sidebar docked nav-fixed">
 
-
-<div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Úředníci</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">
-    <span class="fas fa-home"></span>
-     
-    Home
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
-     
-    Exploratory analysis
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="2_explore-counts.html">Počty úředníků 2013-18</a>
-    </li>
-    <li>
-      <a href="3_explore-counts-longseries.html">Počty úředníků 2003-18</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-book"></span>
-     
-    Dokumentace
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="zdroje.html">Inventura dostupnosti dat 2019-2022</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/petrbouchal/urednici">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://petrbouchal.xyz">
-    <span class="fas fa-asterisk fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div id="header">
-
-<div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-<li role="separator" class="divider"></li>
-<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">urednici</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./international.html">Mezinárodní srovnání</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./srovnani-sektory.html">Srovnání se soukromým sektorem</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./srovnani-urady.html">Srovnání mezi úřady</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./zdroje.html">Zdroje dat</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./archiv.html" aria-current="page">Archiv</a>
+  </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/petrbouchal/msmt"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://petrbouchal.xyz"><i class="bi bi-asterisk" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="dropdown-header">
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Počty úředníků: 2003-2018</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./archiv.html" class="sidebar-item-text sidebar-link">Archiv</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_explore-counts.html" class="sidebar-item-text sidebar-link">Počty úředníků: 2013-2018</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_explore-counts-longseries.html" class="sidebar-item-text sidebar-link active">Počty úředníků: 2003-2018</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Na této stránce</h2>
+   
+  <ul>
+  <li><a href="#explore-prep-to-merge" id="toc-explore-prep-to-merge" class="nav-link active" data-scroll-target="#explore-prep-to-merge">Explore &amp; prep to merge</a>
+  <ul class="collapse">
+  <li><a href="#prep-data-2013" id="toc-prep-data-2013" class="nav-link" data-scroll-target="#prep-data-2013">Prep data 2013+</a></li>
+  <li><a href="#prep-data-2003" id="toc-prep-data-2003" class="nav-link" data-scroll-target="#prep-data-2003">Prep data 2003+</a></li>
+  <li><a href="#check-groupings" id="toc-check-groupings" class="nav-link" data-scroll-target="#check-groupings">Check groupings</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2003+</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2013+</a></li>
+  </ul></li>
+  <li><a href="#check-data-by-comparing-grouping-sizes" id="toc-check-data-by-comparing-grouping-sizes" class="nav-link" data-scroll-target="#check-data-by-comparing-grouping-sizes">Check data by comparing grouping sizes</a>
+  <ul class="collapse">
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2003+</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2013+</a></li>
+  </ul></li>
+  <li><a href="#merge-data" id="toc-merge-data" class="nav-link" data-scroll-target="#merge-data">Merge data:</a></li>
+  </ul></li>
+  <li><a href="#first-charts" id="toc-first-charts" class="nav-link" data-scroll-target="#first-charts">First charts</a>
+  <ul class="collapse">
+  <li><a href="#absolute---comparable" id="toc-absolute---comparable" class="nav-link" data-scroll-target="#absolute---comparable">Absolute - comparable</a></li>
+  <li><a href="#absolute---focus-on-changes" id="toc-absolute---focus-on-changes" class="nav-link" data-scroll-target="#absolute---focus-on-changes">Absolute - focus on changes</a></li>
+  </ul></li>
+  <li><a href="#comparisons" id="toc-comparisons" class="nav-link" data-scroll-target="#comparisons">Comparisons</a>
+  <ul class="collapse">
+  <li><a href="#plan-vs.-reality" id="toc-plan-vs.-reality" class="nav-link" data-scroll-target="#plan-vs.-reality">Plan vs.&nbsp;reality</a></li>
+  <li><a href="#growth-from-2003-base" id="toc-growth-from-2003-base" class="nav-link" data-scroll-target="#growth-from-2003-base">Growth from 2003 base</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/petrbouchal/urednici/edit/main/3_explore-counts-longseries.Rmd" class="toc-action">Upravit stránku</a></p><p><a href="https://github.com/petrbouchal/urednici/issues/new" class="toc-action">Nahlásit chybu</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Počty úředníků: 2003-2018</h1>
 </div>
 
 
 
-<h1 class="title toc-ignore">Počty úředníků: 2003-2018</h1>
-<h4 class="author">Petr Bouchal</h4>
-<h4 class="date">11/2/2019</h4>
+<div class="quarto-title-meta">
 
-</div>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Petr Bouchal </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2. listopadu 2019</p>
+    </div>
+  </div>
+    
+  </div>
+  
 
+</header>
 
-<pre class="r"><code>c13o &lt;- read_csv(here::here(&quot;data-output/legacy/groups_ALL.csv&quot;))
-dt0 &lt;- read_rds(here::here(&quot;data-interim/objemy_pocty_scraped_raw_2012_2018.rds&quot;))</code></pre>
-<pre class="r"><code>unique(c13o$variable) %&gt;% enframe(name = NULL)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"AvgSal_schvaleny"},{"1":"AvgSal_upraveny"},{"1":"Zam_schvaleny"},{"1":"PlatyOPPP_schvaleny"},{"1":"OPPP_upr2skut"},{"1":"Zam_uprMinusskut"},{"1":"PlatyOPPP_skutecnost"},{"1":"OPPP_upraveny"},{"1":"PlatyOPPP_upr2skut"},{"1":"OPPP_uprMinusskut"},{"1":"AvgSal_skutecnost"},{"1":"AvgSal_uprMinusskut"},{"1":"Zam_skutecnost"},{"1":"PlatyOPPP_upraveny"},{"1":"Platy_schvaleny"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
-  </script>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>c13o <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data-output/legacy/groups_ALL.csv"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dt0 <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data-interim/objemy_pocty_scraped_raw_2012_2018.rds"</span>))</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="r"><code>unique(c13o$grp) %&gt;% enframe(name = NULL)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Exekutiva"},{"1":"PO"},{"1":"OSS-RO"},{"1":"UO - Ostatní"},{"1":"UO - Ministerstva"},{"1":"St. sprava se SOBCPO"},{"1":"SOBCPO"},{"1":"ROPO celkem"},{"1":"OOSS"},{"1":"UO"},{"1":"OSS-SS"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
-  </script>
+<div class="cell" data-max.print="15">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(c13o<span class="sc">$</span>variable) <span class="sc">%&gt;%</span> <span class="fu">enframe</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 25 x 1
+   value               
+   &lt;chr&gt;               
+ 1 AvgSal_schvaleny    
+ 2 AvgSal_upraveny     
+ 3 Zam_schvaleny       
+ 4 PlatyOPPP_schvaleny 
+ 5 OPPP_upr2skut       
+ 6 Zam_uprMinusskut    
+ 7 PlatyOPPP_skutecnost
+ 8 OPPP_upraveny       
+ 9 PlatyOPPP_upr2skut  
+10 OPPP_uprMinusskut   
+# … with 15 more rows</code></pre>
 </div>
-<pre class="r"><code>unique(dt0$type) %&gt;% enframe(name = NULL)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"ÚO"},{"1":"jedn. OSS státní správy"},{"1":"SOBCPO"},{"1":"ST.SPRÁVA"},{"1":"ostatní OSS"},{"1":"OSS sum"},{"1":"PO sum"},{"1":"Příslušníci a vojáci"},{"1":"jedn. OSSstátní správy"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
-  </script>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(c13o<span class="sc">$</span>grp) <span class="sc">%&gt;%</span> <span class="fu">enframe</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 x 1
+   value               
+   &lt;chr&gt;               
+ 1 Exekutiva           
+ 2 PO                  
+ 3 OSS-RO              
+ 4 UO - Ostatní        
+ 5 UO - Ministerstva   
+ 6 St. sprava se SOBCPO
+ 7 SOBCPO              
+ 8 ROPO celkem         
+ 9 OOSS                
+10 UO                  
+11 OSS-SS              </code></pre>
 </div>
-<div id="explore-prep-to-merge" class="section level1 tabset">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dt0<span class="sc">$</span>type) <span class="sc">%&gt;%</span> <span class="fu">enframe</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 x 1
+  value                  
+  &lt;chr&gt;                  
+1 ÚO                     
+2 jedn. OSS státní správy
+3 SOBCPO                 
+4 ST.SPRÁVA              
+5 ostatní OSS            
+6 OSS sum                
+7 PO sum                 
+8 Příslušníci a vojáci   
+9 jedn. OSSstátní správy </code></pre>
+</div>
+</div>
+<section id="explore-prep-to-merge" class="level1 tabset">
 <h1 class="tabset">Explore &amp; prep to merge</h1>
-<div id="prep-data-2013" class="section level2">
-<h2>Prep data 2013+</h2>
-<pre class="r"><code>dt &lt;- dt0 %&gt;% 
-  filter(kap_num == &quot;C E L K E M&quot; &amp; indicator == &quot;count&quot;) %&gt;% 
-  select(year, grp = type, schvaleny = rozp,
-         skutecnost, upraveny, rozdil, index, plneni) %&gt;% 
-  mutate(grp = recode(grp, 
-                      `jedn. OSS státní správy` = &quot;neústřední st. správa&quot;,
-                      `ST.SPRÁVA` = &quot;St. sprava se SOBCPO&quot;),
-         plneni = 2-plneni/100, rozdil = -rozdil)</code></pre>
+<section id="prep-data-2013" class="level2">
+<h2 class="anchored" data-anchor-id="prep-data-2013">Prep data 2013+</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> dt0 <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(kap_num <span class="sc">==</span> <span class="st">"C E L K E M"</span> <span class="sc">&amp;</span> indicator <span class="sc">==</span> <span class="st">"count"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, <span class="at">grp =</span> type, <span class="at">schvaleny =</span> rozp,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         skutecnost, upraveny, rozdil, index, plneni) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">grp =</span> <span class="fu">recode</span>(grp, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                      <span class="st">`</span><span class="at">jedn. OSS státní správy</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"neústřední st. správa"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                      <span class="st">`</span><span class="at">ST.SPRÁVA</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"St. sprava se SOBCPO"</span>),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">plneni =</span> <span class="dv">2</span><span class="sc">-</span>plneni<span class="sc">/</span><span class="dv">100</span>, <span class="at">rozdil =</span> <span class="sc">-</span>rozdil)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="prep-data-2003" class="section level2">
-<h2>Prep data 2003+</h2>
-<pre class="r"><code>dto &lt;- c13o %&gt;% 
-  filter(promenna == &quot;Zam&quot;) %&gt;% 
-  select(grp, sgrp, variable, value, udaj, promenna, UO, exekutiva, Year) %&gt;% 
-  set_names(tolower(names(.))) %&gt;% 
-  mutate_at(vars(udaj, variable, promenna), tolower) %&gt;% 
-  mutate(year = year(year),
-         udaj = recode(udaj,  upr2skut = &quot;plneni&quot;,
-                       uprminusskut = &quot;rozdil&quot;),
-         grp = recode(grp, UO = &quot;ÚO&quot;, `OSS-RO` = &quot;OSS sum&quot;,
-                      PO = &quot;PO sum&quot;,
-                      `OSS-SS` = &quot;neústřední st. správa&quot;,
-                      OOSS = &quot;ostatní OSS&quot;)) %&gt;% 
-  filter(grp %in% c(&quot;ÚO&quot;, &quot;ST.SPRÁVA&quot;, &quot;SOBCPO&quot;, &quot;OSS sum&quot;, &quot;ostatní OSS&quot;,
-                    &quot;PO sum&quot;, &quot;St. sprava se SOBCPO&quot;, 
-                    &quot;neústřední st. správa&quot;))</code></pre>
+</section>
+<section id="prep-data-2003" class="level2">
+<h2 class="anchored" data-anchor-id="prep-data-2003">Prep data 2003+</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dto <span class="ot">&lt;-</span> c13o <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(promenna <span class="sc">==</span> <span class="st">"Zam"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(grp, sgrp, variable, value, udaj, promenna, UO, exekutiva, Year) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_names</span>(<span class="fu">tolower</span>(<span class="fu">names</span>(.))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(udaj, variable, promenna), tolower) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(year),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">udaj =</span> <span class="fu">recode</span>(udaj,  <span class="at">upr2skut =</span> <span class="st">"plneni"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">uprminusskut =</span> <span class="st">"rozdil"</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">grp =</span> <span class="fu">recode</span>(grp, <span class="at">UO =</span> <span class="st">"ÚO"</span>, <span class="st">`</span><span class="at">OSS-RO</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"OSS sum"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">PO =</span> <span class="st">"PO sum"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                      <span class="st">`</span><span class="at">OSS-SS</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"neústřední st. správa"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">OOSS =</span> <span class="st">"ostatní OSS"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(grp <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ÚO"</span>, <span class="st">"ST.SPRÁVA"</span>, <span class="st">"SOBCPO"</span>, <span class="st">"OSS sum"</span>, <span class="st">"ostatní OSS"</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"PO sum"</span>, <span class="st">"St. sprava se SOBCPO"</span>, </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"neústřední st. správa"</span>))</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="check-groupings" class="section level2 tabset">
-<h2 class="tabset">Check groupings</h2>
-<div id="section" class="section level3">
-<h3>2003+</h3>
-<pre class="r"><code>unique(dto$grp) %&gt;% enframe(name = NULL)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"OSS sum"},{"1":"St. sprava se SOBCPO"},{"1":"SOBCPO"},{"1":"ostatní OSS"},{"1":"PO sum"},{"1":"ÚO"},{"1":"neústřední st. správa"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div id="section-1" class="section level3">
-<h3>2013+</h3>
-<pre class="r"><code>unique(dt$grp) %&gt;% enframe(name = NULL)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["value"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"ÚO"},{"1":"neústřední st. správa"},{"1":"SOBCPO"},{"1":"St. sprava se SOBCPO"},{"1":"ostatní OSS"},{"1":"OSS sum"},{"1":"PO sum"},{"1":"Příslušníci a vojáci"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[20],"max":[20]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<div id="check-data-by-comparing-grouping-sizes"
-class="section level2 tabset">
-<h2 class="tabset">Check data by comparing grouping sizes</h2>
-<div id="section-2" class="section level3">
-<h3>2003+</h3>
-<pre class="r"><code>dto %&gt;% 
-  filter(udaj == &quot;schvaleny&quot; &amp; year == 2013) %&gt;% 
-  ggplot(aes(grp, value/1000)) +
-  geom_col() + coord_flip() + ggtitle(&quot;2013 - data 2003-2012&quot;) + 
-  scale_y_continuous(limits = c(0,250))</code></pre>
-<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-</div>
-<div id="section-3" class="section level3">
-<h3>2013+</h3>
-<pre class="r"><code>dt %&gt;% 
-  filter(year == 2013) %&gt;% 
-  filter(!(grp %in% c(&quot;Příslušníci a vojáci&quot;))) %&gt;%
-  ggplot(aes(grp, skutecnost/1e3)) +
-  geom_col() + coord_flip() + ggtitle(&quot;2013 - data 2013-2018&quot;) +
-  scale_y_continuous(limits = c(0,250))</code></pre>
-<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</section>
+<section id="check-groupings" class="level2 tabset">
+<h2 class="tabset anchored" data-anchor-id="check-groupings">Check groupings</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2003+</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dto<span class="sc">$</span>grp) <span class="sc">%&gt;%</span> <span class="fu">enframe</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 x 1
+  value                
+  &lt;chr&gt;                
+1 OSS sum              
+2 St. sprava se SOBCPO 
+3 SOBCPO               
+4 ostatní OSS          
+5 PO sum               
+6 ÚO                   
+7 neústřední st. správa</code></pre>
 </div>
 </div>
-<div id="merge-data" class="section level2">
-<h2>Merge data:</h2>
-<pre class="r"><code>srs &lt;- bind_rows(dto %&gt;% mutate(ds = &quot;old&quot;) %&gt;%
-                   filter(year != 2013) %&gt;% 
-                   select(year, grp, value, udaj),
-                 dt %&gt;% pivot_longer(names_to = &quot;udaj&quot;, values_to = &quot;value&quot;,
-                                     cols = c(schvaleny, skutecnost,
-                                              upraveny, rozdil, 
-                                              index, plneni)) %&gt;% 
-                   mutate(ds = &quot;new&quot;, year = as.numeric(year)))</code></pre>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2013+</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dt<span class="sc">$</span>grp) <span class="sc">%&gt;%</span> <span class="fu">enframe</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 x 1
+  value                
+  &lt;chr&gt;                
+1 ÚO                   
+2 neústřední st. správa
+3 SOBCPO               
+4 St. sprava se SOBCPO 
+5 ostatní OSS          
+6 OSS sum              
+7 PO sum               
+8 Příslušníci a vojáci </code></pre>
 </div>
 </div>
-<div id="first-charts" class="section level1 tabset">
+</section>
+</section>
+<section id="check-data-by-comparing-grouping-sizes" class="level2 tabset">
+<h2 class="tabset anchored" data-anchor-id="check-data-by-comparing-grouping-sizes">Check data by comparing grouping sizes</h2>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2003+</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dto <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(udaj <span class="sc">==</span> <span class="st">"schvaleny"</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2013</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(grp, value<span class="sc">/</span><span class="dv">1000</span>)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"2013 - data 2003-2012"</span>) <span class="sc">+</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">250</span>))</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2013+</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dt <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2013</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(grp <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Příslušníci a vojáci"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(grp, skutecnost<span class="sc">/</span><span class="fl">1e3</span>)) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"2013 - data 2013-2018"</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">250</span>))</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="merge-data" class="level2">
+<h2 class="anchored" data-anchor-id="merge-data">Merge data:</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>srs <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(dto <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ds =</span> <span class="st">"old"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">filter</span>(year <span class="sc">!=</span> <span class="dv">2013</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">select</span>(year, grp, value, udaj),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                 dt <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"udaj"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">cols =</span> <span class="fu">c</span>(schvaleny, skutecnost,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                                              upraveny, rozdil, </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                                              index, plneni)) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">mutate</span>(<span class="at">ds =</span> <span class="st">"new"</span>, <span class="at">year =</span> <span class="fu">as.numeric</span>(year)))</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="first-charts" class="level1 tabset">
 <h1 class="tabset">First charts</h1>
 <p>NB:</p>
 <ul>
-<li>skok v roce 2012 je daný redefinicí MV, které od 2012 zahrnuje i
-velení policie a hasičů</li>
-<li>řada příslušníků a vojáků začíná až v 2013, protože z minulé analýzy
-jsme je tuším úplně vypustil nebo v interních datech MF nebyli</li>
+<li>skok v roce 2012 je daný redefinicí MV, které od 2012 zahrnuje i velení policie a hasičů</li>
+<li>řada příslušníků a vojáků začíná až v 2013, protože z minulé analýzy jsme je tuším úplně vypustil nebo v interních datech MF nebyli</li>
 </ul>
-<div id="absolute---comparable" class="section level2">
-<h2>Absolute - comparable</h2>
-<pre class="r"><code>srs %&gt;% 
-  filter(udaj == &quot;skutecnost&quot;) %&gt;% 
-  ggplot(aes(year, value)) +
-  geom_line() +
-  facet_wrap(~grp)</code></pre>
-<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-</div>
-<div id="absolute---focus-on-changes" class="section level2">
-<h2>Absolute - focus on changes</h2>
-<pre class="r"><code>srs %&gt;% 
-  filter(udaj == &quot;skutecnost&quot;) %&gt;% 
-  ggplot(aes(year, value)) +
-  geom_line() +
-  facet_wrap(~grp, scales = &quot;free_y&quot;)</code></pre>
-<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<section id="absolute---comparable" class="level2">
+<h2 class="anchored" data-anchor-id="absolute---comparable">Absolute - comparable</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>srs <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(udaj <span class="sc">==</span> <span class="st">"skutecnost"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, value)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>grp)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div id="comparisons" class="section level1 tabset">
+</section>
+<section id="absolute---focus-on-changes" class="level2">
+<h2 class="anchored" data-anchor-id="absolute---focus-on-changes">Absolute - focus on changes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>srs <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(udaj <span class="sc">==</span> <span class="st">"skutecnost"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, value)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>grp, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="comparisons" class="level1 tabset">
 <h1 class="tabset">Comparisons</h1>
-<div id="plan-vs.-reality" class="section level2">
-<h2>Plan vs. reality</h2>
-<pre class="r"><code>srs %&gt;% 
-  filter(udaj == &quot;plneni&quot;) %&gt;% 
-  ggplot(aes(year, 2-value)) +
-  geom_line() +
-  facet_wrap(~grp)</code></pre>
-<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-</div>
-<div id="growth-from-2003-base" class="section level2">
-<h2>Growth from 2003 base</h2>
-<pre class="r"><code>srs %&gt;% 
-  filter(udaj == &quot;skutecnost&quot;) %&gt;% 
-  group_by(grp) %&gt;% 
-  arrange(year) %&gt;% 
-  mutate(index = value/first(value)) %&gt;% 
-  ggplot(aes(year, index)) +
-  geom_line() +
-  facet_wrap(~grp)</code></pre>
-<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<section id="plan-vs.-reality" class="level2">
+<h2 class="anchored" data-anchor-id="plan-vs.-reality">Plan vs.&nbsp;reality</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>srs <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(udaj <span class="sc">==</span> <span class="st">"plneni"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, <span class="dv">2</span><span class="sc">-</span>value)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>grp)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUG/EjXR5IMO6xZllZG7DrWvFrzogMjAwMy0yMDE4IgphdXRob3I6ICJQZXRyIEJvdWNoYWwiCmRhdGU6ICIxMS8yLzIwMTkiCm91dHB1dDogaHRtbF9kb2N1bWVudAotLS0KCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFQsIHdhcm5pbmcgPSBGLCBtZXNzYWdlID0gRiwgcm93cy5wcmludCA9IDIwKQpsaWJyYXJ5KHJlYWRyKQpsaWJyYXJ5KGRwbHlyKQpsaWJyYXJ5KGdncGxvdDIpCmxpYnJhcnkodGlkeXIpCmxpYnJhcnkodGliYmxlKQpsaWJyYXJ5KGx1YnJpZGF0ZSkKbGlicmFyeShwdXJycikKa25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQpvcHRpb25zKHNjaXBlbiA9IDYpCmBgYAoKYGBge3J9CmMxM28gPC0gcmVhZF9jc3YoaGVyZTo6aGVyZSgiZGF0YS1vdXRwdXQvbGVnYWN5L2dyb3Vwc19BTEwuY3N2IikpCmR0MCA8LSByZWFkX3JkcyhoZXJlOjpoZXJlKCJkYXRhLWludGVyaW0vb2JqZW15X3BvY3R5X3NjcmFwZWRfcmF3XzIwMTJfMjAxOC5yZHMiKSkKYGBgCgpgYGB7ciwgbWF4LnByaW50ID0gMTV9CnVuaXF1ZShjMTNvJHZhcmlhYmxlKSAlPiUgZW5mcmFtZShuYW1lID0gTlVMTCkKdW5pcXVlKGMxM28kZ3JwKSAlPiUgZW5mcmFtZShuYW1lID0gTlVMTCkKdW5pcXVlKGR0MCR0eXBlKSAlPiUgZW5mcmFtZShuYW1lID0gTlVMTCkKYGBgCgojIEV4cGxvcmUgJiBwcmVwIHRvIG1lcmdlIHsudGFic2V0fQoKYGBge3IsIGluY2x1ZGU9Rn0KYzEzbyAlPiUgCiAgc2VsZWN0KGdycCwgc2dycCkgJT4lIAogIGRpc3RpbmN0KCkKYGBgCgojIyBQcmVwIGRhdGEgMjAxMysKCmBgYHtyfQpkdCA8LSBkdDAgJT4lIAogIGZpbHRlcihrYXBfbnVtID09ICJDIEUgTCBLIEUgTSIgJiBpbmRpY2F0b3IgPT0gImNvdW50IikgJT4lIAogIHNlbGVjdCh5ZWFyLCBncnAgPSB0eXBlLCBzY2h2YWxlbnkgPSByb3pwLAogICAgICAgICBza3V0ZWNub3N0LCB1cHJhdmVueSwgcm96ZGlsLCBpbmRleCwgcGxuZW5pKSAlPiUgCiAgbXV0YXRlKGdycCA9IHJlY29kZShncnAsIAogICAgICAgICAgICAgICAgICAgICAgYGplZG4uIE9TUyBzdMOhdG7DrSBzcHLDoXZ5YCA9ICJuZcO6c3TFmWVkbsOtIHN0LiBzcHLDoXZhIiwKICAgICAgICAgICAgICAgICAgICAgIGBTVC5TUFLDgVZBYCA9ICJTdC4gc3ByYXZhIHNlIFNPQkNQTyIpLAogICAgICAgICBwbG5lbmkgPSAyLXBsbmVuaS8xMDAsIHJvemRpbCA9IC1yb3pkaWwpCmBgYAoKIyMgUHJlcCBkYXRhIDIwMDMrCgpgYGB7cn0KZHRvIDwtIGMxM28gJT4lIAogIGZpbHRlcihwcm9tZW5uYSA9PSAiWmFtIikgJT4lIAogIHNlbGVjdChncnAsIHNncnAsIHZhcmlhYmxlLCB2YWx1ZSwgdWRhaiwgcHJvbWVubmEsIFVPLCBleGVrdXRpdmEsIFllYXIpICU+JSAKICBzZXRfbmFtZXModG9sb3dlcihuYW1lcyguKSkpICU+JSAKICBtdXRhdGVfYXQodmFycyh1ZGFqLCB2YXJpYWJsZSwgcHJvbWVubmEpLCB0b2xvd2VyKSAlPiUgCiAgbXV0YXRlKHllYXIgPSB5ZWFyKHllYXIpLAogICAgICAgICB1ZGFqID0gcmVjb2RlKHVkYWosICB1cHIyc2t1dCA9ICJwbG5lbmkiLAogICAgICAgICAgICAgICAgICAgICAgIHVwcm1pbnVzc2t1dCA9ICJyb3pkaWwiKSwKICAgICAgICAgZ3JwID0gcmVjb2RlKGdycCwgVU8gPSAiw5pPIiwgYE9TUy1ST2AgPSAiT1NTIHN1bSIsCiAgICAgICAgICAgICAgICAgICAgICBQTyA9ICJQTyBzdW0iLAogICAgICAgICAgICAgICAgICAgICAgYE9TUy1TU2AgPSAibmXDunN0xZllZG7DrSBzdC4gc3Byw6F2YSIsCiAgICAgICAgICAgICAgICAgICAgICBPT1NTID0gIm9zdGF0bsOtIE9TUyIpKSAlPiUgCiAgZmlsdGVyKGdycCAlaW4lIGMoIsOaTyIsICJTVC5TUFLDgVZBIiwgIlNPQkNQTyIsICJPU1Mgc3VtIiwgIm9zdGF0bsOtIE9TUyIsCiAgICAgICAgICAgICAgICAgICAgIlBPIHN1bSIsICJTdC4gc3ByYXZhIHNlIFNPQkNQTyIsIAogICAgICAgICAgICAgICAgICAgICJuZcO6c3TFmWVkbsOtIHN0LiBzcHLDoXZhIikpCmBgYAoKIyMgQ2hlY2sgZ3JvdXBpbmdzIHsudGFic2V0fQoKIyMjIDIwMDMrCgpgYGB7cn0KdW5pcXVlKGR0byRncnApICU+JSBlbmZyYW1lKG5hbWUgPSBOVUxMKQpgYGAKCiMjIyAyMDEzKyAKCmBgYHtyfQp1bmlxdWUoZHQkZ3JwKSAlPiUgZW5mcmFtZShuYW1lID0gTlVMTCkKYGBgCgojIyBDaGVjayBkYXRhIGJ5IGNvbXBhcmluZyBncm91cGluZyBzaXplcyB7LnRhYnNldH0KCiMjIyAyMDAzKwoKYGBge3J9CmR0byAlPiUgCiAgZmlsdGVyKHVkYWogPT0gInNjaHZhbGVueSIgJiB5ZWFyID09IDIwMTMpICU+JSAKICBnZ3Bsb3QoYWVzKGdycCwgdmFsdWUvMTAwMCkpICsKICBnZW9tX2NvbCgpICsgY29vcmRfZmxpcCgpICsgZ2d0aXRsZSgiMjAxMyAtIGRhdGEgMjAwMy0yMDEyIikgKyAKICBzY2FsZV95X2NvbnRpbnVvdXMobGltaXRzID0gYygwLDI1MCkpCmBgYAoKIyMjIDIwMTMrCgpgYGB7cn0KZHQgJT4lIAogIGZpbHRlcih5ZWFyID09IDIwMTMpICU+JSAKICBmaWx0ZXIoIShncnAgJWluJSBjKCJQxZnDrXNsdcWhbsOtY2kgYSB2b2rDoWNpIikpKSAlPiUKICBnZ3Bsb3QoYWVzKGdycCwgc2t1dGVjbm9zdC8xZTMpKSArCiAgZ2VvbV9jb2woKSArIGNvb3JkX2ZsaXAoKSArIGdndGl0bGUoIjIwMTMgLSBkYXRhIDIwMTMtMjAxOCIpICsKICBzY2FsZV95X2NvbnRpbnVvdXMobGltaXRzID0gYygwLDI1MCkpCmBgYAoKIyMgTWVyZ2UgZGF0YToKCmBgYHtyfQpzcnMgPC0gYmluZF9yb3dzKGR0byAlPiUgbXV0YXRlKGRzID0gIm9sZCIpICU+JQogICAgICAgICAgICAgICAgICAgZmlsdGVyKHllYXIgIT0gMjAxMykgJT4lIAogICAgICAgICAgICAgICAgICAgc2VsZWN0KHllYXIsIGdycCwgdmFsdWUsIHVkYWopLAogICAgICAgICAgICAgICAgIGR0ICU+JSBwaXZvdF9sb25nZXIobmFtZXNfdG8gPSAidWRhaiIsIHZhbHVlc190byA9ICJ2YWx1ZSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xzID0gYyhzY2h2YWxlbnksIHNrdXRlY25vc3QsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1cHJhdmVueSwgcm96ZGlsLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluZGV4LCBwbG5lbmkpKSAlPiUgCiAgICAgICAgICAgICAgICAgICBtdXRhdGUoZHMgPSAibmV3IiwgeWVhciA9IGFzLm51bWVyaWMoeWVhcikpKQpgYGAKCiMgRmlyc3QgY2hhcnRzIHsudGFic2V0fQoKTkI6CgotIHNrb2sgdiByb2NlIDIwMTIgamUgZGFuw70gcmVkZWZpbmljw60gTVYsIGt0ZXLDqSBvZCAyMDEyIHphaHJudWplIGkgdmVsZW7DrSBwb2xpY2llIGEgaGFzacSNxa8KLSDFmWFkYSBwxZnDrXNsdcWhbsOta8WvIGEgdm9qw6Frxa8gemHEjcOtbsOhIGHFviB2IDIwMTMsIHByb3Rvxb5lIHogbWludWzDqSBhbmFsw716eSBqc21lIGplIHR1xaHDrW0gw7pwbG7EmyB2eXB1c3RpbCBuZWJvIHYgaW50ZXJuw61jaCBkYXRlY2ggTUYgbmVieWxpCgojIyBBYnNvbHV0ZSAtIGNvbXBhcmFibGUgCgpgYGB7cn0Kc3JzICU+JSAKICBmaWx0ZXIodWRhaiA9PSAic2t1dGVjbm9zdCIpICU+JSAKICBnZ3Bsb3QoYWVzKHllYXIsIHZhbHVlKSkgKwogIGdlb21fbGluZSgpICsKICBmYWNldF93cmFwKH5ncnApCmBgYAoKIyMgQWJzb2x1dGUgLSBmb2N1cyBvbiBjaGFuZ2VzCgpgYGB7cn0Kc3JzICU+JSAKICBmaWx0ZXIodWRhaiA9PSAic2t1dGVjbm9zdCIpICU+JSAKICBnZ3Bsb3QoYWVzKHllYXIsIHZhbHVlKSkgKwogIGdlb21fbGluZSgpICsKICBmYWNldF93cmFwKH5ncnAsIHNjYWxlcyA9ICJmcmVlX3kiKQpgYGAKCiMgQ29tcGFyaXNvbnMgey50YWJzZXR9CgojIyBQbGFuIHZzLiByZWFsaXR5CgpgYGB7cn0Kc3JzICU+JSAKICBmaWx0ZXIodWRhaiA9PSAicGxuZW5pIikgJT4lIAogIGdncGxvdChhZXMoeWVhciwgMi12YWx1ZSkpICsKICBnZW9tX2xpbmUoKSArCiAgZmFjZXRfd3JhcCh+Z3JwKQpgYGAKCiMjIEdyb3d0aCBmcm9tIDIwMDMgYmFzZQoKYGBge3J9CnNycyAlPiUgCiAgZmlsdGVyKHVkYWogPT0gInNrdXRlY25vc3QiKSAlPiUgCiAgZ3JvdXBfYnkoZ3JwKSAlPiUgCiAgYXJyYW5nZSh5ZWFyKSAlPiUgCiAgbXV0YXRlKGluZGV4ID0gdmFsdWUvZmlyc3QodmFsdWUpKSAlPiUgCiAgZ2dwbG90KGFlcyh5ZWFyLCBpbmRleCkpICsKICBnZW9tX2xpbmUoKSArCiAgZmFjZXRfd3JhcCh+Z3JwKQpgYGAKCg==</div>
-
-
+</section>
+<section id="growth-from-2003-base" class="level2">
+<h2 class="anchored" data-anchor-id="growth-from-2003-base">Growth from 2003 base</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>srs <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(udaj <span class="sc">==</span> <span class="st">"skutecnost"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(grp) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">index =</span> value<span class="sc">/</span><span class="fu">first</span>(value)) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, index)) <span class="sc">+</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>grp)</span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_explore-counts-longseries_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
-</div>
 
-<script>
+</section>
+</section>
 
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
   });
-});
-</script>
-
-<!-- code folding -->
-<script>
-$(document).ready(function () {
-  window.initializeSourceEmbed("3_explore-counts-longseries.Rmd");
-  window.initializeCodeFolding("hide" === "show");
-});
-</script>
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Zkopírováno!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
       },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
     };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./2_explore-counts.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Počty úředníků: 2013-2018</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
 
 
-</body>
-</html>
+
+</body></html>

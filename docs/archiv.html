@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>urednici - Úředníci 2019+</title>
+<title>urednici - Archiv</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./2_explore-counts.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
+    <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./international.html">Mezinárodní srovnání</a>
@@ -96,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./zdroje.html">Zdroje dat</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./archiv.html">Archiv</a>
+    <a class="nav-link active" href="./archiv.html" aria-current="page">Archiv</a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -119,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Úředníci 2019+</h1>
+      <h1 class="quarto-secondary-nav-title">Archiv</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -134,7 +135,17 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Úředníci 2019+</a>
+  <a href="./archiv.html" class="sidebar-item-text sidebar-link active">Archiv</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_explore-counts.html" class="sidebar-item-text sidebar-link">Počty úředníků: 2013-2018</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_explore-counts-longseries.html" class="sidebar-item-text sidebar-link">Počty úředníků: 2003-2018</a>
   </div>
 </li>
     </ul>
@@ -142,24 +153,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Na této stránce</h2>
-   
-  <ul>
-  <li><a href="#update-2022-09" id="toc-update-2022-09" class="nav-link active" data-scroll-target="#update-2022-09">Update 2022-09</a></li>
-  <li><a href="#update-2022-05" id="toc-update-2022-05" class="nav-link" data-scroll-target="#update-2022-05">Update 2022-05</a></li>
-  <li><a href="#o-co-jde" id="toc-o-co-jde" class="nav-link" data-scroll-target="#o-co-jde">O co jde</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/petrbouchal/urednici/edit/main/index.qmd" class="toc-action">Upravit stránku</a></p><p><a href="https://github.com/petrbouchal/urednici/issues/new" class="toc-action">Nahlásit chybu</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Úředníci 2019+</h1>
+<h1 class="title d-none d-lg-block">Archiv</h1>
 </div>
 
 
@@ -173,48 +174,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-<!-- badges: start -->
-<!-- badges: end -->
-<section id="update-2022-09" class="level2">
-<h2 class="anchored" data-anchor-id="update-2022-09">Update 2022-09</h2>
-<p>První analýza platů úředníků z dodatečných dat:</p>
-<ul>
-<li>systemizace (viz https://github.com/petrbouchal/systemizace)</li>
-<li>informační systém o průměrném výdělku (ISPV)</li>
-<li>Eurostat - data o platech úředníků členských států určená pro výpočet platových hladin v evropských institucích</li>
-<li>Worldwide Bureaucracy Indicators - Public Sector Pay Premium</li>
-</ul>
-<p>viz</p>
-<ul>
-<li><a href="./international.html">mezinárodní srovnání</a></li>
-<li><a href="./srovnani-sektory.html">sektorové srovnání</a></li>
-<li><a href="./srovnani-urady.html">srovnání mezi úřady</a></li>
-</ul>
-</section>
-<section id="update-2022-05" class="level2">
-<h2 class="anchored" data-anchor-id="update-2022-05">Update 2022-05</h2>
-<ul>
-<li>zpracovaná časová řada systemizace je dostupná na https://github.com/petrbouchal/systemizace</li>
-<li>tamtéž zpracovaná organizační struktura z open dat níže</li>
-<li>aktuální verze přehledové studie (Daniel Bartušek, Petr Bouchal, Petr Janský, IDEA CERGE-EI 2022) je <a href="https://idea.cerge-ei.cz/studies/statni-zamestnanci-a-urednici-kde-pracuji-a-za-kolik-2">na webu IDEA</a> i s interaktivními grafy, kód na https://github.com/dan-bart/urednici_2021</li>
-</ul>
-</section>
-<section id="o-co-jde" class="level2">
-<h2 class="anchored" data-anchor-id="o-co-jde">O co jde</h2>
-<p>Tento repozitář obsahuje work-in-progress sběr, přípravu a analýzu dat o českých státních úřednících.</p>
-<p>Analýza zčásti navazuje na <a href="https://idea.cerge-ei.cz/studies/statni-zamestnanci-a-urednici-kde-pracuji-a-za-kolik-2">studii think tanku IDEA z ledna 2022 (Bouchal &amp; Janský)</a>.</p>
-</section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>Ke zdrojům dat viz <a href="zdroje.html">poznámku</a>, která poslouží i jako dílčí úvod k dostupnosti administrativních dat o zaměstnancích českého státu.</p>
-</section>
-<section id="technologie" class="level2">
-<h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
-<p>Práce se děje v R/RMarkdown, z čehož se následně generuje i <a href="https://petrbouchal.github.io/urednici/">web</a>. Vše by mělo být replikovatelné z <a href="https://github.com/petrbouchal/urednici">githubového repozitáře</a>.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -315,6 +276,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./2_explore-counts.html" class="pagination-link">
+        <span class="nav-page-text">Počty úředníků: 2013-2018</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
