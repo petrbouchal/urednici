@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "archiv.html",
+    "href": "archiv.html",
+    "title": "Archiv",
+    "section": "",
+    "text": "Obsahuje hlavně exploraci nové verze dat MFČR z roku 2021 - výsledek již zahrnut do studie IDEA z ledna 2021. Viz vlevo."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Úředníci 2019+",
@@ -42,11 +49,11 @@
     "text": "Eurostat: platy úředníků členských států\nJedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK. Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj. v roce 2022 cca 22 tisíc lidí."
   },
   {
-    "objectID": "international.html#world-bureaucracy-indicators",
-    "href": "international.html#world-bureaucracy-indicators",
+    "objectID": "international.html#worldwide-bureaucracy-indicators",
+    "href": "international.html#worldwide-bureaucracy-indicators",
     "title": "Mezinárodní srovnání",
-    "section": "World Bureaucracy Indicators",
-    "text": "World Bureaucracy Indicators\nJde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např. ve vzdělanostní a demografické struktuře.\n\n\n\n\n\n\nJedná se celý veřejný sektor.\n\n\n\n\nPublic Sector Wage Premium"
+    "section": "Worldwide Bureaucracy Indicators",
+    "text": "Worldwide Bureaucracy Indicators\nJde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např. ve vzdělanostní a demografické struktuře.\n\n\n\n\n\n\nJedná se celý veřejný sektor.\n\n\n\n\nPublic Sector Wage Premium"
   },
   {
     "objectID": "srovnani-sektory.html#vybrané-profese-čtyřmístné-isco",
