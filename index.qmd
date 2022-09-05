@@ -1,0 +1,18 @@
+---
+title: "Úředníci 2019+"
+author: Petr Bouchal
+date: 2022-09-04
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r child="_readme.Rmd"}
+```
+

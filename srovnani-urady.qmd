@@ -1,0 +1,84 @@
+---
+title: "Srovnání: úřady"
+editor: visual
+author: Petr Bouchal
+date: 2022-09-04
+---
+
+```{r}
+source("_targets_packages.R")
+
+targets::tar_load(syst_pocty_long)
+targets::tar_load(syst_all)
+targets::tar_load(syst_model_uo)
+targets::tar_load(syst_model)
+
+targets::tar_load(syst_model_annual_uo)
+targets::tar_load(syst_model_annual)
+targets::tar_load(syst_plot_tridy)
+targets::tar_load(syst_platy_for_model)
+```
+
+# Průměrné platy podle systemizace
+
+```{r}
+#| fig-asp: 0.6
+targets::tar_read(syst_plot_platy)
+```
+
+# Platové třídy na ministerstvech
+
+```{r}
+targets::tar_read(syst_plot_tridy)
+```
+
+# Model průměrného platu
+
+OLS na úrovni skupin (instituce + služební/pracovní poměr), s využitím informací o typu organizace (vládní kapitola, ústřední orgán).
+
+```{r, fig.asp = .3}
+targets::tar_read(syst_plot_model)
+```
+
+Residuals (níže) pro jednotlivé úřady ukazují, jak moc se skutečný průměrný plat liší od platu, který by odpovídal pouze vlivu proměnných zahrnutých do modelu.
+V praxi je residual součtem vlivu především průměrné seniority zaměstnanců (což se odráží v platovém stupni) v instituci a pohyblivých složek platu (hlavně odměn a osobního ohodnocení).
+
+```{r, fig.asp=.2}
+targets::tar_read(syst_plot_model_resid)
+```
+
+Níže rozdíly mezi predikcí a skutečností pouze pro centrální ministerstva:
+
+```{r, fig.asp=.5}
+targets::tar_read(syst_plot_model_resid_uo)
+```
+
+Vztah mezi skutečným a modelovaným průměrným platem pro různé skupiny organizací a zaměstnanců:
+
+```{r}
+#| column: page-right
+targets::tar_read(syst_plot_model_predictions_all)
+```
+
+## Přesnější ověření modelu
+
+### Výsledek
+
+```{r}
+summary(syst_model)
+```
+
+### V čase
+
+Pokud model odhadneme zvlášť v jednotlivých letech, jsou koeficienty v čase relativně stabilní.
+
+```{r}
+targets::tar_read(syst_plot_coefyr)
+```
+
+Residuals pro jednotlivé úřady v čase:
+
+```{r}
+#| column: page-right
+targets::tar_read(syst_plot_residyr)
+```

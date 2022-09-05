@@ -3,7 +3,13 @@ title: Jak se z oficiálních dat něco dovědět o počtech úředníků česk�
 subtitle: Edition 2018-2022
 author: Petr Bouchal
 date: 28 June 2022
+execute:
+  freeze: auto
 ---
+
+## Update 2022-09
+
+- platové tabulky pro daný rok visí vždy na stránce ISP MF, zpětně je bohužel z webu získat nejde: <https://www.mfcr.cz/cs/o-ministerstvu/informacni-systemy/is-o-platech/>
 
 ## Update 2022-07
 
@@ -220,5 +226,5 @@ NB je potřeba zaznamenat přesný kód produktu, tabulku i údaje. Do 104 (2010
 # Mezinárodní
 
 - [Worldwide Bureaucracy Indicators](https://datacatalog.worldbank.org/dataset/worldwide-bureaucracy-indicators) - obsahuje proměnné měřící "Public Sector Wage premium", viz skript `world-bureaucracy-salaries.R`
-- Eurostat: [Civil Servants Remuneration](https://ec.europa.eu/eurostat/web/civil-servants-remuneration): counts of central gov employees with indices of pay (gross and net) collected for the purposes of setting EU salaries; dataset available in Eurostat database as [PRC_REM_CS]
-(https://ec.europa.eu/eurostat/databrowser/view/prc_rem_cs/default/table?lang=en).
+- Eurostat: [Civil Servants Remuneration](https://ec.europa.eu/eurostat/web/civil-servants-remuneration): counts of central gov employees with indices of pay (gross and net) collected for the purposes of setting EU salaries; dataset available in Eurostat database as [PRC_REM_CS](https://ec.europa.eu/eurostat/databrowser/view/prc_rem_cs/default/table?lang=en).
+  - v příloze 2a ([odsud](https://ec.europa.eu/eurostat/web/civil-servants-remuneration/publications)) jsou výkazy za jednotlivé státy, za ČR průměrné platy v platových třídách)

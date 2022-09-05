@@ -1,0 +1,52 @@
+---
+title: "Mezinárodní srovnání"
+editor: visual
+author: Petr Bouchal
+date: 2022-09-04
+---
+
+```{r setup}
+library(targets)
+source("_targets_packages.R")
+```
+
+## Eurostat: platy úředníků členských států
+
+Jedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK.
+Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj.
+v roce 2022 cca 22 tisíc lidí.
+
+```{r}
+tar_read(ec_plot_bar)
+```
+
+```{r ec_plot_multi, fig.asp=.8}
+tar_read(ec_plot_multi)
+```
+
+### Počty zaměstnanců
+
+```{r}
+targets::tar_read(ec_plot_count_bar)
+```
+
+Tohle tedy smysl dávat nebude, ani když to ukážeme per capita.
+
+## Worldwide Bureaucracy Indicators
+
+Jde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např.
+ve vzdělanostní a demografické struktuře.
+
+::: {.callout-note appearance="simple"}
+Jedná se celý veřejný sektor.
+:::
+
+### Public Sector Wage Premium
+
+```{r wbi_plot_bar, fig.asp = 0.5}
+tar_read(wbi_plot_bar)
+```
+
+```{r wbi_plot_line}
+tar_read(wbi_plot_line)
+```

@@ -1,0 +1,79 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "*.Rmd"
+    - "!code-legacy/"
+
+website:
+  title: "urednici"
+  repo-url: https://github.com/petrbouchal/urednici
+  repo-actions: [edit, issue]
+  page-navigation: true
+  search:
+    location: navbar
+    type: textbox
+  navbar:
+    background: blue
+    left:
+      - file: index.qmd
+        icon: home
+        text: Home
+      - international.qmd
+      - srovnani-sektory.qmd
+      - srovnani-urady.qmd
+      - file: zdroje.Rmd
+        text: Data o úřednících
+      - file: archiv.qmd
+        text: "Archiv"
+    right:
+      - icon: github
+        href: https://github.com/petrbouchal/msmt
+      - icon: asterisk
+        href: https://petrbouchal.xyz
+      - text: " "
+  sidebar:
+    - id: blah
+      collapse-level: 2
+      style: "docked"
+      title: "Archiv"
+      contents:
+        - archiv.qmd
+        - 2_explore-counts.Rmd
+        - 3_explore-counts-longseries.Rmd
+    - id: blah2
+      title: "Home"
+      contents:
+      - index.qmd
+  comments:
+    hypothesis:
+      showHighlights: false
+
+
+format:
+  html:
+    toc: true
+    html-math-method: plain
+    link-external-icon: true
+    link-external-newwindow: true
+    theme:
+      light: [default, style.scss]
+    monobackgroundcolor: "#e3f1ff"
+    mainfont: "IBM Plex Sans, Helvetica, Arial, sans-serif"
+    monofont: "JetBrainsMono Nerd Font, IBM Plex Mono, Consolas, monospace"
+    max-width: 1200px
+lang: cs
+filters:
+  - pandoc-quotes.lua
+execute:
+  echo: false
+  warning: false
+knitr:
+  opts_chunk:
+    comment: "#>"
+    message: false
+    fig.retina: 3
+    out.width: "100%"
+
+

@@ -3,6 +3,8 @@ title: "Počty úředníků: 2003-2018"
 author: "Petr Bouchal"
 date: "11/2/2019"
 output: html_document
+execute:
+  freeze: auto
 ---
 
 ```{r setup, include=FALSE}
