@@ -60,6 +60,11 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "showHighlights": false
+}
+</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
 
@@ -88,13 +93,13 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./international.html">Mezinárodní srovnání</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./srovnani-sektory.html">Srovnání se soukromým sektorem</a>
+    <a class="nav-link" href="./srovnani-sektory.html">Srovnání: soukromý sektor</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./srovnani-urady.html">Srovnání mezi úřady</a>
+    <a class="nav-link" href="./srovnani-urady.html">Srovnání: úřady</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./zdroje.html">Zdroje dat</a>
+    <a class="nav-link" href="./zdroje.html">Data o úřednících</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./archiv.html" aria-current="page">Archiv</a>
@@ -275,6 +280,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
 <nav class="page-navigation">
