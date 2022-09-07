@@ -10,7 +10,7 @@ pv_make_plot_isco_percentiles <- function(pv_isco_long,
     geom_line(size = 1) +
     geom_point(size = 1) +
     facet_wrap(. ~  isco_full + geo, ncol = 4) +
-    theme_ptrr(multiplot = T, legend.position = "top",
+    theme_ptrr(base_size = 9, multiplot = T, legend.position = "top",
                strip.text = element_text(lineheight = 1))
 }
 
