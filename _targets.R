@@ -31,7 +31,18 @@ l_ec <- list(
   tar_target(ec_pay, get_eurostat("prc_rem_avg")),
   tar_target(ec_plot_multi, ec_make_plot_multi(ec_pay)),
   tar_target(ec_plot_bar, ec_make_plot_bar(ec_pay)),
-  tar_target(ec_plot_count_bar, ec_make_plot_count_bar(ec_counts))
+  tar_target(ec_plot_count_bar, ec_make_plot_count_bar(ec_counts)),
+
+  tar_target(earn_ses, get_eurostat("earn_ses_monthly",
+                                    filters = list(isco08 = "TOTAL", age = "TOTAL",
+                                                   sex = "T", worktime = "TOTAL",
+                                                   # time = "2018-01-01",
+                                                   indic_se = "MED_E_EUR",
+                                                   nace_r2 = "B-S_X_O"))),
+  tar_target(earn_oecd, OECD::get_dataset("AV_AN_WAGE")),
+  tar_target(earn_oecd_sub, process_oecd_wages(earn_oecd)),
+  tar_target(ec_plot_earnoecd, ec_make_plot_earnoecd(ec_pay, earn_oecd_sub)),
+  tar_target(ec_plot_earnses, ec_make_plot_earnses(ec_pay, earn_ses))
 )
 
 l_systemizace <- list(

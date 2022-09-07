@@ -43,6 +43,22 @@ Jedná se celý veřejný sektor.
 
 ### Public Sector Wage Premium
 
+### Raw: civil service vs. economy
+
+2018 based on Structure of Earnings Survey
+
+```{r ec_plot_earnses}
+targets::tar_read(ec_plot_earnses)
+```
+
+2021 based on OECD data
+
+```{r ec_plot_earnoecd}
+targets::tar_read(ec_plot_earnoecd)
+```
+
+### Net, modeled: specific comparisons
+
 ```{r wbi_plot_bar, fig.asp = 0.5}
 tar_read(wbi_plot_bar)
 ```
