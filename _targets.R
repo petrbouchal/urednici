@@ -121,8 +121,14 @@ l_ispv <- list(
                                            c("4110", "3343", "2422",
                                              "2619", "3342",
                                              "3511", "4312", "2431")))
+l_pmz <- list(
+  tar_target(czso_pmz_nace, czso_get_table("110079", force_redownload = TRUE)),
+  tar_target(czso_infl, czso_get_table("010022", force_redownload = TRUE)),
+  tar_target(czso_infl_sub, czso_infl_process(czso_infl)),
+  tar_target(czso_pmz_nace_clean, czso_nace_process(czso_pmz_nace, czso_infl_sub)),
+  tar_target(czso_plot_nace, czso_make_plot_nace(czso_pmz_nace_clean))
 )
 
 l_utils <- list()
 
-list(l_wgi, l_ec, l_utils, l_ispv, l_quarto, l_systemizace)
+list(l_wgi, l_ec, l_utils, l_ispv, l_quarto, l_systemizace, l_pmz)

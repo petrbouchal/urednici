@@ -108,6 +108,7 @@ pv_edu_pg_long <- pv_edu_pg |>
 pv_edu_cr_long <- pv_edu_cr |>
   filter(category == "Vysokoškolské") |>
   pv_dist_lengthen(category)
+# Celý NACE roční změna po kvartálech
 
 ggplot(pv_bind(pv_edu_cr_long, pv_edu_pg_long),
        aes(percentile, value, colour = sfera, group = sfera)) +
@@ -119,6 +120,8 @@ ggplot(pv_bind(pv_edu_cr_long, pv_edu_pg_long),
   geom_point(size = 1.5) +
   facet_wrap(~geo) +
   theme_ptrr("both", multiplot = T)
+```{r czso_plot_nace}
+targets::tar_read(czso_plot_nace)
 ```
 
 # Celý NACE roční změna po kvartálech
