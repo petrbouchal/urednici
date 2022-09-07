@@ -1,4 +1,4 @@
-plot_isco_percentiles <- function(pv_isco_long,
+pv_make_plot_isco_percentiles <- function(pv_isco_long,
                                   isco_ids) {
   pv_isco_long |>
     filter(isco_digits == 4 | is.na(isco_digits)) |>
@@ -14,7 +14,7 @@ plot_isco_percentiles <- function(pv_isco_long,
                strip.text = element_text(lineheight = 1))
 }
 
-plot_isco_dist <- function(pv_isco, isco_ids) {
+pv_make_plot_isco_dist <- function(pv_isco, isco_ids) {
   pv_isco |>
     filter(isco_digits == 4 | is.na(isco_digits)) |>
     filter(isco_id %in% isco_ids) |>
@@ -36,10 +36,10 @@ isco_recode <- function(data) {
                     pls = "Platová sféra"))
 }
 
-pv_isco_lengthen <- function(data) {
-  pv_isco_pg_long <- data |>
+pv_dist_lengthen <- function(data, vars) {
+  data |>
     pivot_longer(cols = c(pay_median, matches("pay_[dq]"))) |>
-    select(starts_with("isco"), sfera, name, value, fte_thous) |>
+    select(name, value, sfera, {{vars}}) |>
     mutate(percentile = case_when(name == "pay_d1" ~ 10,
                                   name == "pay_q1" ~ 25,
                                   name == "pay_median" ~ 50,
@@ -48,7 +48,13 @@ pv_isco_lengthen <- function(data) {
     )) |>
     mutate(name = as.factor(name) |>
              fct_relevel("pay_d1", "pay_q1", "pay_median", "pay_q3", "pay_d9"))
-  return(pv_isco_pg_long)
+}
+
+pv_isco_lengthen <- function(data) {
+  pv_isco_pg_long <- data |>
+    pivot_longer(cols = c(pay_median, matches("pay_[dq]"))) |>
+    select(starts_with("isco"), sfera, name, value, fte_thous) |>
+    pv_dist_lengthen()
 }
 
 pv_isco_bind <- function(data_cr, data_reg) {
@@ -61,9 +67,9 @@ pv_isco_bind <- function(data_cr, data_reg) {
                        isco_full = isco4_full))
 }
 
-pv_bind <- function(data_cr, data_reg) {
+pv_bind <- function(data_cr, data_pg) {
   data_cr |>
     mutate(geo = "ČR") |>
-    bind_rows(data_reg |>
+    bind_rows(data_pg |>
                 mutate(geo = "Praha"))
 }

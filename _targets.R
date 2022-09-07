@@ -110,7 +110,17 @@ l_ispv <- list(
   tar_target(pv_isco_pg_long, pv_isco_lengthen(pv_isco_pg)),
   tar_target(pv_isco_long, pv_isco_bind(pv_isco_cr_long,
                                         pv_isco_pg_long)),
-  tar_target(pv_isco, pv_isco_bind(pv_isco_cr, pv_isco_pg))
+  tar_target(pv_isco, pv_isco_bind(pv_isco_cr, pv_isco_pg)),
+
+  tar_target(pv_plot_isco_dist, pv_make_plot_isco_dist(pv_isco,
+                                                         c("4110", "3343", "2422",
+                                                           "2619", "3342",
+                                                           "3511", "4312", "2431"))),
+  tar_target(pv_plot_isco_percentiles,
+             pv_make_plot_isco_percentiles(pv_isco_long,
+                                           c("4110", "3343", "2422",
+                                             "2619", "3342",
+                                             "3511", "4312", "2431")))
 )
 
 l_utils <- list()

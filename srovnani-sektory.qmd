@@ -5,17 +5,18 @@ author: Petr Bouchal
 date: 2022-09-04
 ---
 
-```{r}
+```{r setup}
 source("_targets_packages.R")
 library(targets)
 options(scipen = 99)
 tar_source()
-targets::tar_load(pv_isco_cr)
-targets::tar_load(pv_isco_pg)
-targets::tar_load(pv_edu_cr)
-targets::tar_load(pv_edu_pg)
-targets::tar_load(pv_genderage_cr)
-targets::tar_load(pv_genderage_pg)
+
+tar_load(pv_isco_cr)
+tar_load(pv_isco_pg)
+tar_load(pv_edu_cr)
+tar_load(pv_edu_pg)
+tar_load(pv_genderage_cr)
+tar_load(pv_genderage_pg)
 
 tar_load(pv_isco_cr_long)
 tar_load(pv_isco_pg_long)
@@ -33,51 +34,35 @@ zhruba veřejný vs. soukromý sektor.
 Medián a rozpětí prvního a třetího kvartilu příjmů, v tis.
 Kč hrubého měsíčně
 
-```{r}
+```{r plot_isco_dist}
 #| fig-asp: 1.5
-plot_isco_dist(pv_isco,
-                      c("4110", "3343", "2422",
-                        "2619", "3342",
-                        "3511", "4312", "2431"))
+tar_read(pv_plot_isco_dist)
 ```
 
 ## Celé rozpětí i s 1. a 9. decilem
 
-```{r}
+```{r pv_plot_isco_percentiles}
 #| column: page-right
 #| fig-asp: 1
-plot_isco_percentiles(pv_isco_long,
-                      c("4110", "3343", "2422",
-                        "2619", "3342",
-                        "3511", "4312", "2431"))
+targets::tar_read(pv_plot_isco_percentiles)
 ```
 
 # Percentily mezd
 
 ## Podle věku
 
-```{r}
+```{r make-ga-cr-long}
 pv_ga_cr_long <- pv_genderage_cr |>
   mutate(grp = str_extract(category, "^[A-Ž]{4,6}") |> tolower(),
          category = str_remove(category, " - (mzdová|platová) sféra")) |>
   fill(grp) |>
   filter(grp == "celkem") |>
-  pivot_longer(cols = c(pay_median, matches("pay_[dq]"))) |>
-  select(category, name, value, sfera) |>
-  mutate(category = as.factor(category) |> fct_relevel("do 20 let"),
-         percentile = case_when(name == "pay_d1" ~ 10,
-                                name == "pay_q1" ~ 25,
-                                name == "pay_median" ~ 50,
-                                name == "pay_q3" ~ 75,
-                                name == "pay_d9" ~ 90
-                                )) |>
-  mutate(name = as.factor(name) |>
-           fct_relevel("pay_d1", "pay_q1", "pay_median", "pay_q3", "pay_d9"))
+  pv_dist_lengthen(category)
 ```
 
 ### Česko
 
-```{r}
+```{r plot-ga-cr}
 ggplot(pv_ga_cr_long, aes(percentile, value, colour = sfera, group = sfera)) +
   scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
   scale_colour_manual(values = c(`Platová sféra` = "darkblue",
@@ -91,23 +76,13 @@ ggplot(pv_ga_cr_long, aes(percentile, value, colour = sfera, group = sfera)) +
 
 ### Praha
 
-```{r}
+```{r plot-ga-pg}
 pv_ga_pg_long <- pv_genderage_pg |>
   mutate(category = str_remove(category, " - (mzdová|platová) sféra"),
          grp = str_extract(category, "^[A-Ž]{4,6}") |> tolower()) |>
   fill(grp) |>
   filter(grp == "celkem") |>
-  pivot_longer(cols = c(pay_median, matches("pay_[dq]"))) |>
-  select(category, name, value, sfera) |>
-  mutate(category = as.factor(category) |> fct_relevel("do 20 let"),
-         percentile = case_when(name == "pay_d1" ~ 10,
-                                name == "pay_q1" ~ 25,
-                                name == "pay_median" ~ 50,
-                                name == "pay_q3" ~ 75,
-                                name == "pay_d9" ~ 90
-                                )) |>
-  mutate(name = as.factor(name) |>
-           fct_relevel("pay_d1", "pay_q1", "pay_median", "pay_q3", "pay_d9"))
+  pv_dist_lengthen(category)
 
 ggplot(pv_ga_pg_long, aes(percentile, value, colour = sfera, group = sfera)) +
   scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
@@ -122,38 +97,17 @@ ggplot(pv_ga_pg_long, aes(percentile, value, colour = sfera, group = sfera)) +
 
 ## Jen VŠ
 
-```{r}
+```{r plot-edu}
 #| fig-asp: .5
 pv_edu_pg_long <- pv_edu_pg |>
-  mutate(category = str_remove(category, " - (mzdová|platová) sféra")) |>
   filter(category == "Vysokoškolské") |>
-  pivot_longer(cols = c(pay_median, matches("pay_[dq]"))) |>
-  select(category, name, value, sfera) |>
-  mutate(percentile = case_when(name == "pay_d1" ~ 10,
-                                name == "pay_q1" ~ 25,
-                                name == "pay_median" ~ 50,
-                                name == "pay_q3" ~ 75,
-                                name == "pay_d9" ~ 90
-         )) |>
-  mutate(name = as.factor(name) |>
-           fct_relevel("pay_d1", "pay_q1", "pay_median", "pay_q3", "pay_d9"))
+  pv_dist_lengthen(category)
 
 pv_edu_cr_long <- pv_edu_cr |>
-  mutate(category = str_remove(category, " - (mzdová|platová) sféra")) |>
   filter(category == "Vysokoškolské") |>
-  pivot_longer(cols = c(pay_median, matches("pay_[dq]"))) |>
-  select(category, name, value, sfera) |>
-  mutate(percentile = case_when(name == "pay_d1" ~ 10,
-                                name == "pay_q1" ~ 25,
-                                name == "pay_median" ~ 50,
-                                name == "pay_q3" ~ 75,
-                                name == "pay_d9" ~ 90
-         )) |>
-  mutate(name = as.factor(name) |>
-           fct_relevel("pay_d1", "pay_q1", "pay_median", "pay_q3", "pay_d9"))
+  pv_dist_lengthen(category)
 
-ggplot(pv_edu_cr_long |> mutate(geo = "ČR") |>
-         bind_rows(pv_edu_pg_long |> mutate(geo = "Praha")),
+ggplot(pv_bind(pv_edu_cr_long, pv_edu_pg_long),
        aes(percentile, value, colour = sfera, group = sfera)) +
   scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
   scale_colour_manual(values = c(`Platová sféra` = "darkblue",

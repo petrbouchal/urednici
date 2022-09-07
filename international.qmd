@@ -16,7 +16,7 @@ Jedná se o soubor dat, dodávaných EK jednotlivými členskými státy za úč
 Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj.
 v roce 2022 cca 22 tisíc lidí.
 
-```{r}
+```{r ec_plot_bar}
 tar_read(ec_plot_bar)
 ```
 
@@ -26,7 +26,7 @@ tar_read(ec_plot_multi)
 
 ### Počty zaměstnanců
 
-```{r}
+```{r ec_plot_count_bar}
 targets::tar_read(ec_plot_count_bar)
 ```
 
