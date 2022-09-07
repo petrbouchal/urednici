@@ -10,7 +10,7 @@ tar_option_set(
   packages = c("tibble", "ispv", "dplyr", "stringr", "forcats", "czso", "ptrr",
                "ggplot2", "purrr", "curl", "readr", "tidyr", "eurostat",
                "wbstats", "quarto", "arrow", "broom", "janitor",
-               "modelr", "ggiraph"),
+               "modelr", "ggiraph", "lubridate"),
   format = "rds" # default storage format
 )
 
@@ -120,7 +120,12 @@ l_ispv <- list(
              pv_make_plot_isco_percentiles(pv_isco_long,
                                            c("4110", "3343", "2422",
                                              "2619", "3342",
-                                             "3511", "4312", "2431")))
+                                             "3511", "4312", "2431"))),
+  tar_target(pv_plot_edu, pv_make_plot_edu(pv_edu_pg, pv_edu_cr)),
+  tar_target(pv_plot_ga_pg, pv_make_plot_ga_pg(pv_genderage_pg)),
+  tar_target(pv_plot_ga_cr, pv_make_plot_ga_cr(pv_genderage_cr))
+)
+
 l_pmz <- list(
   tar_target(czso_pmz_nace, czso_get_table("110079", force_redownload = TRUE)),
   tar_target(czso_infl, czso_get_table("010022", force_redownload = TRUE)),

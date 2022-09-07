@@ -63,68 +63,28 @@ pv_ga_cr_long <- pv_genderage_cr |>
 ### Česko
 
 ```{r plot-ga-cr}
-ggplot(pv_ga_cr_long, aes(percentile, value, colour = sfera, group = sfera)) +
-  scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
-  scale_y_number_cz() +
-  scale_colour_manual(values = c(`Platová sféra` = "darkblue",
-                                   `Mzdová sféra` = "darkgrey")) +
-  geom_line(size = 1.5) +
-  geom_point(size = 1.5) +
-  # scale_color_viridis_d() +
-  facet_wrap(~ category) +
-  theme_ptrr("both", multiplot = T)
+targets::tar_read(pv_plot_ga_cr)
 ```
 
 ### Praha
 
 ```{r plot-ga-pg}
-pv_ga_pg_long <- pv_genderage_pg |>
-  mutate(category = str_remove(category, " - (mzdová|platová) sféra"),
-         grp = str_extract(category, "^[A-Ž]{4,6}") |> tolower()) |>
-  fill(grp) |>
-  filter(grp == "celkem") |>
-  pv_dist_lengthen(category)
-
-ggplot(pv_ga_pg_long, aes(percentile, value, colour = sfera, group = sfera)) +
-  scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
-  scale_y_number_cz() +
-  scale_colour_manual(values = c(`Platová sféra` = "darkblue",
-                                 `Mzdová sféra` = "darkgrey")) +
-  geom_line(size = 1.5) +
-  geom_point(size = 1.5) +
-  # scale_color_viridis_d() +
-  facet_wrap(~ category) +
-  theme_ptrr("both", multiplot = T)
+targets::tar_read(pv_plot_ga_pg)
 ```
 
 ## Jen VŠ
 
 ```{r plot-edu}
 #| fig-asp: .5
-pv_edu_pg_long <- pv_edu_pg |>
-  filter(category == "Vysokoškolské") |>
-  pv_dist_lengthen(category)
+targets::tar_read(pv_plot_edu)
+```
 
-pv_edu_cr_long <- pv_edu_cr |>
-  filter(category == "Vysokoškolské") |>
-  pv_dist_lengthen(category)
 # Celý NACE roční změna po kvartálech
 
-ggplot(pv_bind(pv_edu_cr_long, pv_edu_pg_long),
-       aes(percentile, value, colour = sfera, group = sfera)) +
-  scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
-  scale_y_number_cz() +
-  scale_colour_manual(values = c(`Platová sféra` = "darkblue",
-                                 `Mzdová sféra` = "darkgrey")) +
-  geom_line(size = 1.5) +
-  geom_point(size = 1.5) +
-  facet_wrap(~geo) +
-  theme_ptrr("both", multiplot = T)
 ```{r czso_plot_nace}
 targets::tar_read(czso_plot_nace)
 ```
 
-# Celý NACE roční změna po kvartálech
 
 # Zdroje
 

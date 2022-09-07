@@ -51,10 +51,17 @@ pv_dist_lengthen <- function(data, vars) {
 }
 
 pv_isco_lengthen <- function(data) {
-  pv_isco_pg_long <- data |>
+  data |>
     pivot_longer(cols = c(pay_median, matches("pay_[dq]"))) |>
     select(starts_with("isco"), sfera, name, value, fte_thous) |>
-    pv_dist_lengthen()
+    mutate(percentile = case_when(name == "pay_d1" ~ 10,
+                                  name == "pay_q1" ~ 25,
+                                  name == "pay_median" ~ 50,
+                                  name == "pay_q3" ~ 75,
+                                  name == "pay_d9" ~ 90
+    )) |>
+    mutate(name = as.factor(name) |>
+             fct_relevel("pay_d1", "pay_q1", "pay_median", "pay_q3", "pay_d9"))
 }
 
 pv_isco_bind <- function(data_cr, data_reg) {
@@ -72,4 +79,65 @@ pv_bind <- function(data_cr, data_pg) {
     mutate(geo = "ČR") |>
     bind_rows(data_pg |>
                 mutate(geo = "Praha"))
+}
+
+pv_make_plot_ga_cr <- function(pv_genderage_cr) {
+  pv_ga_cr_long <- pv_genderage_cr |>
+    mutate(category = str_remove(category, " - (mzdová|platová) sféra"),
+           grp = str_extract(category, "^[A-Ž]{4,6}") |> tolower()) |>
+    fill(grp) |>
+    filter(grp == "celkem") |>
+    pv_dist_lengthen(category)
+
+  ggplot(pv_ga_cr_long, aes(percentile, value, colour = sfera, group = sfera)) +
+    scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
+    scale_y_number_cz() +
+    scale_colour_manual(values = c(`Platová sféra` = "darkblue",
+                                   `Mzdová sféra` = "darkgrey")) +
+    geom_line(size = 1.5) +
+    geom_point(size = 1.5) +
+    # scale_color_viridis_d() +
+    facet_wrap(~ category) +
+    theme_ptrr("both", multiplot = T)
+}
+
+pv_make_plot_ga_pg <- function(pv_genderage_pg) {
+  pv_ga_pg_long <- pv_genderage_pg |>
+    mutate(category = str_remove(category, " - (mzdová|platová) sféra"),
+           grp = str_extract(category, "^[A-Ž]{4,6}") |> tolower()) |>
+    fill(grp) |>
+    filter(grp == "celkem") |>
+    pv_dist_lengthen(category)
+
+  ggplot(pv_ga_pg_long, aes(percentile, value, colour = sfera, group = sfera)) +
+    scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
+    scale_y_number_cz() +
+    scale_colour_manual(values = c(`Platová sféra` = "darkblue",
+                                   `Mzdová sféra` = "darkgrey")) +
+    geom_line(size = 1.5) +
+    geom_point(size = 1.5) +
+    # scale_color_viridis_d() +
+    facet_wrap(~ category) +
+    theme_ptrr("both", multiplot = T)
+}
+
+pv_make_plot_edu <- function(pv_edu_pg, pv_edu_cr) {
+  pv_edu_pg_long <- pv_edu_pg |>
+    filter(category == "Vysokoškolské") |>
+    pv_dist_lengthen(category)
+
+  pv_edu_cr_long <- pv_edu_cr |>
+    filter(category == "Vysokoškolské") |>
+    pv_dist_lengthen(category)
+
+  ggplot(pv_bind(pv_edu_cr_long, pv_edu_pg_long),
+         aes(percentile, value, colour = sfera, group = sfera)) +
+    scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
+    scale_y_number_cz() +
+    scale_colour_manual(values = c(`Platová sféra` = "darkblue",
+                                   `Mzdová sféra` = "darkgrey")) +
+    geom_line(size = 1.5) +
+    geom_point(size = 1.5) +
+    facet_wrap(~geo) +
+    theme_ptrr("both", multiplot = T)
 }
