@@ -10,14 +10,17 @@ urednici
 První analýza platů úředníků z dodatečných dat:
 
 - systemizace (viz <https://github.com/petrbouchal/systemizace>)
-- informační systém o průměrném výdělku (ISPV)
-- Eurostat - data o platech úředníků členských států určená pro výpočet
-  platových hladin v evropských institucích
-- Worldwide Bureaucracy Indicators - Public Sector Pay Premium
+- informační systém o průměrném výdělku ([ISPV](https://ispv.cz))
+- Eurostat - [data o platech úředníků členských
+  států](https://ec.europa.eu/eurostat/web/civil-servants-remuneration/specific-indicators/data)
+  určená pro výpočet platových hladin v evropských institucích
+- [Worldwide Bureaucracy
+  Indicators](https://datacatalog.worldbank.org/dataset/worldwide-bureaucracy-indicators/) -
+  Public Sector Pay Premium
 
 viz
 
-- [mezinárodní srovnání]()
+- [mezinárodní srovnání](international.qmd)
 - [sektorové srovnání](srovnani-sektory.qmd)
 - [srovnání mezi úřady](srovnani-urady.qmd)
 
