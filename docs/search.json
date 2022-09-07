@@ -49,11 +49,11 @@
     "text": "Eurostat: platy úředníků členských států\nJedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK. Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj. v roce 2022 cca 22 tisíc lidí.\n\n\n\n\n\n\n\n\n\n\n\nPočty zaměstnanců\n\n\n\n\n\nTohle tedy smysl dávat nebude, ani když to ukážeme per capita."
   },
   {
-    "objectID": "international.html#worldwide-bureaucracy-indicators",
-    "href": "international.html#worldwide-bureaucracy-indicators",
+    "objectID": "international.html#public-sector-wage-premium",
+    "href": "international.html#public-sector-wage-premium",
     "title": "Mezinárodní srovnání",
-    "section": "Worldwide Bureaucracy Indicators",
-    "text": "Worldwide Bureaucracy Indicators\nJde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např. ve vzdělanostní a demografické struktuře.\n\n\n\n\n\n\nJedná se celý veřejný sektor.\n\n\n\n\nPublic Sector Wage Premium\n\n\nRaw: civil service vs. economy\n2018 based on Structure of Earnings Survey\n\n\n\n\n\n2021 based on OECD data\n\n\n\n\n\n\n\nNet, modeled: specific comparisons"
+    "section": "Public Sector Wage Premium",
+    "text": "Public Sector Wage Premium\n\nRaw: civil service vs. economy\n\n\n\n\n\n\nZde srovnáváme „civil service“ podle EK (v ČR všechny ústřední orgány, 22 tis. FTE) se širší ekonomikou.\n\n\n\n2018 based on Structure of Earnings Survey\n\n\n\n\n\n2021 based on OECD data\n\n\n\n\n\n\n\nWorldwide Bureaucracy Indicators (World Bank)\nJde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např. ve vzdělanostní a demografické struktuře.\n\n\n\n\n\n\nJedná se celý veřejný sektor.\n\n\n\nNet, modeled: specific comparisons"
   },
   {
     "objectID": "srovnani-sektory.html",
@@ -292,5 +292,12 @@
     "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
     "section": "Platy vysoce postavených úředníků",
     "text": "Platy vysoce postavených úředníků\n\nHlídač státu za několik posledních let\niRozhlas 2022 + květen 2022\niRozhlas 2016 - jmenovité"
+  },
+  {
+    "objectID": "international.html#eurostat-úředníci-členských-států",
+    "href": "international.html#eurostat-úředníci-členských-států",
+    "title": "Mezinárodní srovnání",
+    "section": "Eurostat: úředníci členských států",
+    "text": "Eurostat: úředníci členských států\n\nPlaty\nJedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK. Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj. v roce 2022 cca 22 tisíc lidí.\n\n\n\n\n\n\n\n\n\n\n\n\nPočty zaměstnanců\n\n\n\n\n\nTohle tedy smysl dávat nebude, ani když to ukážeme per capita."
   }
 ]
