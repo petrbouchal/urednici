@@ -4,12 +4,13 @@ library(tarchetypes) # Load other packages as needed. # nolint
 conflicted::conflict_prefer("filter", "dplyr")
 
 options(scipen = 100)
+options(crayon.enabled = TRUE)
 
 # Set target options:
 tar_option_set(
   packages = c("tibble", "ispv", "dplyr", "stringr", "forcats", "czso", "ptrr",
                "ggplot2", "purrr", "curl", "readr", "tidyr", "eurostat",
-               "wbstats", "quarto", "arrow", "broom", "janitor",
+               "wbstats", "quarto", "arrow", "broom", "janitor", "readxl",
                "modelr", "ggiraph", "lubridate"),
   format = "rds" # default storage format
 )
@@ -85,14 +86,14 @@ l_quarto <- list(
 )
 
 l_ispv <- list(
-  tar_target(pv_reg_list, pv_list_reg(2021)),
-  tar_target(pv_cr_list, pv_list_cr(2021)),
-  tar_target(pv_pg_list_q4, pv_reg_list |> filter(str_detect(name, "Pra_214"))),
-  tar_target(pv_cr_list_q4, pv_cr_list |> filter(str_detect(name, "214_(MZ|PL)S\\."))),
+  tar_target(pv_reg_list, pv_list_reg()),
+  tar_target(pv_cr_list, pv_list_cr()),
+  tar_target(pv_pg_list_q4, pv_reg_list |> filter(str_detect(name, "Pra_224"))),
+  tar_target(pv_cr_list_q4, pv_cr_list |> filter(str_detect(name, "224_(MZ|PL)S\\."))),
   tar_url(pv_cr_urls, pv_cr_list_q4[["url"]]),
   tar_url(pv_pg_urls, pv_pg_list_q4[["url"]]),
-  tar_target(pv_cr_filenames, file.path("data-input/ispv/", pv_cr_list_q4[["name"]])),
-  tar_target(pv_pg_filenames, file.path("data-input/ispv/", pv_pg_list_q4[["name"]])),
+  tar_target(pv_cr_filenames, file.path("data-input/ispv", pv_cr_list_q4[["name"]])),
+  tar_target(pv_pg_filenames, file.path("data-input/ispv", pv_pg_list_q4[["name"]])),
   tar_file(pv_cr_files,
            curl::curl_download(pv_cr_urls, pv_cr_filenames),
            pattern = map(pv_cr_urls, pv_cr_filenames)),
@@ -114,12 +115,12 @@ l_ispv <- list(
 
   tar_target(pv_plot_isco_dist, pv_make_plot_isco_dist(pv_isco,
                                                          c("4110", "3343", "2422",
-                                                           "2619", "3342",
+                                                           "2619", "3342", "1219",
                                                            "3511", "4312", "2431"))),
   tar_target(pv_plot_isco_percentiles,
              pv_make_plot_isco_percentiles(pv_isco_long,
                                            c("4110", "3343", "2422",
-                                             "2619", "3342",
+                                             "2619", "3342", "1219",
                                              "3511", "4312", "2431"))),
   tar_target(pv_plot_edu, pv_make_plot_edu(pv_edu_pg, pv_edu_cr)),
   tar_target(pv_plot_ga_pg, pv_make_plot_ga_pg(pv_genderage_pg)),
