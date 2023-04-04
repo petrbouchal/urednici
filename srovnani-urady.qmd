@@ -26,7 +26,15 @@ targets::tar_load(syst_platy_for_model)
 targets::tar_read(syst_plot_platy)
 ```
 
-# Platové třídy na ministerstvech
+# Složení
+
+## Podíl managementu (představených)
+
+```{r syst_predstaveni}
+targets::tar_read(syst_plot_predstaveni)
+```
+
+## Platové třídy na ministerstvech
 
 ```{r syst_plot_tridy}
 targets::tar_read(syst_plot_tridy)

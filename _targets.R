@@ -48,9 +48,11 @@ l_ec <- list(
 
 l_systemizace <- list(
   tar_file_read(syst_pocty_long,
+                # copied from `systemizace` repo
                 "data-input/systemizace/systemizace_pocty_long.parquet",
                 arrow::read_parquet(!!.x)),
   tar_file_read(syst_all,
+                # copied from `systemizace` repo
                 "data-input/systemizace/systemizace_all.parquet",
                 arrow::read_parquet(!!.x)),
   tar_target(syst_all_fixed, syst_fix_data(syst_all)),
@@ -64,6 +66,7 @@ l_systemizace <- list(
   tar_target(syst_model, syst_run_model(syst_platy_for_model)),
   tar_target(syst_plot_tridy, syst_make_plot_tridy(syst_tridy_uo)),
   tar_target(syst_plot_platy, syst_make_plot_platy(syst_platy_uo)),
+  tar_target(syst_plot_predstaveni, syst_make_plot_predstaveni(syst_pocty_long_uo)),
 
   tar_target(syst_model_tidy, tidy(syst_model)),
   tar_target(syst_model_predictions, syst_make_predictions(syst_model, syst_platy_for_model)),
