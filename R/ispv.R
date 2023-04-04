@@ -20,10 +20,10 @@ pv_make_plot_isco_dist <- function(pv_isco, isco_ids) {
     filter(isco_id %in% isco_ids) |>
     arrange(sfera) |>
     ggplot(aes(colour = sfera, y = geo)) +
-    geom_pointrange(aes(x = pay_median, xmin = pay_q1, xmax = pay_q3),
-                    position = position_dodge2(width = .5), key_glyph = "pointrange_h") +
+    geom_pointrange(aes(x = pay_median/1e3, xmin = pay_q1/1e3, xmax = pay_q3/1e3),
+                    position = position_dodge2(width = .5)) +
     facet_wrap(~ isco_full, ncol = 1, scales = "free_x") +
-    scale_x_number_cz(limits = c(18e3, 98e3), breaks = seq(from = 30e3, to = 90e3, by = 15e3)) +
+    scale_x_number_cz(limits = c(18, 135), breaks = seq(from = 30, to = 135, by = 15)) +
     scale_color_manual(values = c("grey40", "darkblue")) +
     theme_ptrr(multiplot = T, gridlines = "x", legend.position = "top") +
     labs(colour = "Sféra")
