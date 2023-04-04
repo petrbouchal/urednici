@@ -12,6 +12,9 @@ targets::tar_load(pv_edu_pg)
 targets::tar_load(pv_genderage_cr)
 targets::tar_load(pv_genderage_pg)
 
+targets::tar_load(pv_isco_cr_long)
+targets::tar_load(pv_isco_pg_long)
+
 pv_ga_cr_long <- pv_genderage_cr |>
   mutate(grp = str_extract(category, "^[A-Ž]{4,6}") |> tolower(),
          category = str_remove(category, " - (mzdová|platová) sféra"),
@@ -151,7 +154,7 @@ plot_isco_percentiles <- function(pv_isco_cr_long,
     geom_line(size = 1.5) +
     geom_point(size = 1.5) +
     facet_wrap(. ~  isco_name + geo) +
-    theme_ptrr(multiplot = T)
+    theme_ptrr(multiplot = T, gridlines = "both")
 }
 
 plot_isco_percentiles(pv_isco_cr_long,
@@ -159,3 +162,8 @@ plot_isco_percentiles(pv_isco_cr_long,
                       c("4110", "3343", "2422",
                         "2412", "2619", "3342",
                         "3511", "2411", "2431"))
+
+plot_isco_percentiles(pv_isco_cr_long,
+                      pv_isco_pg_long,
+                      c("2512", "2514", "1330", "3511", "2529")) +
+  labs(title = "Platy v platové a mzdové sféře podle kvantilů")

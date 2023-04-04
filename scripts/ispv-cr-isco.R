@@ -5,6 +5,8 @@ library(purrr)
 library(curl)
 library(readr)
 
+targets::tar_load(pv_isco_cr)
+
 pv_isco_cr |>
   filter(!str_detect(isco_id, "^3355|^23")) |>
   group_by(sfera) |>
