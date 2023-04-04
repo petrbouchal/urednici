@@ -44,7 +44,7 @@ syst_fix_data <- function(syst_all) {
 
 syst_make_platy <- function(syst_all_fixed) {
   syst_all_fixed |>
-    filter(date < "2022-04-01", kapitola_kod != "Celkem") |>
+    filter(date < "2023-04-01", kapitola_kod != "Celkem") |>
     select(date, rok, organizace_nazev, vztah, pocet_celkem, kapitola_typ,
            plat_prumer, pocet_ostat, kapitola_zkr) |>
     mutate(pocet_predst = pocet_celkem - pocet_ostat,
@@ -53,7 +53,7 @@ syst_make_platy <- function(syst_all_fixed) {
 
 syst_make_platy_uo <- function(syst_all_fixed) {
   syst_all_fixed |>
-    filter(date < "2022-04-01", kapitola_kod != "Celkem",
+    filter(date < "2023-04-01", kapitola_kod != "Celkem",
            !organizace_nazev %in% urady_nazvy_exclude) |>
     select(date, rok, organizace_nazev, vztah, pocet_celkem, kapitola_typ,
            plat_prumer, pocet_ostat, ustredni_organ, kapitola_zkr) |>
@@ -63,26 +63,30 @@ syst_make_platy_uo <- function(syst_all_fixed) {
 
 syst_make_tridy <- function(syst_pocty_long) {
   syst_pocty_long |>
-    filter(date < "2022-04-01", kapitola_kod != "Celkem",
+    filter(date < "2023-04-01", kapitola_kod != "Celkem",
            !organizace_nazev %in% urady_nazvy_exclude) |>
     replace_na(list(pocet = 0)) |>
     mutate(trida = recode(trida, M = "0") |> as.numeric()) |>
     group_by(date, rok, organizace_nazev, vztah, level,
              across(starts_with("kapitola")), ustredni_organ) |>
-    summarise(trida_mean = weighted.mean(trida, pocet, na.rm = TRUE), .groups = "drop")|>
+    summarise(trida_mean = weighted.mean(trida, pocet, na.rm = TRUE), .groups = "drop") |>
     pivot_wider(names_from = level, values_from = trida_mean, names_prefix = "trida_")
 }
 
 syst_make_tridy_uo <- function(syst_pocty_long_uo) {
   syst_pocty_long_uo |>
-    filter(date < "2022-04-01", kapitola_kod != "Celkem",
+    filter(date < "2023-04-01", kapitola_kod != "Celkem",
            !organizace_nazev %in% urady_nazvy_exclude) |>
     replace_na(list(pocet = 0)) |>
     mutate(trida = recode(trida, M = "0") |> as.numeric()) |>
     group_by(date, rok, organizace_nazev, vztah, level,
              across(starts_with("kapitola")), ustredni_organ) |>
-    summarise(trida_mean = weighted.mean(trida, pocet, na.rm = TRUE), .groups = "drop")|>
-    pivot_wider(names_from = level, values_from = trida_mean, names_prefix = "trida_")
+    summarise(trida_mean = weighted.mean(trida, pocet, na.rm = TRUE),
+              pocet = sum(pocet, na.rm = TRUE), .groups = "drop") |>
+    pivot_wider(names_from = level, values_from = c(trida_mean, pocet)) |>
+    mutate(trida_mean_celkem = (trida_mean_predst * pocet_predst +
+                                  trida_mean_ostat * pocet_ostat) /
+             (pocet_ostat + pocet_predst))
 }
 
 syst_make_platy_for_model <- function(syst_platy, syst_tridy) {
@@ -124,41 +128,64 @@ syst_run_model_annual <- function(syst_for_model_uo) {
 }
 
 syst_run_model <- function(syst_platy_for_model) {
-  syst_platy_for_model_2022 <- syst_platy_for_model |>
-    filter(rok == 2022)
+  syst_platy_for_model_2023 <- syst_platy_for_model |>
+    filter(rok == 2023)
   plat_model <- lm(plat_prumer ~ perc_predst + trida_predst + trida_ostat + vztah + ustredni_organ + kapitola_vladni,
-                   data = syst_platy_for_model_2022)
+                   data = syst_platy_for_model_2023)
 }
 
 syst_make_plot_tridy <- function(syst_tridy_uo) {
-  syst_tridy_uo |>
+  dt_all <- syst_tridy_uo |>
     filter(ustredni_organ, kapitola_vladni,
-           date == "2022-01-01", vztah == "sluz") |>
-    mutate(kapitola_zkr = as.factor(kapitola_zkr) |> fct_reorder(trida_ostat, min)) |>
-    ggplot(aes(y = kapitola_zkr)) +
-    geom_point(aes(x = trida_predst, colour = "Představení"), size = 3) +
-    geom_point(aes(x = trida_ostat, colour = "Ostatní"), size = 3) +
+           date == "2023-01-01", vztah == "sluz") |>
+    mutate(kapitola_zkr = as.factor(kapitola_zkr) |> fct_reorder(trida_mean_celkem, min))
+
+  ggplot(dt_all, aes(y = kapitola_zkr)) +
+    geom_point(aes(x = trida_mean_predst, colour = "Představení"), size = 3) +
+    geom_point(aes(x = trida_mean_ostat, colour = "Ostatní"), size = 3) +
+    geom_point(aes(x = trida_mean_celkem, colour = "Celkem"), size = 3) +
     scale_colour_manual(name = "Úroveň řízení", values = c(Ostatní = "grey50",
+                                                           Celkem = "black",
                                                            Představení = "darkblue")) +
     scale_x_continuous(limits = c(10, 15)) +
     ptrr::theme_ptrr("both", multiplot = FALSE, legend.position = "top") +
-    labs(title = "Průměrná platová třída (2022)",
-         subtitle = "Podle systemizace 2022.\nJen ústřední orgány ve vládních kapitolách",
-         caption = "Plánovaný stav podle systemizace 2022")
+    labs(title = "Průměrná platová třída služebních míst (2023)",
+         subtitle = "Podle systemizace 2023.\nJen ústřední orgány ve vládních kapitolách, jen služební místa",
+         caption = "Plánovaný stav podle systemizace 2023")
+}
+
+syst_make_plot_predstaveni <- function(syst_pocty_long_uo) {
+  syst_pocty_long_uo |>
+    filter(ustredni_organ, kapitola_vladni,
+           date == "2023-01-01", vztah == "sluz") |>
+    drop_na(pocet) |>
+    group_by(kapitola_zkr, level) |>
+    summarise(pocet = sum(pocet), .groups = "drop") |>
+    group_by(kap = kapitola_zkr) |>
+    mutate(podil = pocet/sum(pocet)) |>
+    filter(level == "predst") |>
+    ungroup() |>
+    mutate(kap = as.factor(kap) |> fct_reorder(podil)) |>
+    ggplot(aes(podil, kap)) +
+    geom_col() +
+    ptrr::scale_x_percent_cz(n.breaks = 6) +
+    ptrr::theme_ptrr("x") +
+    labs(title = "Podíl představených na všech zaměstnancích",
+         subtitle = "Systemizace 2023, jen služební místa, jen centrální úřady")
 }
 
 syst_make_plot_platy <- function(syst_platy_uo) {
   syst_platy_uo |>
     filter(ustredni_organ, kapitola_typ == "Ministerstva a ÚV",
-           date == "2022-01-01", vztah == "sluz") |>
+           date == "2023-01-01", vztah == "sluz") |>
     mutate(kapitola_zkr = as.factor(kapitola_zkr) |> fct_reorder(plat_prumer, mean)) |>
     ggplot(aes(y = kapitola_zkr)) +
     geom_col(aes(x = plat_prumer), colour = "grey30", width = .85) +
     scale_x_number_cz(expand = flush_axis) +
     ptrr::theme_ptrr("x", multiplot = FALSE, legend.position = "top") +
-    labs(title = "Průměrný plat (2022)",
-         subtitle = "Podle systemizace 2022.\nJen ústřední orgány ve vládních kapitolách, jen služební místa",
-         caption = "Plánovaný stav podle systemizace 2022")
+    labs(title = "Průměrný plat na služebních místech (2023)",
+         subtitle = "Podle systemizace 2023.\nJen ústřední orgány ve vládních kapitolách, jen služební místa",
+         caption = "Plánovaný stav podle systemizace 2023")
 }
 
 syst_make_plot_residyr <- function(syst_model_annual) {
@@ -181,10 +208,10 @@ syst_make_plot_coefyr <- function(syst_model_annual) {
 }
 
 syst_make_predictions <- function(syst_model, syst_platy_for_model) {
-  syst_platy_for_model_2022 <- syst_platy_for_model |>
-    filter(date == "2022-01-01")
+  syst_platy_for_model_2023 <- syst_platy_for_model |>
+    filter(date == "2023-01-01")
 
-  syst_model_predictions <- augment(syst_model, syst_platy_for_model_2022) |>
+  syst_model_predictions <- augment(syst_model, syst_platy_for_model_2023) |>
     mutate(ustredni_organ = ifelse(ustredni_organ, "Ústřední", "Neústřední") |>
              as_factor())
 
