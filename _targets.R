@@ -135,6 +135,18 @@ l_pmz <- list(
   tar_target(czso_plot_nace, czso_make_plot_nace(czso_pmz_nace_clean))
 )
 
+l_ovm <- list(
+  tar_download(ovm_json,
+               "https://rpp-opendata.egon.gov.cz/odrpp/datovasada/ovm.json",
+               "data-input/ovm.json"),
+  tar_target(ovm, load_ovm(ovm_json))
+)
+
+l_stosestka <- list(
+  tar_file_read(isp_raw, "data-input/isp/Příloha - Údaje z ISOP.xlsx", read_excel(!!.x)),
+  tar_target(isp, process_isp(isp_raw, ovm))
+)
+
 l_utils <- list()
 
-list(l_wgi, l_ec, l_utils, l_ispv, l_quarto, l_systemizace, l_pmz)
+list(l_wgi, l_ec, l_utils, l_ispv, l_quarto, l_systemizace, l_pmz, l_ovm, l_stosestka)
