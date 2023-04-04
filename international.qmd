@@ -48,7 +48,7 @@ Zde srovnáváme "civil service" podle EK (v ČR všechny ústřední orgány, 2
 targets::tar_read(ec_plot_earnses)
 ```
 
-2021 based on OECD data
+2021 based on OECD data (means!)
 
 ```{r ec_plot_earnoecd}
 targets::tar_read(ec_plot_earnoecd)
@@ -56,7 +56,8 @@ targets::tar_read(ec_plot_earnoecd)
 
 ### Worldwide Bureaucracy Indicators (World Bank)
 
-Jde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např. ve vzdělanostní a demografické struktuře.
+Jde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např.
+ve vzdělanostní a demografické struktuře.
 
 ::: {.callout-note appearance="simple"}
 Jedná se celý veřejný sektor.
@@ -72,6 +73,6 @@ tar_read(wbi_plot_bar)
 tar_read(wbi_plot_line)
 ```
 
-# Zdroje 
+# Zdroje
 
 TO DO
