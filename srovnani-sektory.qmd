@@ -27,7 +27,7 @@ tar_load(pv_isco)
 Zde srovnáváme celou platovou sféru s celou mzdovou, tj.
 zhruba veřejný vs. soukromý sektor.
 
-# Profese
+# Profese, dle ISPV za rok 2022
 
 ## Vybrané profese (čtyřmístné ISCO)
 
@@ -47,7 +47,7 @@ tar_read(pv_plot_isco_dist)
 targets::tar_read(pv_plot_isco_percentiles)
 ```
 
-# Percentily mezd
+# Percentily mezd, dle ISPV za rok 2022
 
 ## Podle věku
 
@@ -84,7 +84,6 @@ targets::tar_read(pv_plot_edu)
 ```{r czso_plot_nace}
 targets::tar_read(czso_plot_nace)
 ```
-
 
 # Zdroje
 
