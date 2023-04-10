@@ -58,6 +58,15 @@ l_ec <- list(
 # National comparative ----------------------------------------------------
 
 
+## SZU ---------------------------------------------------------------------
+
+l_szu <- list(
+  tar_file_read(szu_sections,
+                # copied from `studie-urednici` repo at https://github.com/idea-cergeei/studie-urednici
+                "data-input/szu/data_all.parquet",
+                arrow::read_parquet(!!.x))
+)
+
 ## Systemizace  ---------------------------------------------------------------------
 
 l_systemizace <- list(
@@ -132,16 +141,20 @@ l_ispv <- list(
 
   tar_target(pv_isco_cr, pv_cr_monthlypay_isco(pv_cr_files, sheet = 7) |> isco_recode()),
   tar_target(pv_isco_pg, pv_reg_monthlypay_isco4(pv_pg_files) |> isco_recode()),
-  tar_target(pv_edu_cr, pv_cr_monthlypay_education(pv_cr_files) |> isco_recode()),
-  tar_target(pv_edu_pg, pv_reg_monthlypay_education(pv_pg_files) |> isco_recode()),
-  tar_target(pv_genderage_cr, pv_cr_monthlypay_age_gender(pv_cr_files) |> isco_recode()),
-  tar_target(pv_genderage_pg, pv_reg_monthlypay_age_gender(pv_pg_files) |> isco_recode()),
-
   tar_target(pv_isco_cr_long, pv_isco_lengthen(pv_isco_cr)),
   tar_target(pv_isco_pg_long, pv_isco_lengthen(pv_isco_pg)),
   tar_target(pv_isco_long, pv_isco_bind(pv_isco_cr_long,
                                         pv_isco_pg_long)),
   tar_target(pv_isco, pv_isco_bind(pv_isco_cr, pv_isco_pg)),
+
+## Education, gender -------------------------------------------------------
+
+  tar_target(pv_edu_cr, pv_cr_monthlypay_education(pv_cr_files) |> pv_fix_totals()),
+  tar_target(pv_edu_pg, pv_reg_monthlypay_education(pv_pg_files) |> pv_fix_totals()),
+  tar_target(pv_genderage_cr, pv_cr_monthlypay_age_gender(pv_cr_files) |> isco_recode()),
+  tar_target(pv_genderage_pg, pv_reg_monthlypay_age_gender(pv_pg_files) |> isco_recode()),
+
+## Plots -------------------------------------------------------------------
 
   tar_target(pv_plot_isco_dist, pv_make_plot_isco_dist(pv_isco,
                                                          c("4110", "3343", "2422",
@@ -188,4 +201,4 @@ l_stosestka <- list(
 
 l_utils <- list()
 
-list(l_wgi, l_ec, l_utils, l_ispv, l_quarto, l_systemizace, l_pmz, l_ovm, l_stosestka)
+list(l_wgi, l_ec, l_utils, l_ispv, l_quarto, l_systemizace, l_pmz, l_ovm, l_stosestka, l_szu)

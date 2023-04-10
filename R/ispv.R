@@ -36,6 +36,11 @@ isco_recode <- function(data) {
                     pls = "Platová sféra"))
 }
 
+pv_fix_totals <- function(data) {
+  data |>
+    mutate(category = if_else(str_detect(category, "CELKEM"), "Celkem", category))
+}
+
 pv_dist_lengthen <- function(data, vars) {
   data |>
     pivot_longer(cols = c(pay_median, matches("pay_[dq]"))) |>

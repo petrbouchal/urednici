@@ -117,12 +117,13 @@ ec_make_plot_earnses <- function(ec_pay, earn_ses_monthly) {
              fct_reorder(values))
 
   ggplot(dta_by_ses, aes(values, geo)) +
+    geom_vline(xintercept = 1, linetype = "dotted", colour = "grey40") +
     geom_col(aes(fill = geo == "CZ")) +
     geom_vline(xintercept = 1, linetype = "dotted", colour = "white") +
     scale_fill_manual(values = c("darkgrey", "darkblue")) +
     guides(fill = "none") +
     scale_x_percent_cz(expand = flush_axis, breaks = seq(0, 2, .25)) +
-    theme_ptrr("x", axis_titles = T) +
+    theme_ptrr("x", axis_titles = T, plot.margin = unit(c(5.5, 15, 5.5, 5.5), "pt")) +
     labs(title = "",
          subtitle = "",
          y = NULL,
