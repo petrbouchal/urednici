@@ -21,18 +21,26 @@ options(clustermq.scheduler = "multicore")
 # Run the R scripts in the R/ folder with your custom functions:
 tar_source()
 
-# Replace the target list below with your own:
+# International data ------------------------------------------------------
+
+
+## WB WGI ------------------------------------------------------------------
+
 l_wgi <- list(
   tar_target(wbi_wagepremiums, wbi_get_wagepremiums()),
   tar_target(wbi_plot_line, wbi_make_plot_line(wbi_wagepremiums)),
   tar_target(wbi_plot_bar, wbi_make_plot_bar(wbi_wagepremiums))
 )
+
+## EC Officials pay  ------------------------------------------------------------------
+
 l_ec <- list(
   tar_target(ec_counts, get_eurostat("prc_rem_nr")),
   tar_target(ec_pay, get_eurostat("prc_rem_avg")),
   tar_target(ec_plot_multi, ec_make_plot_multi(ec_pay)),
   tar_target(ec_plot_bar, ec_make_plot_bar(ec_pay)),
   tar_target(ec_plot_count_bar, ec_make_plot_count_bar(ec_counts)),
+
 
   tar_target(earn_ses, get_eurostat("earn_ses_monthly",
                                     filters = list(isco08 = "TOTAL", age = "TOTAL",
@@ -46,14 +54,22 @@ l_ec <- list(
   tar_target(ec_plot_earnses, ec_make_plot_earnses(ec_pay, earn_ses))
 )
 
+
+# National comparative ----------------------------------------------------
+
+
+## Systemizace  ---------------------------------------------------------------------
+
 l_systemizace <- list(
-  tar_file_read(syst_pocty_long,
-                # copied from `systemizace` repo
-                "data-input/systemizace/systemizace_pocty_long.parquet",
-                arrow::read_parquet(!!.x)),
   tar_file_read(syst_all,
-                # copied from `systemizace` repo
+                # copied from `systemizace` repo at https://github.com/petrbouchal/systemizace
+                # raw files downloaded via https://github.com/petrbouchal/statnisluzba-downloader
                 "data-input/systemizace/systemizace_all.parquet",
+                arrow::read_parquet(!!.x)),
+  tar_file_read(syst_pocty_long,
+                # copied from `systemizace` repo at https://github.com/petrbouchal/systemizace
+                # raw files downloaded via https://github.com/petrbouchal/statnisluzba-downloader
+                "data-input/systemizace/systemizace_pocty_long.parquet",
                 arrow::read_parquet(!!.x)),
   tar_target(syst_all_fixed, syst_fix_data(syst_all)),
   tar_target(syst_platy, syst_make_platy(syst_all_fixed)),
@@ -88,7 +104,14 @@ l_quarto <- list(
   tar_quarto(quarto_project)
 )
 
+
+# ISPV --------------------------------------------------------------------
+
 l_ispv <- list(
+
+
+## List, download files ----------------------------------------------------
+
   tar_target(pv_reg_list, pv_list_reg()),
   tar_target(pv_cr_list, pv_list_cr()),
   tar_target(pv_pg_list_q4, pv_reg_list |> filter(str_detect(name, "Pra_224"))),
@@ -103,6 +126,10 @@ l_ispv <- list(
   tar_file(pv_pg_files,
            curl::curl_download(pv_pg_urls, pv_pg_filenames),
            pattern = map(pv_pg_urls, pv_pg_filenames)),
+
+## ISCO --------------------------------------------------------------------
+
+
   tar_target(pv_isco_cr, pv_cr_monthlypay_isco(pv_cr_files, sheet = 7) |> isco_recode()),
   tar_target(pv_isco_pg, pv_reg_monthlypay_isco4(pv_pg_files) |> isco_recode()),
   tar_target(pv_edu_cr, pv_cr_monthlypay_education(pv_cr_files) |> isco_recode()),
@@ -130,6 +157,9 @@ l_ispv <- list(
   tar_target(pv_plot_ga_cr, pv_make_plot_ga_cr(pv_genderage_cr))
 )
 
+
+# CZSO --------------------------------------------------------------------
+
 l_pmz <- list(
   tar_target(czso_pmz_nace, czso_get_table("110079", force_redownload = TRUE)),
   tar_target(czso_infl, czso_get_table("010022", force_redownload = TRUE)),
@@ -138,12 +168,18 @@ l_pmz <- list(
   tar_target(czso_plot_nace, czso_make_plot_nace(czso_pmz_nace_clean))
 )
 
+
+# OVM ---------------------------------------------------------------------
+
 l_ovm <- list(
   tar_download(ovm_json,
                "https://rpp-opendata.egon.gov.cz/odrpp/datovasada/ovm.json",
                "data-input/ovm.json"),
   tar_target(ovm, load_ovm(ovm_json))
 )
+
+
+# Stosestka ---------------------------------------------------------------
 
 l_stosestka <- list(
   tar_file_read(isp_raw, "data-input/isp/Příloha - Údaje z ISOP.xlsx", read_excel(!!.x)),
