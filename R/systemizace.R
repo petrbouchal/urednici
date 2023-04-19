@@ -196,7 +196,8 @@ syst_make_plot_residyr <- function(syst_model_annual) {
     facet_wrap(~kapitola_nazev) +
     theme_ptrr(multiplot = TRUE, legend.position = "top")
 
-  girafe(ggobj = gg_resid_year, pointsize = 8)
+  girafe(ggobj = gg_resid_year, pointsize = 8,
+         fonts = list(sans = "IBM Plex Sans; Helvetica; Arial; sans-serif"),)
 }
 
 syst_make_plot_coefyr <- function(syst_model_annual) {
@@ -241,7 +242,8 @@ syst_make_plot_model_predictions_all <- function(syst_model_predictions) {
     ptrr::theme_ptrr(gridlines = "scatter", axis_titles = TRUE) +
     labs(x = "Průměrný plat (tis. Kč)", y = "Modelovaný průměrný plat (tis. Kč)")
 
-  girafe(ggobj = gg, pointsize = 8)
+  girafe(ggobj = gg, pointsize = 8,
+         fonts = list(sans = "IBM Plex Sans; Helvetica; Arial; sans-serif"),)
 }
 
 syst_make_plot_model_by_grp <- function(syst_platy_for_model) {
@@ -272,7 +274,8 @@ syst_make_plot_model_resid <- function(syst_model_predictions) {
     facet_grid(ustredni_organ ~ kapitola_typ) +
     theme_ptrr("x", multiplot = T, axis.text.y = element_blank())
 
-  girafe(ggobj = gg_pts, height_svg = 2, pointsize = 8)
+  girafe(ggobj = gg_pts, height_svg = 2, pointsize = 8,
+         fonts = list(sans = "IBM Plex Sans; Helvetica; Arial; sans-serif"),)
 }
 
 syst_make_plot_model_resid_uo <- function(syst_model_predictions) {
