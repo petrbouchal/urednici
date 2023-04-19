@@ -11,7 +11,21 @@
     "href": "index.html",
     "title": "Úředníci 2019+",
     "section": "",
-    "text": "První analýza platů úředníků z dodatečných dat:\n\nsystemizace (viz https://github.com/petrbouchal/systemizace)\ninformační systém o průměrném výdělku (ISPV)\nEurostat - data o platech úředníků členských států určená pro výpočet platových hladin v evropských institucích\nWorldwide Bureaucracy Indicators - Public Sector Pay Premium\n\nviz\n\nmezinárodní srovnání\nsektorové srovnání\nsrovnání mezi úřady"
+    "text": "update s daty systemizace 2023"
+  },
+  {
+    "objectID": "index.html#update-2023-04",
+    "href": "index.html#update-2023-04",
+    "title": "Úředníci 2019+",
+    "section": "",
+    "text": "update s daty systemizace 2023"
+  },
+  {
+    "objectID": "index.html#update-2022-09",
+    "href": "index.html#update-2022-09",
+    "title": "Úředníci 2019+",
+    "section": "Update 2022-09",
+    "text": "Update 2022-09\nPrvní analýza platů úředníků z dodatečných dat:\n\nsystemizace (viz https://github.com/petrbouchal/systemizace)\ninformační systém o průměrném výdělku (ISPV)\nEurostat - data o platech úředníků členských států určená pro výpočet platových hladin v evropských institucích\nWorldwide Bureaucracy Indicators - Public Sector Pay Premium\n\nviz\n\nmezinárodní srovnání\nsektorové srovnání\nsrovnání mezi úřady"
   },
   {
     "objectID": "index.html#update-2022-05",
@@ -42,11 +56,18 @@
     "text": "Technologie\nPráce se děje v R/RMarkdown, z čehož se následně generuje i web. Vše by mělo být replikovatelné z githubového repozitáře."
   },
   {
+    "objectID": "international.html",
+    "href": "international.html",
+    "title": "Mezinárodní srovnání",
+    "section": "",
+    "text": "Jedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK. Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj. v roce 2022 cca 22 tisíc lidí.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTohle tedy smysl dávat nebude, ani když to ukážeme per capita."
+  },
+  {
     "objectID": "international.html#eurostat-úředníci-členských-států",
     "href": "international.html#eurostat-úředníci-členských-států",
     "title": "Mezinárodní srovnání",
-    "section": "Eurostat: úředníci členských států",
-    "text": "Eurostat: úředníci členských států\n\nPlaty\nJedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK. Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj. v roce 2022 cca 22 tisíc lidí.\n\n\n\n\n\n\n\n\n\n\n\n\nPočty zaměstnanců\n\n\n\n\n\nTohle tedy smysl dávat nebude, ani když to ukážeme per capita."
+    "section": "",
+    "text": "Jedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK. Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj. v roce 2022 cca 22 tisíc lidí.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTohle tedy smysl dávat nebude, ani když to ukážeme per capita."
   },
   {
     "objectID": "international.html#public-sector-wage-premium",
@@ -81,7 +102,7 @@
     "href": "srovnani-sektory.html#podle-věku",
     "title": "Srovnání: soukromý sektor",
     "section": "Podle věku",
-    "text": "Podle věku\n\n\n\n\nČesko\n\n\n\n\n\n\n\nPraha"
+    "text": "Podle věku\n\nČesko\n\n\n\n\n\n\n\nPraha"
   },
   {
     "objectID": "srovnani-sektory.html#jen-vš",
@@ -91,11 +112,32 @@
     "text": "Jen VŠ"
   },
   {
+    "objectID": "srovnani-urady.html#ministerstva",
+    "href": "srovnani-urady.html#ministerstva",
+    "title": "Srovnání: úřady",
+    "section": "Ministerstva",
+    "text": "Ministerstva"
+  },
+  {
+    "objectID": "srovnani-urady.html#podíl-managementu-představených",
+    "href": "srovnani-urady.html#podíl-managementu-představených",
+    "title": "Srovnání: úřady",
+    "section": "Podíl managementu (představených)",
+    "text": "Podíl managementu (představených)"
+  },
+  {
+    "objectID": "srovnani-urady.html#platové-třídy-na-ministerstvech",
+    "href": "srovnani-urady.html#platové-třídy-na-ministerstvech",
+    "title": "Srovnání: úřady",
+    "section": "Platové třídy na ministerstvech",
+    "text": "Platové třídy na ministerstvech"
+  },
+  {
     "objectID": "srovnani-urady.html#přesnější-ověření-modelu",
     "href": "srovnani-urady.html#přesnější-ověření-modelu",
     "title": "Srovnání: úřady",
     "section": "Přesnější ověření modelu",
-    "text": "Přesnější ověření modelu\n\nVýsledek\n\n\n#> \n#> Call:\n#> lm(formula = plat_prumer ~ perc_predst + trida_predst + trida_ostat + \n#>     vztah + ustredni_organ + kapitola_vladni, data = syst_platy_for_model_2023)\n#> \n#> Residuals:\n#>    Min     1Q Median     3Q    Max \n#> -15859  -4064  -1436   2847  37274 \n#> \n#> Coefficients:\n#>                     Estimate Std. Error t value Pr(>|t|)    \n#> (Intercept)         25113.75    4039.29   6.217 4.04e-09 ***\n#> perc_predst           544.40      71.89   7.573 2.52e-12 ***\n#> trida_predst        -1472.97     327.07  -4.504 1.26e-05 ***\n#> trida_ostat          2805.66     455.65   6.158 5.49e-09 ***\n#> vztahsluz           -3941.90    1751.15  -2.251   0.0257 *  \n#> ustredni_organTRUE   6389.26    1318.45   4.846 2.90e-06 ***\n#> kapitola_vladniTRUE   593.64    1231.75   0.482   0.6305    \n#> ---\n#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n#> \n#> Residual standard error: 6870 on 164 degrees of freedom\n#> Multiple R-squared:  0.5381, Adjusted R-squared:  0.5212 \n#> F-statistic: 31.85 on 6 and 164 DF,  p-value: < 2.2e-16\n\n\n\n\nV čase\nPokud model odhadneme zvlášť v jednotlivých letech, jsou koeficienty v čase relativně stabilní.\n\n\n\n\n\nResiduals pro jednotlivé úřady v čase:"
+    "text": "Přesnější ověření modelu\n\nVýsledek\n\n\n#&gt; \n#&gt; Call:\n#&gt; lm(formula = plat_prumer ~ perc_predst + trida_predst + trida_ostat + \n#&gt;     vztah + ustredni_organ + kapitola_vladni, data = syst_platy_for_model_2023)\n#&gt; \n#&gt; Residuals:\n#&gt;    Min     1Q Median     3Q    Max \n#&gt; -15859  -4064  -1436   2847  37274 \n#&gt; \n#&gt; Coefficients:\n#&gt;                     Estimate Std. Error t value Pr(&gt;|t|)    \n#&gt; (Intercept)         25113.75    4039.29   6.217 4.04e-09 ***\n#&gt; perc_predst           544.40      71.89   7.573 2.52e-12 ***\n#&gt; trida_predst        -1472.97     327.07  -4.504 1.26e-05 ***\n#&gt; trida_ostat          2805.66     455.65   6.158 5.49e-09 ***\n#&gt; vztahsluz           -3941.90    1751.15  -2.251   0.0257 *  \n#&gt; ustredni_organTRUE   6389.26    1318.45   4.846 2.90e-06 ***\n#&gt; kapitola_vladniTRUE   593.64    1231.75   0.482   0.6305    \n#&gt; ---\n#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n#&gt; \n#&gt; Residual standard error: 6870 on 164 degrees of freedom\n#&gt; Multiple R-squared:  0.5381, Adjusted R-squared:  0.5212 \n#&gt; F-statistic: 31.85 on 6 and 164 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nV čase\nPokud model odhadneme zvlášť v jednotlivých letech, jsou koeficienty v čase relativně stabilní.\n\n\n\n\n\nResiduals pro jednotlivé úřady v čase:"
   },
   {
     "objectID": "2_explore-counts.html",
@@ -109,109 +151,116 @@
     "href": "2_explore-counts.html#table",
     "title": "Počty úředníků: 2013-2018",
     "section": "Table",
-    "text": "Table\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\" & \n           year %in% c(2013, 2018)) %>% \n  filter(!(type %in% c(\"PO sum\", \"Příslušníci a vojáci\"))) %>% \n  mutate(skutecnost = (round(skutecnost)/1e3) %>% round(1)) %>%\n  select(type, skutecnost, year) %>% \n  pivot_wider(names_from = year, values_from = skutecnost) %>% \n  select(type, `2013`, `2018`) %>% knitr::kable()\n\n\n\n\ntype\n2013\n2018\n\n\n\n\nÚO\n23.1\n26.5\n\n\njedn. OSS státní správy\n48.9\n51.6\n\n\nSOBCPO\n78.6\n81.7\n\n\nST.SPRÁVA\n150.7\n159.8\n\n\nostatní OSS\n35.3\n37.4\n\n\nOSS sum\n186.0\n197.1\n\n\n\n\n\n\n159.8 - 26.5 - 81.7\n\n[1] 51.6"
+    "text": "Table\n\ndt %&gt;% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\" & \n           year %in% c(2013, 2018)) %&gt;% \n  filter(!(type %in% c(\"PO sum\", \"Příslušníci a vojáci\"))) %&gt;% \n  mutate(skutecnost = (round(skutecnost)/1e3) %&gt;% round(1)) %&gt;%\n  select(type, skutecnost, year) %&gt;% \n  pivot_wider(names_from = year, values_from = skutecnost) %&gt;% \n  select(type, `2013`, `2018`) %&gt;% knitr::kable()\n\n\n\n\ntype\n2013\n2018\n\n\n\n\nÚO\n23.1\n26.5\n\n\njedn. OSS státní správy\n48.9\n51.6\n\n\nSOBCPO\n78.6\n81.7\n\n\nST.SPRÁVA\n150.7\n159.8\n\n\nostatní OSS\n35.3\n37.4\n\n\nOSS sum\n186.0\n197.1\n\n\n\n\n\n\n159.8 - 26.5 - 81.7\n\n[1] 51.6"
   },
   {
     "objectID": "2_explore-counts.html#chart",
     "href": "2_explore-counts.html#chart",
     "title": "Počty úředníků: 2013-2018",
     "section": "Chart",
-    "text": "Chart\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\" & year == 2018) %>% \n  filter(!(type %in% c(\"Příslušníci a vojáci\"))) %>% \n  # mutate(skutecnost = (round(skutecnost)/1e3) %>% round(1)) %>% \n  # select(type, skutecnost)\n  select(type, skutecnost) %>% ggplot() + geom_col(aes(type, skutecnost)) +\n  coord_flip()"
+    "text": "Chart\n\ndt %&gt;% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\" & year == 2018) %&gt;% \n  filter(!(type %in% c(\"Příslušníci a vojáci\"))) %&gt;% \n  # mutate(skutecnost = (round(skutecnost)/1e3) %&gt;% round(1)) %&gt;% \n  # select(type, skutecnost)\n  select(type, skutecnost) %&gt;% ggplot() + geom_col(aes(type, skutecnost)) +\n  coord_flip()"
   },
   {
     "objectID": "2_explore-counts.html#absolutes",
     "href": "2_explore-counts.html#absolutes",
     "title": "Počty úředníků: 2013-2018",
     "section": "absolutes",
-    "text": "absolutes\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %>% \n  ggplot() +\n  geom_line(aes(x = year, y = skutecnost/1e3, group = type)) +\n  facet_wrap(~type)"
+    "text": "absolutes\n\ndt %&gt;% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %&gt;% \n  ggplot() +\n  geom_line(aes(x = year, y = skutecnost/1e3, group = type)) +\n  facet_wrap(~type)"
   },
   {
     "objectID": "2_explore-counts.html#change-from-2013-base",
     "href": "2_explore-counts.html#change-from-2013-base",
     "title": "Počty úředníků: 2013-2018",
     "section": "Change from 2013 base",
-    "text": "Change from 2013 base\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %>% \n  group_by(type) %>% \n  arrange(year) %>% \n  mutate(index = skutecnost/first(skutecnost)) %>% \n  ggplot() +\n  geom_line(aes(x = year, y = index, group = type)) +\n  facet_wrap(~type)"
+    "text": "Change from 2013 base\n\ndt %&gt;% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %&gt;% \n  group_by(type) %&gt;% \n  arrange(year) %&gt;% \n  mutate(index = skutecnost/first(skutecnost)) %&gt;% \n  ggplot() +\n  geom_line(aes(x = year, y = index, group = type)) +\n  facet_wrap(~type)"
   },
   {
     "objectID": "2_explore-counts.html#plan-vs.-reality",
     "href": "2_explore-counts.html#plan-vs.-reality",
     "title": "Počty úředníků: 2013-2018",
     "section": "Plan vs. reality",
-    "text": "Plan vs. reality\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %>% \n  ggplot() +\n  geom_line(aes(x = year, y = plneni, group = type)) +\n  facet_wrap(~type)\n\n\n\n\n\ndt %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"cost\") %>% \n  filter(year == 2018) %>% \n  select(rozp, skutecnost, year, type) %>% \n  mutate_at(vars(skutecnost, rozp), ~(./1e9) %>% round(1))\n\n# A tibble: 8 x 4\n   rozp skutecnost year  type                  \n  <dbl>      <dbl> <chr> <chr>                 \n1  16.2       15.9 2018  ÚO                    \n2  20.8       21.1 2018  jedn. OSSstátní správy\n3  43.6       43.7 2018  SOBCPO                \n4  80.7       80.7 2018  ST.SPRÁVA             \n5  18.3       18.4 2018  ostatní OSS           \n6  99         99.1 2018  OSS sum               \n7  87.4       87.9 2018  PO sum                \n8  43.5       43.5 2018  Příslušníci a vojáci"
+    "text": "Plan vs. reality\n\ndt %&gt;% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %&gt;% \n  ggplot() +\n  geom_line(aes(x = year, y = plneni, group = type)) +\n  facet_wrap(~type)\n\n\n\n\n\ndt %&gt;% \n  filter(kap_num == \"C E L K E M\" & indicator == \"cost\") %&gt;% \n  filter(year == 2018) %&gt;% \n  select(rozp, skutecnost, year, type) %&gt;% \n  mutate_at(vars(skutecnost, rozp), ~(./1e9) %&gt;% round(1))\n\n# A tibble: 8 x 4\n   rozp skutecnost year  type                  \n  &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                 \n1  16.2       15.9 2018  ÚO                    \n2  20.8       21.1 2018  jedn. OSSstátní správy\n3  43.6       43.7 2018  SOBCPO                \n4  80.7       80.7 2018  ST.SPRÁVA             \n5  18.3       18.4 2018  ostatní OSS           \n6  99         99.1 2018  OSS sum               \n7  87.4       87.9 2018  PO sum                \n8  43.5       43.5 2018  Příslušníci a vojáci"
   },
   {
     "objectID": "3_explore-counts-longseries.html",
     "href": "3_explore-counts-longseries.html",
     "title": "Počty úředníků: 2003-2018",
     "section": "",
-    "text": "c13o <- read_csv(here::here(\"data-output/legacy/groups_ALL.csv\"))\ndt0 <- read_rds(here::here(\"data-interim/objemy_pocty_scraped_raw_2012_2018.rds\"))"
+    "text": "c13o &lt;- read_csv(here::here(\"data-output/legacy/groups_ALL.csv\"))\ndt0 &lt;- read_rds(here::here(\"data-interim/objemy_pocty_scraped_raw_2012_2018.rds\"))\nunique(c13o$variable) %&gt;% enframe(name = NULL)\n\n# A tibble: 25 x 1\n   value               \n   &lt;chr&gt;               \n 1 AvgSal_schvaleny    \n 2 AvgSal_upraveny     \n 3 Zam_schvaleny       \n 4 PlatyOPPP_schvaleny \n 5 OPPP_upr2skut       \n 6 Zam_uprMinusskut    \n 7 PlatyOPPP_skutecnost\n 8 OPPP_upraveny       \n 9 PlatyOPPP_upr2skut  \n10 OPPP_uprMinusskut   \n# … with 15 more rows\n\nunique(c13o$grp) %&gt;% enframe(name = NULL)\n\n# A tibble: 11 x 1\n   value               \n   &lt;chr&gt;               \n 1 Exekutiva           \n 2 PO                  \n 3 OSS-RO              \n 4 UO - Ostatní        \n 5 UO - Ministerstva   \n 6 St. sprava se SOBCPO\n 7 SOBCPO              \n 8 ROPO celkem         \n 9 OOSS                \n10 UO                  \n11 OSS-SS              \n\nunique(dt0$type) %&gt;% enframe(name = NULL)\n\n# A tibble: 9 x 1\n  value                  \n  &lt;chr&gt;                  \n1 ÚO                     \n2 jedn. OSS státní správy\n3 SOBCPO                 \n4 ST.SPRÁVA              \n5 ostatní OSS            \n6 OSS sum                \n7 PO sum                 \n8 Příslušníci a vojáci   \n9 jedn. OSSstátní správy"
   },
   {
     "objectID": "3_explore-counts-longseries.html#prep-data-2013",
     "href": "3_explore-counts-longseries.html#prep-data-2013",
     "title": "Počty úředníků: 2003-2018",
     "section": "Prep data 2013+",
-    "text": "Prep data 2013+\n\ndt <- dt0 %>% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %>% \n  select(year, grp = type, schvaleny = rozp,\n         skutecnost, upraveny, rozdil, index, plneni) %>% \n  mutate(grp = recode(grp, \n                      `jedn. OSS státní správy` = \"neústřední st. správa\",\n                      `ST.SPRÁVA` = \"St. sprava se SOBCPO\"),\n         plneni = 2-plneni/100, rozdil = -rozdil)"
+    "text": "Prep data 2013+\n\ndt &lt;- dt0 %&gt;% \n  filter(kap_num == \"C E L K E M\" & indicator == \"count\") %&gt;% \n  select(year, grp = type, schvaleny = rozp,\n         skutecnost, upraveny, rozdil, index, plneni) %&gt;% \n  mutate(grp = recode(grp, \n                      `jedn. OSS státní správy` = \"neústřední st. správa\",\n                      `ST.SPRÁVA` = \"St. sprava se SOBCPO\"),\n         plneni = 2-plneni/100, rozdil = -rozdil)"
   },
   {
     "objectID": "3_explore-counts-longseries.html#prep-data-2003",
     "href": "3_explore-counts-longseries.html#prep-data-2003",
     "title": "Počty úředníků: 2003-2018",
     "section": "Prep data 2003+",
-    "text": "Prep data 2003+\n\ndto <- c13o %>% \n  filter(promenna == \"Zam\") %>% \n  select(grp, sgrp, variable, value, udaj, promenna, UO, exekutiva, Year) %>% \n  set_names(tolower(names(.))) %>% \n  mutate_at(vars(udaj, variable, promenna), tolower) %>% \n  mutate(year = year(year),\n         udaj = recode(udaj,  upr2skut = \"plneni\",\n                       uprminusskut = \"rozdil\"),\n         grp = recode(grp, UO = \"ÚO\", `OSS-RO` = \"OSS sum\",\n                      PO = \"PO sum\",\n                      `OSS-SS` = \"neústřední st. správa\",\n                      OOSS = \"ostatní OSS\")) %>% \n  filter(grp %in% c(\"ÚO\", \"ST.SPRÁVA\", \"SOBCPO\", \"OSS sum\", \"ostatní OSS\",\n                    \"PO sum\", \"St. sprava se SOBCPO\", \n                    \"neústřední st. správa\"))"
+    "text": "Prep data 2003+\n\ndto &lt;- c13o %&gt;% \n  filter(promenna == \"Zam\") %&gt;% \n  select(grp, sgrp, variable, value, udaj, promenna, UO, exekutiva, Year) %&gt;% \n  set_names(tolower(names(.))) %&gt;% \n  mutate_at(vars(udaj, variable, promenna), tolower) %&gt;% \n  mutate(year = year(year),\n         udaj = recode(udaj,  upr2skut = \"plneni\",\n                       uprminusskut = \"rozdil\"),\n         grp = recode(grp, UO = \"ÚO\", `OSS-RO` = \"OSS sum\",\n                      PO = \"PO sum\",\n                      `OSS-SS` = \"neústřední st. správa\",\n                      OOSS = \"ostatní OSS\")) %&gt;% \n  filter(grp %in% c(\"ÚO\", \"ST.SPRÁVA\", \"SOBCPO\", \"OSS sum\", \"ostatní OSS\",\n                    \"PO sum\", \"St. sprava se SOBCPO\", \n                    \"neústřední st. správa\"))"
   },
   {
     "objectID": "3_explore-counts-longseries.html#check-groupings",
     "href": "3_explore-counts-longseries.html#check-groupings",
     "title": "Počty úředníků: 2003-2018",
     "section": "Check groupings",
-    "text": "Check groupings\n\n2003+\n\nunique(dto$grp) %>% enframe(name = NULL)\n\n# A tibble: 7 x 1\n  value                \n  <chr>                \n1 OSS sum              \n2 St. sprava se SOBCPO \n3 SOBCPO               \n4 ostatní OSS          \n5 PO sum               \n6 ÚO                   \n7 neústřední st. správa\n\n\n\n\n2013+\n\nunique(dt$grp) %>% enframe(name = NULL)\n\n# A tibble: 8 x 1\n  value                \n  <chr>                \n1 ÚO                   \n2 neústřední st. správa\n3 SOBCPO               \n4 St. sprava se SOBCPO \n5 ostatní OSS          \n6 OSS sum              \n7 PO sum               \n8 Příslušníci a vojáci"
+    "text": "Check groupings\n\n2003+\n\nunique(dto$grp) %&gt;% enframe(name = NULL)\n\n# A tibble: 7 x 1\n  value                \n  &lt;chr&gt;                \n1 OSS sum              \n2 St. sprava se SOBCPO \n3 SOBCPO               \n4 ostatní OSS          \n5 PO sum               \n6 ÚO                   \n7 neústřední st. správa\n\n\n\n\n2013+\n\nunique(dt$grp) %&gt;% enframe(name = NULL)\n\n# A tibble: 8 x 1\n  value                \n  &lt;chr&gt;                \n1 ÚO                   \n2 neústřední st. správa\n3 SOBCPO               \n4 St. sprava se SOBCPO \n5 ostatní OSS          \n6 OSS sum              \n7 PO sum               \n8 Příslušníci a vojáci"
   },
   {
     "objectID": "3_explore-counts-longseries.html#check-data-by-comparing-grouping-sizes",
     "href": "3_explore-counts-longseries.html#check-data-by-comparing-grouping-sizes",
     "title": "Počty úředníků: 2003-2018",
     "section": "Check data by comparing grouping sizes",
-    "text": "Check data by comparing grouping sizes\n\n2003+\n\ndto %>% \n  filter(udaj == \"schvaleny\" & year == 2013) %>% \n  ggplot(aes(grp, value/1000)) +\n  geom_col() + coord_flip() + ggtitle(\"2013 - data 2003-2012\") + \n  scale_y_continuous(limits = c(0,250))\n\n\n\n\n\n\n2013+\n\ndt %>% \n  filter(year == 2013) %>% \n  filter(!(grp %in% c(\"Příslušníci a vojáci\"))) %>%\n  ggplot(aes(grp, skutecnost/1e3)) +\n  geom_col() + coord_flip() + ggtitle(\"2013 - data 2013-2018\") +\n  scale_y_continuous(limits = c(0,250))"
+    "text": "Check data by comparing grouping sizes\n\n2003+\n\ndto %&gt;% \n  filter(udaj == \"schvaleny\" & year == 2013) %&gt;% \n  ggplot(aes(grp, value/1000)) +\n  geom_col() + coord_flip() + ggtitle(\"2013 - data 2003-2012\") + \n  scale_y_continuous(limits = c(0,250))\n\n\n\n\n\n\n2013+\n\ndt %&gt;% \n  filter(year == 2013) %&gt;% \n  filter(!(grp %in% c(\"Příslušníci a vojáci\"))) %&gt;%\n  ggplot(aes(grp, skutecnost/1e3)) +\n  geom_col() + coord_flip() + ggtitle(\"2013 - data 2013-2018\") +\n  scale_y_continuous(limits = c(0,250))"
   },
   {
     "objectID": "3_explore-counts-longseries.html#merge-data",
     "href": "3_explore-counts-longseries.html#merge-data",
     "title": "Počty úředníků: 2003-2018",
     "section": "Merge data:",
-    "text": "Merge data:\n\nsrs <- bind_rows(dto %>% mutate(ds = \"old\") %>%\n                   filter(year != 2013) %>% \n                   select(year, grp, value, udaj),\n                 dt %>% pivot_longer(names_to = \"udaj\", values_to = \"value\",\n                                     cols = c(schvaleny, skutecnost,\n                                              upraveny, rozdil, \n                                              index, plneni)) %>% \n                   mutate(ds = \"new\", year = as.numeric(year)))"
+    "text": "Merge data:\n\nsrs &lt;- bind_rows(dto %&gt;% mutate(ds = \"old\") %&gt;%\n                   filter(year != 2013) %&gt;% \n                   select(year, grp, value, udaj),\n                 dt %&gt;% pivot_longer(names_to = \"udaj\", values_to = \"value\",\n                                     cols = c(schvaleny, skutecnost,\n                                              upraveny, rozdil, \n                                              index, plneni)) %&gt;% \n                   mutate(ds = \"new\", year = as.numeric(year)))"
   },
   {
     "objectID": "3_explore-counts-longseries.html#absolute---comparable",
     "href": "3_explore-counts-longseries.html#absolute---comparable",
     "title": "Počty úředníků: 2003-2018",
     "section": "Absolute - comparable",
-    "text": "Absolute - comparable\n\nsrs %>% \n  filter(udaj == \"skutecnost\") %>% \n  ggplot(aes(year, value)) +\n  geom_line() +\n  facet_wrap(~grp)"
+    "text": "Absolute - comparable\n\nsrs %&gt;% \n  filter(udaj == \"skutecnost\") %&gt;% \n  ggplot(aes(year, value)) +\n  geom_line() +\n  facet_wrap(~grp)"
   },
   {
     "objectID": "3_explore-counts-longseries.html#absolute---focus-on-changes",
     "href": "3_explore-counts-longseries.html#absolute---focus-on-changes",
     "title": "Počty úředníků: 2003-2018",
     "section": "Absolute - focus on changes",
-    "text": "Absolute - focus on changes\n\nsrs %>% \n  filter(udaj == \"skutecnost\") %>% \n  ggplot(aes(year, value)) +\n  geom_line() +\n  facet_wrap(~grp, scales = \"free_y\")"
+    "text": "Absolute - focus on changes\n\nsrs %&gt;% \n  filter(udaj == \"skutecnost\") %&gt;% \n  ggplot(aes(year, value)) +\n  geom_line() +\n  facet_wrap(~grp, scales = \"free_y\")"
   },
   {
     "objectID": "3_explore-counts-longseries.html#plan-vs.-reality",
     "href": "3_explore-counts-longseries.html#plan-vs.-reality",
     "title": "Počty úředníků: 2003-2018",
     "section": "Plan vs. reality",
-    "text": "Plan vs. reality\n\nsrs %>% \n  filter(udaj == \"plneni\") %>% \n  ggplot(aes(year, 2-value)) +\n  geom_line() +\n  facet_wrap(~grp)"
+    "text": "Plan vs. reality\n\nsrs %&gt;% \n  filter(udaj == \"plneni\") %&gt;% \n  ggplot(aes(year, 2-value)) +\n  geom_line() +\n  facet_wrap(~grp)"
   },
   {
     "objectID": "3_explore-counts-longseries.html#growth-from-2003-base",
     "href": "3_explore-counts-longseries.html#growth-from-2003-base",
     "title": "Počty úředníků: 2003-2018",
     "section": "Growth from 2003 base",
-    "text": "Growth from 2003 base\n\nsrs %>% \n  filter(udaj == \"skutecnost\") %>% \n  group_by(grp) %>% \n  arrange(year) %>% \n  mutate(index = value/first(value)) %>% \n  ggplot(aes(year, index)) +\n  geom_line() +\n  facet_wrap(~grp)"
+    "text": "Growth from 2003 base\n\nsrs %&gt;% \n  filter(udaj == \"skutecnost\") %&gt;% \n  group_by(grp) %&gt;% \n  arrange(year) %&gt;% \n  mutate(index = value/first(value)) %&gt;% \n  ggplot(aes(year, index)) +\n  geom_line() +\n  facet_wrap(~grp)"
   },
   {
     "objectID": "zdroje.html",
     "href": "zdroje.html",
+    "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
+    "section": "",
+    "text": "platové tabulky pro daný rok visí vždy na stránce ISP MF, zpětně je bohužel z webu získat nejde: https://www.mfcr.cz/cs/o-ministerstvu/informacni-systemy/is-o-platech/"
+  },
+  {
+    "objectID": "zdroje.html#update-2022-09",
+    "href": "zdroje.html#update-2022-09",
     "title": "Jak se z oficiálních dat něco dovědět o počtech úředníků českého státu",
     "section": "",
     "text": "platové tabulky pro daný rok visí vždy na stránce ISP MF, zpětně je bohužel z webu získat nejde: https://www.mfcr.cz/cs/o-ministerstvu/informacni-systemy/is-o-platech/"

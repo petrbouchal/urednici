@@ -27,9 +27,9 @@ tar_load(pv_isco)
 Zde srovnáváme celou platovou sféru s celou mzdovou, tj.
 zhruba veřejný vs. soukromý sektor.
 
-# Profese, dle ISPV za rok 2022
+# Profese, dle ISPV za rok 2022 {#profese-dle-ispv-za-rok-2022}
 
-## Vybrané profese (čtyřmístné ISCO)
+## Vybrané profese (čtyřmístné ISCO) {#vybrané-profese-čtyřmístné-isco}
 
 Medián a rozpětí prvního a třetího kvartilu příjmů, v tis.
 Kč hrubého měsíčně
@@ -39,7 +39,7 @@ Kč hrubého měsíčně
 tar_read(pv_plot_isco_dist)
 ```
 
-## Celé rozpětí i s 1. a 9. decilem
+## Celé rozpětí i s 1. a 9. decilem {#celé-rozpětí-i-s-1.-a-9.-decilem}
 
 ```{r pv_plot_isco_percentiles}
 #| column: page-right
@@ -47,9 +47,9 @@ tar_read(pv_plot_isco_dist)
 targets::tar_read(pv_plot_isco_percentiles)
 ```
 
-# Percentily mezd, dle ISPV za rok 2022
+# Percentily mezd, dle ISPV za rok 2022 {#percentily-mezd-dle-ispv-za-rok-2022}
 
-## Podle věku
+## Podle věku {#podle-věku}
 
 ```{r make-ga-cr-long}
 pv_ga_cr_long <- pv_genderage_cr |>
@@ -60,31 +60,39 @@ pv_ga_cr_long <- pv_genderage_cr |>
   pv_dist_lengthen(category)
 ```
 
-### Česko
+### Česko {#česko}
 
 ```{r plot-ga-cr}
 targets::tar_read(pv_plot_ga_cr)
 ```
 
-### Praha
+### Praha {#praha}
 
 ```{r plot-ga-pg}
 targets::tar_read(pv_plot_ga_pg)
 ```
 
-## Jen VŠ
+## Jen VŠ {#jen-vš}
 
 ```{r plot-edu}
 #| fig-asp: .5
 targets::tar_read(pv_plot_edu)
 ```
 
-# Celý NACE roční změna po kvartálech
+# Srovnání upravené o platovou strukturu
+
+```{r}
+#| fig-asp: .5
+targets::tar_read(comp_plot_compsal)
+```
+
+
+# Celý NACE roční změna po kvartálech {#celý-nace-roční-změna-po-kvartálech}
 
 ```{r czso_plot_nace}
 targets::tar_read(czso_plot_nace)
 ```
 
-# Zdroje
+# Zdroje {#zdroje}
 
 TO DO

@@ -10,9 +10,9 @@ library(targets)
 source("_targets_packages.R")
 ```
 
-## Eurostat: úředníci členských států
+## Eurostat: úředníci členských států {#eurostat-úředníci-členských-států}
 
-### Platy
+### Platy {#platy}
 
 Jedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK.
 Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj.
@@ -26,7 +26,7 @@ tar_read(ec_plot_bar)
 tar_read(ec_plot_multi)
 ```
 
-### Počty zaměstnanců
+### Počty zaměstnanců {#počty-zaměstnanců}
 
 ```{r ec_plot_count_bar}
 targets::tar_read(ec_plot_count_bar)
@@ -34,9 +34,9 @@ targets::tar_read(ec_plot_count_bar)
 
 Tohle tedy smysl dávat nebude, ani když to ukážeme per capita.
 
-## Public Sector Wage Premium
+## Public Sector Wage Premium {#public-sector-wage-premium}
 
-### Raw: civil service vs. economy
+### Raw: civil service vs. economy {#raw-civil-service-vs.-economy}
 
 ::: {.callout-note appearance="simple"}
 Zde srovnáváme "civil service" podle EK (v ČR všechny ústřední orgány, 22 tis. FTE) se širší ekonomikou.
@@ -54,7 +54,7 @@ targets::tar_read(ec_plot_earnses)
 targets::tar_read(ec_plot_earnoecd)
 ```
 
-### Worldwide Bureaucracy Indicators (World Bank)
+### Worldwide Bureaucracy Indicators (World Bank) {#worldwide-bureaucracy-indicators-world-bank}
 
 Jde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např.
 ve vzdělanostní a demografické struktuře.
@@ -73,6 +73,6 @@ tar_read(wbi_plot_bar)
 tar_read(wbi_plot_line)
 ```
 
-# Zdroje
+# Zdroje {#zdroje}
 
 TO DO

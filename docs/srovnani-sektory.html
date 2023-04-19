@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.324">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,7 +18,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
@@ -81,52 +81,54 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">urednici</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Hledat"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Přepnout navigaci" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"><i class="bi bi-home" role="img">
+    <a class="nav-link" href="./index.html" rel="" target=""><i class="bi bi-home" role="img">
 </i> 
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./international.html">
+    <a class="nav-link" href="./international.html" rel="" target="">
  <span class="menu-text">Mezinárodní srovnání</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./srovnani-sektory.html" aria-current="page">
+    <a class="nav-link active" href="./srovnani-sektory.html" rel="" target="" aria-current="page">
  <span class="menu-text">Srovnání: soukromý sektor</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./srovnani-urady.html">
+    <a class="nav-link" href="./srovnani-urady.html" rel="" target="">
  <span class="menu-text">Srovnání: úřady</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./zdroje.html">
+    <a class="nav-link" href="./zdroje.html" rel="" target="">
  <span class="menu-text">Data o úřednících</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./archiv.html">
+    <a class="nav-link" href="./archiv.html" rel="" target="">
  <span class="menu-text">Archiv</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/petrbouchal/msmt"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/petrbouchal/msmt" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://petrbouchal.xyz"><i class="bi bi-asterisk" role="img">
+    <a class="nav-link" href="https://petrbouchal.xyz" rel="" target=""><i class="bi bi-asterisk" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="dropdown-header">
  <span class="menu-text"> </span></li>
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -154,6 +156,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#jen-vš" id="toc-jen-vš" class="nav-link" data-scroll-target="#jen-vš">Jen VŠ</a></li>
   </ul></li>
+  <li><a href="#srovnání-upravené-o-platovou-strukturu" id="toc-srovnání-upravené-o-platovou-strukturu" class="nav-link" data-scroll-target="#srovnání-upravené-o-platovou-strukturu">Srovnání upravené o platovou strukturu</a></li>
   <li><a href="#celý-nace-roční-změna-po-kvartálech" id="toc-celý-nace-roční-změna-po-kvartálech" class="nav-link" data-scroll-target="#celý-nace-roční-změna-po-kvartálech">Celý NACE roční změna po kvartálech</a></li>
   <li><a href="#zdroje" id="toc-zdroje" class="nav-link" data-scroll-target="#zdroje">Zdroje</a></li>
   </ul>
@@ -191,9 +194,6 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="cell">
-
-</div>
 <p>Zde srovnáváme celou platovou sféru s celou mzdovou, tj. zhruba veřejný vs.&nbsp;soukromý sektor.</p>
 <section id="profese-dle-ispv-za-rok-2022" class="level1 page-columns page-full">
 <h1>Profese, dle ISPV za rok 2022</h1>
@@ -219,9 +219,6 @@ ul.task-list li input[type="checkbox"] {
 <h1>Percentily mezd, dle ISPV za rok 2022</h1>
 <section id="podle-věku" class="level2">
 <h2 class="anchored" data-anchor-id="podle-věku">Podle věku</h2>
-<div class="cell">
-
-</div>
 <section id="česko" class="level3">
 <h3 class="anchored" data-anchor-id="česko">Česko</h3>
 <div class="cell">
@@ -247,6 +244,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
+</section>
+<section id="srovnání-upravené-o-platovou-strukturu" class="level1">
+<h1>Srovnání upravené o platovou strukturu</h1>
+<div class="cell" data-fig.asp="0.5">
+<div class="cell-output-display">
+<p><img src="srovnani-sektory_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 </section>
 <section id="celý-nace-roční-změna-po-kvartálech" class="level1">
 <h1>Celý NACE roční změna po kvartálech</h1>
@@ -291,9 +296,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -358,6 +377,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -401,7 +506,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

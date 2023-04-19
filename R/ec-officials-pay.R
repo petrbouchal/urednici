@@ -4,7 +4,7 @@ ec_make_plot_multi <- function(ec_pay) {
     arrange(geo, time) |>
     mutate(geo = as.factor(geo) |> fct_reorder(values, last, .desc = TRUE)) |>
     ggplot(aes(time, values)) +
-    geom_line(aes(alpha = unit), colour = "darkblue", size = 1) +
+    geom_line(aes(alpha = unit), colour = "darkblue", linewidth = 1) +
     facet_wrap(~geo) +
     scale_alpha_discrete(range = c(.6, 1)) +
     ptrr::theme_ptrr(gridlines = "both", multiplot = T, legend.position = "top") +

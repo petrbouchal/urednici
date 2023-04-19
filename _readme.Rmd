@@ -2,6 +2,10 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
+## Update 2023-04
+
+- update s daty systemizace 2023
+
 ## Update 2022-09
 
 První analýza platů úředníků z dodatečných dat:

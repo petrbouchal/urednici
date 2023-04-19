@@ -8,8 +8,8 @@ debug(OECD::get_data_structure)
 
 dataset <- get_dataset("DUR_D")
 
-library(rqog)
+# library(rqog)
 
-rqog::run_app()
-qog_oecd <- rqog::read_qog("oecd")
-qog_std <- rqog::read_qog("standard")
+# rqog::run_app()
+# qog_oecd <- rqog::read_qog("oecd")
+# qog_std <- rqog::read_qog("standard")

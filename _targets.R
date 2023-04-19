@@ -9,6 +9,7 @@ options(crayon.enabled = TRUE)
 # Set target options:
 tar_option_set(
   packages = c("tibble", "ispv", "dplyr", "stringr", "forcats", "czso", "ptrr",
+               "scales", "ggbump",
                "ggplot2", "purrr", "curl", "readr", "tidyr", "eurostat",
                "wbstats", "quarto", "arrow", "broom", "janitor", "readxl",
                "modelr", "ggiraph", "lubridate"),
@@ -67,6 +68,40 @@ l_szu <- list(
                 arrow::read_parquet(!!.x))
 )
 
+l_szu_plots <- list(
+  tar_target(szu_plot_bump,
+             make_szu_plot_bump(szu_sections)),
+  tar_target(szu_plot_prum,
+             plot_mini_line(szu_sections, prumerny_plat,
+                            title = "Průměrné platy na ministerstvech, 2003-2022",
+                            subtitle = "Služební i pracovní místa; jen ústřední orgány",
+                            girafe = TRUE)),
+
+  tar_target(szu_plot_prum_2022price,
+             plot_mini_line(szu_sections, prumerny_plat_c2022,
+                            title = "Průměrné platy na ministerstvech, 2003-2022, v cenách roku 2022",
+                            subtitle = "Služební i pracovní místa; jen ústřední orgány")),
+
+  tar_target(szu_plot_vucinh,
+             plot_mini_line(szu_sections, prumerny_plat_vucinh,
+                            title = "Průměrné platy na ministerstvech ve srovnání s průměrným platem v Praze, 2003-2022",
+                            subtitle = "Služební i pracovní místa; jen ústřední orgány",
+                            girafe = FALSE,
+                            zdroj = "ISP/Státní závěrečný účet\nvlastní výpočet z dat ČSÚ (sady 110079 Mzdy, náklady práce - časové řady") +
+               ptrr::scale_y_percent_cz(n.breaks = 10) +
+               geom_hline(yintercept = 1)),
+
+  tar_target(szu_plot_mezirocne,
+             plot_mini_line(szu_sections, prumerny_plat_vucinh_mezirocne, fn = function(...) geom_point(alpha = .6, ...),
+                            title = "Změna reálných platů na ministerstvech, 2004-2022",
+                            subtitle = "Služební i pracovní místa; jen ústřední orgány",
+                            zdroj = "ISP/Státní závěrečný účet\nvlastní výpočet z dat ČSÚ (sady 110079 Mzdy, náklady práce - časové řady a 010022 Indexy spotř. cen)",
+                            girafe = FALSE) +
+               # geom_point(data = ~subset(., kap_zkr == "MZV"), colour = "darkblue", size = 2) +
+               ptrr::scale_y_percent_cz(n.breaks = 10) +
+               geom_hline(yintercept = 0))
+)
+
 ## Systemizace  ---------------------------------------------------------------------
 
 l_systemizace <- list(
@@ -105,7 +140,8 @@ l_systemizace <- list(
   tar_target(syst_plot_model_resid,
              syst_make_plot_model_resid(syst_model_predictions)),
   tar_target(syst_plot_model_resid_uo,
-             syst_make_plot_model_resid_uo(syst_model_predictions))
+             syst_make_plot_model_resid_uo(syst_model_predictions)),
+  tar_target(comp_plot_compsal, make_plot_paycomp_adjusted(pv_edu_pg, syst_pocty_long_uo, szu_sections))
 
 )
 
@@ -119,7 +155,7 @@ l_quarto <- list(
 l_ispv <- list(
 
 
-## List, download files ----------------------------------------------------
+  ## List, download files ----------------------------------------------------
 
   tar_target(pv_reg_list, pv_list_reg()),
   tar_target(pv_cr_list, pv_list_cr()),
@@ -136,7 +172,7 @@ l_ispv <- list(
            curl::curl_download(pv_pg_urls, pv_pg_filenames),
            pattern = map(pv_pg_urls, pv_pg_filenames)),
 
-## ISCO --------------------------------------------------------------------
+  ## ISCO --------------------------------------------------------------------
 
 
   tar_target(pv_isco_cr, pv_cr_monthlypay_isco(pv_cr_files, sheet = 7) |> isco_recode()),
@@ -147,19 +183,19 @@ l_ispv <- list(
                                         pv_isco_pg_long)),
   tar_target(pv_isco, pv_isco_bind(pv_isco_cr, pv_isco_pg)),
 
-## Education, gender -------------------------------------------------------
+  ## Education, gender -------------------------------------------------------
 
   tar_target(pv_edu_cr, pv_cr_monthlypay_education(pv_cr_files) |> pv_fix_totals()),
   tar_target(pv_edu_pg, pv_reg_monthlypay_education(pv_pg_files) |> pv_fix_totals()),
   tar_target(pv_genderage_cr, pv_cr_monthlypay_age_gender(pv_cr_files) |> isco_recode()),
   tar_target(pv_genderage_pg, pv_reg_monthlypay_age_gender(pv_pg_files) |> isco_recode()),
 
-## Plots -------------------------------------------------------------------
+  ## Plots -------------------------------------------------------------------
 
   tar_target(pv_plot_isco_dist, pv_make_plot_isco_dist(pv_isco,
-                                                         c("4110", "3343", "2422",
-                                                           "2619", "3342", "1219",
-                                                           "3511", "4312", "2431"))),
+                                                       c("4110", "3343", "2422",
+                                                         "2619", "3342", "1219",
+                                                         "3511", "4312", "2431"))),
   tar_target(pv_plot_isco_percentiles,
              pv_make_plot_isco_percentiles(pv_isco_long,
                                            c("4110", "3343", "2422",
@@ -201,4 +237,6 @@ l_stosestka <- list(
 
 l_utils <- list()
 
-list(l_wgi, l_ec, l_utils, l_ispv, l_quarto, l_systemizace, l_pmz, l_ovm, l_stosestka, l_szu)
+list(l_wgi, l_ec, l_utils, l_ispv, l_quarto, l_systemizace, l_pmz, l_ovm,
+     l_szu_plots,
+     l_stosestka, l_szu)

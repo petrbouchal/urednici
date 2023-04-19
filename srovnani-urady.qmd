@@ -19,28 +19,53 @@ targets::tar_load(syst_plot_tridy)
 targets::tar_load(syst_platy_for_model)
 ```
 
-# Průměrné platy podle systemizace
+# Průměrné platy podle systemizace {#průměrné-platy-podle-systemizace}
 
 ```{r syst_plot_platy}
 #| fig-asp: 0.6
 targets::tar_read(syst_plot_platy)
 ```
 
-# Složení
+# Průměrné platy podle závěrečného účtu
 
-## Podíl managementu (představených)
+## Ministerstva
+
+```{r}
+targets::tar_read(szu_plot_prum)
+```
+
+```{r}
+targets::tar_read(szu_plot_prum_2022price)
+```
+
+```{r}
+targets::tar_read(szu_plot_vucinh)
+```
+
+```{r}
+targets::tar_read(szu_plot_mezirocne)
+```
+
+```{r}
+targets::tar_read(szu_plot_bump)
+```
+
+# Složení {#složení}
+
+## Podíl managementu (představených) {#podíl-managementu-představených}
 
 ```{r syst_predstaveni}
+#| fig-asp: 0.6
 targets::tar_read(syst_plot_predstaveni)
 ```
 
-## Platové třídy na ministerstvech
+## Platové třídy na ministerstvech {#platové-třídy-na-ministerstvech}
 
 ```{r syst_plot_tridy}
 targets::tar_read(syst_plot_tridy)
 ```
 
-# Model průměrného platu
+# Model průměrného platu {#model-průměrného-platu}
 
 OLS na úrovni skupin (instituce + služební/pracovní poměr), s využitím informací o typu organizace (vládní kapitola, ústřední orgán).
 
@@ -70,15 +95,15 @@ Vztah mezi skutečným a modelovaným průměrným platem pro různé skupiny or
 targets::tar_read(syst_plot_model_predictions_all)
 ```
 
-## Přesnější ověření modelu
+## Přesnější ověření modelu {#přesnější-ověření-modelu}
 
-### Výsledek
+### Výsledek {#výsledek}
 
 ```{r syst_model-summary}
 summary(syst_model)
 ```
 
-### V čase
+### V čase {#v-čase}
 
 Pokud model odhadneme zvlášť v jednotlivých letech, jsou koeficienty v čase relativně stabilní.
 
@@ -93,6 +118,6 @@ Residuals pro jednotlivé úřady v čase:
 targets::tar_read(syst_plot_residyr)
 ```
 
-# Zdroje
+# Zdroje {#zdroje}
 
 TO DO
