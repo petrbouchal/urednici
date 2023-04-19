@@ -14,18 +14,24 @@ plot_mini_line <- function(szu_sections, variable, title, subtitle,
       mutate(kap_zkr = as.factor(kap_zkr) |> fct_relevel(highlight_mini) |> fct_rev())
   }
 
+  var_slcted <- pull(data, {{variable}})
+
+  format_fn <- if(max(var_slcted, na.rm = TRUE) > 2) ptrr::label_number_cz(accuracy = 1) else ptrr::label_percent_cz(.1)
+
   plt <- data |>
     ungroup() |>
     mutate(id = row_number()) |>
     ggplot(aes(rok, {{variable}}, group = kap_zkr)) +
     # facet_wrap(~kap_name) +
-    geom_point_interactive(aes(tooltip = round({{variable}}), data_id = id),
+    geom_point_interactive(aes(tooltip = paste0(kap_zkr, ": ", format_fn({{variable}})),
+                               data_id = id),
                            hover_css = "{fill:orange;r:20px;}",
                            color = "white") +
     fn(aes(data_id = kap_zkr), hover_nearest = TRUE, color = "grey40") +
     geom_text_interactive(aes(label = kap_zkr,
                               data_id = kap_zkr), color = NA,
                           hjust = 0, nudge_x = .5,
+                          family = "IBM Plex Sans",
                           data = ~ subset(., rok == max(rok))) +
     scale_linewidth_manual(values = c(0.5, 1), guide = "none") +
     ptrr::scale_y_number_cz() +
@@ -34,17 +40,26 @@ plot_mini_line <- function(szu_sections, variable, title, subtitle,
     labs(title = title,
          subtitle = subtitle,
          caption = zdroj)
-  pltg <- girafe(ggobj = plt) |> girafe_options(opts_hover_inv(css = "opacity:0.2;"),
-                                        opts_hover(nearest_distance = 20,
-                                                   css = girafe_css(css = "fill:darkblue;color:red; stroke: darkblue;",
-                                                                    text = "fill:darkblue; stroke: none;",
-                                                                    line = "stroke:darkblue;fill:none;")))
+
+
+  if(max(var_slcted, na.rm = TRUE) < 2) {plt <- plt +
+    ptrr::scale_y_percent_cz(n.breaks = 10) +
+    geom_hline(yintercept = 0)}
+
+  pltg <- girafe(ggobj = plt,
+                 fonts = list(sans = "IBM Plex Sans; Helvetica; Arial; sans-serif")) |>
+    girafe_options(opts_hover_inv(css = "opacity:0.2;"),
+                   opts_tooltip(css = gir_tooltip_css),
+                   opts_hover(nearest_distance = 20,
+                              css = girafe_css(css = "fill:darkblue;color:red; stroke: darkblue;",
+                                               text = "fill:darkblue; stroke: none;",
+                                               line = "stroke:darkblue;fill:none;")))
 
   if(!is.na(highlight_mini) & !girafe) {plt <- plt +
     geom_line(data = ~subset(., kap_zkr %in% highlight_mini), color = "darkblue", linewidth = 1) +
     geom_text(data = ~subset(., kap_zkr %in% highlight_mini & rok == max(rok)),
               aes(label = kap_zkr,
-                          hjust = 0, nudge_x = .5))}
+                  hjust = 0, nudge_x = .5))}
 
   rslt <- if(girafe) pltg else plt
   return(rslt)
@@ -61,20 +76,15 @@ make_szu_plot_bump <- function(szu_sections) {
     group_by(rok) |>
     mutate(rnk = rank(prumerny_plat)) |>
     ungroup() |>
-    mutate(kap_name = as.factor(kap_zkr) |> fct_relevel("MZV") |> fct_rev()) |>
     ggplot(aes(rok, rnk, group = kap_zkr, data_id = kap_zkr)) +
     geom_point_interactive(color = "white") +
     geom_bump(lineend = "round", linejoin = "round", alpha = .6, smooth = 5,
-              # position = position_jitter(),
-              mapping = aes(color = kap_name == "MZV",
-                            linewidth = kap_name == "MZV")) +
-    scale_color_manual(values = c("grey60", "darkblue")) +
-    scale_linewidth_manual(values = c(0.5, 1), guide = "none") +
+              color = "grey50") +
     geom_text_interactive(data = . %>% filter(rok == max(rok)),
-                          aes(label = kap_name, color = kap_name == "MZV"),
-                          hjust = 0, nudge_x = 0.5) +
+                          aes(label = kap_zkr),
+                          hjust = 0, nudge_x = 0.5, color = "grey20") +
     geom_point_interactive(data = . %>% filter(rok == max(rok)),
-                           aes(color = kap_zkr == "MZV")) +
+                           color = "grey20") +
     expand_limits(x = 2024) +
     scale_x_continuous(breaks = seq(2004, 2022, by = 3), expand = expansion(mult = c(0, 0))) +
     scale_y_continuous(n.breaks = 15) +
@@ -84,6 +94,9 @@ make_szu_plot_bump <- function(szu_sections) {
          subtitle = c("Služební i pracovní místa; jen ústřední orgány"),
          caption = "ISP/Státní závěrečný účet")
 
-  girafe(ggobj = plt_bump) |> girafe_options(opts_hover(css = "color: red; fill: blue"))
+  girafe(ggobj = plt_bump,
+         fonts = list(sans = "IBM Plex Sans; Helvetica; Arial; sans-serif"),) |>
+    girafe_options(opts_hover(css = "color: red; fill: blue"),
+                   opts_tooltip(css = gir_tooltip_css))
 
 }

@@ -86,20 +86,16 @@ l_szu_plots <- list(
              plot_mini_line(szu_sections, prumerny_plat_vucinh,
                             title = "Průměrné platy na ministerstvech ve srovnání s průměrným platem v Praze, 2003-2022",
                             subtitle = "Služební i pracovní místa; jen ústřední orgány",
-                            girafe = FALSE,
-                            zdroj = "ISP/Státní závěrečný účet\nvlastní výpočet z dat ČSÚ (sady 110079 Mzdy, náklady práce - časové řady") +
-               ptrr::scale_y_percent_cz(n.breaks = 10) +
-               geom_hline(yintercept = 1)),
+                            girafe = TRUE,
+                            zdroj = "ISP/Státní závěrečný účet\nvlastní výpočet z dat ČSÚ (sady 110079 Mzdy, náklady práce - časové řady")),
 
   tar_target(szu_plot_mezirocne,
-             plot_mini_line(szu_sections, prumerny_plat_vucinh_mezirocne, fn = function(...) geom_point(alpha = .6, ...),
+             plot_mini_line(szu_sections, prumerny_plat_vucinh_mezirocne,
+                            fn = function(...) geom_point(alpha = .6, ...),
                             title = "Změna reálných platů na ministerstvech, 2004-2022",
                             subtitle = "Služební i pracovní místa; jen ústřední orgány",
                             zdroj = "ISP/Státní závěrečný účet\nvlastní výpočet z dat ČSÚ (sady 110079 Mzdy, náklady práce - časové řady a 010022 Indexy spotř. cen)",
-                            girafe = FALSE) +
-               # geom_point(data = ~subset(., kap_zkr == "MZV"), colour = "darkblue", size = 2) +
-               ptrr::scale_y_percent_cz(n.breaks = 10) +
-               geom_hline(yintercept = 0))
+                            girafe = TRUE))
 )
 
 ## Systemizace  ---------------------------------------------------------------------
