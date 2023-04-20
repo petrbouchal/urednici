@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /*-- scss:defaults --*/
 $h2-font-size:          1.6rem !default;
 $headings-font-weight:  500 !default;
@@ -7,6 +11,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #00f;
 }
 
-a {
+a a.nav-link a.active {
   color: #00f;
 }

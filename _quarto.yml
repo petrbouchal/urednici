@@ -60,6 +60,7 @@ format:
     theme:
       light: [default, style.scss]
     monobackgroundcolor: "#e3f1ff"
+    linkcolor: "#00f"
     mainfont: "IBM Plex Sans, Helvetica, Arial, sans-serif"
     monofont: "JetBrainsMono Nerd Font, IBM Plex Mono, Consolas, monospace"
     max-width: 1200px

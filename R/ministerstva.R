@@ -17,6 +17,7 @@ plot_mini_line <- function(szu_sections, variable, title, subtitle,
   var_slcted <- pull(data, {{variable}})
 
   format_fn <- if(max(var_slcted, na.rm = TRUE) > 2) ptrr::label_number_cz(accuracy = 1) else ptrr::label_percent_cz(.1)
+  line_yintercept <- ifelse(max(var_slcted, na.rm = TRUE) > .9, 1, 0)
 
   plt <- data |>
     ungroup() |>
@@ -44,7 +45,7 @@ plot_mini_line <- function(szu_sections, variable, title, subtitle,
 
   if(max(var_slcted, na.rm = TRUE) < 2) {plt <- plt +
     ptrr::scale_y_percent_cz(n.breaks = 10) +
-    geom_hline(yintercept = 0)}
+    geom_hline(yintercept = line_yintercept)}
 
   pltg <- girafe(ggobj = plt,
                  fonts = list(sans = "IBM Plex Sans; Helvetica; Arial; sans-serif")) |>
