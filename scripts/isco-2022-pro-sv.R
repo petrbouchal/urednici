@@ -1,4 +1,7 @@
 source("_targets_packages.R")
+library(targets)
+
+tar_source()
 
 targets::tar_load(pv_isco)
 
