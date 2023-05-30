@@ -5,8 +5,8 @@ czso_infl_process <- function(czso_infl) {
   infl_qonq <- czso_infl |>
     filter(casz_txt == "stejné období předchozího roku",
            is.na(ucel_txt)) |> # všechny druhy zboží/služeb
-    mutate(ctvrtletí = quarter(obdobiod)) |>
-    group_by(rok, ctvrtletí) |>
+    mutate(ctvrtleti = quarter(obdobiod)) |>
+    group_by(rok, ctvrtleti) |>
     summarise(inflace_qonq = (mean(hodnota) - 100)/100, .groups = "drop")
   return(infl_qonq)
 }
@@ -15,8 +15,8 @@ czso_nace_process <- function(czso_pmz_nace, czso_infl_sub) {
   czso_pmz_nace |>
     filter(stapro_txt == "Průměrná hrubá mzda na zaměstnance",
            typosoby_txt == "přepočtený") |>
-    mutate(ctvrtletí = as.numeric(ctvrtletí),
-           tm = make_date(rok, ctvrtletí * 3),
+    mutate(ctvrtleti = as.numeric(ctvrtleti),
+           tm = make_date(rok, ctvrtleti * 3),
            clr = case_when(odvetvi_kod == "O" ~ "veřejná správa",
                            # odvetvi_kod %in% c("P") ~ "vzdělávání",
                            odvetvi_kod %in% c("M") ~ "profesní",

@@ -1,16 +1,16 @@
 zm |>
-  filter(rok %in% 2021:2022, ctvrtletí == 4,
+  filter(rok %in% 2021:2022, ctvrtleti == 4,
          odvetvi_txt == "Zdravotní a sociální péče",
          typosoby_txt == "přepočtený",
          stapro_txt == "Průměrná hrubá mzda na zaměstnance") |>
   select(odvetvi_txt, hodnota, rok)
 
 zm |>
-  filter(rok %in% 2021:2022, ctvrtletí == 4,
+  filter(rok %in% 2021:2022, ctvrtleti == 4,
          odvetvi_kod == "O",
          typosoby_txt == "přepočtený",
          stapro_txt == "Průměrná hrubá mzda na zaměstnance") |>
-  select(odvetvi_txt, hodnota, rok, ctvrtletí)
+  select(odvetvi_txt, hodnota, rok, ctvrtleti)
 
 infl_index |> filter(rok %in% 2021:2022)
 
