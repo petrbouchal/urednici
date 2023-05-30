@@ -79,13 +79,12 @@ targets::tar_read(pv_plot_ga_pg)
 targets::tar_read(pv_plot_edu)
 ```
 
-# Srovnání upravené o platovou strukturu
+# Srovnání upravené o platovou strukturu {#srovnání-upravené-o-platovou-strukturu}
 
 ```{r}
 #| fig-asp: .5
 targets::tar_read(comp_plot_compsal)
 ```
-
 
 # Celý NACE roční změna po kvartálech {#celý-nace-roční-změna-po-kvartálech}
 
