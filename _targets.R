@@ -9,7 +9,7 @@ options(crayon.enabled = TRUE)
 # Set target options:
 tar_option_set(
   packages = c("tibble", "ispv", "dplyr", "stringr", "forcats", "czso", "ptrr",
-               "scales", "ggbump",
+               "scales", "ggbump", "countrycode",
                "ggplot2", "purrr", "curl", "readr", "tidyr", "eurostat",
                "wbstats", "quarto", "arrow", "broom", "janitor", "readxl",
                "modelr", "ggiraph", "lubridate"),
