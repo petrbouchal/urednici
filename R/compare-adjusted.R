@@ -56,7 +56,7 @@ make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sectio
     geom_col(aes(prumerny_plat_vucinh_equiv)) +
     geom_text(aes(label = label_percent_cz(1, suffix = "")(prumerny_plat_vucinh_equiv),
                   x = prumerny_plat_vucinh_equiv), nudge_x = -.02,
-              colour = "white", size = 3, family = "IBM Plex Sans Condensed") +
+              colour = "white", size = 2.6, family = "IBM Plex Sans Condensed") +
     geom_text(aes(label = label_percent_cz(1, suffix = "")(prumerny_plat_vucinh),
                   x = prumerny_plat_vucinh), nudge_x = .03,
               colour = "darkblue", size = 2.6, family = "IBM Plex Sans Condensed") +
