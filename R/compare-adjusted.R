@@ -65,7 +65,7 @@ make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sectio
                panel.grid.major.x = element_line(linewidth = .3),
                panel.grid.minor.x = element_line(linewidth = .1)) +
     scale_x_percent_cz(limits = c(0, 1.3), n.breaks = 8) +
-    labs(title = "Průměrné platy ministerstev ve srovnání s pracovni sílou Prahy (2022)",
+    labs(title = "Průměrné platy ministerstev ve srovnání s pracovní sílou Prahy (2022)",
          subtitle = "100 % = platová úroveň Prahy\nSloupce: očištěno o vzdělanostní strukturu\nModré body: hrubé srovnání",
          caption = "Zdroj: systemizace 2022 (pouze ústřední orgán, služební i pracovní místa), SZÚ 2022 a ISPV.\nVzdělanostní struktura odvozena od zastoupení platových tříd na každém úřadu.")
 
