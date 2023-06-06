@@ -54,20 +54,20 @@ make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sectio
   ggplot(platy_equiv, aes(y = kapitola_zkr)) +
     geom_vline(aes(xintercept = 1), colour = "darkgrey") +
     geom_col(aes(prumerny_plat_vucinh_equiv)) +
-    geom_text(aes(label = label_percent_cz(1)(prumerny_plat_vucinh_equiv),
-                  x = prumerny_plat_vucinh_equiv), nudge_x = -.05,
-              colour = "white", fontface = "bold", family = "IBM Plex Sans Condensed") +
-    geom_text(aes(label = label_percent_cz(1)(prumerny_plat_vucinh),
-                  x = prumerny_plat_vucinh), nudge_x = .06,
-              colour = "darkblue", fontface = "bold", family = "IBM Plex Sans Condensed") +
+    geom_text(aes(label = label_percent_cz(1, suffix = "")(prumerny_plat_vucinh_equiv),
+                  x = prumerny_plat_vucinh_equiv), nudge_x = -.02,
+              colour = "white", size = 3, family = "IBM Plex Sans Condensed") +
+    geom_text(aes(label = label_percent_cz(1, suffix = "")(prumerny_plat_vucinh),
+                  x = prumerny_plat_vucinh), nudge_x = .03,
+              colour = "darkblue", size = 2.6, family = "IBM Plex Sans Condensed") +
     geom_point(aes(prumerny_plat_vucinh)) +
     theme_ptrr("both",
                panel.grid.major.x = element_line(linewidth = .3),
                panel.grid.minor.x = element_line(linewidth = .1)) +
     scale_x_percent_cz(limits = c(0, 1.3), n.breaks = 8) +
     labs(title = "Průměrné platy ministerstev ve srovnání s pracovni sílou Prahy (2022)",
-         subtitle = "100 % = platové úroveň Prahy\nSloupce: očištěno o vzdělanostní strukturu\nModré body: hrubé srovnání",
-         caption = "Zdroj: systemizace 2022, SZÚ 2022 a ISPV.\nVzdělanostní struktura odvozena od zastoupení platových tříd na každém úřadu.")
+         subtitle = "100 % = platová úroveň Prahy\nSloupce: očištěno o vzdělanostní strukturu\nModré body: hrubé srovnání",
+         caption = "Zdroj: systemizace 2022 (pouze ústřední orgán, služební i pracovní místa), SZÚ 2022 a ISPV.\nVzdělanostní struktura odvozena od zastoupení platových tříd na každém úřadu.")
 
   # ggplot(platy_equiv_long, aes(y = kapitola_zkr)) +
   #   geom_vline(aes(xintercept = 1), colour = "darkgrey") +
