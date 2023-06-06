@@ -7,7 +7,7 @@ pv_make_plot_isco_percentiles <- function(pv_isco_long,
     scale_x_continuous(breaks = c(10, 25, 50, 75, 90)) +
     scale_colour_manual(values = c(`Platová sféra` = "darkblue",
                                    `Mzdová sféra` = "darkgrey")) +
-    geom_line(size = 1) +
+    geom_line(linewidth = 1) +
     geom_point(size = 1) +
     facet_wrap(. ~  isco_full + geo, ncol = 4) +
     theme_ptrr(base_size = 9, multiplot = T, legend.position = "top",
@@ -99,7 +99,7 @@ pv_make_plot_ga_cr <- function(pv_genderage_cr) {
     scale_y_number_cz() +
     scale_colour_manual(values = c(`Platová sféra` = "darkblue",
                                    `Mzdová sféra` = "darkgrey")) +
-    geom_line(size = 1.5) +
+    geom_line(linewidth = 1.5) +
     geom_point(size = 1.5) +
     # scale_color_viridis_d() +
     facet_wrap(~ category) +
@@ -119,7 +119,7 @@ pv_make_plot_ga_pg <- function(pv_genderage_pg) {
     scale_y_number_cz() +
     scale_colour_manual(values = c(`Platová sféra` = "darkblue",
                                    `Mzdová sféra` = "darkgrey")) +
-    geom_line(size = 1.5) +
+    geom_line(linewidth = 1.5) +
     geom_point(size = 1.5) +
     # scale_color_viridis_d() +
     facet_wrap(~ category) +
@@ -141,7 +141,7 @@ pv_make_plot_edu <- function(pv_edu_pg, pv_edu_cr) {
     scale_y_number_cz() +
     scale_colour_manual(values = c(`Platová sféra` = "darkblue",
                                    `Mzdová sféra` = "darkgrey")) +
-    geom_line(size = 1.5) +
+    geom_line(linewidth = 1.5) +
     geom_point(size = 1.5) +
     facet_wrap(~geo) +
     theme_ptrr("both", multiplot = T)
