@@ -42,7 +42,9 @@ make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sectio
     mutate(podil_rel = podil_mini / podil_ispv) |>
     # select(kapitola_zkr, category, starts_with("podil")) |>
     group_by(kapitola_zkr, kap_kod, prumerny_plat) |>
+    # vážený
     summarise(pay_nh_equiv = weighted.mean(pay_mean_ispv, podil_rel),
+              # niže jen ponechat plat - pro každé mini je ve zdroji jen jedno unikátní číslo
               prumerny_plat_vucinh = mean(prumerny_plat_vucinh), .groups = "drop") |>
     mutate(pay_mean_ispv = pv_pg_all$pay_mean_ispv,
            prumerny_plat_vucinh_equiv = prumerny_plat/pay_nh_equiv,

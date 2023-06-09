@@ -208,9 +208,13 @@ l_ispv <- list(
 l_pmz <- list(
   tar_target(czso_pmz_nace, czso_get_table("110079", force_redownload = TRUE)),
   tar_target(czso_infl, czso_get_table("010022", force_redownload = TRUE)),
-  tar_target(czso_infl_sub, czso_infl_process(czso_infl)),
-  tar_target(czso_pmz_nace_clean, czso_nace_process(czso_pmz_nace, czso_infl_sub)),
-  tar_target(czso_plot_nace, czso_make_plot_nace(czso_pmz_nace_clean))
+  tar_target(czso_infl_q, czso_infl_process_quarterly(czso_infl)),
+  tar_target(czso_pmz_nace_clean_q, czso_nace_process_quarterly(czso_pmz_nace, czso_infl_q)),
+  tar_target(czso_plot_nace_q, czso_make_plot_nace_quarterly(czso_pmz_nace_clean_q)),
+
+  tar_target(czso_infl_annual, czso_infl_process_annual(czso_infl)),
+  tar_target(czso_pmz_nace_clean_annual, czso_nace_process_annual(czso_pmz_nace, czso_infl_annual)),
+  tar_target(czso_plot_nace_annual, czso_make_plot_nace_annual(czso_pmz_nace_clean_annual, add_years = 7))
 )
 
 

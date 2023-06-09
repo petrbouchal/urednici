@@ -86,10 +86,18 @@ targets::tar_read(pv_plot_edu)
 targets::tar_read(comp_plot_compsal)
 ```
 
-# Celý NACE roční změna po kvartálech {#celý-nace-roční-změna-po-kvartálech}
+# Celý NACE roční změna {#celý-nace-roční-změna-po-kvartálech}
 
-```{r czso_plot_nace}
-targets::tar_read(czso_plot_nace)
+### Po kvartálech
+
+```{r czso_plot_nace_q}
+targets::tar_read(czso_plot_nace_q)
+```
+
+### Celé roky
+
+```{r czso_plot_nace_annual}
+targets::tar_read(czso_plot_nace_annual)
 ```
 
 # Zdroje {#zdroje}

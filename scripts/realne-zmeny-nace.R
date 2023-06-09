@@ -5,7 +5,7 @@ library(lubridate)
 library(forcats)
 library(tidyr)
 
-source("theme.R")
+# source("theme.R")
 options(czso.dest_dir = "data-input/czso")
 
 infl <- czso::czso_get_table("010022", force_redownload = TRUE) # indexy spotř. cen
@@ -98,12 +98,13 @@ make_nace_plot <- function(data, add_years = 5) {
     labs(title = "Meziroční změny průměrných reálných mezd (v odvětvích dle NACE), v %",
          x = "Rok", y = "Reálná meziroční změna (očištěno o inflaci)",
          caption = "Zdroj: vlastní výpočet z dat ČSÚ (sady 110079 Mzdy, náklady práce - časové řady a 010022 Indexy spotř. cen)") +
-    theme_urednici +
+    # theme_urednici +
     theme(panel.grid.major = element_line(color = "white")) +
     theme(axis.title = element_text(size = 14),
           axis.text = element_text(size = 12),
           legend.title = element_text(size = 12),
-          legend.text = element_text(size = 12))
+          legend.text = element_text(size = 12)) +
+    ptrr::theme_ptrr(legend.position = "none")
   zm_plt
 }
 
