@@ -102,9 +102,15 @@ czso_make_plot_nace_annual <- function(data, add_years = 5) {
            needs_label = is_last_period & (is_minmax | clr != "Ostatní"),
            name_for_label = ifelse(is_minmax, odvetvi_txt, as.character(clr)) |> str_wrap(30))
 
-  new_labels <- c(seq(year(min(data$tm)), year(max(data$tm))), rep(" ", times = add_years))
+  new_labels <- c(seq(year(min(data$tm)),
+                      year(max(data$tm)), by = 2),
+                  rep(" ", times = add_years))
 
-  new_breaks <- make_date(seq(year(min(data$tm)), year(max(data$tm))))
+  new_breaks <- make_date(seq(from = year(min(data$tm)),
+                              to = year(max(data$tm)) + add_years, by = 2))
+
+  # print(length(new_labels))
+  # print(length(new_breaks))
 
   fmt_pct_change <- scales::label_number(.1, 100, suffix = " %", decimal.mark = ",",
                                          style_positive = "plus", style_negative = "minus")
@@ -115,6 +121,7 @@ czso_make_plot_nace_annual <- function(data, add_years = 5) {
                      # filter(month(tm) == 12) |> mutate(tm = floor_date(tm, "year")) |>
                      filter(),
                    aes(tm, realna_zmena, colour = clr, size = clr != "Ostatní",
+                       linewidth = clr != "Ostatní",
                        group = clr)) +
     geom_hline(yintercept = 0, colour = "grey10", linetype = "solid") +
     geom_point(aes(alpha = clr != "Ostatní"), fill = "white") +
@@ -136,9 +143,15 @@ czso_make_plot_nace_annual <- function(data, add_years = 5) {
                                  `Celá ekonomika` = "grey20",
                                  `ICT` = "goldenrod", `Veřejná správa` = "red3")) +
     scale_size_manual(values = c(1, 2), guide = "none") +
-    scale_x_date(date_breaks = "1 years",
-                 date_labels = "%Y",
-                 breaks = new_breaks,
+    scale_linewidth_manual(values = c(1, 2), guide = "none") +
+    scale_x_date(date_breaks = "2 years",
+                 # date_labels = "%Y",
+                 # breaks = 2001:2021,
+                 labels = function(x) {
+                   lbls <- lubridate::year(x)
+                   lbls[lbls > lubridate::year(max(data$tm))] <- " "
+                   lbls
+                 },
                  expand = expansion(add = c(0, 365 * add_years)),
                  limits = c(as.Date("2000-09-01"), as.Date("2022-03-31")),
     ) +
@@ -156,6 +169,6 @@ czso_make_plot_nace_annual <- function(data, add_years = 5) {
           axis.text = element_text(size = 12),
           legend.title = element_text(size = 12),
           legend.text = element_text(size = 12)) +
-    ptrr::theme_ptrr(legend.position = "none")
+    ptrr::theme_ptrr(gridlines = "both", legend.position = "none")
   zm_plt
 }

@@ -214,7 +214,7 @@ l_pmz <- list(
 
   tar_target(czso_infl_annual, czso_infl_process_annual(czso_infl)),
   tar_target(czso_pmz_nace_clean_annual, czso_nace_process_annual(czso_pmz_nace, czso_infl_annual)),
-  tar_target(czso_plot_nace_annual, czso_make_plot_nace_annual(czso_pmz_nace_clean_annual, add_years = 7))
+  tar_target(czso_plot_nace_annual, czso_make_plot_nace_annual(czso_pmz_nace_clean_annual, add_years = 9))
 )
 
 
