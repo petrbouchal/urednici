@@ -1,3 +1,33 @@
+plot_mini_bar <- function(szu_sections, variable, rok = 2022, title, subtitle,
+                           zdroj =  "ISP/Státní závěrečný účet") {
+
+  rk <- rok
+
+  data <- szu_sections |>
+    filter(faze_rozpoctu == "SKUT",
+           rok == rk,
+           kap_zkr != "MI",
+           kategorie_2014 == "Ministerstva") |>
+    mutate(var = {{variable}},
+           kap_zkr = fct_reorder(kap_zkr, var))
+
+  var_slcted <- pull(data, {{variable}})
+
+  plt <- ggplot(data, aes(var, kap_zkr)) +
+    geom_col() +
+    geom_text(aes(label = label_number_cz(1)(var)),
+              hjust = 1,
+              nudge_x = -300,
+              colour = "white", family = "IBM Plex Sans Condensed") +
+    theme_ptrr("x", panel.grid.minor.x = element_line(linewidth = .5)) +
+    scale_x_number_cz(n.breaks = 7) +
+    labs(title = title,
+         subtitle = subtitle,
+         caption = zdroj)
+
+  return(plt)
+}
+
 plot_mini_line <- function(szu_sections, variable, title, subtitle,
                            zdroj =  "ISP/Státní závěrečný účet",
                            highlight_mini = NA,

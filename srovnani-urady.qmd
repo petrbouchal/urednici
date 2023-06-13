@@ -35,6 +35,11 @@ targets::tar_read(szu_plot_prum)
 ```
 
 ```{r}
+targets::tar_load(szu_plot_prum)
+```
+
+
+```{r}
 targets::tar_read(szu_plot_prum_2022price)
 ```
 
