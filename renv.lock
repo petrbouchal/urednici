@@ -40,34 +40,13 @@
     },
     "MASS": {
       "Package": "MASS",
-      "Version": "7.3-53",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "grDevices",
-        "graphics",
-        "methods",
-        "stats",
-        "utils"
-      ],
-      "Hash": "d1bc1c8e9c0ace57ec9ffea01021d45f"
+      "Version": "7.3-60.0.1",
+      "Source": "Repository"
     },
     "Matrix": {
       "Package": "Matrix",
-      "Version": "1.3-2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "graphics",
-        "grid",
-        "lattice",
-        "methods",
-        "stats",
-        "utils"
-      ],
-      "Hash": "ff280503079ad8623d3c4b1519b24ea2"
+      "Version": "1.6-5",
+      "Source": "Repository"
     },
     "OECD": {
       "Package": "OECD",
@@ -181,24 +160,8 @@
     },
     "arrow": {
       "Package": "arrow",
-      "Version": "9.0.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "R6",
-        "assertthat",
-        "bit64",
-        "cpp11",
-        "methods",
-        "purrr",
-        "rlang",
-        "stats",
-        "tidyselect",
-        "utils",
-        "vctrs"
-      ],
-      "Hash": "2c983e54b9911864bcd83de28a4c3acb"
+      "Version": "14.0.0.2",
+      "Source": "Repository"
     },
     "askpass": {
       "Package": "askpass",
@@ -395,16 +358,8 @@
     },
     "class": {
       "Package": "class",
-      "Version": "7.3-20",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "MASS",
-        "R",
-        "stats",
-        "utils"
-      ],
-      "Hash": "da09d82223e669d270e47ed24ac8686e"
+      "Version": "7.3-22",
+      "Source": "Repository"
     },
     "classInt": {
       "Package": "classInt",
@@ -1230,14 +1185,8 @@
     },
     "isoband": {
       "Package": "isoband",
-      "Version": "0.2.5",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "grid",
-        "utils"
-      ],
-      "Hash": "7ab57a6de7f48a8dc84910d1eca42883"
+      "Version": "0.2.7",
+      "Source": "Repository"
     },
     "ispv": {
       "Package": "ispv",
@@ -1452,20 +1401,8 @@
     },
     "mgcv": {
       "Package": "mgcv",
-      "Version": "1.8-33",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "Matrix",
-        "R",
-        "graphics",
-        "methods",
-        "nlme",
-        "splines",
-        "stats",
-        "utils"
-      ],
-      "Hash": "eb7b6439bc6d812eed2cddba5edc6be3"
+      "Version": "1.9-1",
+      "Source": "Repository"
     },
     "mime": {
       "Package": "mime",
@@ -1523,17 +1460,8 @@
     },
     "nlme": {
       "Package": "nlme",
-      "Version": "3.1-152",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "graphics",
-        "lattice",
-        "stats",
-        "utils"
-      ],
-      "Hash": "35de1ce639f20b5e10f7f46260730c65"
+      "Version": "3.1-164",
+      "Source": "Repository"
     },
     "openssl": {
       "Package": "openssl",
@@ -1850,13 +1778,10 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.17.3",
-      "Source": "Repository",
+      "Version": "1.0.4",
+      "OS_type": null,
       "Repository": "CRAN",
-      "Requirements": [
-        "utils"
-      ],
-      "Hash": "4543b8cd233ae25c6aba8548be9e747e"
+      "Source": "Repository"
     },
     "repr": {
       "Package": "repr",
