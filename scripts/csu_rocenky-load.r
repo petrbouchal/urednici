@@ -44,11 +44,11 @@ dt_latest <- tribble(
     2022, "plat", "nefinanční podniky", 39689,
     2022, "plat", "finanční instituce", 68578,
     2022, "plat", "Průměrné hrubé měsíční mzdy úhrnem", 38277,
-    2023, "plat", "místní", 40426,
-    2023, "plat", "ústřední", 49529,
-    2023, "plat", "nefinanční podniky", 42159,
-    2023, "plat", "finanční instituce", 73646,
-    2023, "plat", "Průměrné hrubé měsíční mzdy úhrnem", 42427
+    2023, "plat", "místní", 40426, # to Q3
+    2023, "plat", "ústřední", 49529, # to Q3
+    2023, "plat", "nefinanční podniky", 42159, # to Q3
+    2023, "plat", "finanční instituce", 73646, # to Q3
+    2023, "plat", "Průměrné hrubé měsíční mzdy úhrnem", 42427 # to Q3
 ) |>
     mutate(rocenka_rok = "9999")
 
