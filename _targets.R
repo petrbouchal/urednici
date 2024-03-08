@@ -29,6 +29,9 @@ tar_source()
 
 l_wgi <- list(
   tar_target(wbi_wagepremiums, wbi_get_wagepremiums()),
+  tar_file(wbi_wagepremiums_excel,
+           writexl::write_xlsx(wbi_wagepremiums,
+                               "data-export/wbi-wagepremiums.xlsx")),
   tar_target(wbi_plot_line, wbi_make_plot_line(wbi_wagepremiums)),
   tar_target(wbi_plot_bar, wbi_make_plot_bar(wbi_wagepremiums))
 )
