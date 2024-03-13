@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Petr Bouchal">
 
-<title>urednici - Mezinárodní srovnání</title>
+<title>urednici - ojs-duckdb-test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -78,6 +111,8 @@ ul.task-list li input[type="checkbox"] {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
@@ -105,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./international.html" aria-current="page"> 
+    <a class="nav-link" href="./international.html"> 
 <span class="menu-text">Mezinárodní srovnání</span></a>
   </li>  
   <li class="nav-item">
@@ -150,49 +185,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Na této stránce</h2>
-   
-  <ul>
-  <li><a href="#eurostat-úředníci-členských-států" id="toc-eurostat-úředníci-členských-států" class="nav-link active" data-scroll-target="#eurostat-úředníci-členských-států">Eurostat: úředníci členských států</a>
-  <ul class="collapse">
-  <li><a href="#platy" id="toc-platy" class="nav-link" data-scroll-target="#platy">Platy</a></li>
-  <li><a href="#počty-zaměstnanců" id="toc-počty-zaměstnanců" class="nav-link" data-scroll-target="#počty-zaměstnanců">Počty zaměstnanců</a></li>
-  </ul></li>
-  <li><a href="#public-sector-wage-premium" id="toc-public-sector-wage-premium" class="nav-link" data-scroll-target="#public-sector-wage-premium">Public Sector Wage Premium</a>
-  <ul class="collapse">
-  <li><a href="#raw-civil-service-vs.-economy" id="toc-raw-civil-service-vs.-economy" class="nav-link" data-scroll-target="#raw-civil-service-vs.-economy">Raw: civil service vs.&nbsp;economy</a></li>
-  <li><a href="#worldwide-bureaucracy-indicators-world-bank" id="toc-worldwide-bureaucracy-indicators-world-bank" class="nav-link" data-scroll-target="#worldwide-bureaucracy-indicators-world-bank">Worldwide Bureaucracy Indicators (World Bank)</a></li>
-  </ul></li>
-  <li><a href="#zdroje" id="toc-zdroje" class="nav-link" data-scroll-target="#zdroje">Zdroje</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/petrbouchal/urednici/edit/main/international.qmd" class="toc-action"><i class="bi bi-github"></i>Upravit stránku</a></li><li><a href="https://github.com/petrbouchal/urednici/issues/new" class="toc-action"><i class="bi empty"></i>Nahlásit chybu</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mezinárodní srovnání</h1>
+<h1 class="title">ojs-duckdb-test</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor</div>
-    <div class="quarto-title-meta-contents">
-             <p>Petr Bouchal </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Zveřejněno</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">4. září 2022</p>
-    </div>
-  </div>
   
     
   </div>
@@ -202,121 +209,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="eurostat-úředníci-členských-států" class="level2">
-<h2 class="anchored" data-anchor-id="eurostat-úředníci-členských-států">Eurostat: úředníci členských států</h2>
-<section id="platy" class="level3">
-<h3 class="anchored" data-anchor-id="platy">Platy</h3>
-<p>Jedná se o soubor dat, dodávaných EK jednotlivými členskými státy za účelem výpočtu výše odměn úředníků EK. Za ČR jde o průměr platů všech zaměstnanců ústředních orgánů, tj. v roce 2022 cca 22 tisíc lidí.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="international_files/figure-html/ec_plot_bar-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="5" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 4;"><span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="op">+</span><span class="dv">4</span></span></code><button title="Kopírovat" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="expression">
+
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="international_files/figure-html/ec_plot_multi-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="počty-zaměstnanců" class="level3">
-<h3 class="anchored" data-anchor-id="počty-zaměstnanců">Počty zaměstnanců</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="international_files/figure-html/ec_plot_count_bar-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Tohle tedy smysl dávat nebude, ani když to ukážeme per capita.</p>
-</section>
-</section>
-<section id="public-sector-wage-premium" class="level2">
-<h2 class="anchored" data-anchor-id="public-sector-wage-premium">Public Sector Wage Premium</h2>
-<section id="raw-civil-service-vs.-economy" class="level3">
-<h3 class="anchored" data-anchor-id="raw-civil-service-vs.-economy">Raw: civil service vs.&nbsp;economy</h3>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Zde srovnáváme „civil service“ podle EK (v ČR všechny ústřední orgány, 22 tis. FTE) se širší ekonomikou.</p>
-</div>
-</div>
-</div>
-<p>2018 based on Structure of Earnings Survey</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="international_files/figure-html/ec_plot_earnses-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>2021 based on OECD data (means!)</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="international_files/figure-html/ec_plot_earnoecd-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="worldwide-bureaucracy-indicators-world-bank" class="level3">
-<h3 class="anchored" data-anchor-id="worldwide-bureaucracy-indicators-world-bank">Worldwide Bureaucracy Indicators (World Bank)</h3>
-<p>Jde o modelovaný ukazatel, který se snaží odhadnout čistý rozdíl mezi platy v soukromém a veřejném sektoru, očištěný o rozdíly mezi sektory např. ve vzdělanostní a demografické struktuře.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Jedná se celý veřejný sektor.</p>
-</div>
-</div>
-</div>
-<p>Net, modeled: specific comparisons</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="international_files/figure-html/wbi_plot_bar-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="international_files/figure-html/wbi_plot_line-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="zdroje" class="level1">
-<h1>Zdroje</h1>
-<p>TO DO</p>
 
 
-</section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IjMrNFxuIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -729,4 +644,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/petrbouchal/urednici/edit/main/international.qmd" class="toc-action"><i class="bi bi-github"></i>Upravit stránku</a></li><li><a href="https://github.com/petrbouchal/urednici/issues/new" class="toc-action"><i class="bi empty"></i>Nahlásit chybu</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/petrbouchal/urednici/edit/main/ojs-duckdb-test.qmd" class="toc-action"><i class="bi bi-github"></i>Upravit stránku</a></li><li><a href="https://github.com/petrbouchal/urednici/issues/new" class="toc-action"><i class="bi empty"></i>Nahlásit chybu</a></li></ul></div></div></div></footer></body></html>
