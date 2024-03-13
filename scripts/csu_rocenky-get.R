@@ -50,7 +50,7 @@ trh_xlsx_urls <- trh_urls |>
 
 trh_xlsx_urls2 <- trh_xlsx_urls |>
   mutate(ext = str_extract(xls_url, "\\.xlsx?"),
-         filename = paste0("data-input/csu-rocenky/rocenka", year, ext))
+         filename = paste0("data-input/csu-rocenky/rocenka_", year, ext))
 
 trh_xlsx_urls$xls_url
 trh_xlsx_urls2$ext
