@@ -40,13 +40,13 @@ czso_make_plot_nace_quarterly <- function(czso_pmz_nace_clean) {
     guides(colour = guide_legend(reverse = T, title = "Skupina NACE"), size = "none") +
     scale_size_manual(values = c(1, 2), expand = expansion(0, 0)) +
     ptrr::scale_y_percent_cz(limits = c(-.2, .2), expand = expansion(0, 0), breaks = seq(-.2, .2, .05)) +
-    labs(title = "Reálná změna platů podle NACE skupin za předchozí rok, 2003 - 2Q 2022",
+    labs(title = "Reálná změna platů podle NACE skupin za předchozí rok, 2003 - 4Q 2023",
          subtitle = "Meziroční změna průměrného platu očištěná o změnu spotřebitelských cen",
          x = NULL, y = "Reálná meziroční změna (očištěno o inflaci)",
          caption = "Zdroj: vlastní výpočet z dat ČSÚ (sady 110079 Mzdy, náklady práce - časové řady a 010022 Indexy spotř. cen)") +
     scale_x_date(date_breaks = "1 years", date_labels = "%Y",
                  expand = expansion(0, 0),
-                 limits = c(as.Date("2003-01-01"), as.Date("2022-07-01"))) +
+                 limits = c(as.Date("2003-01-01"), as.Date("2024-03-01"))) +
     geom_hline(yintercept = 0, colour = "grey10", linetype = "solid") +
     scale_color_manual(values = c("grey40", "blue3", "goldenrod", "red3")) +
     geom_point(alpha = .6) +
@@ -100,17 +100,21 @@ czso_make_plot_nace_annual <- function(data, add_years = 5) {
     ungroup() |>
     mutate(is_last_period = tm == max(tm),
            needs_label = is_last_period & (is_minmax | clr != "Ostatní"),
-           name_for_label = ifelse(is_minmax, odvetvi_txt, as.character(clr)) |> str_wrap(30))
+           name_for_label = ifelse(is_minmax, odvetvi_txt, as.character(clr)) |> str_wrap(30)) |>
+    mutate(nudge = case_match(clr,
+                              "Celá ekonomika" ~ .01,
+                              "Veřejná správa" ~ .0,
+                              "Profesní" ~ -.01,
+                              "ICT" ~ .01,
+                              )
+           )
 
-  new_labels <- c(seq(year(min(data$tm)),
-                      year(max(data$tm)), by = 2),
+  new_labels <- c(seq(year(min(data$tm)) - 1,
+                      year(max(data$tm)) + 1, by = 2),
                   rep(" ", times = add_years))
 
-  new_breaks <- make_date(seq(from = year(min(data$tm)),
-                              to = year(max(data$tm)) + add_years, by = 2))
-
-  # print(length(new_labels))
-  # print(length(new_breaks))
+  new_breaks <- make_date(seq(from = year(min(data$tm)) - 1,
+                              to = year(max(data$tm)) + 1 + add_years, by = 2))
 
   fmt_pct_change <- scales::label_number(.1, 100, suffix = " %", decimal.mark = ",",
                                          style_positive = "plus", style_negative = "minus")
@@ -133,7 +137,8 @@ czso_make_plot_nace_annual <- function(data, add_years = 5) {
     geom_point(data = ~subset(., public == TRUE), size = 2) +
     geom_point(data = ~subset(., public == TRUE), colour = "white", size = 1.2) +
     geom_label(data = ~subset(., needs_label),
-               aes(label = paste(fmt_pct_change(realna_zmena), name_for_label), fill = clr),
+               aes(label = paste(fmt_pct_change(realna_zmena), name_for_label),
+                   fill = clr, y = realna_zmena + nudge),
                label.padding = unit(0.2, "lines"),
                hjust = 0, nudge_x = 40, color = "white", family = "Arial", size = 3, fontface = "bold") +
     scale_color_manual(values = c(Ostatní = "grey40", Profesní = "blue3",
@@ -152,8 +157,8 @@ czso_make_plot_nace_annual <- function(data, add_years = 5) {
                    lbls[lbls > lubridate::year(max(data$tm))] <- " "
                    lbls
                  },
-                 expand = expansion(add = c(0, 365 * add_years)),
-                 limits = c(as.Date("2000-09-01"), as.Date("2022-03-31")),
+                 expand = expansion(add = c(365, 365 * add_years)),
+                 limits = c(as.Date("2000-09-01"), as.Date("2024-03-31")),
     ) +
     scale_y_continuous(expand = expansion(add = c(.02, 0.001)),
                        # limits = c(-.2, .2),

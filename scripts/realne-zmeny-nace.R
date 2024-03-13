@@ -26,7 +26,7 @@ infl |>
 
 zm <- czso::czso_get_table("110079", force_redownload = TRUE) # mzdy podle NACE
 count(zm, rok, ctvrtleti) |> arrange(desc(rok)) |> head()
-count(zm, rok, ctvrtleti) |> filter(rok == 2022)
+count(zm, rok, ctvrtleti) |> filter(rok == 2023)
 
 zm |> count(odvetvi_txt)
 zm |> count(odvetvi_kod)
@@ -88,7 +88,7 @@ make_nace_plot <- function(data, add_years = 5) {
                  date_labels = "%Y",
                  breaks = new_breaks,
                  expand = expansion(add = c(0, 365 * add_years)),
-                 limits = c(as.Date("2000-09-01"), as.Date("2022-03-31")),
+                 limits = c(as.Date("2000-09-01"), as.Date("2024-03-31")),
                  ) +
     scale_y_continuous(expand = expansion(add = c(.02, 0.001)),
                              # limits = c(-.2, .2),
@@ -227,8 +227,12 @@ make_nace_plot(zm_plt_dt_y2)
 zm_plt_q <- make_nace_plot(zm_plt_dt_q)
 zm_plt_q
 zm_plt_q4 <- make_nace_plot(zm_plt_dt_q |> filter(month(tm) == 12) |> mutate(tm = floor_date(tm, "year")))
-zm_plt_y_2021 <- make_nace_plot(zm_plt_dt_y |> filter(tm < "2022-01-01"))
+zm_plt_y_2021 <- make_nace_plot(zm_plt_dt_y |> filter(tm < "2023-01-01"))
 zm_plt_y_2021
+
+zm_plt_dt_y |>
+  filter(tm == "2023-01-01") |>
+  View()
 
 # Plot and export ---------------------------------------------------------
 
