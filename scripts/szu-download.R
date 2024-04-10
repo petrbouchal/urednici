@@ -40,6 +40,8 @@ szu_xls_urls <- pmap_dfr(szu_lst_sub, .f = get_szu_excel) |>
 download_szu_excel <- function(name, url, year, dir) {
   outfile <- file.path(dir, paste0(year, "_", name))
   url <- paste0("https://psp.cz", url)
+  print(year)
+  print(url)
   curl::curl_download(url, outfile)
   rslt <- tibble(url = url, file = outfile, rok = year)
 }

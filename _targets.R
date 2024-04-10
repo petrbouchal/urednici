@@ -159,10 +159,10 @@ l_ispv <- list(
 
   ## List, download files ----------------------------------------------------
 
-  tar_target(pv_reg_list, pv_list_reg()),
-  tar_target(pv_cr_list, pv_list_cr()),
-  tar_target(pv_pg_list_q4, pv_reg_list |> filter(str_detect(name, "Pra_224"))),
-  tar_target(pv_cr_list_q4, pv_cr_list |> filter(str_detect(name, "224_(MZ|PL)S\\."))),
+  tar_target(pv_reg_list, pv_list_reg(year = 2022)),
+  tar_target(pv_cr_list, pv_list_cr(year = 2022)),
+  tar_target(pv_pg_list_q4, pv_reg_list |> filter(str_detect(name, "Pra_234"))),
+  tar_target(pv_cr_list_q4, pv_cr_list |> filter(str_detect(name, "234_(MZ|PL)S\\."))),
   tar_target(pv_cr_urls, pv_cr_list_q4[["url"]]),
   tar_target(pv_pg_urls, pv_pg_list_q4[["url"]]),
   tar_target(pv_cr_filenames, file.path("data-input/ispv", pv_cr_list_q4[["name"]])),

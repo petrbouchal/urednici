@@ -44,11 +44,11 @@ dt_latest <- tribble(
     2022, "plat", "nefinanční podniky", 39689,
     2022, "plat", "finanční instituce", 68578,
     2022, "plat", "Průměrné hrubé měsíční mzdy úhrnem", 38277,
-    2023, "plat", "místní", 40426, # to Q3
-    2023, "plat", "ústřední", 49529, # to Q3
-    2023, "plat", "nefinanční podniky", 42159, # to Q3
-    2023, "plat", "finanční instituce", 73646, # to Q3
-    2023, "plat", "Průměrné hrubé měsíční mzdy úhrnem", 42427 # to Q3
+    2023, "plat", "místní", 42583,
+    2023, "plat", "ústřední", 50964,
+    2023, "plat", "nefinanční podniky", 42831,
+    2023, "plat", "finanční instituce", 72975,
+    2023, "plat", "Průměrné hrubé měsíční mzdy úhrnem", 43341
 ) |>
     mutate(rocenka_rok = "9999")
 
@@ -70,16 +70,33 @@ rocenky_lng_ltst |>
 rocenky_lng_ltst |>
     count(rok, sort = TRUE)
 
-rocenky_lng_ltst |>
+dta <- rocenky_lng_ltst |>
     filter(
         variable == "plat",
         Sektory2 %in% c(
             "místní", "ústřední",
-            "nefinanční podniky", "finanční instituce"
+            "nefinanční podniky"
         )
-    ) |>
+    )
+dta |>
     ggplot(aes(rok, value, colour = Sektory2, group = Sektory2)) +
-    geom_line()
+    geom_line() +
+  scale_color_manual(values = c(`finanční instituce` = "grey10",
+                                `nefinanční podniky` = "grey40",
+                                `ústřední` = "darkred",
+                                `místní` = "goldenrod"), guide = "none") +
+  geom_text_repel(data = dta |> filter(rok == max(rok)),
+              aes(x = rok, label = Sektory2),
+            hjust = "outward", nudge_x = .5) +
+  geom_point(data = dta |> filter(rok == max(rok))) +
+  ptrr::theme_ptrr("both") +
+  scale_y_number_cz() +
+  scale_x_continuous(expand = expansion(add = c(0, 6)),
+                     breaks = seq(from = 2005, to = 2023, by = 3)) +
+  labs(title = "Průměrná měsíční mzda podle sektorů",
+       subtitle = "Vybrané sektory",
+       caption = "Zdroj: ČSÚ (VDB, statistické ročenky ČR)")
+
 
 rocenky_lng_ltst |>
     filter(

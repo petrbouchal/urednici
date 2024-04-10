@@ -79,7 +79,7 @@ targets::tar_read(pv_plot_ga_pg)
 targets::tar_read(pv_plot_edu)
 ```
 
-# Srovnání upravené o platovou strukturu {#srovnání-upravené-o-platovou-strukturu}
+# Srovnání upravené o vzdělanostní strukturu {#srovnání-upravené-o-vzdělanostní-strukturu}
 
 ```{r}
 #| fig-asp: .5
