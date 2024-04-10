@@ -1,7 +1,7 @@
-make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sections) {
+make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sections, rok = NULL) {
 
   pv_edu_pg_all <- pv_edu_pg |>
-    filter(!is.na(code), year == 2022) |>
+    filter(!is.na(code), year == rok) |>
     group_by(category) |>
     summarise(pay_mean_ispv = weighted.mean(pay_mean, fte_thous),
               fte_thous = sum(fte_thous)) |>
@@ -9,12 +9,13 @@ make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sectio
     mutate(podil_ispv = fte_thous/sum(fte_thous))
 
   pv_pg_all <- pv_edu_pg |>
-    filter(year == 2022, category == "Celkem") |>
+    filter(year == rok, category == "Celkem") |>
     summarise(pay_mean_ispv = weighted.mean(pay_mean, fte_thous))
 
+  rok2 <- rok
 
   syst_pocty <- syst_pocty_long_uo |>
-    filter(rok == 2022, kapitola_vladni, ustredni_organ) |>
+    filter(rok == rok2, kapitola_vladni, ustredni_organ) |>
     mutate(category =
              case_match(trida,
              # https://ppropo.mpsv.cz/XX5Platovatrida
@@ -32,7 +33,7 @@ make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sectio
     drop_na(category)
 
   platy_szu <- szu_sections |>
-    filter(faze_rozpoctu == "SKUT", rok == 2022, kategorie_2014_cz == "Ministerstva") |>
+    filter(faze_rozpoctu == "SKUT", rok == rok2, kategorie_2014_cz == "Ministerstva") |>
     select(kap_kod, prumerny_plat, prumerny_plat_vucinh) |>
     mutate(kap_kod = as.character(kap_kod))
 
@@ -67,9 +68,9 @@ make_plot_paycomp_adjusted <- function(pv_edu_pg, syst_pocty_long_uo, szu_sectio
                panel.grid.major.x = element_line(linewidth = .3),
                panel.grid.minor.x = element_line(linewidth = .1)) +
     scale_x_percent_cz(limits = c(0, 1.3), n.breaks = 8) +
-    labs(title = "Průměrné platy ministerstev ve srovnání s pracovní sílou Prahy (2022)",
+    labs(title = glue("Průměrné platy ministerstev ve srovnání s pracovní sílou Prahy ({rok})"),
          subtitle = "100 % = platová úroveň Prahy\nSloupce: očištěno o vzdělanostní strukturu\nModré body: hrubé srovnání",
-         caption = "Zdroj: systemizace 2022 (pouze ústřední orgán, služební i pracovní místa), SZÚ 2022 a ISPV.\nVzdělanostní struktura odvozena od zastoupení platových tříd na každém úřadu.")
+         caption = glue("Zdroj: systemizace {rok} (pouze ústřední orgán, služební i pracovní místa), SZÚ {rok} a ISPV.\nVzdělanostní struktura odvozena od zastoupení platových tříd na každém úřadu."))
 
   # ggplot(platy_equiv_long, aes(y = kapitola_zkr)) +
   #   geom_vline(aes(xintercept = 1), colour = "darkgrey") +

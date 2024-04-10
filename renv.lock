@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.3.1",
+    "Version": "4.3.3",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -30,28 +30,55 @@
     "ISOweek": {
       "Package": "ISOweek",
       "Version": "0.6-2",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/ISOweek/ISOweek_0.6-2.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "stringr"
+      ],
+      "Hash": "ad7e2b013b9379cb560caa9b168202f0"
     },
     "KernSmooth": {
       "Package": "KernSmooth",
-      "Version": "2.23-22",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "2.23-20",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/KernSmooth/2.23-22/2fecebc3047322fa5930f74fae5de70f/KernSmooth"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "stats"
+      ],
+      "Hash": "8dcfa99b14c296bc9f1fd64d52fd3ce7"
     },
     "MASS": {
       "Package": "MASS",
       "Version": "7.3-60.0.1",
-      "Source": "Repository"
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "b765b28387acc8ec9e9c1530713cb19c"
     },
     "Matrix": {
       "Package": "Matrix",
       "Version": "1.6-5",
-      "Source": "Repository"
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "grid",
+        "lattice",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "8c7115cd3a0e048bda2a7cd110549f7a"
     },
     "OECD": {
       "Package": "OECD",
@@ -88,43 +115,68 @@
     },
     "RCurl": {
       "Package": "RCurl",
-      "Version": "1.98-1.14",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.98-1.7",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/RCurl/1.98-1.14/47f648d288079d0c696804ad4e55197e/RCurl"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "bitops",
+        "methods"
+      ],
+      "Hash": "b70bf7bef94b2a3fa09795b0594f3695"
     },
     "Rcpp": {
       "Package": "Rcpp",
-      "Version": "1.0.12",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.0.9",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/Rcpp/1.0.12/5ea2700d21e038ace58269ecdbeb9ec0/Rcpp"
+      "Repository": "CRAN",
+      "Requirements": [
+        "methods",
+        "utils"
+      ],
+      "Hash": "e9c08b94391e9f3f97355841229124f2"
     },
     "RefManageR": {
       "Package": "RefManageR",
-      "Version": "1.4.0",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.3.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/RefManageR/RefManageR_1.4.0.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "httr",
+        "jsonlite",
+        "lubridate",
+        "methods",
+        "plyr",
+        "stringr",
+        "tools",
+        "utils",
+        "xml2"
+      ],
+      "Hash": "a31abee042741b1fc1bbb546da687f3f"
     },
     "Rttf2pt1": {
       "Package": "Rttf2pt1",
-      "Version": "1.3.12",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.3.10",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/Rttf2pt1/1.3.12/a60168d094ca7e4de5106d60001c3964/Rttf2pt1"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "8952819f94cd9fce521f9b1cb558f8a4"
     },
     "V8": {
       "Package": "V8",
-      "Version": "4.4.2",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "4.2.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/V8/V8_4.4.2.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "Rcpp",
+        "curl",
+        "jsonlite",
+        "utils"
+      ],
+      "Hash": "ebee37dadb0a8f5086663825d2c33076"
     },
     "anytime": {
       "Package": "anytime",
@@ -140,35 +192,55 @@
     },
     "arrow": {
       "Package": "arrow",
-      "Version": "14.0.2.1",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "14.0.0.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/arrow/14.0.2.1/20312936045590f74e29a36919f05dde/arrow"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "assertthat",
+        "bit64",
+        "cpp11",
+        "glue",
+        "methods",
+        "purrr",
+        "rlang",
+        "stats",
+        "tidyselect",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "042f2ee2286a91abe5a3d66c9be92380"
     },
     "askpass": {
       "Package": "askpass",
-      "Version": "1.2.0",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/askpass/1.2.0/cad6cf7f1d5f6e906700b9d3e718c796/askpass"
+      "Repository": "CRAN",
+      "Requirements": [
+        "sys"
+      ],
+      "Hash": "e8a22846fff485f0be3770c2da758713"
     },
     "assertthat": {
       "Package": "assertthat",
       "Version": "0.2.1",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/assertthat/0.2.1/50c838a310445e954bc13f26f26a6ecf/assertthat"
+      "Repository": "CRAN",
+      "Requirements": [
+        "tools"
+      ],
+      "Hash": "50c838a310445e954bc13f26f26a6ecf"
     },
     "backports": {
       "Package": "backports",
-      "Version": "1.4.1",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.2.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/backports/1.4.1/c39fbec8a30d23e721980b8afb31984c/backports"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "644043219fc24e190c2f620c1a380a69"
     },
     "base64enc": {
       "Package": "base64enc",
@@ -190,14 +262,6 @@
       ],
       "Hash": "0c54cf3a08cc0e550fbd64ad33166143"
     },
-    "bibtex": {
-      "Package": "bibtex",
-      "Version": "0.5.1",
-      "OS_type": null,
-      "Repository": "CRAN",
-      "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/bibtex/bibtex_0.5.1.zip"
-    },
     "bigD": {
       "Package": "bigD",
       "Version": "0.2.0",
@@ -210,19 +274,27 @@
     },
     "bit": {
       "Package": "bit",
-      "Version": "4.0.5",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "4.0.4",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/bit/4.0.5/d242abec29412ce988848d0294b208fd/bit"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "f36715f14d94678eea9933af927bc15d"
     },
     "bit64": {
       "Package": "bit64",
       "Version": "4.0.5",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/bit64/4.0.5/9fe98599ca456d6552421db0d6772d8f/bit64"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "bit",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "9fe98599ca456d6552421db0d6772d8f"
     },
     "bitops": {
       "Package": "bitops",
@@ -324,39 +396,64 @@
     "cellranger": {
       "Package": "cellranger",
       "Version": "1.1.0",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/cellranger/1.1.0/f61dbaec772ccd2e17705c1e872e9e7c/cellranger"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "rematch",
+        "tibble"
+      ],
+      "Hash": "f61dbaec772ccd2e17705c1e872e9e7c"
     },
     "class": {
       "Package": "class",
       "Version": "7.3-22",
-      "Source": "Repository"
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "MASS",
+        "R",
+        "stats",
+        "utils"
+      ],
+      "Hash": "f91f6b29f38b8c280f2b9477787d4bb2"
     },
     "classInt": {
       "Package": "classInt",
-      "Version": "0.4-10",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.4-7",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/classInt/classInt_0.4-10.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "KernSmooth",
+        "R",
+        "class",
+        "e1071",
+        "grDevices",
+        "graphics",
+        "stats"
+      ],
+      "Hash": "9c04a89713e4c4f9c0f3bf9ef928f852"
     },
     "cli": {
       "Package": "cli",
-      "Version": "3.6.2",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "3.6.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/cli/3.6.2/1216ac65ac55ec0058a6f75d7ca0fd52/cli"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "3177a5a16c243adc199ba33117bd9657"
     },
     "clipr": {
       "Package": "clipr",
       "Version": "0.8.0",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/clipr/0.8.0/3f038e5ac7f41d4ac41ce658c85e3042/clipr"
+      "Repository": "CRAN",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "3f038e5ac7f41d4ac41ce658c85e3042"
     },
     "clustermq": {
       "Package": "clustermq",
@@ -387,19 +484,24 @@
     },
     "colorspace": {
       "Package": "colorspace",
-      "Version": "2.1-0",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "2.0-3",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/colorspace/2.1-0/f20c47fd52fae58b4e377c37bb8c335b/colorspace"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "methods",
+        "stats"
+      ],
+      "Hash": "bb4341986bc8b914f0f0acf2e4a3f2f7"
     },
     "commonmark": {
       "Package": "commonmark",
-      "Version": "1.9.1",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.8.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/commonmark/1.9.1/5d8225445acb167abf7797de48b2ee3c/commonmark"
+      "Repository": "CRAN",
+      "Hash": "2ba81b120c1655ab696c935ef33ea716"
     },
     "config": {
       "Package": "config",
@@ -425,11 +527,13 @@
     },
     "countrycode": {
       "Package": "countrycode",
-      "Version": "1.5.0",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.4.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/countrycode/countrycode_1.5.0.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "2d162e8f29eec5526e362a7415d980ab"
     },
     "cpp11": {
       "Package": "cpp11",
@@ -467,10 +571,12 @@
     "curl": {
       "Package": "curl",
       "Version": "5.2.1",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/curl/curl_5.2.1.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "411ca2c03b1ce5f548345d2fc2685f7a"
     },
     "czso": {
       "Package": "czso",
@@ -496,11 +602,14 @@
     },
     "data.table": {
       "Package": "data.table",
-      "Version": "1.15.0",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.15.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/data.table/data.table_1.15.0.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "536dfe4ac4093b5d115caed7a1a7223b"
     },
     "dbplyr": {
       "Package": "dbplyr",
@@ -543,27 +652,53 @@
     },
     "digest": {
       "Package": "digest",
-      "Version": "0.6.34",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.6.27",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/digest/0.6.34/7ede2ee9ea8d3edbf1ca84c1e333ad1a/digest"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "a0cbe758a531d054b537d16dff4d58a1"
     },
     "dplyr": {
       "Package": "dplyr",
-      "Version": "1.1.4",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.1.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/dplyr/dplyr_1.1.4.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "cli",
+        "generics",
+        "glue",
+        "lifecycle",
+        "magrittr",
+        "methods",
+        "pillar",
+        "rlang",
+        "tibble",
+        "tidyselect",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "eb5742d256a0d9306d85ea68756d8187"
     },
     "e1071": {
       "Package": "e1071",
-      "Version": "1.7-14",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.7-11",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/e1071/e1071_1.7-14.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "class",
+        "grDevices",
+        "graphics",
+        "methods",
+        "proxy",
+        "stats",
+        "utils"
+      ],
+      "Hash": "fc02aa712f8600f7da17f44989646a21"
     },
     "ellipsis": {
       "Package": "ellipsis",
@@ -579,10 +714,32 @@
     "eurostat": {
       "Package": "eurostat",
       "Version": "4.0.0",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/eurostat/eurostat_4.0.0.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "ISOweek",
+        "R",
+        "RefManageR",
+        "classInt",
+        "countrycode",
+        "curl",
+        "data.table",
+        "digest",
+        "dplyr",
+        "httr2",
+        "jsonlite",
+        "lubridate",
+        "rappdirs",
+        "readr",
+        "regions",
+        "rlang",
+        "stringi",
+        "stringr",
+        "tibble",
+        "tidyr",
+        "xml2"
+      ],
+      "Hash": "0c47aa277743a3410af9d211168ca0c7"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -621,11 +778,15 @@
     },
     "fansi": {
       "Package": "fansi",
-      "Version": "1.0.6",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.0.3",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/fansi/fansi_1.0.6.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "utils"
+      ],
+      "Hash": "83a8afdbe71839506baa9f90eebad7ec"
     },
     "farver": {
       "Package": "farver",
@@ -636,11 +797,10 @@
     },
     "fastmap": {
       "Package": "fastmap",
-      "Version": "1.1.1",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.1.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/fastmap/1.1.1/f7736a18de97dea803bde0a2daaafb27/fastmap"
+      "Repository": "CRAN",
+      "Hash": "77bd60a6157420d4ffa93b27cf6a58b8"
     },
     "fontawesome": {
       "Package": "fontawesome",
@@ -683,11 +843,14 @@
     },
     "fs": {
       "Package": "fs",
-      "Version": "1.6.3",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.5.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/fs/1.6.3/47b5f30c720c23999b913a1a635cf0bb/fs"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "7c89603d81793f0d5486d91ab1fc6f1d"
     },
     "future": {
       "Package": "future",
@@ -943,10 +1106,12 @@
     "here": {
       "Package": "here",
       "Version": "1.0.1",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/here/1.0.1/24b224366f9c2e7534d2344d10d59211/here"
+      "Repository": "CRAN",
+      "Requirements": [
+        "rprojroot"
+      ],
+      "Hash": "24b224366f9c2e7534d2344d10d59211"
     },
     "highr": {
       "Package": "highr",
@@ -960,11 +1125,18 @@
     },
     "hms": {
       "Package": "hms",
-      "Version": "1.1.3",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.0.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/hms/1.1.3/b59377caa7ed00fa41808342002138f9/hms"
+      "Repository": "CRAN",
+      "Requirements": [
+        "ellipsis",
+        "lifecycle",
+        "methods",
+        "pkgconfig",
+        "rlang",
+        "vctrs"
+      ],
+      "Hash": "bf552cdd96f5969873afdac7311c7d0d"
     },
     "hrbrthemes": {
       "Package": "hrbrthemes",
@@ -989,11 +1161,19 @@
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.7",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.5.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/htmltools/0.5.7/2d7b3857980e0e0d0a1fd6f11928ab0f/htmltools"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "base64enc",
+        "digest",
+        "fastmap",
+        "grDevices",
+        "rlang",
+        "utils"
+      ],
+      "Hash": "526c484233f42522278ab06fb185cb26"
     },
     "htmlwidgets": {
       "Package": "htmlwidgets",
@@ -1010,27 +1190,54 @@
     },
     "httpuv": {
       "Package": "httpuv",
-      "Version": "1.6.14",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.6.5",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/httpuv/httpuv_1.6.14.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "Rcpp",
+        "later",
+        "promises",
+        "utils"
+      ],
+      "Hash": "97fe71f0a4a1c9890e6c2128afa04bc0"
     },
     "httr": {
       "Package": "httr",
-      "Version": "1.4.7",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.4.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/httr/1.4.7/ac107251d9d9fd72f0ca8049988f1d7f/httr"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "curl",
+        "jsonlite",
+        "mime",
+        "openssl"
+      ],
+      "Hash": "a525aba14184fec243f9eaec62fbed43"
     },
     "httr2": {
       "Package": "httr2",
       "Version": "1.0.0",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/httr2/1.0.0/e2b30f1fc039a0bab047dd52bb20ef71/httr2"
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "R6",
+        "cli",
+        "curl",
+        "glue",
+        "lifecycle",
+        "magrittr",
+        "openssl",
+        "rappdirs",
+        "rlang",
+        "vctrs",
+        "withr"
+      ],
+      "Hash": "e2b30f1fc039a0bab047dd52bb20ef71"
     },
     "igraph": {
       "Package": "igraph",
@@ -1060,7 +1267,13 @@
     "isoband": {
       "Package": "isoband",
       "Version": "0.2.7",
-      "Source": "Repository"
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "grid",
+        "utils"
+      ],
+      "Hash": "0080607b4a1a7b28979aecef976d8bc2"
     },
     "ispv": {
       "Package": "ispv",
@@ -1126,11 +1339,13 @@
     },
     "jsonlite": {
       "Package": "jsonlite",
-      "Version": "1.8.8",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.7.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/jsonlite/1.8.8/e1b9c55281c5adc4dd113652d9e26768/jsonlite"
+      "Repository": "CRAN",
+      "Requirements": [
+        "methods"
+      ],
+      "Hash": "98138e0994d41508c7a6b84a0600cfcb"
     },
     "juicyjuice": {
       "Package": "juicyjuice",
@@ -1183,11 +1398,18 @@
     },
     "lattice": {
       "Package": "lattice",
-      "Version": "0.22-5",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.20-41",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/lattice/0.22-5/7c5e89f04e72d6611c77451f6331a091/lattice"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics",
+        "grid",
+        "stats",
+        "utils"
+      ],
+      "Hash": "fbd9285028b0263d76d18c95ae51a53d"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -1214,11 +1436,21 @@
     },
     "lubridate": {
       "Package": "lubridate",
-      "Version": "1.9.3",
-      "OS_type": null,
-      "Repository": "CRAN",
-      "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/lubridate/1.9.3/680ad542fbcf801442c83a6ac5a2126c/lubridate"
+      "Version": "1.7.9.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "lubridate",
+      "RemoteUsername": "tidyverse",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "aab2e30a07f870f5e0c36ad119b1b2df656e926a",
+      "Requirements": [
+        "R",
+        "Rcpp",
+        "generics",
+        "methods"
+      ],
+      "Hash": "8d0e65f04ff73e8e7162da59ee07ed03"
     },
     "magrittr": {
       "Package": "magrittr",
@@ -1257,15 +1489,29 @@
     "mgcv": {
       "Package": "mgcv",
       "Version": "1.9-1",
-      "Source": "Repository"
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "Matrix",
+        "R",
+        "graphics",
+        "methods",
+        "nlme",
+        "splines",
+        "stats",
+        "utils"
+      ],
+      "Hash": "110ee9d83b496279960e162ac97764ce"
     },
     "mime": {
       "Package": "mime",
-      "Version": "0.12",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.9",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/mime/0.12/18e9c28c1d3ca1560ce30658b22ce104/mime"
+      "Repository": "CRAN",
+      "Requirements": [
+        "tools"
+      ],
+      "Hash": "e87a35ec73b157552814869f45a63aa3"
     },
     "modelr": {
       "Package": "modelr",
@@ -1314,15 +1560,26 @@
     "nlme": {
       "Package": "nlme",
       "Version": "3.1-164",
-      "Source": "Repository"
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "graphics",
+        "lattice",
+        "stats",
+        "utils"
+      ],
+      "Hash": "a623a2239e642806158bc4dc3f51565d"
     },
     "openssl": {
       "Package": "openssl",
-      "Version": "2.1.1",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "2.0.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/openssl/2.1.1/2a0dc8c6adfb6f032e4d4af82d258ab5/openssl"
+      "Repository": "CRAN",
+      "Requirements": [
+        "askpass"
+      ],
+      "Hash": "6d3bef2e305f55c705c674653c7d7d3d"
     },
     "packrat": {
       "Package": "packrat",
@@ -1350,11 +1607,20 @@
     },
     "pillar": {
       "Package": "pillar",
-      "Version": "1.9.0",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.8.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/pillar/1.9.0/15da5a8412f317beeee6175fbc76f4bb/pillar"
+      "Repository": "CRAN",
+      "Requirements": [
+        "cli",
+        "fansi",
+        "glue",
+        "lifecycle",
+        "rlang",
+        "utf8",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "f2316df30902c81729ae9de95ad5a608"
     },
     "pingr": {
       "Package": "pingr",
@@ -1370,18 +1636,23 @@
     "pkgconfig": {
       "Package": "pkgconfig",
       "Version": "2.0.3",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/pkgconfig/2.0.3/01f28d4278f15c76cddbea05899c5d6f/pkgconfig"
+      "Repository": "CRAN",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "01f28d4278f15c76cddbea05899c5d6f"
     },
     "plyr": {
       "Package": "plyr",
-      "Version": "1.8.9",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.8.7",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/plyr/1.8.9/6b8177fd19982f0020743fadbfdbd933/plyr"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "Rcpp"
+      ],
+      "Hash": "9c17c6ee41639ebdc1d7266546d3b627"
     },
     "png": {
       "Package": "png",
@@ -1395,27 +1666,35 @@
     },
     "prettyunits": {
       "Package": "prettyunits",
-      "Version": "1.2.0",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.1.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/prettyunits/prettyunits_1.2.0.zip"
+      "Repository": "CRAN",
+      "Hash": "95ef9167b75dde9d2ccc3c7528393e7e"
     },
     "processx": {
       "Package": "processx",
-      "Version": "3.8.3",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "3.5.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/processx/3.8.3/82d48b1aec56084d9438dbf98087a7e9/processx"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R6",
+        "ps",
+        "utils"
+      ],
+      "Hash": "0cbca2bc4d16525d009c4dbba156b37c"
     },
     "progress": {
       "Package": "progress",
-      "Version": "1.2.3",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.2.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/progress/progress_1.2.3.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R6",
+        "crayon",
+        "hms",
+        "prettyunits"
+      ],
+      "Hash": "14dc9f7a3c91ebb14ec5bb9208a07061"
     },
     "promises": {
       "Package": "promises",
@@ -1446,11 +1725,14 @@
     },
     "ps": {
       "Package": "ps",
-      "Version": "1.7.6",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.5.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/ps/1.7.6/dd2b9319ee0656c8acf45c7f40c59de7/ps"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "ebaed51a03411fd5cfc1e12d9079b353"
     },
     "ptrr": {
       "Package": "ptrr",
@@ -1475,11 +1757,15 @@
     },
     "purrr": {
       "Package": "purrr",
-      "Version": "1.0.2",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.3.4",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/purrr/1.0.2/1cba04a4e9414bdefc9dcaa99649a8dc/purrr"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "magrittr",
+        "rlang"
+      ],
+      "Hash": "97def703420c8ab10d8f0e6c72101e02"
     },
     "quarto": {
       "Package": "quarto",
@@ -1512,57 +1798,101 @@
     "rappdirs": {
       "Package": "rappdirs",
       "Version": "0.3.3",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/rappdirs/0.3.3/5e3c5dc0b071b21fa128676560dbe94d/rappdirs"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "5e3c5dc0b071b21fa128676560dbe94d"
     },
     "readr": {
       "Package": "readr",
-      "Version": "2.1.5",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.4.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/readr/readr_2.1.5.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "BH",
+        "R",
+        "R6",
+        "cli",
+        "clipr",
+        "cpp11",
+        "crayon",
+        "hms",
+        "lifecycle",
+        "methods",
+        "rlang",
+        "tibble",
+        "utils"
+      ],
+      "Hash": "2639976851f71f330264a9c9c3d43a61"
     },
     "readsdmx": {
       "Package": "readsdmx",
-      "Version": "0.3.1",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.3.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/readsdmx/0.3.1/dfcc3f61536b441d3b211ad092a7afd9/readsdmx"
+      "Repository": "RSPM",
+      "Requirements": [
+        "Rcpp",
+        "utils"
+      ],
+      "Hash": "585f8b011a2be895f74967bbab6cfece"
     },
     "readxl": {
       "Package": "readxl",
-      "Version": "1.4.3",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.3.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/readxl/1.4.3/8cf9c239b96df1bbb133b74aef77ad0a/readxl"
+      "Repository": "CRAN",
+      "Requirements": [
+        "Rcpp",
+        "cellranger",
+        "progress",
+        "tibble",
+        "utils"
+      ],
+      "Hash": "63537c483c2dbec8d9e3183b3735254a"
     },
     "regions": {
       "Package": "regions",
       "Version": "0.1.8",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/regions/regions_0.1.8.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "assertthat",
+        "countrycode",
+        "dplyr",
+        "glue",
+        "here",
+        "magrittr",
+        "purrr",
+        "readxl",
+        "rlang",
+        "stats",
+        "stringr",
+        "tibble",
+        "tidyr",
+        "tidyselect",
+        "utils"
+      ],
+      "Hash": "c03b0e9b4289b24062e895ae81ef7b3d"
     },
     "rematch": {
       "Package": "rematch",
-      "Version": "2.0.0",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.0.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/rematch/2.0.0/cbff1b666c6fa6d21202f07e2318d4f1/rematch"
+      "Repository": "CRAN",
+      "Hash": "c66b930d20bb6d858cd18e1cebcfae5c"
     },
     "renv": {
       "Package": "renv",
       "Version": "1.0.4",
-      "OS_type": null,
+      "Source": "Repository",
       "Repository": "CRAN",
-      "Source": "Repository"
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "11abaf7c540ff33f94514d50f929bfd1"
     },
     "repr": {
       "Package": "repr",
@@ -1604,11 +1934,14 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.1.3",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.1.0",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/rlang/1.1.3/42548638fae05fd9a9b5f3f437fbbbe2/rlang"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "dc079ccd156cde8647360f473c1fa718"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -1690,11 +2023,17 @@
     },
     "sass": {
       "Package": "sass",
-      "Version": "0.4.8",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.4.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/sass/sass_0.4.8.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R6",
+        "fs",
+        "htmltools",
+        "rappdirs",
+        "rlang"
+      ],
+      "Hash": "f37c0028d720bab3c513fd65d28c7234"
     },
     "scales": {
       "Package": "scales",
@@ -1830,19 +2169,53 @@
     },
     "sourcetools": {
       "Package": "sourcetools",
-      "Version": "0.1.7-1",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.1.7",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/sourcetools/0.1.7-1/5f5a7629f956619d519205ec475fe647/sourcetools"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "947e4e02a79effa5d512473e10f41797"
+    },
+    "statnipokladna": {
+      "Package": "statnipokladna",
+      "Version": "0.7.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "cli",
+        "curl",
+        "dplyr",
+        "httr",
+        "jsonlite",
+        "lifecycle",
+        "lubridate",
+        "magrittr",
+        "purrr",
+        "readr",
+        "rlang",
+        "stringi",
+        "stringr",
+        "tibble",
+        "tidyr",
+        "utils",
+        "xml2"
+      ],
+      "Hash": "bc50d67b916cbc9cc5909b6ea2b34884"
     },
     "stringi": {
       "Package": "stringi",
-      "Version": "1.8.3",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.7.8",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/stringi/1.8.3/058aebddea264f4c99401515182e656a/stringi"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "stats",
+        "tools",
+        "utils"
+      ],
+      "Hash": "a68b980681bcbc84c7a67003fa796bfb"
     },
     "stringr": {
       "Package": "stringr",
@@ -1859,11 +2232,10 @@
     },
     "sys": {
       "Package": "sys",
-      "Version": "3.4.2",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "3.4",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/sys/3.4.2/3a1be13d68d47a8cd0bfd74739ca1555/sys"
+      "Repository": "CRAN",
+      "Hash": "b227d13e29222b4574486cfcbde077fa"
     },
     "systemfonts": {
       "Package": "systemfonts",
@@ -1939,26 +2311,59 @@
     "tibble": {
       "Package": "tibble",
       "Version": "3.2.1",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/tibble/3.2.1/a84e2cc86d07289b3b6f5069df7a004c/tibble"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "fansi",
+        "lifecycle",
+        "magrittr",
+        "methods",
+        "pillar",
+        "pkgconfig",
+        "rlang",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "a84e2cc86d07289b3b6f5069df7a004c"
     },
     "tidyr": {
       "Package": "tidyr",
-      "Version": "1.3.1",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.1.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/tidyr/tidyr_1.3.1.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "cpp11",
+        "dplyr",
+        "ellipsis",
+        "glue",
+        "lifecycle",
+        "magrittr",
+        "purrr",
+        "rlang",
+        "tibble",
+        "tidyselect",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "c40b2d5824d829190f4b825f4496dfae"
     },
     "tidyselect": {
       "Package": "tidyselect",
       "Version": "1.2.0",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/tidyselect/1.2.0/79540e5fcd9e0435af547d885f184fd5/tidyselect"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "cli",
+        "glue",
+        "lifecycle",
+        "rlang",
+        "vctrs",
+        "withr"
+      ],
+      "Hash": "79540e5fcd9e0435af547d885f184fd5"
     },
     "tidyverse": {
       "Package": "tidyverse",
@@ -2006,14 +2411,6 @@
       ],
       "Hash": "db9a6f2cf147751322d22c9f6647c7bd"
     },
-    "tzdb": {
-      "Package": "tzdb",
-      "Version": "0.4.0",
-      "OS_type": null,
-      "Repository": "CRAN",
-      "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/tzdb/0.4.0/f561504ec2897f4d46f0c7657e488ae1/tzdb"
-    },
     "usethis": {
       "Package": "usethis",
       "Version": "2.1.6",
@@ -2047,11 +2444,13 @@
     },
     "utf8": {
       "Package": "utf8",
-      "Version": "1.2.4",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.2.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/utf8/utf8_1.2.4.zip"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "c9c462b759a5cc844ae25b5942654d13"
     },
     "uuid": {
       "Package": "uuid",
@@ -2066,10 +2465,16 @@
     "vctrs": {
       "Package": "vctrs",
       "Version": "0.6.5",
-      "OS_type": null,
-      "Repository": "CRAN",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/vctrs/0.6.5/c03fa420630029418f7e6da3667aac4a/vctrs"
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "cli",
+        "glue",
+        "lifecycle",
+        "rlang"
+      ],
+      "Hash": "c03fa420630029418f7e6da3667aac4a"
     },
     "viridisLite": {
       "Package": "viridisLite",
@@ -2098,14 +2503,6 @@
         "utils"
       ],
       "Hash": "99b515a03efb8dcc4e4be337f37bf087"
-    },
-    "vroom": {
-      "Package": "vroom",
-      "Version": "1.6.5",
-      "OS_type": null,
-      "Repository": "CRAN",
-      "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/binary/R-4.3/x86_64-w64-mingw32/repository/vroom/vroom_1.6.5.zip"
     },
     "waiter": {
       "Package": "waiter",
@@ -2174,19 +2571,25 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.42",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "0.32",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/xfun/0.42/fd1349170df31f7a10bd98b0189e85af/xfun"
+      "Repository": "CRAN",
+      "Requirements": [
+        "stats",
+        "tools"
+      ],
+      "Hash": "0498af3034691dde715dcd86198efe75"
     },
     "xml2": {
       "Package": "xml2",
-      "Version": "1.3.6",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "1.3.2",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/xml2/1.3.6/1d0336142f4cd25d8d23cd3ba7a8fb61/xml2"
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "d4d71a75dd3ea9eb5fa28cc21f9585e2"
     },
     "xtable": {
       "Package": "xtable",
@@ -2202,11 +2605,10 @@
     },
     "yaml": {
       "Package": "yaml",
-      "Version": "2.3.8",
-      "OS_type": null,
-      "Repository": "CRAN",
+      "Version": "2.2.1",
       "Source": "Repository",
-      "Path": "C:\\Users\\bouchal\\AppData\\Local/R/cache/R/renv/cache/v5/R-4.3/x86_64-w64-mingw32/yaml/2.3.8/29240487a071f535f5e5d5a323b7afbd/yaml"
+      "Repository": "CRAN",
+      "Hash": "2826c5d9efb0a88f657c7a679c7106db"
     },
     "zip": {
       "Package": "zip",

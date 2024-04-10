@@ -9,7 +9,7 @@ options(crayon.enabled = TRUE)
 # Set target options:
 tar_option_set(
   packages = c("tibble", "ispv", "dplyr", "stringr", "forcats", "czso", "ptrr",
-               "scales", "ggbump", "countrycode",
+               "scales", "ggbump", "countrycode", "glue",
                "ggplot2", "purrr", "curl", "readr", "tidyr", "eurostat",
                "wbstats", "quarto", "arrow", "broom", "janitor", "readxl",
                "modelr", "ggiraph", "lubridate"),
@@ -143,7 +143,10 @@ l_systemizace <- list(
              syst_make_plot_model_resid(syst_model_predictions)),
   tar_target(syst_plot_model_resid_uo,
              syst_make_plot_model_resid_uo(syst_model_predictions)),
-  tar_target(comp_plot_compsal, make_plot_paycomp_adjusted(pv_edu_pg, syst_pocty_long_uo, szu_sections))
+  tar_target(comp_plot_compsal, make_plot_paycomp_adjusted(pv_edu_pg,
+                                                           syst_pocty_long_uo,
+                                                           szu_sections,
+                                                           rok = 2022))
 
 )
 
@@ -161,8 +164,8 @@ l_ispv <- list(
 
   tar_target(pv_reg_list, pv_list_reg(year = 2022)),
   tar_target(pv_cr_list, pv_list_cr(year = 2022)),
-  tar_target(pv_pg_list_q4, pv_reg_list |> filter(str_detect(name, "Pra_234"))),
-  tar_target(pv_cr_list_q4, pv_cr_list |> filter(str_detect(name, "234_(MZ|PL)S\\."))),
+  tar_target(pv_pg_list_q4, pv_reg_list |> filter(str_detect(name, "Pra_224"))),
+  tar_target(pv_cr_list_q4, pv_cr_list |> filter(str_detect(name, "224_(MZ|PL)S\\."))),
   tar_target(pv_cr_urls, pv_cr_list_q4[["url"]]),
   tar_target(pv_pg_urls, pv_pg_list_q4[["url"]]),
   tar_target(pv_cr_filenames, file.path("data-input/ispv", pv_cr_list_q4[["name"]])),
