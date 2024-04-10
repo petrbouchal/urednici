@@ -1,3 +1,15 @@
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(tibble)
+library(tidyr)
+library(lubridate)
+library(ggplot2)
+library(stringr)
+library(ggrepel)
+library(ptrr)
+library(forcats)
+
 filenames <- list.files("data-input/csu-rocenky", full.names = TRUE)
 names(filenames) <- str_extract(filenames, "[0-9]{4}")
 filenames
@@ -78,17 +90,23 @@ dta <- rocenky_lng_ltst |>
             "nefinanční podniky"
         )
     )
-dta |>
-    ggplot(aes(rok, value, colour = Sektory2, group = Sektory2)) +
-    geom_line() +
+dta2 <- dta |>
+  mutate(Sektory2 = case_match(Sektory2,
+                               "ústřední" ~ "Ústřední vláda",
+                               "místní" ~ "Samospráva",
+                               "nefinanční podniky" ~ "Nefinanční podniky",
+                               .default = Sektory2
+         ))
+  ggplot(dta2, aes(rok, value, colour = Sektory2, group = Sektory2)) +
+  geom_line() +
   scale_color_manual(values = c(`finanční instituce` = "grey10",
-                                `nefinanční podniky` = "grey40",
-                                `ústřední` = "darkred",
-                                `místní` = "goldenrod"), guide = "none") +
-  geom_text_repel(data = dta |> filter(rok == max(rok)),
+                                `Nefinanční podniky` = "grey40",
+                                `Ústřední vláda` = "darkred",
+                                `Samospráva` = "goldenrod"), guide = "none") +
+  geom_text_repel(data = dta2 |> filter(rok == max(rok)),
               aes(x = rok, label = Sektory2),
             hjust = "outward", nudge_x = .5) +
-  geom_point(data = dta |> filter(rok == max(rok))) +
+  geom_point(data = dta2 |> filter(rok == max(rok))) +
   ptrr::theme_ptrr("both") +
   scale_y_number_cz() +
   scale_x_continuous(expand = expansion(add = c(0, 6)),
