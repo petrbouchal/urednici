@@ -17,18 +17,19 @@ czso_nace_process_quarterly <- function(czso_pmz_nace, czso_infl_sub) {
            typosoby_txt == "přepočtený") |>
     mutate(ctvrtleti = as.numeric(ctvrtleti),
            tm = make_date(rok, ctvrtleti * 3),
-           clr = case_when(odvetvi_kod == "O" ~ "veřejná správa",
+           clr = case_when(odvetvi_kod == "O" ~ "Veřejná správa",
                            # odvetvi_kod %in% c("P") ~ "vzdělávání",
-                           odvetvi_kod %in% c("M") ~ "profesní",
+                           is.na(odvetvi_kod) ~ "Celá ekonomika",
+                           odvetvi_kod %in% c("M") ~ "Profesní",
                            odvetvi_kod %in% c("J") ~ "ICT",
-                           TRUE ~ "ostatní") |>
-             as_factor() |> fct_relevel("ostatní", "profesní", "ICT", "veřejná správa"),
+                           TRUE ~ "Ostatní") |>
+             as_factor() |> fct_relevel("Ostatní", "Profesní", "ICT", "Veřejná správa", "Celá ekonomika"),
            public = odvetvi_kod %in% c("O")) |>
     arrange(tm, odvetvi_kod) |>
-    group_by(odvetvi_kod) |>
+    group_by(odvetvi_kod, odvetvi_txt) |>
     mutate(zmena_qonq = (hodnota - lag(hodnota, n = 4))/lag(hodnota, n = 4)) |>
     left_join(czso_infl_sub, by = ) |>
-    select(tm, zmena_qonq, clr, hodnota, public, inflace_qonq) |>
+    select(tm, zmena_qonq, clr, hodnota, public, inflace_qonq, odvetvi_txt) |>
     ungroup() |>
     arrange(clr)
 }
@@ -40,15 +41,15 @@ czso_make_plot_nace_quarterly <- function(czso_pmz_nace_clean) {
     guides(colour = guide_legend(reverse = T, title = "Skupina NACE"), size = "none") +
     scale_size_manual(values = c(1, 2), expand = expansion(0, 0)) +
     ptrr::scale_y_percent_cz(limits = c(-.2, .2), expand = expansion(0, 0), breaks = seq(-.2, .2, .05)) +
-    labs(title = "Reálná změna platů podle NACE skupin za předchozí rok, 2003 - 4Q 2023",
+    labs(title = "Reálná změna platů podle NACE skupin za předchozí rok, 2003 - 1Q 2024",
          subtitle = "Meziroční změna průměrného platu očištěná o změnu spotřebitelských cen",
          x = NULL, y = "Reálná meziroční změna (očištěno o inflaci)",
          caption = "Zdroj: vlastní výpočet z dat ČSÚ (sady 110079 Mzdy, náklady práce - časové řady a 010022 Indexy spotř. cen)") +
     scale_x_date(date_breaks = "1 years", date_labels = "%Y",
                  expand = expansion(0, 0),
-                 limits = c(as.Date("2003-01-01"), as.Date("2024-03-01"))) +
+                 limits = c(as.Date("2003-01-01"), as.Date("2024-07-01"))) +
     geom_hline(yintercept = 0, colour = "grey10", linetype = "solid") +
-    scale_color_manual(values = c("grey40", "blue3", "goldenrod", "red3")) +
+    scale_color_manual(values = c("grey40", "blue3", "goldenrod", "red3", "black")) +
     geom_point(alpha = .6) +
     theme_ptrr("both", axis_titles = TRUE, legend.position = "bottom") +
     theme(panel.grid.major = element_line(color = "white"))
@@ -157,7 +158,7 @@ czso_make_plot_nace_annual <- function(data, add_years = 5) {
                    lbls[lbls > lubridate::year(max(data$tm))] <- " "
                    lbls
                  },
-                 expand = expansion(add = c(365, 365 * add_years)),
+                 expand = expansion(add = c(0, 365 * add_years)),
                  limits = c(as.Date("2000-09-01"), as.Date("2024-03-31")),
     ) +
     scale_y_continuous(expand = expansion(add = c(.02, 0.001)),
