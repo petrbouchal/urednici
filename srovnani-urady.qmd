@@ -2,7 +2,7 @@
 title: "Srovnání: úřady"
 editor: source
 author: Petr Bouchal
-date: 2022-09-04
+date-modified: last-modified
 ---
 
 ```{r setup}
@@ -31,16 +31,13 @@ targets::tar_read(syst_plot_platy)
 ## Ministerstva
 
 ```{r}
+#| fig-asp: 0.6
 targets::tar_read(szu_plot_prum)
 ```
 
-```{r}
-targets::tar_load(szu_plot_prum)
-```
-
 
 ```{r}
-targets::tar_read(szu_plot_prum_2022price)
+targets::tar_read(szu_plot_prum_real)
 ```
 
 ```{r}
@@ -83,7 +80,7 @@ Residuals (níže) pro jednotlivé úřady ukazují, jak moc se skutečný prům
 V praxi je residual součtem vlivu především průměrné seniority zaměstnanců (což se odráží v platovém stupni) v instituci a pohyblivých složek platu (hlavně odměn a osobního ohodnocení).
 
 ```{r syst_plot_model_resid}
-#| fig-asp: 0.2
+#| fig-asp: 0.4
 targets::tar_read(syst_plot_model_resid)
 ```
 
